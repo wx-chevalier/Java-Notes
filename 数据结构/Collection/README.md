@@ -13,7 +13,7 @@
 
 ### Performance(性能)
 
-> [Java 集合类性能分析](http://www.cnblogs.com/supersugar/archive/2012/03/20/2408216.html)
+- [Java 集合类性能分析](http://www.cnblogs.com/supersugar/archive/2012/03/20/2408216.html)
 
 # Comparator
 
