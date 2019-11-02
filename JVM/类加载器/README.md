@@ -52,3 +52,7 @@ public class ClassLoaderTest{
 ```
 
 可以看出，代码中使用自定义类加载器（myLoader）加载的 jvm.ClassLoaderTest 类和通过应用程序类加载器加载的类不是同一个类。
+
+# 链接
+
+- https://zhuanlan.zhihu.com/p/81419563 我竟然不再抗拒 Java 的类加载机制了
