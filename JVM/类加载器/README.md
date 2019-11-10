@@ -16,5 +16,3 @@
 
 # 链接
 
-- https://zhuanlan.zhihu.com/p/81419563 我竟然不再抗拒 Java 的类加载机制了
-

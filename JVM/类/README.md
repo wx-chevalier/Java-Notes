@@ -7,3 +7,5 @@ class 文件的运行时数据就是 C++对象，也称为 kclass 对象，这�
 # 链接
 
 - https://time.geekbang.org/column/article/11523
+
+- https://zhuanlan.zhihu.com/p/81419563 我竟然不再抗拒 Java 的类加载机制了
