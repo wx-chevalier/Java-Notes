@@ -1,33 +1,31 @@
 # synchronized
 
-synchronized 也是经常用到的，它给人的印象一般是重量级锁。在 JDK1.6 后，对 synchronized 进行了一系列优化，引入了偏向锁和轻量级锁，对锁的存储结构和升级过程，有效减少获得锁和释放锁带来的性能消耗。
+synchronized 也是经常用到的，它给人的印象一般是重量级锁。在 JDK1.6 后，对 synchronized 进行了一系列优化，引入了偏向锁和轻量级锁，对锁的存储结构和升级过程，有效减少获得锁和释放锁带来的性能消耗。synchronized 关键字，同时解决了原子性、可见性、有序性问题:
 
-synchronized 关键字，同时解决了原子性、可见性、有序性问题:
-
-- 可见性：按照 Java 内存模型（Java Memory Model ,JMM）的规范，对一个变量解锁之前，必须先把此变量同步回主存中，这样解锁后，后续线程就可以访问到被修改后的值。所以被 synchronized 锁住的对象，其值具有可见性。
+- 可见性：按照 JMM 规范，对一个变量解锁之前，必须先把此变量同步回主存中，这样解锁后，后续线程就可以访问到被修改后的值。所以被 synchronized 锁住的对象，其值具有可见性。
 - 原子性：通过监视器锁，可以保证 synchronized 修饰的代码在同一时间，只能被一个线程访问，在锁未释放之前其它线程无法进入该方法或代码块，保证了操作的原子性。
 - 有序性：synchronized 关键字并不禁止指令重排，但是由于程序是以单线程的方式执行的，所以执行的结果是确定的，不会受指令重排的干扰，有序性不再是个问题。
 
-需要注意的是，当我们使用 synchronized 关键字，管理某个状态时，必须对访问这个对象的所有操作，都加上 synchronized 关键字， 否则仍然会有并发安全性问题。
+需要注意的是，当我们使用 synchronized 关键字，管理某个状态时，必须对访问这个对象的所有操作，都加上 synchronized 关键字，否则仍然会有并发安全性问题。
 
-## 同步使用
+# 同步使用
 
-对于，普通同步方法，锁是当前实例对象。`public synchronized void test(){...}`
+- 对于，普通同步方法，锁是当前实例对象。`public synchronized void test(){...}`
 
-对于静态同步方法，锁是当前类的 Class 对象。`public static synchronized void test(...){}`
+- 对于静态同步方法，锁是当前类的 Class 对象。`public static synchronized void test(...){}`
 
-对于对于同步方法块，锁是 synchronized 括号中里配置的对象。`synchronized(instance){...}`
+- 对于对于同步方法块，锁是 synchronized 括号中里配置的对象。`synchronized(instance){...}`
 
-## 底层实现
+# 底层实现
 
 ```java
 public class SynchronizedDemo {
-     //同步方法
+     // 同步方法
     public synchronized void syncMethod(){
         System.out.println("Hello World");
     }
 
-    //同步代码块
+    // 同步代码块
     public void syncBlock(){
         synchronized (this){
             System.out.println("Hello World");
