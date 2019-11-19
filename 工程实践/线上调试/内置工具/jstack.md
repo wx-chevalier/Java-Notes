@@ -14,6 +14,8 @@ Options:
     -l  打印锁的额外信息
 ```
 
+# 典型用法
+
 jstack 的典型用法如下：
 
 - qmq 是部署在 tomcat 中的应用名
