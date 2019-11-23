@@ -83,3 +83,5 @@ synchronized 用到的锁存在 Java 对象头里，若对象非数组类型，�
 # 链接
 
 - https://blog.csdn.net/significantfrank/article/details/80399179 Synchronized 和 Lock 该如何选择
+
+- https://mp.weixin.qq.com/s/w5K8kmNwAcIxB5lb1N93pg synchronized连环问
