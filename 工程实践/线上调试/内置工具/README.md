@@ -10,3 +10,7 @@ $ jstack $pid | grep java.lang.Thread.State:|sort|uniq -c | awk '{sum+=$1; split
 # 查看最消耗 CPU 的 Top10 线程机器堆栈信息
 $ show-busy-java-threads
 ```
+
+# 链接
+
+- https://mp.weixin.qq.com/s/N1rJkE3HA8mJYdqK4tSMEw
