@@ -6,7 +6,7 @@
 
 Java 能够长盛不衰得益于在标准的统一和开放基础上不断的与时俱进。Java 除了是一种编程语言，也同时是一个运行时，为了能够在最广泛的平台和环境中运行，在诞生伊始就联合各个厂商和组织形成语言和虚拟机统一标准，并通过 TCK 对标准的具体实现进行认证，保障了来自于任何一个厂商的 JDK 的兼容性，使得 Java 没有出现如 UNIX 系统那样的问题。开放性是 Java 生命常青的另一个基石，Java 的演进一直由各个厂商和用户组成的社区来协调和驱动，遵从 JCP 的流程来讨论决定重大特性和问题，这一点保障了 Java 生态的发展壮大和活跃。社区和生态的活跃反过来又促进了 Java 的发展，Java 的一些特性和类库就是直接继承自社区的项目，比如 JDK 5 引入的 JSR 166 until.concurrent，JDK 8 引入的新 Java date 和 time API 等等。正在开发中的很多重要项目，比如 Amber、Valhalla、Loom 等等，也都是社区呼声很高的，并且在迭代中积极吸纳社区的意见和反馈。
 
-![](http://static.oschina.net/uploads/space/2015/0917/192918_c6O7_1434710.png)
+![Java Platform Standard Edition](http://static.oschina.net/uploads/space/2015/0917/192918_c6O7_1434710.png)
 
 # 版本
 
