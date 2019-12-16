@@ -43,12 +43,12 @@ mvn archetype:generate -DgroupId=co.hoteam -DartifactId=Zigbee -DarchetypeArtifa
 
 众所周知的原因，国内有时候并不能够很顺畅的访问 Maven 的中央仓库，往往我们需要访问国内的镜像地址：
 
-```
+```xml
 <mirror>
-<id>CN</id>
-<name>OSChina Central</name>
-<url>http://maven.oschina.net/content/groups/public/</url>
-<mirrorOf>central</mirrorOf>
+  <id>CN</id>
+  <name>OSChina Central</name>
+  <url>http://maven.oschina.net/content/groups/public/</url>
+  <mirrorOf>central</mirrorOf>
 </mirror>
 ```
 
