@@ -571,3 +571,5 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 ## Concurrence Test
 
 - [concurrency-torture-testing-your-code-within-the-java-memory-model](http://zeroturnaround.com/rebellabs/concurrency-torture-testing-your-code-within-the-java-memory-model/)
+
+- https://zhuanlan.zhihu.com/p/91788985
