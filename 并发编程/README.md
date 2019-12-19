@@ -54,3 +54,5 @@ JUC 里面提供大量的并发容器，涉及到线程交互的时候，使用�
 
 - https://mp.weixin.qq.com/s/w-C9QkMQhgnAChnRrsrXIw
 - https://www.jianshu.com/p/3f6b26ee51ce
+- [concurrency-torture-testing-your-code-within-the-java-memory-model](http://zeroturnaround.com/rebellabs/concurrency-torture-testing-your-code-within-the-java-memory-model/)
+- https://zhuanlan.zhihu.com/p/91788985

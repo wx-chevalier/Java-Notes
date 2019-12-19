@@ -44,7 +44,7 @@ String result = CompletableFuture.supplyAsync(() -> "hello").thenApply(s -> s + 
 // 创建一个线程池，并传递给其中一个方法
 Executor executor = Executors.newFixedThreadPool(10);
 CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-    ...
+    // ...
     TimeUnit.SECONDS.sleep(1);
     return "Result of the asynchronous computation";
 }, executor);
