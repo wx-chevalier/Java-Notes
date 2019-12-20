@@ -215,5 +215,3 @@ public interface ThreadFactory {
 可以通过实现这个接口来定制线程工厂。
 
 # 链接
-
-- https://www.atatech.org/articles/152764?spm=ata.home.0.0.11fd7536crL7Q3&flag_data_from=home_algorithm_article
