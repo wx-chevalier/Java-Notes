@@ -111,7 +111,7 @@ public void whenLatestStrategyUsed_thenTheLastElementReceived() {
 
 ## Error
 
-当我们使用 BackpressureStrategy.ERROR 时，我们只是在说我们不希望发生背压。 因此，如果使用者跟不上源，就应该抛出 MissingBackpressureException：
+当我们使用 BackpressureStrategy.ERROR 时，我们只是在说我们不希望发生背压。因此，如果使用者跟不上源，就应该抛出 MissingBackpressureException：
 
 ```java
 public void whenErrorStrategyUsed_thenExceptionIsThrown() {
@@ -142,4 +142,4 @@ public void whenMissingStrategyUsed_thenException() {
 }
 ```
 
-在我们的测试中，我们同时针对 ERROR 和 MISSING 策略都缺少 MissingbackpressureException。 因为当源的内部缓冲区溢出时，它们都将引发此类异常。但是，值得注意的是，两者都有不同的目的。当我们完全不期望背压时，应该使用前一种，并且我们希望源抛出异常以防万一。如果我们不想在创建 Flowable 时指定默认行为，则可以使用后一种方法。
+在我们的测试中，我们同时针对 ERROR 和 MISSING 策略都缺少 MissingbackpressureException。因为当源的内部缓冲区溢出时，它们都将引发此类异常。但是，值得注意的是，两者都有不同的目的。当我们完全不期望背压时，应该使用前一种，并且我们希望源抛出异常以防万一。如果我们不想在创建 Flowable 时指定默认行为，则可以使用后一种方法。
