@@ -6,7 +6,7 @@
 
 Jackson 可以轻松的将 Java 对象转换成 json 对象和 xml 文档，同样也可以将 json、xml 转换成 Java 对象。在项目中如果要引入 Jackson，可以直接利用 Maven 或者 Gradle 引入：
 
-```
+```xml
 <properties>
   ...
   <!-- Use the latest version whenever possible. -->
