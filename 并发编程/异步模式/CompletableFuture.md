@@ -1,6 +1,6 @@
 # CompleteableFuture
 
-CompletableFuture 类实现了 CompletionStage 和 Future 接口，JDK 吸收了 guava 的设计思想，加入了 Future 的诸多扩展功能形成了 CompletableFuture，CompletableFuture 的基础用法就是当做对于未来对象的包裹使用：
+CompletableFuture 类实现了 CompletionStage 和 Future 接口，JDK 吸收了 Guava 的设计思想，加入了 Future 的诸多扩展功能形成了 CompletableFuture，CompletableFuture 的基础用法就是当做对于未来对象的包裹使用：
 
 ```java
 // 无参构造函数简单的创建 CompletableFuture
@@ -28,7 +28,7 @@ completableFuture.whenComplete(new BiConsumer() {
 completableFuture.complete(new Object())
 ```
 
-### 链式调用与转换
+# 链式调用与转换
 
 CompletableFuture 还提供了 runAsync/supplyAsync 等静态方法，让我们创建便捷地异步执行流程：
 
@@ -104,7 +104,7 @@ CompletableFuture.supplyAsync(() -> {
 });
 ```
 
-### 组合
+# 组合
 
 使用 thenCompose()组合两个独立的 future, thenCombine() 当两个独立的 Future 都完成的时候，用来做一些事情。
 
@@ -163,7 +163,7 @@ CompletableFuture<Object> anyOfFuture = CompletableFuture.anyOf(future1, future2
 System.out.println(anyOfFuture.get()); // Result of Future 2
 ```
 
-### 异常处理
+# 异常处理
 
 如果在原始的 supplyAsync()任务中发生一个错误，这时候没有任何 thenApply 会被调用并且 future 将以一个异常结束。如果在第一个 thenApply 发生错误，这时候第二个和第三个将不会被调用，同样的，future 将以异常结束。
 
@@ -209,7 +209,7 @@ CompletableFuture<String> maturityFuture = CompletableFuture.supplyAsync(() -> {
 
 如果异常发生，res 参数将是 null，否则，ex 将是 null。
 
-### ListenableFuture
+# ListenableFuture
 
 ```java
 ListenableFuture listenable = service.submit(...);
