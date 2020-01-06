@@ -77,7 +77,7 @@ System.out.println(intArray.equals(clonedArray));
 var matrix = new double[][] { { 2.0, 3.0}, { 4.0, 5.0 } };
 ```
 
-由于基本类型和数组几乎没有方法，因此，如果要使用它们，则必须使用静态方法。 静态方法是在可以使用语法调用的某个类型上声明的函数 `SomeWhere.methodName(arg0, arg1, arg2)`。
+由于基本类型和数组几乎没有方法，因此，如果要使用它们，则必须使用静态方法。静态方法是在可以使用语法调用的某个类型上声明的函数 `SomeWhere.methodName(arg0, arg1, arg2)`。
 
 ```java
 var resultAsInt = java.lang.Integer.parseInt("42");
