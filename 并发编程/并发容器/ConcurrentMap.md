@@ -9,7 +9,7 @@
 
     private static HashMap<Integer,String> map = new HashMap<Integer,String>(2，0.75f);
     public static void main(String[] args) {
-        map.put(5， "C");
+        map.put(5，"C");
 
         new Thread("Thread1") {
             public void run() {
@@ -33,11 +33,11 @@
 ![](http://tech.meituan.com/img/java-hashmap/jdk1.7%20hashMap%E6%AD%BB%E5%BE%AA%E7%8E%AF%E4%BE%8B%E5%9B%BE1.png)
 
 注意，Thread1 的 e 指向了 key(3)，而 next 指向了 key(7)，其在线程二 rehash 后，指向了线程二重组后的链表。
-线程一被调度回来执行，先是执行 newTalbe[i] = e， 然后是 e = next，导致了 e 指向了 key(7)，而下一次循环的 next = e.next 导致了 next 指向了 key(3)。
+线程一被调度回来执行，先是执行 newTalbe[i] = e，然后是 e = next，导致了 e 指向了 key(7)，而下一次循环的 next = e.next 导致了 next 指向了 key(3)。
 
 ![](http://tech.meituan.com/img/java-hashmap/jdk1.7%20hashMap%E6%AD%BB%E5%BE%AA%E7%8E%AF%E4%BE%8B%E5%9B%BE2.png)
 
-e.next = newTable[i] 导致 key(3).next 指向了 key(7)。注意：此时的 key(7).next 已经指向了 key(3)， 环形链表就这样出现了。
+e.next = newTable[i] 导致 key(3).next 指向了 key(7)。注意：此时的 key(7).next 已经指向了 key(3)，环形链表就这样出现了。
 
 ![](http://tech.meituan.com/img/java-hashmap/jdk1.7%20hashMap%E6%AD%BB%E5%BE%AA%E7%8E%AF%E4%BE%8B%E5%9B%BE4.png)
 

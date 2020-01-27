@@ -902,7 +902,7 @@ System.out.println("Adult number: " + children.get(false).size());
 ```
 初始化静态变量，并执行静态初始化语句。
 
-ClassLoader.loadClass(String name, boolean resolve)，其中resolve默认为false，即只执行类装载的第一个阶段。Class.forName(String name, boolean initialize, ClassLoader loader)， 其中initialize默认为true，即执行到类装载的第三个阶段。
+ClassLoader.loadClass(String name, boolean resolve)，其中resolve默认为false，即只执行类装载的第一个阶段。Class.forName(String name, boolean initialize, ClassLoader loader)，其中initialize默认为true，即执行到类装载的第三个阶段。
 ```
 
 关于类与类装载的详细分析可以查看 JVM 部分的对应章节。

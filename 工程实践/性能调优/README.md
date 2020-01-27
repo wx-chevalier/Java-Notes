@@ -16,7 +16,7 @@
 -XX:+UseCMSCompactAtFullCollection   --在FULL GC的时候，对年老代进行压缩，可能会影响性能，但是可以消除碎片
 -XX:CMSFullGCsBeforeCompaction=0     --此值设置运行多少次GC以后对内存空间进行压缩、整理
 -XX:+CMSClassUnloadingEnabled        --回收动态生成的代理类 SEE：http://stackoverflow.com/questions/3334911/what-does-jvm-flag-cmsclassunloadingenabled-actually-do
--XX:LargePageSizeInBytes=128M        --内存页的大小不可设置过大， 会影响Perm的大小
+-XX:LargePageSizeInBytes=128M        --内存页的大小不可设置过大，会影响Perm的大小
 -XX:+UseFastAccessorMethods          --原始类型的快速优化
 -XX:+UseCMSInitiatingOccupancyOnly   --使用手动定义初始化定义开始CMS收集，禁止hostspot自行触发CMS GC
 -XX:CMSInitiatingOccupancyFraction=80  --使用cms作为垃圾回收，使用80％后开始CMS收集

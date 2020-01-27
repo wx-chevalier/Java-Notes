@@ -9,7 +9,7 @@ Usage:
     jstack [-l] <pid>
     jstack -F [-m] [-l] <pid>
 Options:
-    -F  强制dump线程堆栈信息. 用于进程hung住， jstack <pid>命令没有响应的情况
+    -F  强制dump线程堆栈信息. 用于进程hung住，jstack <pid>命令没有响应的情况
     -m  同时打印java和本地(native)线程栈信息，m是mixed mode的简写
     -l  打印锁的额外信息
 ```
@@ -24,7 +24,7 @@ jstack 的典型用法如下：
 $ ps -ef | grep qmq | grep -v grep
 ```
 
-拿到进程号， 例如上面对应的是 3192
+拿到进程号，例如上面对应的是 3192
 
 - 第二步找出该进程内最耗费 CPU 的线程，可以使用 ps -Lfp pid 或者 ps -mp pid -o THREAD, tid, time 或者 top -Hp pid。例如用第三个 top -Hp 3192：
 

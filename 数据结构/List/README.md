@@ -10,4 +10,4 @@ remove() 和 poll() 方法都是从队列中删除第一个元素。remove() 的
 但是新的 poll() 方法在用空集合调用时不是抛出异常，只是返回 null。因此新的方法更适合容易出现异常条件的情况。
 
 peek，element 区别：
-element() 和 peek() 用于在队列的头部查询元素。与 remove() 方法类似，在队列为空时， element() 抛出一个异常，而 peek() 返回 null
+element() 和 peek() 用于在队列的头部查询元素。与 remove() 方法类似，在队列为空时，element() 抛出一个异常，而 peek() 返回 null
