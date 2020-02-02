@@ -490,7 +490,7 @@ Comparator<String> cmp = (s1, s2) -> {
 
 #### 方法引用
 
-​ 有时候 Lambda 表达式的代码就只是一个简单的方法调用而已，遇到这种情况，Lambda 表达式还可以进一步简化为 [方法引用(Method References)](http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html) 。一共有四种形式的方法引用，第一种引用 **静态方法** ，例如：
+ 有时候 Lambda 表达式的代码就只是一个简单的方法调用而已，遇到这种情况，Lambda 表达式还可以进一步简化为 [方法引用(Method References)](http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html) 。一共有四种形式的方法引用，第一种引用 **静态方法** ，例如：
 
 ```
 List<Integer> ints = Arrays.asList(1, 2, 3);
@@ -518,7 +518,7 @@ words.stream().map(word -> word.length()); // lambda
 words.stream().map(String::length); // method reference
 ```
 
-​ 第四种引用类的 **构造函数** ，例如：
+ 第四种引用类的 **构造函数** ，例如：
 
 ```
 // lambda
@@ -1224,11 +1224,11 @@ public class Apple {
 ### Console
 
 ````
-​```
+```
 
 > 参数处理函数
 
-​``` java
+``` java
     /**
      * a function that assembles all the arguments into a single string so that
      * we can call a method like search
@@ -1448,7 +1448,7 @@ public class FruitRun {
 
 ## News
 
-> - [ImportNews:专注 Java&Android](http://www.importnew.com/)​
+> - [ImportNews:专注 Java&Android](http://www.importnew.com/)
 
 ## Interview
 
