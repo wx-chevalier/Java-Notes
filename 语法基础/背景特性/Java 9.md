@@ -47,12 +47,10 @@ set2.forEach(value-> System.out.println(value));
 Map<Integer,String> emptyMap = Map.of();
 Map<Integer,String> map = Map.of(1, "Apple", 2, "Bat", 3, "Cat");
 
-
 System.out.println("** Empty  Map **");
 emptyMap.forEach((k,v) -> System.out.println( k +"-"+ v));
 System.out.println("** Map with values **");
 map.forEach((k,v) -> System.out.println( k +"-"+ v));
-
 
 ** Empty  Map **
 ** Map with values **
@@ -66,16 +64,13 @@ System.out.println("** Empty  Map Entry **");
 Map<Integer,String> emptyEntry = Map.ofEntries();
 emptyEntry.forEach((k,v) -> System.out.println(k+"-"+v));
 
-
 System.out.println("**   Map Entry with value **");
 Map.Entry<Integer,String> mapEntry1 = Map.entry(1,"Apple");
 Map.Entry<Integer,String> mapEntry2 = Map.entry(2,"Bat");
 Map.Entry<Integer,String> mapEntry3 = Map.entry(3,"Cat");
 Map<Integer,String> mapEntry = Map.ofEntries(mapEntry1,mapEntry2,mapEntry3);
 
-
 mapEntry.forEach((k,v) -> System.out.println(k+"-"+v));
-
 
 ** Empty  Map Entry **
 **   Map Entry with value **
