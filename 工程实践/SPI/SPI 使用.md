@@ -12,32 +12,35 @@ Java SPI 的限定如下：
 
 ```java
 package com.demo.api;
+
 /**
  * 数字操作接口
  *
  */
 public interface INumOperate {
-
-    public int operator(int a, int b);
+  public int operator(int a, int b);
 }
 ```
 
 普通的 API 实现，加法操作，代码如下：
 
 ```java
- package com.demo.api.impl;
+package com.demo.api.impl;
+
 import com.demo.api.INumOperate;
+
 /**
  * 数字相加
  *
  */
 public class NumPlusOperateImpl implements INumOperate {
-    @Override
-    public int operator(int a, int b) {
-        int r = a + b;
-        System.out.println("[实现类机制]加法，结果：" + r);
-        return r;
-    }
+
+  @Override
+  public int operator(int a, int b) {
+    int r = a + b;
+    System.out.println("[实现类机制]加法，结果：" + r);
+    return r;
+  }
 }
 ```
 
@@ -94,11 +97,10 @@ main 函数如下，主程序中没有显示指明 SPI 的实现，而是通过 
 ```java
 package com.demo;
 
+import com.demo.api.impl.NumPlusOperateImpl;
+import com.demo.api.INumOperate;
 import java.util.Iterator;
 import java.util.ServiceLoader;
-
-import com.demo.api.INumOperate;
-import com.demo.api.impl.NumPlusOperateImpl;
 
 /**
  * 主程序
@@ -106,21 +108,21 @@ import com.demo.api.impl.NumPlusOperateImpl;
  */
 public class Main {
 
-    public static void main(String[] args) {
-        int a = 9;
-        int b = 3;
+  public static void main(String[] args) {
+    int a = 9;
+    int b = 3;
 
-        // 普通的实现类机制，加法
-        INumOperate plus = new NumPlusOperateImpl();
-        plus.operator(a, b);
+    // 普通的实现类机制，加法
+    INumOperate plus = new NumPlusOperateImpl();
+    plus.operator(a, b);
 
-        // SPI机制，寻找所有的实现类，顺序执行
-        ServiceLoader<INumOperate> loader = ServiceLoader.load(INumOperate.class); // 查找SPI实现类，并加载到jvm
-        Iterator<INumOperate> iter = loader.iterator();
-        while (iter.hasNext()) {
-            INumOperate op = iter.next();
-            op.operator(a, b);
-        }
+    // SPI机制，寻找所有的实现类，顺序执行
+    ServiceLoader<INumOperate> loader = ServiceLoader.load(INumOperate.class); // 查找SPI实现类，并加载到jvm
+    Iterator<INumOperate> iter = loader.iterator();
+    while (iter.hasNext()) {
+      INumOperate op = iter.next();
+      op.operator(a, b);
     }
+  }
 }
 ```

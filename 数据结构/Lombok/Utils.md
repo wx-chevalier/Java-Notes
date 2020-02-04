@@ -4,20 +4,23 @@
 
 ```java
 import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class ConstructorExample<T> {
-	private int x, y;
-	@NonNull private T description;
+  private int x, y;
 
-	@NoArgsConstructor
-	public static class NoArgsExample {
-		@NonNull private String field;
-	}
+  @NonNull
+  private T description;
+
+  @NoArgsConstructor
+  public static class NoArgsExample {
+    @NonNull
+    private String field;
+  }
 }
 ```
 
@@ -25,32 +28,34 @@ public class ConstructorExample<T> {
 
 ```java
 public class ConstructorExample<T> {
-	private int x, y;
-	@NonNull private T description;
+  private int x, y;
 
-	private ConstructorExample(T description) {
-		if (description == null) throw new NullPointerException("description");
-		this.description = description;
-	}
+  @NonNull
+  private T description;
 
-	public static <T> ConstructorExample<T> of(T description) {
-		return new ConstructorExample<T>(description);
-	}
+  private ConstructorExample(T description) {
+    if (description == null) throw new NullPointerException("description");
+    this.description = description;
+  }
 
-	@java.beans.ConstructorProperties({"x", "y", "description"})
-	protected ConstructorExample(int x, int y, T description) {
-		if (description == null) throw new NullPointerException("description");
-		this.x = x;
-		this.y = y;
-		this.description = description;
-	}
+  public static <T> ConstructorExample<T> of(T description) {
+    return new ConstructorExample<T>(description);
+  }
 
-	public static class NoArgsExample {
-		@NonNull private String field;
+  @java.beans.ConstructorProperties({ "x", "y", "description" })
+  protected ConstructorExample(int x, int y, T description) {
+    if (description == null) throw new NullPointerException("description");
+    this.x = x;
+    this.y = y;
+    this.description = description;
+  }
 
-		public NoArgsExample() {
-		}
-	}
+  public static class NoArgsExample {
+    @NonNull
+    private String field;
+
+    public NoArgsExample() {}
+  }
 }
 ```
 
@@ -59,22 +64,18 @@ public class ConstructorExample<T> {
 源代码：
 
 ```java
-import lombok.experimental.Builder;
-
 import java.util.Set;
+import lombok.experimental.Builder;
 
 @Builder
 public class BuilderExample {
-    private String name;
-    private int age;
-    private Set<String> occupations;
+  private String name;
+  private int age;
+  private Set<String> occupations;
 
-    public static void main(String args[]) {
-
-        BuilderExample builderExample = BuilderExample.builder().build();
-
-    }
-
+  public static void main(String args[]) {
+    BuilderExample builderExample = BuilderExample.builder().build();
+  }
 }
 ```
 
@@ -166,13 +167,12 @@ import lombok.ToString;
 @Builder(builderMethodName = "hiddenBuilder")
 @ToString
 public class Person {
+  private String name;
+  private String surname;
 
-    private String name;
-    private String surname;
-
-    public static PersonBuilder builder(String name) {
-        return hiddenBuilder().name(name);
-    }
+  public static PersonBuilder builder(String name) {
+    return hiddenBuilder().name(name);
+  }
 }
 ```
 
@@ -186,12 +186,12 @@ public class Person {
 import lombok.NonNull;
 
 public class NonNullExample extends Something {
-	private String name;
+  private String name;
 
-	public NonNullExample(@NonNull Person person) {
-		super("Hello");
-		this.name = person.getName();
-	}
+  public NonNullExample(@NonNull Person person) {
+    super("Hello");
+    this.name = person.getName();
+  }
 }
 ```
 
@@ -201,15 +201,15 @@ public class NonNullExample extends Something {
 import lombok.NonNull;
 
 public class NonNullExample extends Something {
-	private String name;
+  private String name;
 
-	public NonNullExample(@NonNull Person person) {
-		super("Hello");
-		if (person == null) {
-			throw new NullPointerException("person");
-		}
-		this.name = person.getName();
-	}
+  public NonNullExample(@NonNull Person person) {
+    super("Hello");
+    if (person == null) {
+      throw new NullPointerException("person");
+    }
+    this.name = person.getName();
+  }
 }
 ```
 
@@ -221,15 +221,16 @@ public class NonNullExample extends Something {
 import lombok.SneakyThrows;
 
 public class SneakyThrowsExample implements Runnable {
-	@SneakyThrows(UnsupportedEncodingException.class)
-	public String utf8ToString(byte[] bytes) {
-		return new String(bytes, "UTF-8");
-	}
 
-	@SneakyThrows
-	public void run() {
-		throw new Throwable();
-	}
+  @SneakyThrows(UnsupportedEncodingException.class)
+  public String utf8ToString(byte[] bytes) {
+    return new String(bytes, "UTF-8");
+  }
+
+  @SneakyThrows
+  public void run() {
+    throw new Throwable();
+  }
 }
 ```
 
@@ -239,21 +240,22 @@ public class SneakyThrowsExample implements Runnable {
 import lombok.Lombok;
 
 public class SneakyThrowsExample implements Runnable {
-	public String utf8ToString(byte[] bytes) {
-		try {
-			return new String(bytes, "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			throw Lombok.sneakyThrow(e);
-		}
-	}
 
-	public void run() {
-		try {
-			throw new Throwable();
-		} catch (Throwable t) {
-			throw Lombok.sneakyThrow(t);
-		}
-	}
+  public String utf8ToString(byte[] bytes) {
+    try {
+      return new String(bytes, "UTF-8");
+    } catch (UnsupportedEncodingException e) {
+      throw Lombok.sneakyThrow(e);
+    }
+  }
+
+  public void run() {
+    try {
+      throw new Throwable();
+    } catch (Throwable t) {
+      throw Lombok.sneakyThrow(t);
+    }
+  }
 }
 ```
 
@@ -267,22 +269,22 @@ public class SneakyThrowsExample implements Runnable {
 import lombok.Synchronized;
 
 public class SynchronizedExample {
-	private final Object readLock = new Object();
+  private final Object readLock = new Object();
 
-	@Synchronized
-	public static void hello() {
-		System.out.println("world");
-	}
+  @Synchronized
+  public static void hello() {
+    System.out.println("world");
+  }
 
-	@Synchronized
-	public int answerToLife() {
-		return 42;
-	}
+  @Synchronized
+  public int answerToLife() {
+    return 42;
+  }
 
-	@Synchronized("readLock")
-	public void foo() {
-		System.out.println("bar");
-	}
+  @Synchronized("readLock")
+  public void foo() {
+    System.out.println("bar");
+  }
 }
 ```
 
@@ -290,27 +292,27 @@ public class SynchronizedExample {
 
 ```java
 public class SynchronizedExample {
-	private static final Object $LOCK = new Object[0];
-	private final Object $lock = new Object[0];
-	private final Object readLock = new Object();
+  private static final Object $LOCK = new Object[0];
+  private final Object $lock = new Object[0];
+  private final Object readLock = new Object();
 
-	public static void hello() {
-		synchronized($LOCK) {
-			System.out.println("world");
-		}
-	}
+  public static void hello() {
+    synchronized ($LOCK) {
+      System.out.println("world");
+    }
+  }
 
-	public int answerToLife() {
-		synchronized($lock) {
-			return 42;
-		}
-	}
+  public int answerToLife() {
+    synchronized ($lock) {
+      return 42;
+    }
+  }
 
-	public void foo() {
-		synchronized(readLock) {
-			System.out.println("bar");
-		}
-	}
+  public void foo() {
+    synchronized (readLock) {
+      System.out.println("bar");
+    }
+  }
 }
 ```
 
@@ -321,20 +323,23 @@ public class SynchronizedExample {
 源代码：
 
 ```java
-import lombok.Cleanup;
 import java.io.*;
+import lombok.Cleanup;
 
 public class CleanupExample {
-	public static void main(String[] args) throws IOException {
-		@Cleanup InputStream in = new FileInputStream(args[0]);
-		@Cleanup OutputStream out = new FileOutputStream(args[1]);
-		byte[] b = new byte[10000];
-		while (true) {
-			int r = in.read(b);
-			if (r == -1) break;
-			out.write(b, 0, r);
-		}
-	}
+
+  public static void main(String[] args) throws IOException {
+    @Cleanup
+    InputStream in = new FileInputStream(args[0]);
+    @Cleanup
+    OutputStream out = new FileOutputStream(args[1]);
+    byte[] b = new byte[10000];
+    while (true) {
+      int r = in.read(b);
+      if (r == -1) break;
+      out.write(b, 0, r);
+    }
+  }
 }
 ```
 
@@ -397,25 +402,25 @@ import lombok.extern.slf4j.Slf4j;
 @Log
 public class LogExample {
 
-	public static void main(String... args) {
-		log.error("Something's wrong here");
-	}
+  public static void main(String... args) {
+    log.error("Something's wrong here");
+  }
 }
 
 @Slf4j
 public class LogExampleOther {
 
-	public static void main(String... args) {
-		log.error("Something else is wrong here");
-	}
+  public static void main(String... args) {
+    log.error("Something else is wrong here");
+  }
 }
 
-@CommonsLog(topic="CounterLog")
+@CommonsLog(topic = "CounterLog")
 public class LogExampleCategory {
 
-	public static void main(String... args) {
-		log.error("Calling the 'CounterLog' with a message");
-	}
+  public static void main(String... args) {
+    log.error("Calling the 'CounterLog' with a message");
+  }
 }
 ```
 

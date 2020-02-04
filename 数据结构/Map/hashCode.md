@@ -27,26 +27,29 @@ public int hashCode() {
 ```
 
 ```java
-public class IdentityHashCodeTest
-{
-    public static void main(String[] args)
-    {
-        //下面程序中s1和s2是两个不同对象
-        String s1 = new String("Hello");
-        String s2 = new String("Hello");
-        //String重写了hashCode方法——改为根据字符序列计算hashCode值，
-        //因为s1和s2的字符序列相同，所以它们的hashCode方法返回值相同
-        System.out.println(s1.hashCode()
-            + "----" + s2.hashCode());
-        //s1和s2是不同的字符串对象，所以它们的identityHashCode值不同
-        System.out.println(System.identityHashCode(s1)
-            + "----" + System.identityHashCode(s2));
-        String s3 = "Java";
-        String s4 = "Java";
-        //s3和s4是相同的字符串对象，所以它们的identityHashCode值相同
-        System.out.println(System.identityHashCode(s3)
-            + "----" + System.identityHashCode(s4));
-    }
+public class IdentityHashCodeTest {
+
+  public static void main(String[] args) {
+    //下面程序中s1和s2是两个不同对象
+    String s1 = new String("Hello");
+    String s2 = new String("Hello");
+
+    //String重写了hashCode方法——改为根据字符序列计算hashCode值，
+    //因为s1和s2的字符序列相同，所以它们的hashCode方法返回值相同
+    System.out.println(s1.hashCode() + "----" + s2.hashCode());
+
+    //s1和s2是不同的字符串对象，所以它们的identityHashCode值不同
+    System.out.println(
+      System.identityHashCode(s1) + "----" + System.identityHashCode(s2)
+    );
+    String s3 = "Java";
+    String s4 = "Java";
+
+    //s3和s4是相同的字符串对象，所以它们的identityHashCode值相同
+    System.out.println(
+      System.identityHashCode(s3) + "----" + System.identityHashCode(s4)
+    );
+  }
 }
 /*
 69609650----69609650
@@ -58,45 +61,47 @@ public class IdentityHashCodeTest
 在有些情况下，程序设计者在设计一个类的时候为需要重写 equals 方法，比如 String 类，但是千万要注意，在重写 equals 方法的同时，必须重写 hashCode 方法。
 
 ```java
-class People{
-    private String name;
-    private int age;
+class People {
+  private String name;
+  private int age;
 
-    public People(String name,int age) {
-        this.name = name;
-        this.age = age;
-    }
+  public People(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
 
-    public void setAge(int age){
-        this.age = age;
-    }
+  public void setAge(int age) {
+    this.age = age;
+  }
 
-    /* 先注释掉对于hashCode的复写
+  /* 先注释掉对于hashCode的复写
     @Override
     public int hashCode() {
         // TODO Auto-generated method stub
         return name.hashCode()*37+age;
     }
     */
-    @Override
-    public boolean equals(Object obj) {
-        // TODO Auto-generated method stub
-        return this.name.equals(((People)obj).name) && this.age== ((People)obj).age;
-    }
+  @Override
+  public boolean equals(Object obj) {
+    // TODO Auto-generated method stub
+    return (
+      this.name.equals(((People) obj).name) &&
+      this.age == ((People) obj).age
+    );
+  }
 }
 
 public class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+    People p1 = new People("Jack", 12);
+    System.out.println(p1.hashCode());
 
-        People p1 = new People("Jack", 12);
-        System.out.println(p1.hashCode());
+    HashMap<People, Integer> hashMap = new HashMap<People, Integer>();
+    hashMap.put(p1, 1);
 
-        HashMap<People, Integer> hashMap = new HashMap<People, Integer>();
-        hashMap.put(p1, 1);
-
-        System.out.println(hashMap.get(new People("Jack", 12)));
-    }
+    System.out.println(hashMap.get(new People("Jack", 12)));
+  }
 }
 ```
 
@@ -132,46 +137,48 @@ public class Main {
 下面举个例子：
 
 ```java
-class People{
-    private String name;
-    private int age;
+class People {
+  private String name;
+  private int age;
 
-    public People(String name,int age) {
-        this.name = name;
-        this.age = age;
-    }
+  public People(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
 
-    public void setAge(int age){
-        this.age = age;
-    }
+  public void setAge(int age) {
+    this.age = age;
+  }
 
-    @Override
-    public int hashCode() {
-        // TODO Auto-generated method stub
-        return name.hashCode()*37+age;
-    }
+  @Override
+  public int hashCode() {
+    // TODO Auto-generated method stub
+    return name.hashCode() * 37 + age;
+  }
 
-    @Override
-    public boolean equals(Object obj) {
-        // TODO Auto-generated method stub
-        return this.name.equals(((People)obj).name) && this.age== ((People)obj).age;
-    }
+  @Override
+  public boolean equals(Object obj) {
+    // TODO Auto-generated method stub
+    return (
+      this.name.equals(((People) obj).name) &&
+      this.age == ((People) obj).age
+    );
+  }
 }
 
 public class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+    People p1 = new People("Jack", 12);
+    System.out.println(p1.hashCode());
 
-        People p1 = new People("Jack", 12);
-        System.out.println(p1.hashCode());
+    HashMap<People, Integer> hashMap = new HashMap<People, Integer>();
+    hashMap.put(p1, 1);
 
-        HashMap<People, Integer> hashMap = new HashMap<People, Integer>();
-        hashMap.put(p1, 1);
+    p1.setAge(13);
 
-        p1.setAge(13);
-
-        System.out.println(hashMap.get(p1));
-    }
+    System.out.println(hashMap.get(p1));
+  }
 }
 ```
 

@@ -22,9 +22,10 @@ Java 分为三个体系：
 
 ```java
 public class HelloWorld {
-    public static void main(String []args) {
-        System.out.println("Hello World");
-    }
+
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
 }
 ```
 
@@ -37,6 +38,19 @@ public class HelloWorld {
 - 方法名：所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。
 - 源文件名：源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记 Java 是大小写敏感的），文件名的后缀为 .java。（如果文件名和类名不相同则会导致编译错误）。
 - 主方法入口：所有的 Java 程序由 `public static void main(String []args)` 方法开始执行。
+
+## 源文件声明规则
+
+当在一个源文件中定义多个类，并且还有 import 语句和 package 语句时，要特别注意这些规则。
+
+- 一个源文件中只能有一个 public 类
+- 一个源文件可以有多个非 public 类
+- 源文件的名称应该和 public 类的类名保持一致。例如：源文件中 public 类的类名是 Employee，那么源文件应该命名为 Employee.java。
+- 如果一个类定义在某个包中，那么 package 语句应该在源文件的首行。
+- 如果源文件包含 import 语句，那么应该放在 package 语句和类定义之间。如果没有 package 语句，那么 import 语句应该在源文件中最前面。
+- import 语句和 package 语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。
+
+类有若干种访问级别，并且类也分不同的类型：抽象类和 final 类等。除了上面提到的几种类型，Java 还有一些特殊的类，如：内部类、匿名类。
 
 ## 标识符
 
@@ -56,4 +70,57 @@ Java 所有的组成部分都需要名字。类名、变量名以及方法名都
 - 访问控制修饰符 : default, public , protected, private
 - 非访问控制修饰符 : final, abstract, static, synchronized
 
-## Java 关键字
+## 关键字
+
+| 类别                 | 关键字                         | 说明                 |
+| -------------------- | ------------------------------ | -------------------- |
+| 访问控制             | private                        | 私有的               |
+| protected            | 受保护的                       |                      |
+| public               | 公共的                         |                      |
+| 类、方法和变量修饰符 | abstract                       | 声明抽象             |
+| class                | 类                             |                      |
+| extends              | 扩充,继承                      |                      |
+| final                | 最终值,不可改变的              |                      |
+| implements           | 实现（接口）                   |                      |
+| interface            | 接口                           |                      |
+| native               | 本地，原生方法（非 Java 实现） |                      |
+| new                  | 新,创建                        |                      |
+| static               | 静态                           |                      |
+| strictfp             | 严格,精准                      |                      |
+| synchronized         | 线程,同步                      |                      |
+| transient            | 短暂                           |                      |
+| volatile             | 易失                           |                      |
+| 程序控制语句         | break                          | 跳出循环             |
+| case                 | 定义一个值以供 switch 选择     |                      |
+| continue             | 继续                           |                      |
+| default              | 默认                           |                      |
+| do                   | 运行                           |                      |
+| else                 | 否则                           |                      |
+| for                  | 循环                           |                      |
+| if                   | 如果                           |                      |
+| instanceof           | 实例                           |                      |
+| return               | 返回                           |                      |
+| switch               | 根据值选择执行                 |                      |
+| while                | 循环                           |                      |
+| 错误处理             | assert                         | 断言表达式是否为真   |
+| catch                | 捕捉异常                       |                      |
+| finally              | 有没有异常都执行               |                      |
+| throw                | 抛出一个异常对象               |                      |
+| throws               | 声明一个异常可能被抛出         |                      |
+| try                  | 捕获异常                       |                      |
+| 包相关               | import                         | 引入                 |
+| package              | 包                             |                      |
+| 基本类型             | boolean                        | 布尔型               |
+| byte                 | 字节型                         |                      |
+| char                 | 字符型                         |                      |
+| double               | 双精度浮点                     |                      |
+| float                | 单精度浮点                     |                      |
+| int                  | 整型                           |                      |
+| long                 | 长整型                         |                      |
+| short                | 短整型                         |                      |
+| 变量引用             | super                          | 父类,超类            |
+| this                 | 本类                           |                      |
+| void                 | 无返回值                       |                      |
+| 保留关键字           | goto                           | 是关键字，但不能使用 |
+| const                | 是关键字，但不能使用           |                      |
+| null                 | 空                             |                      |

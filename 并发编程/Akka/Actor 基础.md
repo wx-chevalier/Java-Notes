@@ -33,15 +33,20 @@ As illustrated below, all actors have a common parent, the user guardian. New ac
 
 ```java
 class PrintMyActorRefActor extends AbstractActor {
+
   @Override
   public Receive createReceive() {
     return receiveBuilder()
-        .matchEquals("printit", p -> {
+      .matchEquals(
+        "printit",
+        p -> {
           // 创建新的子 Actor 实例
-          ActorRef secondRef = getContext().actorOf(Props.empty(), "second-actor");
+          ActorRef secondRef = getContext()
+            .actorOf(Props.empty(), "second-actor");
           System.out.println("Second: " + secondRef);
-        })
-        .build();
+        }
+      )
+      .build();
   }
 }
 ```

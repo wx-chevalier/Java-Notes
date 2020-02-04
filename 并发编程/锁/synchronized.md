@@ -22,17 +22,18 @@ synchronized 关键字依赖于内部的 intrinsic lock 或者所谓的 monitor 
 
 ```java
 public class SynchronizedDemo {
-     // 同步方法
-    public synchronized void syncMethod(){
-        System.out.println("Hello World");
-    }
 
-    // 同步代码块
-    public void syncBlock(){
-        synchronized (this){
-            System.out.println("Hello World");
-        }
+  // 同步方法
+  public synchronized void syncMethod() {
+    System.out.println("Hello World");
+  }
+
+  // 同步代码块
+  public void syncBlock() {
+    synchronized (this) {
+      System.out.println("Hello World");
     }
+  }
 }
 ```
 
@@ -84,4 +85,4 @@ synchronized 用到的锁存在 Java 对象头里，若对象非数组类型，�
 
 - https://blog.csdn.net/significantfrank/article/details/80399179 Synchronized 和 Lock 该如何选择
 
-- https://mp.weixin.qq.com/s/w5K8kmNwAcIxB5lb1N93pg synchronized连环问
+- https://mp.weixin.qq.com/s/w5K8kmNwAcIxB5lb1N93pg synchronized 连环问

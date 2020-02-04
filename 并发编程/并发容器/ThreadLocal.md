@@ -17,31 +17,37 @@ Not one web request => one persistence session per object.
 ```java
 /** 分页方法类 */
 public abstract class PageMethod {
-    /** 本地分页 */
-    protected static final ThreadLocal<Page> LOCAL_PAGE = new ThreadLocal<Page>();
+  /** 本地分页 */
+  protected static final ThreadLocal<Page> LOCAL_PAGE = new ThreadLocal<Page>();
 
-    /** 设置分页参数 */
-    protected static void setLocalPage(Page page) {
-        LOCAL_PAGE.set(page);
-    }
+  /** 设置分页参数 */
+  protected static void setLocalPage(Page page) {
+    LOCAL_PAGE.set(page);
+  }
 
-    /** 获取分页参数 */
-    public static <T> Page<T> getLocalPage() {
-        return LOCAL_PAGE.get();
-    }
+  /** 获取分页参数 */
+  public static <T> Page<T> getLocalPage() {
+    return LOCAL_PAGE.get();
+  }
 
-    /** 开始分页 */
-    public static <E> Page<E> startPage(int pageNum, int pageSize, boolean count, Boolean reasonable, Boolean pageSizeZero) {
-        Page<E> page = new Page<E>(pageNum, pageSize, count);
-        page.setReasonable(reasonable);
-        page.setPageSizeZero(pageSizeZero);
-        Page<E> oldPage = getLocalPage();
-        if (oldPage != null && oldPage.isOrderByOnly()) {
-            page.setOrderBy(oldPage.getOrderBy());
-        }
-        setLocalPage(page);
-        return page;
+  /** 开始分页 */
+  public static <E> Page<E> startPage(
+    int pageNum,
+    int pageSize,
+    boolean count,
+    Boolean reasonable,
+    Boolean pageSizeZero
+  ) {
+    Page<E> page = new Page<E>(pageNum, pageSize, count);
+    page.setReasonable(reasonable);
+    page.setPageSizeZero(pageSizeZero);
+    Page<E> oldPage = getLocalPage();
+    if (oldPage != null && oldPage.isOrderByOnly()) {
+      page.setOrderBy(oldPage.getOrderBy());
     }
+    setLocalPage(page);
+    return page;
+  }
 }
 ```
 

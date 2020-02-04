@@ -29,16 +29,15 @@
 ```java
 @Target(ElementType.TYPE)
 public @interface Table {
-    /**
-     * 数据表名称注解，默认值为类名称
-     * @return
-     */
-    public String tableName() default "className";
+  /**
+   * 数据表名称注解，默认值为类名称
+   * @return
+   */
+  public String tableName() default "className";
 }
 
 @Target(ElementType.FIELD)
 public @interface NoDBColumn {
-
 }
 ```
 
@@ -149,7 +148,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface FruitName {
-    String value() default "";
+  String value() default "";
 }
 ```
 
@@ -171,19 +170,22 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface FruitColor {
-    /**
-     * 颜色枚举
-     * @author peida
-     *
-     */
-    public enum Color{ BULE,RED,GREEN};
+  /**
+   * 颜色枚举
+   * @author peida
+   *
+   */
+  public enum Color {
+    BULE, RED, GREEN
+  }
 
-    /**
-     * 颜色属性
-     * @return
-     */
-    Color fruitColor() default Color.GREEN;
+  ;
 
+  /**
+   * 颜色属性
+   * @return
+   */
+  Color fruitColor() default Color.GREEN;
 }
 ```
 

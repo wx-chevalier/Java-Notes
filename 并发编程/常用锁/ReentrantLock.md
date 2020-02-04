@@ -13,25 +13,30 @@
 - 公平锁
 
 ```java
-public class Test implements Runnable{
-    public synchronized void get(){
-     System.out.println(Thread.currentThread().getId());
-     //在子方法里又进入了锁
-     set();
-    }
-    public synchronized void set(){
-     System.out.println(Thread.currentThread().getId());
-    }
-    @Override
-    public void run() {
-     get();
-    }
-    public static void main(String[] args) {
-     Test ss=new Test();
-     new Thread(ss).start();
-     new Thread(ss).start();
-     new Thread(ss).start();
-    }
+public class Test implements Runnable {
+
+  public synchronized void get() {
+    System.out.println(Thread.currentThread().getId());
+
+    //在子方法里又进入了锁
+    set();
+  }
+
+  public synchronized void set() {
+    System.out.println(Thread.currentThread().getId());
+  }
+
+  @Override
+  public void run() {
+    get();
+  }
+
+  public static void main(String[] args) {
+    Test ss = new Test();
+    new Thread(ss).start();
+    new Thread(ss).start();
+    new Thread(ss).start();
+  }
 }
 ```
 

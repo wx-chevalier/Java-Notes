@@ -15,28 +15,31 @@
 ```java
 package jvm;
 
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.IOException;
 
-public class ClassLoaderTest{
-  public static void main(String []args) {
+public class ClassLoaderTest {
+
+  public static void main(String[] args) {
     ClassLoader myLoader = new ClassLoader() {
+
       @Override
-      public Class<?> loadClass(String name) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-          String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
-          InputStream inputStream = getClass().getResourceAsStream(fileName);
+      public Class<?> loadClass(String name)
+        throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
+        InputStream inputStream = getClass().getResourceAsStream(fileName);
 
-          if(inputStream == null){
-            return super.loadClass(name);
-          }
+        if (inputStream == null) {
+          return super.loadClass(name);
+        }
 
-          try{
-            byte[] b = new byte[inputStream.available()];
-            inputStream.read(b);
-            return defineClass(name, b, 0, b.length);
-          } catch(IOException e){
-            throw new ClassNotFoundException();
-          }
+        try {
+          byte[] b = new byte[inputStream.available()];
+          inputStream.read(b);
+          return defineClass(name, b, 0, b.length);
+        } catch (IOException e) {
+          throw new ClassNotFoundException();
+        }
       }
     };
 
@@ -54,4 +57,5 @@ public class ClassLoaderTest{
 可以看出，代码中使用自定义类加载器（myLoader）加载的 jvm.ClassLoaderTest 类和通过应用程序类加载器加载的类不是同一个类。
 
 # 链接
+
 - https://zhuanlan.zhihu.com/p/81419563 我竟然不再抗拒 Java 的类加载机制了

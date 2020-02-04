@@ -77,18 +77,21 @@ Comparator<String> comp = (first,second) ->
 
 ```java
 public class T1 {
-    public static void main(String[] args) {
-        repeatMessage("Hello", 20);
-    }
-    public static void repeatMessage(String text,int count){
-        Runnable r = () -> {
-            for(int i = 0; i < count; i++){
-                System.out.println(text);
-                Thread.yield();
-            }
-        };
-        new Thread(r).start();
-    }
+
+  public static void main(String[] args) {
+    repeatMessage("Hello", 20);
+  }
+
+  public static void repeatMessage(String text, int count) {
+    Runnable r =
+      () -> {
+        for (int i = 0; i < count; i++) {
+          System.out.println(text);
+          Thread.yield();
+        }
+      };
+    new Thread(r).start();
+  }
 }
 ```
 
@@ -97,10 +100,14 @@ public class T1 {
 当你在 lambda 表达式中使用 this 关键字，你会引用创建该 lambda 表达式的方法的 this 参数，以下面的代码为例：
 
 ```java
-public class Application{
-    public void doWork(){
-        Runnable runner = () -> { System.out.println(this.toString()); };
-    }
+public class Application {
+
+  public void doWork() {
+    Runnable runner =
+      () -> {
+        System.out.println(this.toString());
+      };
+  }
 }
 ```
 

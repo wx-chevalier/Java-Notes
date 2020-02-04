@@ -134,27 +134,31 @@ public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
 
 ```java
 public class BoundedExecutor {
-    private final Executor executor;
-    private final Semaphore semaphore;
-    public BoundedExecutor(Executor executor, Semaphore semaphore) {
-        this.executor = executor;
-        this.semaphore = semaphore;
-    }
-    public void submitTask(final Runnable command) throws InterruptedException {
-        // 提交任务之前,先获取semaphore,当semaphore数量为0时,方法阻塞,等待任务执行结束释放,这样可以保证提交任务的数量
-        semaphore.acquire();
-        try {
-            executor.execute(() -> {
-                try {
-                    command.run();
-                } finally {
-                    semaphore.release();
-                }
-            });
-        } catch (RejectedExecutionException e) {
+  private final Executor executor;
+  private final Semaphore semaphore;
+
+  public BoundedExecutor(Executor executor, Semaphore semaphore) {
+    this.executor = executor;
+    this.semaphore = semaphore;
+  }
+
+  public void submitTask(final Runnable command) throws InterruptedException {
+    // 提交任务之前,先获取semaphore,当semaphore数量为0时,方法阻塞,等待任务执行结束释放,这样可以保证提交任务的数量
+    semaphore.acquire();
+    try {
+      executor.execute(
+        () -> {
+          try {
+            command.run();
+          } finally {
             semaphore.release();
+          }
         }
+      );
+    } catch (RejectedExecutionException e) {
+      semaphore.release();
     }
+  }
 }
 ```
 
@@ -166,39 +170,51 @@ ThreadPoolExecutor 提供 beforeExecute,afterExecute 以及 terminated 三个方
 
 ```java
 public class TimingThreadPool extends ThreadPoolExecutor {
-    private final ThreadLocal<Long> startTime = new ThreadLocal<>();
-    private final Logger logger = Logger.getLogger("TimingThreadPool");
-    private final AtomicLong numTasks = new AtomicLong();
-    private final AtomicLong totalTime = new AtomicLong();
-    @Override
-    protected void beforeExecute(Thread t, Runnable r) {
-        super.beforeExecute(t, r);
-        logger.fine(String.format("Thread %s: start %s", t, r));
-        startTime.set(System.nanoTime());
+  private final ThreadLocal<Long> startTime = new ThreadLocal<>();
+  private final Logger logger = Logger.getLogger("TimingThreadPool");
+  private final AtomicLong numTasks = new AtomicLong();
+  private final AtomicLong totalTime = new AtomicLong();
+
+  @Override
+  protected void beforeExecute(Thread t, Runnable r) {
+    super.beforeExecute(t, r);
+    logger.fine(String.format("Thread %s: start %s", t, r));
+    startTime.set(System.nanoTime());
+  }
+
+  @Override
+  protected void afterExecute(Runnable r, Throwable t) {
+    try {
+      long end = System.nanoTime();
+      long taskTime = end - startTime.get();
+
+      // 记录任务的执行数量
+      numTasks.incrementAndGet();
+
+      // 记录任务的执行时间
+      totalTime.addAndGet(taskTime);
+      logger.fine(
+        String.format("Thread %s: end %s, time=%dns", t, r, taskTime)
+      );
+    } finally {
+      super.afterExecute(r, t);
     }
-    @Override
-    protected void afterExecute(Runnable r, Throwable t) {
-        try {
-            long end = System.nanoTime();
-            long taskTime = end - startTime.get();
-            // 记录任务的执行数量
-            numTasks.incrementAndGet();
-            // 记录任务的执行时间
-            totalTime.addAndGet(taskTime);
-            logger.fine(String.format("Thread %s: end %s, time=%dns", t, r, taskTime));
-        } finally {
-            super.afterExecute(r, t);
-        }
+  }
+
+  @Override
+  protected void terminated() {
+    try {
+      // 打印每个任务执行的平均时间
+      logger.info(
+        String.format(
+          "Terminated: avg time=%dns",
+          totalTime.get() / numTasks.get()
+        )
+      );
+    } finally {
+      super.terminated();
     }
-    @Override
-    protected void terminated() {
-        try {
-            // 打印每个任务执行的平均时间
-            logger.info(String.format("Terminated: avg time=%dns", totalTime.get() / numTasks.get()));
-        } finally {
-            super.terminated();
-        }
-    }
+  }
 }
 ```
 
@@ -208,7 +224,7 @@ public class TimingThreadPool extends ThreadPoolExecutor {
 
 ```java
 public interface ThreadFactory {
-    Thread newThread(Runnable r);
+  Thread newThread(Runnable r);
 }
 ```
 

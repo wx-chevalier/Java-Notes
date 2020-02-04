@@ -1,49 +1,4 @@
-# 类型基础
-
-Java 中有两种类型，原始类型（Primitive Type）会被直接映射到 CPU 的基础类型，引用类型（Reference Type）则指向了内存中的对象。
-
-# 原始类型
-
-Java 的基础类型包含了如下几种：
-
-```java
-// boolean (true|false)
-var result = true;
-var anotherResult = false;
-
-// char (character)
-var firstLetter = 'j';
-
-// int (signed 32 bits integer)
-var numberOfLegs = 2;
-
-// double (64 bits floating point)
-var cost = 3.78;
-
-// long and float
-// 一些更特殊的类型，它们需要后缀（L或f）长（64位整数）并浮点（32位浮点数）
-var longValue = 123L;
-var floatValue = 123.5f;
-
-// byte and short
-// 还有字节（带符号的8位整数）和短（带符号的16位短整数），它们仅在定义对象时占用较少的内存
-record CompactHeader(byte tag, short version) {}
-short value = 12;
-var result = value + value;
-```
-
-如果不存在精度损失，将精度转换为 double 或 float，则可以进行自动转换。您可以使用强制转换为相反方向的转换，将剃掉补充位：
-
-```java
-// 自动转换
-int intValue = 13;
-long longValue = intValue;
-
-// 强制转换
-long longValue = 1_000_000_000_000L;
-int intValue = (int) longValue;
-System.out.println(intValue);
-```
+# Object
 
 # Objects
 
@@ -88,3 +43,7 @@ System.out.println(text);
 
 var intList = List.of(2, 3);
 ```
+
+# 链接
+
+- https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484210&idx=1&sn=9d40e2e4c72f0727c7b7925cbe314fc0&chksm=ebd74233dca0cb2560677c7dc7746bf166195d793860c41ab477431af2cf0a6004477e27b814&scene=21###wechat_redirect
