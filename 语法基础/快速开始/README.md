@@ -67,8 +67,22 @@ Java 所有的组成部分都需要名字。类名、变量名以及方法名都
 
 像其他语言一样，Java 可以使用修饰符来修饰类中方法和属性。主要有两类修饰符：
 
-- 访问控制修饰符 : default, public , protected, private
-- 非访问控制修饰符 : final, abstract, static, synchronized
+- 访问控制修饰符: default, public , protected, private
+- 非访问控制修饰符: final, abstract, static, synchronized
+
+修饰符用来定义类、方法或者变量，通常放在语句的最前端。我们通过下面的例子来说明：
+
+```java
+public class ClassName {
+   // ...
+}
+private boolean myFlag;
+static final double weeks = 9.5;
+protected static final int BOXWIDTH = 42;
+public static void main(String[] arguments) {
+   // 方法体
+}
+```
 
 ## 关键字
 
