@@ -1,4 +1,4 @@
-# Number & Math
+# Number
 
 一般地，当需要使用数字的时候，我们通常使用内置数据类型，如：byte、int、long、double 等。然而，在实际开发过程中，我们经常会遇到需要使用对象，而不是内置数据类型的情形。为了解决这个问题，Java 语言为每一个内置数据类型提供了对应的包装类。所有的包装类（Integer、Long、Byte、Double、Float、Short）都是抽象类 Number 的子类。
 
@@ -29,6 +29,116 @@ public class Test{
 | 4    | valueOf() 返回一个 Number 对象指定的内置数据类型         |
 | 5    | toString() 以字符串形式返回值。                          |
 | 6    | parseInt() 将字符串解析为 int 类型。                     |
+
+# 包装类型
+
+## int 与 Integer 的区别
+
+这里我们以 int 与 Integer 来介绍下基本类型与包装类型的区别。首先，int 是基本数据类型，int 变量存储的是数值。Integer 是引用类型，实际是一个对象，Integer 存储的是引用对象的地址。Integer 对象会占用更多的内存。Integer 是一个对象，需要存储对象的元数据。但是 int 是一个原始类型的数据，所以占用的空间更少。
+
+```java
+Integer i = new Integer(100);
+Integer j = new Integer(100);
+System.out.print(i == j); //false
+```
+
+因为 new 生成的是两个对象，其内存地址不同。非 new 生成的 Integer 变量与 new Integer() 生成的变量比较，结果为 false。
+
+```java
+/**
+ * 比较非new生成的Integer变量与new生成的Integer变量
+ */
+public class Test {
+    public static void main(String[] args) {
+        Integer i= new Integer(200);
+        Integer j = 200;
+        System.out.print(i == j);
+        //输出：false
+    }
+}
+```
+
+因为非 new 生成的 Integer 变量指向的是 java 常量池中的对象，而 new Integer() 生成的变量指向堆中新建的对象，两者在内存中的地址不同。所以输出为 false。两个非 new 生成的 Integer 对象进行比较，如果两个变量的值在区间 [-128,127] 之间，比较结果为 true；否则，结果为 false。
+
+```java
+/**
+ * 比较两个非new生成的Integer变量
+ */
+public class Test {
+    public static void main(String[] args) {
+        Integer i1 = 127;
+        Integer ji = 127;
+        System.out.println(i1 == ji);//输出：true
+        Integer i2 = 128;
+        Integer j2 = 128;
+        System.out.println(i2 == j2);//输出：false
+    }
+}
+```
+
+Java 在编译 Integer i1 = 127 时，会翻译成 Integer i1 = Integer.valueOf(127)。Integer 变量(无论是否是 new 生成的)与 int 变量比较，只要两个变量的值是相等的，结果都为 true。
+
+```java
+/**
+ * 比较Integer变量与int变量
+ */
+public class Test {
+    public static void main(String[] args) {
+        Integer i1 = 200;
+        Integer i2 = new Integer(200);
+        int j = 200;
+        System.out.println(i1 == j);//输出：true
+        System.out.println(i2 == j);//输出：true
+    }
+}
+```
+
+包装类 Integer 变量在与基本数据类型 int 变量比较时，Integer 会自动拆包装为 int，然后进行比较，实际上就是两个 int 变量进行比较，值相等，所以为 true。
+
+## 自动包装与拆包
+
+int 类型在赋值到 Integer 类时，会自动封装，调用 Integer 的 valueOf(int i) 方法。
+
+```java
+Integer a = 1;
+Integer a = Integer.valueOf(1);
+/**
+ * Returns an {@code Integer} instance representing the specified
+ * {@code int} value.  If a new {@code Integer} instance is not
+ * required, this method should generally be used in preference to
+ * the constructor {@link #Integer(int)}, as this method is likely
+ * to yield significantly better space and time performance by
+ * caching frequently requested values.
+ *
+ * This method will always cache values in the range -128 to 127,
+ * inclusive, and may cache other values outside of this range.
+ *
+ * @param  i an {@code int} value.
+ * @return an {@code Integer} instance representing {@code i}.
+ * @since  1.5
+ */
+public static Integer valueOf(int i) {
+    assert IntegerCache.high >= 127;
+    if (i >= IntegerCache.low && i <= IntegerCache.high)
+        return IntegerCache.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+}
+```
+
+当 i >= -128 && i <= 127 时，Integer.valueOf(i) 会将 i 存储在内部类 IntegerCache 的 static final Integer cache[]里，这一字节的缓存内存地址是静态的，返回值即:
+
+```java
+IntegerCache.cache[i + (-IntegerCache.low)]
+```
+
+因此:
+
+```java
+Integer a = 1;
+Integer b = 1;
+```
+
+a 和 b 的引用都指向同一个对象，即 **a == b**。
 
 # 浮点数
 

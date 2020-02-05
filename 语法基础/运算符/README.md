@@ -9,6 +9,8 @@
 - 赋值运算符
 - 其他运算符
 
+# 运算符优先级
+
 当多个运算符出现在一个表达式中，谁先谁后呢？这就涉及到运算符的优先级别的问题。在一个多运算符的表达式中，运算符优先级不同会导致最后得出的结果差别甚大。例如，`（1+3）＋（3+2）*2`，这个表达式如果按加号最优先计算，答案就是 18，如果按照乘号最优先，答案则是 14。再如，`x = 7 + 3 * 2`;这里 x 得到 13，而不是 20，因为乘法运算符比加法运算符有较高的优先级，所以先计算`3 * 2`得到 6，然后再加 7。下表中具有最高优先级的运算符在的表的最上面，最低优先级的在表的底部。
 
 | 类别     | 操作符                                       | 关联性   |
@@ -28,6 +30,40 @@
 | 条件     | ？：                                         | 从右到左 |
 | 赋值     | = + = - = `*` = / =％= >> = << =＆= ^ = \| = | 从右到左 |
 | 逗号     | ，                                           | 左到右   |
+
+## 左右结合性
+
+所有的数学运算符都认为是从左到右运算的，Java 语言中大部分运算符也是从左到右结合的，只有单目运算符、赋值运算符和三目运算符例外，其中，单目运算符、赋值运算符和三目运算符是从右向左结合的，也就是从右向左运算。乘法和加法是两个可结合的运算，也就是说，这两个运算符左右两边的操作数可以互换位置而不会影响结果。当有多中运算符参与运算的时候，先要考虑优先级，有相同优先级的就看结合性以决定运算顺序。因为这样，所以，如果没有两个相同优先级的运算，就不存在考虑结合性的问题了。一个 **?:** 是体现不出来结合性的。 请看这个：
+
+```
+a?b:c?d:e
+```
+
+这个要怎么算？先看优先级，两个一样。再看结合性，右结合，所以先算：
+
+```
+c?d:e
+```
+
+再算:
+
+```
+ a?b:(c?d:e)
+```
+
+这就是所谓右结合。如果是左结合的话 就是先算:
+
+```
+a?b:c
+```
+
+再算:
+
+```
+(a?b:c)?d:e
+```
+
+实际上，一般结合性的问题都可以用括号来解决。
 
 # 条件运算符
 
@@ -87,4 +123,36 @@ public class Car extends Vehicle {
 }
 
 // true
+```
+
+值得注意的是，在判断一个实例引用的类型时，使用的是实际类型，而不是声明的类型。在下面的代码中：
+
+```java
+Vehicle v2 = new Car();    // v2 是 Car 类型
+```
+
+v2 是 Car 类型，而不是 Vehicle 类型。
+
+```java
+class Vehicle {}
+
+public class Car extends Vehicle {
+    public static void main(String args[]){
+        Car c1 = new Car();
+
+        Vehicle v2 = new Car();    // v2 是 Car 类型
+        Vehicle v3 = new Vehicle();
+
+        //Car 是 Vehicle类型, Vehicle 不是 Car 类型
+        boolean result1 =  c1 instanceof Vehicle;    // true
+        boolean result2 =  v2 instanceof Car;        // true
+        boolean result3 =  v2 instanceof Vehicle;    // true
+        boolean result4 =  v3 instanceof Car;          // false
+
+        System.out.println(result1);
+        System.out.println(result2);
+        System.out.println(result3);
+        System.out.println(result4);
+   }
+}
 ```

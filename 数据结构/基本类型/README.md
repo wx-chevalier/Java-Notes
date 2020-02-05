@@ -6,6 +6,10 @@
 
 Java 中有两种类型，原始类型（Primitive Type）会被直接映射到 CPU 的基础类型，引用类型（Reference Type）则指向了内存中的对象。
 
+- 原始类型：boolean，char，byte，short，int，long，float，double。
+
+- 包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double。
+
 # 原始类型
 
 Java 语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。Java 的基础类型包含了如下几种：
@@ -195,77 +199,3 @@ public class PrimitiveTypeTest {
 在 Java 中，引用类型的变量非常类似于 C/C++的指针。引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如 Employee、Puppy 等。变量一旦声明后，类型就不能被改变了。对象、数组都是引用数据类型，所有引用类型的默认值都是 null；一个引用变量可以用来引用任何与之兼容的类型。
 
 例子：Site site = new Site("Runoob")。
-
-# 类型转换
-
-整型、实型（常量）、字符型数据可以混合运算。运算中，不同类型的数据先转化为同一类型，然后进行运算。转换从低级到高级。
-
-```sh
-低  ------------------------------------>  高
-
-byte,short,char—> int —> long—> float —> double
-```
-
-数据类型转换必须满足如下规则：
-
-- 不能对 boolean 类型进行类型转换。
-- 不能把对象类型转换成不相关类的对象。
-- 在把容量大的类型转换为容量小的类型时必须使用强制类型转换。
-- 转换过程中可能导致溢出或损失精度。
-- 浮点数到整数的转换是通过舍弃小数得到，而不是四舍五入。
-
-```java
-int i =128;
-byte b = (byte)i;
-
-(int)23.7 == 23;
-(int)-45.89f == -45
-```
-
-如果不存在精度损失，将精度转换为 double 或 float，则可以进行自动转换。您可以使用强制转换为相反方向的转换，将剃掉补充位：
-
-```java
-// 自动转换
-int intValue = 13;
-long longValue = intValue;
-
-// 强制转换
-long longValue = 1_000_000_000_000L;
-int intValue = (int) longValue;
-System.out.println(intValue);
-```
-
-## 自动类型转换
-
-必须满足转换前的数据类型的位数要低于转换后的数据类型，例如: short 数据类型的位数为 16 位，就可以自动转换位数为 32 的 int 类型，同样 float 数据类型的位数为 32，可以自动转换为 64 位的 double 类型。
-
-```java
-char c1='a';//定义一个char类型
-int i1 = c1;//char自动类型转换为int
-System.out.println("char自动类型转换为int后的值等于"+i1);
-char c2 = 'A';//定义一个char类型
-int i2 = c2+1;//char 类型和 int 类型计算
-System.out.println("char类型和int计算后的值等于"+i2);
-
-// char自动类型转换为int后的值等于97
-// char类型和int计算后的值等于66
-```
-
-c1 的值为字符 **a** ,查 ASCII 码表可知对应的 int 类型值为 97， A 对应值为 65，所以 **i2=65+1=66**。
-
-## 强制类型转换
-
-条件是转换的数据类型必须是兼容的，格式：`(type)value type` 是要强制类型转换后的数据类型。实例：
-
-```java
-int i1 = 123;
-byte b = (byte)i1;//强制类型转换为byte
-System.out.println("int强制类型转换为byte后的值等于"+b);
-
-// int强制类型转换为byte后的值等于123
-```
-
-## 隐含强制类型转换
-
-- 整数的默认类型是 int。
-- 浮点型不存在这种情况，因为在定义 float 类型时必须在数字后面跟上 F 或者 f。
