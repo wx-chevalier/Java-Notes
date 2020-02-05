@@ -78,7 +78,18 @@ System.out.println("abcd".substring(0,1));
 
 ## Compare | 字符串比较
 
-# 内建表示
+# 不可变性
+
+字符串实际上就是一个 char 数组，并且内部就是封装了一个 char 数组。并且这里 char 数组是被 final 修饰的:
+
+```java
+public final class String
+    implements java.io.Serializable, Comparable<String>, CharSequence {
+    /** The value is used for character storage. */
+    private final char value[];
+```
+
+并且 String 中的所有的方法，都是对于 char 数组的改变，只要是对它的改变，方法内部都是返回一个新的 String 实例。
 
 ## intern
 
@@ -91,9 +102,9 @@ System.out.println("abcd".substring(0,1));
 ```java
 public class Test {
     public static void main(String[] args) {
-        String s1 = "Javatpoint";
+        String s1 = "Test";
         String s2 = s1.intern();
-        String s3 = new String("Javatpoint");
+        String s3 = new String("Test");
         String s4 = s3.intern();
         System.out.println(s1==s2); // True
         System.out.println(s1==s3); // False
