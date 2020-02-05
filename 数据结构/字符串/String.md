@@ -1,8 +1,30 @@
 ﻿# Java 字符串详解
 
+字符串广泛应用 在 Java 编程中，在 Java 中字符串属于对象，Java 提供了 String 类来创建和操作字符串。
+
 # 创建增删
 
-# 字符串转义
+创建字符串最简单的方式如下:
+
+```java
+String greeting = "Greeting";
+```
+
+和其它对象一样，可以使用关键字和构造方法来创建 String 对象。String 类有 11 种构造方法，这些方法提供不同的参数来初始化字符串，比如提供一个字符数组参数:
+
+```java
+public class StringDemo{
+   public static void main(String args[]){
+      char[] helloArray = { 'r', 'u', 'n', 'o', 'o', 'b'};
+      String helloString = new String(helloArray);
+      System.out.println( helloString );
+   }
+}
+```
+
+注意，String 类是不可改变的，所以你一旦创建了 String 对象，那它的值就无法改变了。
+
+## 字符串转义
 
 ```java
 点的转义：. ==> u002E
@@ -21,6 +43,13 @@
 
 譬如我们如果需要从 System.in 中输入 `"C:\"`，在 Java 中的字符串表示的是: `"C:\\"`，而如果要用正则表达式匹配 `"\"` 这个字符的时候，正则表达式要写成 `"\\\\"`，即首先是根据 Java 语言本身的转义字符，转化为普通字符中的 `"\\"`，其就等价于正则表达式中匹配 `"\"` 这个字符。
 
+## 模板字符串
+
+```java
+String.format("%s 今年%d 岁","我", "24");
+MessageFormat.format("{0}  今年{1} 岁", "我",24);
+```
+
 # 索引遍历
 
 ## Split | 截取分割
@@ -35,13 +64,6 @@ String.split("\\.")
 String.split("\\|")
 
 // 使用正则表达式
-```
-
-# 模板字符串
-
-```java
-String.format("%s 今年%d 岁","我", "24");
-MessageFormat.format("{0}  今年{1} 岁", "我",24);
 ```
 
 # 字符串操作
@@ -65,6 +87,23 @@ System.out.println("abcd".substring(0,1));
 ![](https://s2.ax1x.com/2019/11/30/QV6461.png)
 
 通过在此对象上调用 `intern()` 方法，可以指示 JVM 将此放入 String pool 中，并且每当其他人创建 abc 时，将返回此对象而不是创建新对象。
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        String s1 = "Javatpoint";
+        String s2 = s1.intern();
+        String s3 = new String("Javatpoint");
+        String s4 = s3.intern();
+        System.out.println(s1==s2); // True
+        System.out.println(s1==s3); // False
+        System.out.println(s1==s4); // True
+        System.out.println(s2==s3); // False
+        System.out.println(s2==s4); // True
+        System.out.println(s3==s4); // False
+    }
+}
+```
 
 # 链接
 
