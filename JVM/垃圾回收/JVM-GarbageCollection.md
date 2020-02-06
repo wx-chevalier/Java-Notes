@@ -161,7 +161,7 @@ public class Main {
 
 不过那些发现不能到达 GC Roots 的对象并不会立即回收，在真正回收之前，对象至少要被标记两次。当第一次被发现不可达时，该对象会被标记一次，同时调用此对象的 `finalize()`方法(如果有)；在第二次被发现不可达后，对象被回收。利用 `finalisze()` 方法，对象可以逃离一次被回收的命运，但是只有一次。逃命方法如下，需要在 `finalize()` 方法中给自己加一个 GCRoots 中的 hook：
 
-```
+```java
 public class EscapeFromGC(){
    public static EscapeFromGC hook;
    @Override

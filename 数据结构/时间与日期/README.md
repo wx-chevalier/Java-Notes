@@ -1,1 +1,53 @@
 # Java 中时间与日期
+
+# 时间戳
+
+在 Java 8 之前，我们使用 `java.sql.Timestamp` 来表示时间戳对象，可以通过以下方式创建与获取对象：
+
+```java
+// 利用系统标准时间创建
+Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+// 从 Date 对象中创建
+new Timestamp((new Date()).getTime());
+
+// 获取自 1970-01-01 00:00:00 GMT 以来的毫秒数
+timestamp.getTime();
+```
+
+在 Java 8 中，即可以使用 `java.time.Instant` 来表示自从 1970-01-01T00:00:00Z 之后经过的标准时间：
+
+```java
+// 基于静态函数创建
+Instant instant = Instant.now();
+
+// 基于 Date 或者毫秒数转换
+Instant someInstant = someDate.toInstant();
+
+Instant someInstant = Instant.ofEpochMilli(someDate.getTime());
+
+// 基于 TimeStamp 转换
+Instant instant = timestamp.toInstant();
+
+// 从 LocalDate 转化而来
+LocalDate.now().atStartOfDay().toInstant(ZoneOffset.UTC)
+
+// 从 LocalDateTime 转化而来
+ldt.atZone(ZoneId.systemDefault()).toInstant();
+
+// 获取毫秒
+long timeStampMillis = instant.toEpochMilli();
+
+// 获取秒
+long timeStampSeconds = instant.getEpochSecond();
+```
+
+Clock 方便我们去读取当前的日期与时间。Clock 可以根据不同的时区来进行创建，并且可以作为`System.currentTimeMillis()`的替代。这种指向时间轴的对象即是`Instant`类。Instants 可以被用于创建`java.util.Date`对象。
+
+```java
+Clock clock = Clock.systemDefaultZone();
+long millis = clock.millis();
+
+Instant instant = clock.instant();
+Date legacyDate = Date.from(instant);   // legacy java.util.Date
+```
