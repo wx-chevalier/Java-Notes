@@ -108,9 +108,9 @@ public static void main(String[] arguments) {
 | class                | 类                             |                      |
 | extends              | 扩充,继承                      |                      |
 | final                | 最终值,不可改变的              |                      |
-| implements           | 实现（接口）                   |                      |
+| implements           | 实现（接口）                  |                      |
 | interface            | 接口                           |                      |
-| native               | 本地，原生方法（非 Java 实现） |                      |
+| native               | 本地，原生方法（非 Java 实现）|                      |
 | new                  | 新,创建                        |                      |
 | static               | 静态                           |                      |
 | strictfp             | 严格,精准                      |                      |
