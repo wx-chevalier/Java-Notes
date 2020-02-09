@@ -4,7 +4,7 @@
 
 ![Observable 事件流](https://s2.ax1x.com/2019/12/19/QqTJHS.png)
 
-Observable 即被观察者，它决定什么时候触发事件以及触发怎样的事件。RxJava 使用 create() 方法来创建一个 Observable ，并为它定义事件触发规则：
+Observable 即被观察者，它决定什么时候触发事件以及触发怎样的事件。RxJava 使用 create() 方法来创建一个 Observable，并为它定义事件触发规则：
 
 ```java
 //匿名类方式
@@ -85,6 +85,6 @@ observable.subscribe(observer);
 observable.subscribe(subscriber);
 ```
 
-有人可能会注意到，`subscribe()` 这个方法有点怪：它看起来是`observalbe` 订阅了 `observer` / `subscriber`而不是`observer` / `subscriber` 订阅了 `observalbe`，这看起来就像杂志订阅了读者一样颠倒了对象关系。这让人读起来有点别扭，不过如果把 API 设计成 `observer.subscribe(observable)` / `subscriber.subscribe(observable)` ，虽然更加符合思维逻辑，但对流式 API 的设计就造成影响了，比较起来明显是得不偿失的。
+有人可能会注意到，`subscribe()` 这个方法有点怪：它看起来是`observalbe` 订阅了 `observer` / `subscriber`而不是`observer` / `subscriber` 订阅了 `observalbe`，这看起来就像杂志订阅了读者一样颠倒了对象关系。这让人读起来有点别扭，不过如果把 API 设计成 `observer.subscribe(observable)` / `subscriber.subscribe(observable)`，虽然更加符合思维逻辑，但对流式 API 的设计就造成影响了，比较起来明显是得不偿失的。
 
 # Single
