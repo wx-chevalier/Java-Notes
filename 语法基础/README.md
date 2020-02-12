@@ -48,7 +48,7 @@ interface TheFirstInterface{......}
 /*定义一个接口TheFirstInterface*/
 ```
 
-Java 的主方法入口：所有的 Java 程序由 `public static void main(String []args)` 方法开始执行。值得注意的是，Java 是大小写敏感的，这就意味着标识符 Hello 与 hello 是不同的。对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 MyFirstJavaClass 。所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记 Java 是大小写敏感的），文件名的后缀为 .java。（如果文件名和类名不相同则会导致编译错误）。
+Java 的主方法入口：所有的 Java 程序由 `public static void main(String []args)` 方法开始执行。值得注意的是，Java 是大小写敏感的，这就意味着标识符 Hello 与 hello 是不同的。对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 MyFirstJavaClass。所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记 Java 是大小写敏感的），文件名的后缀为 .java。（如果文件名和类名不相同则会导致编译错误）。
 
 ## 源文件声明规则
 
@@ -108,9 +108,9 @@ public static void main(String[] arguments) {
 | class                | 类                             |                      |
 | extends              | 扩充,继承                      |                      |
 | final                | 最终值,不可改变的              |                      |
-| implements           | 实现（接口）                  |                      |
+| implements           | 实现（接口）                   |                      |
 | interface            | 接口                           |                      |
-| native               | 本地，原生方法（非 Java 实现）|                      |
+| native               | 本地，原生方法（非 Java 实现） |                      |
 | new                  | 新,创建                        |                      |
 | static               | 静态                           |                      |
 | strictfp             | 严格,精准                      |                      |

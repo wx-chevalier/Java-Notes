@@ -147,4 +147,4 @@ for(Path p: files)
     new Thread(() -> {if(p中包含某些属性) matches.add(p);}).start();
 ```
 
-注意 matches 是“有效 final”的(一个有效的 final 变量被初始化后，就永远不会再被赋一个新值的变量)。在我们的示例中，matches 总是引用同一个 ArrayList 对象，但是，这个对象是可变的，因此是线程不安全的 。如果多个线程同时调用 add 方法，结果将无法预测。
+注意 matches 是“有效 final”的(一个有效的 final 变量被初始化后，就永远不会再被赋一个新值的变量)。在我们的示例中，matches 总是引用同一个 ArrayList 对象，但是，这个对象是可变的，因此是线程不安全的。如果多个线程同时调用 add 方法，结果将无法预测。

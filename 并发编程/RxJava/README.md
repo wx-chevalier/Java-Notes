@@ -33,11 +33,11 @@ RxJava 与 Java 本身提供的异步模型以及其他响应式编程框架相�
 - 支持多语言:支持 Java 6+和 Android 2.3+。RxJava 设计初衷就是兼容所有 JVM 语言，目前支持的 JVM 语言有 Groovy,Clojure,JRuby, Kotlin 和 Scala。
 - 多线程支持:封装了各种并发实现，如 threads, pools, event loops, fibers, actors。
 
-需要注意的是在 RxJava 的默认规则中，事件的发出和消费都是在同一个线程的。也就是说，如果你只是创建了 Observable 并且为它设定了 Observer，实现出来的只是一个同步的观察者模式。观察者模式本身的目的就是后 台处理，前台回调的异步机制，因此异步对于 RxJava 是至关重要的。而要实现异步，则需要用到 RxJava 的另一个概念: Scheduler 。笔者在最初进行 RxJava 学习的时候以为 RxJava 是自动为每个 Observable 创建一个线程，这种理解就是错误的。可以参考[理解 RxJava 的线程模型](http://colobu.com/2016/07/25/understanding-rxjava-thread-model/)
+需要注意的是在 RxJava 的默认规则中，事件的发出和消费都是在同一个线程的。也就是说，如果你只是创建了 Observable 并且为它设定了 Observer，实现出来的只是一个同步的观察者模式。观察者模式本身的目的就是后 台处理，前台回调的异步机制，因此异步对于 RxJava 是至关重要的。而要实现异步，则需要用到 RxJava 的另一个概念: Scheduler。笔者在最初进行 RxJava 学习的时候以为 RxJava 是自动为每个 Observable 创建一个线程，这种理解就是错误的。可以参考[理解 RxJava 的线程模型](http://colobu.com/2016/07/25/understanding-rxjava-thread-model/)
 
 ## 观察者模式
 
-RxJava 的异步实现，是通过一种扩展的观察者模式来实现的。在本部分先简要描述下观察者模式，观察者模式面向的需求是：A 对象(观察者)对 B 对象(被观察者)的某种变化高度敏感，需要在 B 变化的一瞬间做出反应。举个例子，新闻里喜闻乐见的警察抓小偷，警察需要在小偷伸手作案的时候实施抓捕。在这个例子里，警察是观察者，小偷是被观察者，警察需要时刻盯着小偷的一举一动，才能保证不会漏过任何瞬间。程序的观察者模式和这种真正的观察略有不同，观察者不需要时刻盯着被观察者(例如 A 不需要每过 2ms 就检查一次 B 的状态)，而是采用注册(Register)或者称为订阅(Subscribe)的方式，告诉被观察者：我需要你的某某状态，你要在它变化的时候通知我。在 Java 的 Swing 编程或者 Android 编程中的`OnClickListener`都是典型的观察者模式，而对应的`View`就是观察者，二者通`setOnClickListener`方法达成订阅关系。订阅之后用户点击按钮的瞬间，Android Framework 就会将点击事件发送给已经注册的 `OnClickListener` 。采取这样被动的观察方式，既省去了反复检索状态的资源消耗，也能够得到最高的反馈速度。OnClickListener 的模式大致如下图所示：
+RxJava 的异步实现，是通过一种扩展的观察者模式来实现的。在本部分先简要描述下观察者模式，观察者模式面向的需求是：A 对象(观察者)对 B 对象(被观察者)的某种变化高度敏感，需要在 B 变化的一瞬间做出反应。举个例子，新闻里喜闻乐见的警察抓小偷，警察需要在小偷伸手作案的时候实施抓捕。在这个例子里，警察是观察者，小偷是被观察者，警察需要时刻盯着小偷的一举一动，才能保证不会漏过任何瞬间。程序的观察者模式和这种真正的观察略有不同，观察者不需要时刻盯着被观察者(例如 A 不需要每过 2ms 就检查一次 B 的状态)，而是采用注册(Register)或者称为订阅(Subscribe)的方式，告诉被观察者：我需要你的某某状态，你要在它变化的时候通知我。在 Java 的 Swing 编程或者 Android 编程中的`OnClickListener`都是典型的观察者模式，而对应的`View`就是观察者，二者通`setOnClickListener`方法达成订阅关系。订阅之后用户点击按钮的瞬间，Android Framework 就会将点击事件发送给已经注册的 `OnClickListener`。采取这样被动的观察方式，既省去了反复检索状态的资源消耗，也能够得到最高的反馈速度。OnClickListener 的模式大致如下图所示：
 ![](http://ww4.sinaimg.cn/mw1024/52eb2279jw1f2rx42h1wgj20fz03rglt.jpg)
 如图所示，通过 `setOnClickListener()` 方法，`Button` 持有 `OnClickListener` 的引用(这一过程没有在图上画出)；当用户点击时，`Button` 自动调用 `OnClickListener` 的 `onClick()` 方法。另外，如果把这张图中的概念抽象出来(`Button` -> 被观察者、`OnClickListener` -> 观察者、`setOnClickListener()` -> 订阅，`onClick()` -> 事件)，就由专用的观察者模式(例如只用于监听控件点击)转变成了通用的观察者模式。如下图：
 ![](http://ww3.sinaimg.cn/mw1024/52eb2279jw1f2rx4446ldj20ga03p74h.jpg)
