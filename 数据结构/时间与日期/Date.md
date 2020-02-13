@@ -21,7 +21,7 @@
 
 # Date
 
-java.util.Date 对象本身不包含任何时区信息，我们无法在 Date 对象上设置时区。一个 Date 对象包含的唯一东西是从 1970 年 1 月 1 日 00:00:00 UTC 开始的“纪元”以来的毫秒数。你可以在 DateFormat 对象上设置时区，告诉它你想在哪个时区显示日期和时间。Date 表示特定的瞬间，精确到毫秒，`yyyy-mm-dd hh:mm:ss` ；Timestamp 此类型由.Date 和单独的毫微秒值组成。yyyy-mm-dd hh:mm:ss.fffffffff
+java.util.Date 对象本身不包含任何时区信息，我们无法在 Date 对象上设置时区。一个 Date 对象包含的唯一东西是从 1970 年 1 月 1 日 00:00:00 UTC 开始的“纪元”以来的毫秒数。你可以在 DateFormat 对象上设置时区，告诉它你想在哪个时区显示日期和时间。Date 表示特定的瞬间，精确到毫秒，`yyyy-mm-dd hh:mm:ss`；Timestamp 此类型由.Date 和单独的毫微秒值组成。yyyy-mm-dd hh:mm:ss.fffffffff
 
 ```java
 // 默认创建
