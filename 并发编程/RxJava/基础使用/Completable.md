@@ -83,7 +83,7 @@ first
   .assertError(throwable);
 ```
 
-此外，如果源之一是无限的或由于某种原因未达到 onComplete，则生成的 Completable 将永远不会触发 onComplete() 或 onError()。
+此外，如果源之一是无限的或由于某种原因未达到 onComplete，则生成的 Completable 将永远不会触发 onComplete()或 onError()。
 
 ## 数组调用
 

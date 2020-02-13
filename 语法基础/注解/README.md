@@ -24,7 +24,7 @@
 - METHOD:用于描述方法
 - PACKAGE:用于描述包
 - PARAMETER:用于描述参数
-- TYPE:用于描述类、接口(包括注解类型) 或 enum 声明
+- TYPE:用于描述类、接口(包括注解类型)或 enum 声明
 
 ```java
 @Target(ElementType.TYPE)
@@ -41,7 +41,7 @@ public @interface NoDBColumn {
 }
 ```
 
-注解 Table 可以用于注解类、接口(包括注解类型) 或 enum 声明,而注解 NoDBColumn 仅可用于注解类的成员变量。
+注解 Table 可以用于注解类、接口(包括注解类型)或 enum 声明,而注解 NoDBColumn 仅可用于注解类的成员变量。
 
 #### @Retention
 

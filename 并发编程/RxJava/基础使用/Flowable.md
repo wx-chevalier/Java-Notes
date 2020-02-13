@@ -22,7 +22,7 @@ Flowable<Integer> integerFlowable = Flowable
 
 # BackpressureStrategy
 
-诸如 toFlowable() 或 create() 之类的某些方法采用 BackpressureStrategy 作为参数。BackpressureStrategy 是一个枚举，它定义了我们将应用于 Flowable 的背压行为。它可以缓存或丢弃事件，或者根本不执行任何行为，在最后一种情况下，我们将负责使用反压运算符定义它。BackpressureStrategy 与 RxJava 先前版本中存在的 BackpressureMode 相似。
+诸如 toFlowable()或 create() 之类的某些方法采用 BackpressureStrategy 作为参数。BackpressureStrategy 是一个枚举，它定义了我们将应用于 Flowable 的背压行为。它可以缓存或丢弃事件，或者根本不执行任何行为，在最后一种情况下，我们将负责使用反压运算符定义它。BackpressureStrategy 与 RxJava 先前版本中存在的 BackpressureMode 相似。
 
 RxJava 2 提供了五种不同的策略。
 
