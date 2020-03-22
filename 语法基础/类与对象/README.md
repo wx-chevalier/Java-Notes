@@ -4,17 +4,7 @@
 
 拿一条狗来举例，它的状态有：名字、品种、颜色，行为有：叫、摇尾巴和跑。对比现实对象和软件对象，它们之间十分相似。软件对象也有状态和行为。软件对象的状态就是属性，行为通过方法体现。在软件开发中，方法操作对象内部状态的改变，对象的相互调用也是通过方法来完成。
 
-Java 作为一种面向对象语言，支持以下基本概念：
-
-- 多态
-- 继承
-- 封装
-- 抽象
-- 类
-- 对象
-- 实例
-- 方法
-- 重载
+Java 作为一种面向对象语言，支持以下基本概念：多态、继承、封装、抽象、类、对象、实例、方法、重载。
 
 # 变量
 
@@ -113,55 +103,4 @@ class Global{
         System.out.println(Variable.CONST);
     }
 }
-```
-
-# finalize() 方法
-
-Java 允许定义这样的方法，它在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize()，它用来清除回收对象。例如，你可以使用 finalize() 来确保一个对象打开的文件被关闭了。在 finalize() 方法里，你必须指定在对象销毁时候要执行的操作。
-
-finalize() 一般格式是：
-
-```java
-protected void finalize()
-{
-   // 在这里终结代码
-}
-```
-
-关键字 protected 是一个限定符，它确保 finalize() 方法不会被该类以外的代码调用。当然，Java 的内存回收可以由 JVM 来自动完成。如果你手动使用，则可以使用上面的方法。
-
-```java
-public class FinalizationDemo {
-  public static void main(String[] args) {
-    Cake c1 = new Cake(1);
-    Cake c2 = new Cake(2);
-    Cake c3 = new Cake(3);
-
-    c2 = c3 = null;
-    System.gc(); //调用Java垃圾收集器
-  }
-}
-
-class Cake extends Object {
-  private int id;
-  public Cake(int id) {
-    this.id = id;
-    System.out.println("Cake Object " + id + "is created");
-  }
-
-  protected void finalize() throws java.lang.Throwable {
-    super.finalize();
-    System.out.println("Cake Object " + id + "is disposed");
-  }
-}
-
-/**
-$ javac FinalizationDemo.java
-$ java FinalizationDemo
-Cake Object 1is created
-Cake Object 2is created
-Cake Object 3is created
-Cake Object 3is disposed
-Cake Object 2is disposed
-**/
 ```
