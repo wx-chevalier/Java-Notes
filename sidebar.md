@@ -76,9 +76,8 @@
     - [SPI](/工程实践/SPI/README.md)
       - [HSF SPI](/工程实践/SPI/HSF%20SPI.md)
       - [SPI 使用](/工程实践/SPI/SPI%20使用.md)
-    - Socket
-      - [Socket](/工程实践/Socket/Socket.md)
-      - [网络请求](/工程实践/Socket/网络请求.md)
+    - [Socket](/工程实践/Socket/README.md)
+      - [Socket 编程](/工程实践/Socket/Socket%20编程.md)
     - Swing
       - [WebView](/工程实践/Swing/WebView.md)
       - [界面基础](/工程实践/Swing/界面基础.md)
@@ -224,7 +223,7 @@
         - [类注解](/数据结构/序列化/Jackson/类注解.md)
         - [类转化](/数据结构/序列化/Jackson/类转化.md)
       - [Serialization](/数据结构/序列化/Serialization/README.md)
-        
+        - [Externalizable](/数据结构/序列化/Serialization/Externalizable.md)
       - XML
         - [XML 与 HTML 处理](/数据结构/序列化/XML/XML%20与%20HTML%20处理.md)
     - [数值类型](/数据结构/数值类型/README.md)

@@ -1,8 +1,6 @@
-
-
 # JIT
 
-JIT 是 Just-In-Time Compiliation 的缩写，中文为即时编译。就是 JAVA 在运行过程中，如果有些动态极度频繁的被执行或者不被执行，就会被自动编译成机器码，跳过其中的部分环节。Java 源码通过编译器转为平台无关的字节码（Bytecode）或 Java class 文件。在启动 Java 应用程序后，JVM 会在运行时加载编译后的类并通过 Java 解释器执行适当的语义计算。当开启 JIT 时，JVM 会分析 Java 应用程序的函数调用并且(达到内部一些阀值后)编译字节码为本地更高效的机器码，编译出的原生机器码被存储在非堆内存的代码缓存中。
+JIT 是 Just-In-Time Compiliation 的缩写，中文为即时编译。就是 Java 在运行过程中，如果有些动态极度频繁的被执行或者不被执行，就会被自动编译成机器码，跳过其中的部分环节。Java 源码通过编译器转为平台无关的字节码（Bytecode）或 Java class 文件。在启动 Java 应用程序后，JVM 会在运行时加载编译后的类并通过 Java 解释器执行适当的语义计算。当开启 JIT 时，JVM 会分析 Java 应用程序的函数调用并且(达到内部一些阀值后)编译字节码为本地更高效的机器码，编译出的原生机器码被存储在非堆内存的代码缓存中。
 
 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/4/JVM_JIT_interraction.png)
 

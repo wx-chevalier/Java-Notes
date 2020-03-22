@@ -145,7 +145,7 @@ synchronized(obj) {
 
 ## 死锁
 
-在 JAVA 5 中加强了对死锁的检测。线程 Dump 中可以直接报告出 Java 级别的死锁，如下所示：
+在 Java 5 中加强了对死锁的检测。线程 Dump 中可以直接报告出 Java 级别的死锁，如下所示：
 
 ```java
 
