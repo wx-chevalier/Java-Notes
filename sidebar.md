@@ -186,16 +186,8 @@
       - [死锁](/并发编程/锁/死锁.md)
       - [自旋锁](/并发编程/锁/自旋锁.md)
   - [数据结构](/数据结构/README.md)
-    - [Apache Common](/数据结构/Apache%20Common/README.md)
-      - [类型增强](/数据结构/Apache%20Common/类型增强.md)
-    - [Guava Collections](/数据结构/Guava%20Collections/README.md)
-      
     - [List](/数据结构/List/README.md)
       
-    - [Lombok](/数据结构/Lombok/README.md)
-      - [Utils](/数据结构/Lombok/Utils.md)
-      - [数据对象](/数据结构/Lombok/数据对象.md)
-      - [类属性](/数据结构/Lombok/类属性.md)
     - [Map](/数据结构/Map/README.md)
       - [HashMap 源码分析](/数据结构/Map/HashMap%20源码分析.md)
       - [HashMap](/数据结构/Map/HashMap.md)
@@ -217,7 +209,7 @@
       - [正则表达式](/数据结构/字符串/正则表达式.md)
     - 序列化
       - [FastJson](/数据结构/序列化/FastJson/README.md)
-        
+        - [基本使用](/数据结构/序列化/FastJson/基本使用.md)
       - [Jackson](/数据结构/序列化/Jackson/README.md)
         - [JSON Tree Model](/数据结构/序列化/Jackson/JSON%20Tree%20Model.md)
         - [类注解](/数据结构/序列化/Jackson/类注解.md)
@@ -239,6 +231,15 @@
       - [Null](/数据结构/空处理/Null.md)
       - [Optional](/数据结构/空处理/Optional.md)
       - [检查工具](/数据结构/空处理/检查工具.md)
+    - 类型扩展
+      - [Apache Common](/数据结构/类型扩展/Apache%20Common/README.md)
+        - [类型增强](/数据结构/类型扩展/Apache%20Common/类型增强.md)
+      - [Guava Collections](/数据结构/类型扩展/Guava%20Collections/README.md)
+        
+      - [Lombok](/数据结构/类型扩展/Lombok/README.md)
+        - [Utils](/数据结构/类型扩展/Lombok/Utils.md)
+        - [数据对象](/数据结构/类型扩展/Lombok/数据对象.md)
+        - [类属性](/数据结构/类型扩展/Lombok/类属性.md)
     - [集合框架](/数据结构/集合框架/README.md)
       - [集合接口](/数据结构/集合框架/集合接口.md)
       - [集合操作](/数据结构/集合框架/集合操作.md)
