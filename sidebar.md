@@ -77,6 +77,7 @@
       - [HSF SPI](/工程实践/SPI/HSF%20SPI.md)
       - [SPI 使用](/工程实践/SPI/SPI%20使用.md)
     - [Socket](/工程实践/Socket/README.md)
+      - [BIO](/工程实践/Socket/BIO.md)
       - [Socket 编程](/工程实践/Socket/Socket%20编程.md)
     - Swing
       - [WebView](/工程实践/Swing/WebView.md)
@@ -118,7 +119,6 @@
       - [异常处理与持久化](/并发编程/Akka/异常处理与持久化.md)
       - [邮箱与路由](/并发编程/Akka/邮箱与路由.md)
     - [NIO](/并发编程/NIO/README.md)
-      - [BIO 与 NIO 对比](/并发编程/NIO/BIO%20与%20NIO%20对比.md)
       - [Buffers](/并发编程/NIO/Buffers.md)
       - [Channel](/并发编程/NIO/Channel.md)
       - [HTTP](/并发编程/NIO/HTTP.md)
