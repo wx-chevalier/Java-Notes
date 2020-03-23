@@ -11,8 +11,6 @@ FileReader(String fileName)
 ```
 
 ```java
-import java.io.*;
-
 public class FileRead {
     public static void main(String args[]) throws IOException {
         File file = new File("Hello1.txt");
