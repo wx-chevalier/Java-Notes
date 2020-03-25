@@ -6,7 +6,7 @@ Java 中所谓的 Plugin 就是一个定义了一系列 Properties 与 Tasks 的
 apply plugin: 'java'
 ```
 
-Gradle 和 Maven 一样，采用了**约定优于配置**的方式对 Java project 布局，并且布局方式是和 Maven 一样的，此外，Gradle 还可以方便的自定义布局。在 Gradle 中，一般把这些目录叫做 source set：
+Gradle 和 Maven 一样，采用了约定优于配置的方式对 Java project 布局，并且布局方式是和 Maven 一样的，此外，Gradle 还可以方便的自定义布局。在 Gradle 中，一般把这些目录叫做 source set：
 
 ![gradle source set](https://s2.ax1x.com/2019/12/17/QINmpF.png)。
 

@@ -157,8 +157,6 @@ Default Cleaning!
 Default Running!
 ```
 
-# Locating tasks | 任务定位
+# 任务依赖
 
-# Task Dependence | 任务依赖
-
-# Task LifeCycle
+# 任务的生命周期
