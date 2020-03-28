@@ -133,7 +133,7 @@ public void givenBufferedReader_whensSkipChars_thenOk() throws IOException {
 }
 ```
 
-我们可以使用 mark(int readAheadLimit) 和 reset() 方法来标记流中的某些位置，然后再返回。 作为一个人为的示例，让我们使用 mark() 和 reset() 忽略流开头的所有空格：
+我们可以使用 mark(int readAheadLimit) 和 reset() 方法来标记流中的某些位置，然后再返回。作为一个人为的示例，让我们使用 mark() 和 reset() 忽略流开头的所有空格：
 
 ```java
 @Test
