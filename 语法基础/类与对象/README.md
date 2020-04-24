@@ -30,7 +30,7 @@ public class Dog {
 
 ```java
 public class  ClassName{
-    public void printNumber（）{
+    public void printNumber() {
         int a;
     }
     // 其他代码
@@ -42,7 +42,7 @@ public class  ClassName{
 ```java
 public class  ClassName{
     int a;
-    public void printNumber（）{
+    public void printNumber() {
         // 其他代码
     }
 }
@@ -53,7 +53,7 @@ public class  ClassName{
 ```java
 public class  ClassName{
     static int a;
-    public void printNumber（）{
+    public void printNumber() {
         // 其他代码
     }
 }
