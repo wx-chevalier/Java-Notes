@@ -4,6 +4,8 @@
 
 其实线程池很简单，就是搞了个池子放了一堆线程。既然我们搞线程池是为了提高效率，那就要考虑线程池放多少个线程比较合适，太多了或者太少了有什么问题，怎么拒绝多余的请求，除了异常怎么处理。首先我们来看跟线程池有关的一张类图。
 
+# ThreadFactory
+
 在 Java 中并不鼓励直接创建线程，线程资源必须通过线程池提供，不允许在应用中自行显式创建线程。使用线程池的好处是减少在创建和销毁线程上所花的时间以及系统资源的开销，解决资源不足的问题。如果不使用线程池，有可能造成系统创建大量同类线程而导致消耗完内存或者“过度切换”的问题。
 
 ```java
@@ -15,7 +17,3 @@ ExecutorService singleThreadPool = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MIL
 singleThreadPool.execute(()-> System.out.println(Thread.currentThread().getName()));
 singleThreadPool.shutdown();
 ```
-
-![](https://s2.ax1x.com/2019/09/02/nPC2c9.png)
-
-![](https://s2.ax1x.com/2019/09/02/nPCRXR.png)

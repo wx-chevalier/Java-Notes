@@ -1,6 +1,14 @@
 # Executors 详解
 
-并发 API 引入了 ExecutorService 作为一个在程序中直接使用 Thread 的高层次的替换方案。Executos 支持运行异步任务，通常管理一个线程池，这样一来我们就不需要手动去创建新的线程。在不断地处理任务的过程中，线程池内部线程将会得到复用，因此，在我们可以使用一个 Executor Service 来运行和我们想在我们整个程序中执行的一样多的并发任务。下面是使用 Executors 的第一个代码示例：
+并发 API 引入了 ExecutorService 作为一个在程序中直接使用 Thread 的高层次的替换方案。Executos 支持运行异步任务，通常管理一个线程池，这样一来我们就不需要手动去创建新的线程。在不断地处理任务的过程中，线程池内部线程将会得到复用，因此，在我们可以使用一个 Executor Service 来运行和我们想在我们整个程序中执行的一样多的并发任务。
+
+![Executor 类图](https://s2.ax1x.com/2019/09/02/nPC2c9.png)
+
+![Executor 方法图](https://s2.ax1x.com/2019/09/02/nPCRXR.png)
+
+# Hello World
+
+下面是使用 Executors 的第一个代码示例：
 
 ```java
 ExecutorService executor = Executors.newSingleThreadExecutor();
