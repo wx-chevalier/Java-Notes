@@ -96,7 +96,7 @@
       - [跨语言调用](/工程实践/系统调用/跨语言调用.md)
     - [线上调试](/工程实践/线上调试/README.md)
       - [Arthas](/工程实践/线上调试/Arthas/README.md)
-        
+        - [热更新](/工程实践/线上调试/Arthas/热更新.md)
       - [JProfiler](/工程实践/线上调试/JProfiler/README.md)
         
       - [MAT](/工程实践/线上调试/MAT/README.md)
