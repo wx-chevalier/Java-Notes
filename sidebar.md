@@ -186,6 +186,7 @@
       - [synchronized](/并发编程/锁/synchronized.md)
       - [死锁](/并发编程/锁/死锁.md)
       - [自旋锁](/并发编程/锁/自旋锁.md)
+      - [锁的分类](/并发编程/锁/锁的分类.md)
   - [数据结构](/数据结构/README.md)
     - [List](/数据结构/List/README.md)
       
