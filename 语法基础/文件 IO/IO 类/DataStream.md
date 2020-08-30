@@ -1,6 +1,6 @@
 # Data
 
-## DataInputStream
+# DataInputStream
 
 数据输入流允许应用程序以与机器无关方式从底层输入流中读取基本 Java 数据类型。下面的构造方法用来创建数据输入流对象。
 
