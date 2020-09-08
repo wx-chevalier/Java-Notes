@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ffe431c3-1df2-443f-bb03-3486555fd3f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../akka-agent/src/main/java/wx/akka/AkkaAgentExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/.flowconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/__mock__/fileMock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/__mock__/styleMock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/apps.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/server/dev.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/server/devServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/server/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/server/template.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/tool/.babelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/tool/eslint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/tool/render.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/webpack.dll.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/webpack.server.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/webpack/loaders.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/webpack/plugins.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/dev-config/webpack/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/src/client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/src/container/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../admin-ui/src/ssr_server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/Caddyfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/scripts/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/scripts/push.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/scripts/start.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/transparentProxy.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/vhosts/manual" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/gateway/vhosts/transparentProxies" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/static-curl/Caddyfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/static-curl/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/static-curl/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/static-curl/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/static-with-build/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/caddy/static-with-build/deploy.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/compose/python-redis/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/compose/python-redis/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/compose/python-redis/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/compose/python-redis/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/compose/python-redis/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/filebeat/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/filebeat/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/filebeat/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/filebeat/docker-entrypoint.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/filebeat/filebeat.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/ha/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/local/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/swarm-ha/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/swarm-ha/logstash/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/swarm-ha/logstash/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/swarm-ha/logstash/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/elk/swarm-ha/logstash/logstash.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/go/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/go/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/go/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/java/jar/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/java/jar/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/java/jar/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/java/maven/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/java/maven/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/mysql/mysql-backup/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/mysql/mysql-backup/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/mysql/mysql-backup/init.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/node/pm2/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/node/pm2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/node/pm2/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-launcher/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-launcher/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-launcher/presto-launcher.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-launcher/scripts/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-launcher/scripts/push.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-launcher/scripts/start.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-server/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-server/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-server/scripts/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-server/scripts/push.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/presto/presto-server/scripts/start.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/prometheus/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/prometheus/local/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/prometheus/swarm/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/basic/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/basic/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/basic/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/pipenv/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/pipenv/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/pipenv/Pipfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/pipenv/Pipfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/pipenv/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/python/pipenv/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/redis/local/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/sentry/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/sentry/demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/sentry/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/serverless/faas/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/docker/serverless/faas/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/k8s/offline-install.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/linux-scripts/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/linux-scripts/cleanup/clear-log.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../infra/linux-scripts/security/basic.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-cluster/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-cluster/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-cluster/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-cluster/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-distributed-data/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-distributed-data/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-distributed-data/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-distributed-data/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-fsm/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-fsm/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-fsm/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-fsm/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-future/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-future/src/main/java/wx/akka/future/AkkaFutureApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../akka-future/src/main/java/wx/akka/future/AkkaFutureApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence-dc/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence-dc/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../akka-persistence/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence/src/main/java/sample/persistence/PersistentActorExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/../akka-persistence/src/main/java/wx/akka/PersistentActorExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence/src/main/java/sample/persistence/PersistentActorFailureExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/../akka-persistence/src/main/java/wx/akka/PersistentActorFailureExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-persistence/src/main/java/sample/persistence/SnapshotExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/../akka-persistence/src/main/java/wx/akka/SnapshotExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-router/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-router/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-router/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-router/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-sharding/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-sharding/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-sharding/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-sharding/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-spring-boot/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-supervision/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-supervision/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-supervision/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-supervision/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-websocket/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../akka-websocket/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../akka-websocket/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../play/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot/gradle-multiple-modules/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot/gradle-multiple-modules/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot/gradle-multiple-modules/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot/gradle-multiple-modules/build.gradle" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1758998439">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="1" />
+          <entry key="java" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/hello/HelloWorld.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/hello/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/hello/Greeter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/typesafe/akka/akka-actor_2.12/2.5.16/akka-actor_2.12-2.5.16.jar!/akka/actor/TypedActor.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="akka-start" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="akka-start" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="akka-start" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="akka-start" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="akka-start" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="akka-start" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="hello" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="akka-start" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="akka-start" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.typesafe.akka:akka-actor_2.12:2.5.16" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.typesafe.akka:akka-actor_2.12:2.5.16" type="70bed36:NamedLibraryElementNode" />
+              <item name="akka-actor_2.12-2.5.16.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.typesafe.akka:akka-actor_2.12:2.5.16" type="70bed36:NamedLibraryElementNode" />
+              <item name="akka-actor_2.12-2.5.16.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="akka" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="akka-sample-main-java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.typesafe.akka:akka-actor_2.12:2.5.16" type="70bed36:NamedLibraryElementNode" />
+              <item name="akka-actor_2.12-2.5.16.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="akka" type="462c0819:PsiDirectoryNode" />
+              <item name="actor" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541580906835" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ffe431c3-1df2-443f-bb03-3486555fd3f2" name="Default Changelist" comment="" />
+      <created>1541580768036</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541580768036</updated>
+      <workItem from="1541580771443" duration="151000" />
+      <workItem from="1541582103937" duration="291000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="442000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3390558" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Cargo" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/hello/HelloWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/hello/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/hello/Greeter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/typesafe/akka/akka-actor_2.12/2.5.16/akka-actor_2.12-2.5.16.jar!/akka/actor/TypedActor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
