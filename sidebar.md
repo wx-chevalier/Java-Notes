@@ -207,13 +207,13 @@
       - [ConcurrentMap](/并发编程/并发容器/ConcurrentMap.md)
       - [ConcurrentSkipListMap](/并发编程/并发容器/ConcurrentSkipListMap.md)
       - [CopyOnWrite](/并发编程/并发容器/CopyOnWrite.md)
-      - [ThreadLocal](/并发编程/并发容器/ThreadLocal.md)
       - [原子变量](/并发编程/并发容器/原子变量.md)
     - 异步模式
       - [Callable 与 Future](/并发编程/异步模式/Callable%20与%20Future.md)
       - [CompletableFuture](/并发编程/异步模式/CompletableFuture.md)
     - [线程](/并发编程/线程/README.md)
       - [Thread 与 Runnable](/并发编程/线程/Thread%20与%20Runnable.md)
+      - [ThreadLocal](/并发编程/线程/ThreadLocal.md)
       - [定时器](/并发编程/线程/定时器.md)
       - [生命周期](/并发编程/线程/生命周期.md)
     - 线程同步
