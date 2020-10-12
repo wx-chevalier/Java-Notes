@@ -1,0 +1,17 @@
+image: docker:git
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+test & build & publish:
+  stage: build
+  image: docker:git
+  services:
+    - name: docker:dind
+  before_script:
+    - docker info
+    - docker login ${DOCKER_REGISTRY_SERVER} -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASSWORD}
+  script:
+    - docker build -t ignoreimage:ingored buildscripts/docker/Dockerfile-gitlab
+  only:
+    - master
