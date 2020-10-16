@@ -11,6 +11,6 @@ $ jstack $pid | grep java.lang.Thread.State:|sort|uniq -c | awk '{sum+=$1; split
 $ show-busy-java-threads
 ```
 
-# 链接
+# TBD
 
 - https://mp.weixin.qq.com/s/N1rJkE3HA8mJYdqK4tSMEw

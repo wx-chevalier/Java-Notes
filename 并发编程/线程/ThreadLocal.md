@@ -137,7 +137,7 @@ public static String formatDate(Date date) {
 
 不过 ThreadLocal 有一定的内存泄露的风险，尽量在业务代码结束前调用 remove 函数进行数据清除。
 
-# 链接
+# TBD
 
 - https://mp.weixin.qq.com/s/6RlOtw78ALEN7UVUX8FoDg
 - https://www.zhihu.com/question/341005993/answer/793627819

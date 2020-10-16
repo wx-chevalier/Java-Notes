@@ -137,7 +137,7 @@ ReactiveX 的每种编程语言的实现都实现了一组操作符的集合。�
 
 Rx 最大的特征之一就是无法预测何时会有数据发射。有些 Observable 会同步的即可发射所有的数据，比如 range，有些按照一定的时间间隔发射数据、有些根本无法确定到底何时发射数据。例如，鼠标移动时事件和 UDP 数据包到达的时刻。我们需要合适的工具来处理这些无法确定何时发射的事件。
 
-# 链接
+# TBD
 
 - https://mcxiaoke.gitbooks.io/rxdocs/content/Operators.html
 

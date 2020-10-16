@@ -169,6 +169,6 @@ readObject() 方法中的 try/catch 代码块尝试捕获 ClassNotFoundException
 
 这是因为，在进行反序列化时，JVM 会把传来的字节流中的 serialVersionUID 与本地相应实体类的 serialVersionUID 进行比较，如果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常，即是 InvalidCastException。
 
-# 链接
+# TBD
 
 - [《成神之路-基础篇》Java 基础知识——序列化(已完结)](http://www.hollischuang.com/archives/1158)

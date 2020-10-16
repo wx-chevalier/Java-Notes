@@ -18,6 +18,6 @@ ServiceLoader 缺少一些有用的特性：
 
 - 作用域缺失，没有定义 singleton 和 prototype 的定义，不利于用户进行自由定制。
 
-# 链接
+# TBD
 
 - https://cxis.me/2017/04/17/Java%E4%B8%ADSPI%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%85%A5%E5%8F%8A%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/

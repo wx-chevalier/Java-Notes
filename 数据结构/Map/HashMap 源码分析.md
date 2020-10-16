@@ -58,7 +58,7 @@ public V get(Object key) {
 
 所以在 hashmap 进行 get 操作时，因为得到的 hashcdoe 值不同(注意，上述代码也许在某些情况下会得到相同的 hashcode 值，不过 这种概率比较小，因为虽然两个对象的存储地址不同也有可能得到相同的 hashcode 值)，所以导致在 get 方法中 for 循环不会执行，直接返回 null。
 
-# 链接
+# TBD
 
 - [hashmap-changes-in-java-8/](https://examples.javacodegeeks.com/core-java/util/hashmap/hashmap-changes-in-java-8/)
 

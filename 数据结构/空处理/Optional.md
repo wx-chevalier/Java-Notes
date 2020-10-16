@@ -12,7 +12,7 @@ optional.orElse("fallback");    // "bam"
 optional.ifPresent((s) -> System.out.println(s.charAt(0)));     // "b"
 ```
 
-# 链接
+# TBD
 
 - [Java 8 Optional 类深度解析](http://www.importnew.com/6675.html)
 - [Optional Improvements in Java 9](http://iteratrlearning.com/java9/2016/09/05/java9-optional.html)

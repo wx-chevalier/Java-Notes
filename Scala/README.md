@@ -10,6 +10,6 @@ Scala 是运行在 Java 虚拟机 (Java Virtual Machine)之上，轻松实现和
 
 - 良好并发机制：Scala 把 Erlang 风格的基于 actor 的并发带进了 JVM。开发者可以利用 Scala 的 actor 模型在 JVM 上设计具伸缩性的并发应用程序，它会自动获得多核心处理器带来的优势，而不必依照复杂的 Java 线程模型来编写程序。
 
-# 链接
+# TBD
 
 - https://blog.csdn.net/yuan_xw/article/details/49796183

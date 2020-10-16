@@ -14,6 +14,6 @@ GC（垃圾回收，下同）的各项指标，是衡量 Java 进程内存使用
 
 此外，通过配置 GC 参数，可以帮助我们获取很多 GC 调优所需的关键信息，如配置-XX:+PrintGCApplicationStoppedTime-XX:+PrintSafepointStatistics-XX:+PrintTenuringDistribution，分别可以获取 GC Pause 分布、安全点耗时统计、对象晋升年龄分布的信息，加上 -XX:+PrintFlagsFinal 可以让我们了解最终生效的 GC 参数等。
 
-# 链接
+# TBD
 
 - https://zhuanlan.zhihu.com/p/84203026

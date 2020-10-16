@@ -161,6 +161,6 @@ Java 语言规范要求相同的(即包含相同序列的 Unicode 指针序列)�
 Hotspot JVM 中 interned 字符串保存在字符串表中。字符串表是一个哈希表，保存着对象指针到符号的映射关系(也就是`Hashtable<oop, Symbol>`)，它被保存到永久代中。符号表和字符串表的实体都以规范的格式保存，保证每个实体都只出现一次。
 当类加载时，字符串字面量被编译器自动 intern 并加入到符号表。除此之外，String 类的实例可以调用 String.intern() 显式地 intern。当调用 String.intern() 方法时，如果符号表已经包含了这个字符串，那么就会返回符号表里的这个引用，如果不是，那么这个字符串就被加入到字符串表中同时返回这个引用。
 
-# 链接
+# TBD
 
 - [Java 8: From PermGen to Metaspace](https://dzone.com/articles/java-8-permgen-metaspace)

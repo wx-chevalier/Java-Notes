@@ -40,6 +40,6 @@ public class Test implements Runnable {
 }
 ```
 
-# 链接
+# TBD
 
 - [Java 中的 ReentrantLock 和 synchronized 两种锁定机制的对比](http://my.eoe.cn/niunaixiaoshu/archive/5227.html)
