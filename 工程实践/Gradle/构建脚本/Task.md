@@ -1,7 +1,6 @@
 # Gradle 中 Task 详解
 
-Gradle 的 Project 从本质上说只是含有多个 Task 的容器，一个 Task 与 Ant 的 Target 相似，表示一个逻辑上的执行单元。
-让我们来看看 Gradle API 中任务的表示：org.gradle.api.Task 接口。
+Gradle 的 Project 从本质上说只是含有多个 Task 的容器，一个 Task 与 Ant 的 Target 相似，表示一个逻辑上的执行单元。让我们来看看 Gradle API 中任务的表示：org.gradle.api.Task 接口。
 
 ![](https://lippiouyang.gitbooks.io/gradle-in-action-cn/content/images/dag25.png)
 
