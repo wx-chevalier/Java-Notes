@@ -39,11 +39,6 @@
       
     - [类与对象](/Scala/类与对象/README.md)
       
-  - [boilerplates](/boilerplates/README.md)
-    - [gradle app](/boilerplates/gradle-app/README.md)
-      
-    - [maven app](/boilerplates/maven-app/README.md)
-      
   - [examples](/examples/README.md)
     - [concurrency](/examples/concurrency/README.md)
       - akka
@@ -94,6 +89,10 @@
       - junit
         - [assumptions](/examples/dev/junit/assumptions/README.md)
           
+    - [gradle app](/examples/gradle-app/README.md)
+      
+    - [maven app](/examples/maven-app/README.md)
+      
   - 工程实践
     - [Gradle](/工程实践/Gradle/README.md)
       - Java 实践
@@ -307,6 +306,8 @@
       - [集合接口](/数据结构/集合框架/集合接口.md)
       - [集合操作](/数据结构/集合框架/集合操作.md)
       - [集合转换](/数据结构/集合框架/集合转换.md)
+  - [设计模式](/设计模式/README.md)
+    
   - [语法基础](/语法基础/README.md)
     - 函数式编程
       - [Lambda](/语法基础/函数式编程/Lambda.md)
