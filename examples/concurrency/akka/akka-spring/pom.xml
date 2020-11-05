@@ -43,7 +43,7 @@
 
     <properties>
         <spring.version>4.3.4.RELEASE</spring.version>
-        <akka.version>2.4.14</akka.version>
+        <akka.version>2.4.17</akka.version>
     </properties>
 
 </project>
