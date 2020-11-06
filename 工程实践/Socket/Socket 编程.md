@@ -36,7 +36,7 @@ public class GreetingClient
       int port = Integer.parseInt(args[1]);
       try
       {
-         System.out.println("连接到主机：" + serverName + " ，端口号：" + port);
+         System.out.println("连接到主机：" + serverName + "，端口号：" + port);
          Socket client = new Socket(serverName, port);
          System.out.println("远程主机地址：" + client.getRemoteSocketAddress());
          OutputStream outToServer = client.getOutputStream();
