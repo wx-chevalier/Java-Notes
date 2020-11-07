@@ -1,6 +1,6 @@
 # JVM 架构机制与性能调优
 
-![](https://i.postimg.cc/5y6dPrbD/image.png)
+![JVM Class 文件从解析到执行](https://s1.ax1x.com/2020/11/07/B44OUS.png)
 
 # TBD
 
