@@ -21,13 +21,14 @@
         
       - [G1](/JVM/垃圾回收/G1/README.md)
         
-      - [JVM GarbageCollection](/JVM/垃圾回收/JVM-GarbageCollection.md)
       - [ZGC](/JVM/垃圾回收/ZGC/README.md)
         
       - 基本概念
+        - [垃圾回收器分类](/JVM/垃圾回收/基本概念/垃圾回收器分类.md)
         - [垃圾回收器对比](/JVM/垃圾回收/基本概念/垃圾回收器对比.md)
         - [对象存活性判断](/JVM/垃圾回收/基本概念/对象存活性判断.md)
         - [引用类型](/JVM/垃圾回收/基本概念/引用类型.md)
+        - [通用垃圾回收算法](/JVM/垃圾回收/基本概念/通用垃圾回收算法.md)
     - [程序编译](/JVM/程序编译/README.md)
       - [JIT](/JVM/程序编译/JIT/README.md)
         
