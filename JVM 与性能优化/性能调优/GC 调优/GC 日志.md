@@ -2,7 +2,7 @@
 
 ![Young GC 日志条目明细](https://s1.ax1x.com/2020/11/11/BXGVFs.png)
 
-![Full GC 日志条目明细](https://s1.ax1x.com/2020/11/11/BXGlmF.md.png)
+![Full GC 日志条目明细](https://s1.ax1x.com/2020/11/11/BXGlmF.png)
 
 # CMS GC 日志详细分析
 
