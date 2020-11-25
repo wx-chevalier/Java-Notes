@@ -98,6 +98,67 @@ public void givenBadCode_whenTryHandles_thenCorrect3() {
 }
 ```
 
+## Try 异常处理
+
+Vavr 库给我们提供了一个特殊的容器，它表示一个可能导致异常或成功完成的计算。将操作封装在 Try 对象中，我们得到的结果要么是 Success，要么是 Failure。然后我们可以根据这个类型执行进一步的操作。
+
+```java
+public class VavrTry {
+    private HttpClient httpClient;
+
+    public Try<Response> getResponse() {
+        return Try.of(httpClient::call);
+    }
+
+    // standard constructors
+}
+```
+
+需要注意的是一个返回类型为 `Try<Response>` 的方法。当一个方法返回这样的结果类型时，我们需要正确处理，并且要记住，这个结果类型可能是 Success 或 Failure，所以我们需要在编译时明确处理。
+
+### 处理成功的结果
+
+让我们写一个测试用例，在 httpClient 返回成功结果的情况下使用我们的 Vavr 类。方法 getResponse()返回的是 `Try<Resposne>` 对象。因此我们可以调用 map() 方法，只有当 Try 为 Success 类型时，才会对 Response 执行操作。
+
+```java
+@Test
+public void givenHttpClient_whenMakeACall_shouldReturnSuccess() {
+    // given
+    Integer defaultChainedResult = 1;
+    String id = "a";
+    HttpClient httpClient = () -> new Response(id);
+
+    // when
+    Try<Response> response = new VavrTry(httpClient).getResponse();
+    Integer chainedResult = response
+      .map(this::actionThatTakesResponse)
+      .getOrElse(defaultChainedResult);
+    Stream<String> stream = response.toStream().map(it -> it.id);
+
+    // then
+    assertTrue(!stream.isEmpty());
+    assertTrue(response.isSuccess());
+    response.onSuccess(r -> assertEquals(id, r.id));
+    response.andThen(r -> assertEquals(id, r.id));
+
+    assertNotEquals(defaultChainedResult, chainedResult);
+}
+```
+
+函数 actionThatTakesResponse()只是简单地将 Response 作为参数，并返回一个 id 字段的 hashCode。
+
+```java
+public int actionThatTakesResponse(Response response) {
+    return response.id.hashCode();
+}
+```
+
+如果 Try 里面有 Success，它就返回 Try 的值，否则就返回 defaultChainedResult。我们的 httpClient 执行成功，因此 isSuccess 方法返回 true。然后我们可以执行 onSuccess()方法，对 Response 对象进行操作。Try 也有一个方法 andThen，当 Try 的值是 Success 时，它就会接受一个 Consumer 来消费这个值。
+
+我们可以把我们的 Try 响应当作一个流。要做到这一点，我们需要使用 toStream()方法将其转换为一个 Stream，然后所有在 Stream 类中可用的操作都可以用来对该结果进行操作。
+
+如果我们想在 Try 类型上执行一个操作，我们可以使用 transform()方法，将 Try 作为一个参数，并对其进行操作，而不需要拆开封闭的值。
+
 # Lazy
 
 Lazy 是一个容器，它代表了一个懒惰计算的值，即计算被推迟到需要结果的时候。此外，被评估的值会被缓存或记忆，并在每次需要时再次返回，而不需要重复计算。
