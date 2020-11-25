@@ -1,0 +1,146 @@
+{{- $fullName := include "ufc-be.fullname" . -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "ufc-be.labels" . | nindent 4 }}
+data:
+  config.yaml: |-
+    server:
+      port: {{ .Values.serverPort }}
+
+    ## Spring properties
+    spring:
+      servlet:
+        multipart:
+          max-file-size: {{ .Values.localFileStore.maxFileSize }}
+          max-request-size: {{ .Values.localFileStore.maxFileSize }}
+
+      datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        {{- if .Values.mysql.enabled }}
+        url: jdbc:mysql://{{ $fullName }}-mysql:{{ .Values.mysql.service.port | default 3306 }}/{{ .Values.mysql.mysqlDatabase }}{{- if .Values.mysql.extralJdbcArgs }}{{- printf "?%s" .Values.mysql.extralJdbcArgs -}}{{- end }}
+        username: {{ .Values.mysql.mysqlUser }}
+        {{- else }}
+        url: {{ .Values.externalMySql.url }}
+        username: {{ .Values.externalMySql.username }}
+        {{- end }}
+        password: ${MYSQL_PASSWORD}
+
+      devtools:
+        add-properties: true
+
+      rabbitmq:
+        {{- if .Values.rabbitmq.enabled }}
+        host: {{ $fullName }}-rabbitmq
+        port: {{ .Values.rabbitmq.service.port | default 5672 }}
+        username: {{ .Values.rabbitmq.rabbitmq.username }}
+        {{- else }}
+        host: {{ .Values.externalRabbitMq.host }}
+        port: {{ .Values.externalRabbitMq.port }}
+        username: {{ .Values.externalRabbitMq.username }}
+        {{- end }}
+        virtual-host: {{ .Values.rabbitMqVirtualHost }}
+        password: ${RABBITMQ_PASSWORD}
+
+    features:
+      test-controller: {{ .Values.features.testController }}
+
+    ## Application properties
+    application:
+      domain:
+        inter-process:
+          enabled: {{ .Values.domain.interProcess.enabled }}
+
+      file-store:
+        path: {{ .Values.localFileStore.savePath }}
+        base-url: {{ .Values.localFileStore.endpoint }}
+
+      security:
+        jwt:
+          secret: ${JWT_SECRET}
+          expirationSec: {{ .Values.jwt.expirationSec }}
+
+      cors:
+        allowCredentials: true
+        allowedOrigins: ['*']
+        allowedMethods: ['*']
+        allowedHeaders: ['*']
+
+      {{- if .Values.tsdb.enabled }}
+      tsdb:
+        host: {{ .Values.tsdb.host }}
+        port: {{ .Values.tsdb.port }}
+      {{- end }}
+
+      {{- if .Values.redis.enabled }}
+      redis:
+        host: {{ .Values.redis.host }}
+        port: {{ .Values.redis.port }}
+        database: {{ .Values.redis.database }}
+        password: ${REDIS_PASSWORD}
+      {{- end }}
+
+      mail:
+        host: {{ .Values.mail.host }}
+        port: {{ .Values.mail.port }}
+        username: {{ .Values.mail.username }}
+        password: ${MAIL_PASSWORD}
+
+      oss:
+        access-key-id: ${OSS_ACCESS_KEY_ID}
+        access-key-secret: ${OSS_ACCESS_KEY_SECRET}
+        endpoint: {{ .Values.oss.endpoint }}
+        bucket-name: {{ .Values.oss.bucketName }}
+        expiration: {{ .Values.oss.expiration }}
+        max-size: {{ .Values.oss.maxSize }}
+        callback-url: {{ .Values.oss.callbackUrl }}
+
+      dingTalk:
+        enabled: {{ .Values.dingTalk.enabled }}
+        {{- if .Values.dingTalk.enabled }}
+        serverUrl: {{ .Values.dingTalk.serverUrl }}
+        signature: ${DING_TALK_SIGNATURE}
+        {{- end }}
+
+      sms:
+        region-id: {{ .Values.sms.regionId }}
+        sign-name: {{ .Values.sms.signName }}
+        access-key-id: ${SMS_ACCESS_KEY_ID}
+        access-key-secret: ${SMS_ACCESS_KEY_SECRET}
+
+      time-series:
+        max-ts-intervals: 700
+        insert-executor-type: FIXED
+        insert-fixed-thread-pool-size: 10
+
+      mqtt:
+        {{- if and .Values.rabbitmq.enabled .Values.rabbitmq.mqtt.enabled }}
+        username: {{ .Values.rabbitmq.mqtt.username }}
+        broker-host: {{ $fullName }}-rabbitmq
+        broker-port: {{ .Values.rabbitmq.mqtt.port }}
+        {{- else }}
+        username: {{ .Values.externalMqtt.username }}
+        broker-host: {{ .Values.externalMqtt.brokerHost }}
+        broker-port: {{ .Values.externalMqtt.brokerPort }}
+        {{- end }}
+        password: ${MQTT_PASSWORD}
+        max-bytes-in-message: {{ .Values.mqttMaxBytesInMessage }}
+        reconnect: {{ .Values.mqttReconnect }}
+
+      gexin:
+        app-id: {{ .Values.gexin.appId }}
+        app-key: ${GEXIN_APP_KEY}
+        app-secret: ${GEXIN_APP_SECRET}
+        master-secret: ${GEXIN_MASTER_SECRET}
+
+      wechat:
+        app-id: {{ .Values.wechat.appId }}
+        token: ${WECHAT_TOKEN}
+        app-secret: ${WECHAT_APP_SECRET}
+      wechatwork:
+        key: ${WECHAT_WORK_KEY_SECRET}
+      wechatPC:
+        app-id: {{ .Values.wechatPC.appId }}
+        app-secret: ${WECHAT_PC_SECRET}

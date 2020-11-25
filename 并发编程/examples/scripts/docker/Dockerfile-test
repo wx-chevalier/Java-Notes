@@ -1,0 +1,11 @@
+FROM registry.biz.com/openjdk:8-jdk-slim as builder
+
+# 根据 wrapper 下载 gradle
+WORKDIR /home/gradle/src
+COPY gradlew /home/gradle/src/gradlew
+COPY gradle/wrapper /home/gradle/src/gradle/wrapper
+RUN ./gradlew --version
+
+COPY . /home/gradle/src
+
+RUN ./gradlew clean spotlessCheck test

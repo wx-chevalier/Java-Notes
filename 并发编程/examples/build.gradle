@@ -1,0 +1,118 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+    }
+    dependencies {
+        classpath 'com.diffplug.spotless:spotless-plugin-gradle:4.1.0'
+        classpath 'gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.2.4'
+    }
+}
+
+plugins {
+    id "com.google.cloud.tools.jib" version '2.6.0' apply false
+    id "com.github.johnrengelman.shadow" version "5.2.0" apply false
+}
+
+subprojects {
+    apply plugin: "java"
+    // api configuration support
+    apply plugin: "java-library"
+    apply plugin: "idea"
+    apply plugin: "com.github.spotbugs"
+    apply plugin: "com.diffplug.gradle.spotless"
+
+    group = 'cn.msjc'
+    version = '0.0.1'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/spring/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+        maven { url 'https://plugins.gradle.org/m2/' }
+
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        api "io.vavr:vavr:${vavrVersion}"
+        api "io.vavr:vavr-jackson:${vavrVersion}"
+        implementation "cn.hutool:hutool-all:${hutoolVersion}"
+        implementation "com.google.guava:guava:${guavaVersion}"
+
+        implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+        // works with lombok.config: lombok.extern.findbugs.addSuppressFBWarnings
+        implementation "com.google.code.findbugs:annotations:${findbugsAnnotationVersion}"
+
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${jupiterVersion}"
+        testImplementation "org.junit.jupiter:junit-jupiter-params:${jupiterVersion}"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}"
+        testImplementation "org.hamcrest:hamcrest-library:${hamcrestLibraryVersion}"
+
+        compileOnly "org.jetbrains:annotations:${jetbrainsAnnotationVersion}"
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+        testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+        testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    }
+
+    // Disable JavaDoc doclint on Java 8. It's annoying.
+    if (JavaVersion.current().isJava8Compatible()) {
+        allprojects {
+            tasks.withType(Javadoc) {
+                options.addStringOption('Xdoclint:none', '-quiet')
+            }
+        }
+    }
+
+    spotbugs {
+        excludeFilter = file("$rootDir/scripts/config/spotbugs-exclude-filter.xml")
+    }
+
+    spotbugsMain {
+        reports {
+            html {
+                enabled = true
+            }
+        }
+    }
+
+    spotbugsTest {
+        reports {
+            html {
+                enabled = true
+            }
+        }
+    }
+
+    spotless {
+        format 'misc', {
+            target '**/*.gradle', '**/.gitignore'
+
+            trimTrailingWhitespace()
+            endWithNewline()
+        }
+
+        java {
+            removeUnusedImports()
+            trimTrailingWhitespace()
+            importOrder 'static java', 'static javax', 'static ', 'java', 'javax', ''
+            googleJavaFormat()
+        }
+
+        freshmark {
+            target '**/*.md'
+        }
+    }
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+}

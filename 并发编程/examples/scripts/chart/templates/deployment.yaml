@@ -1,0 +1,228 @@
+{{- $fullName := include "ufc-be.fullname" . -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "ufc-be.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "ufc-be.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "ufc-be.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "ufc-be.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        {{- if .Values.mysql.enabled }}
+        - name: check-mysql-ready
+          image: {{ .Values.mysql.image | default "mysql" }}:{{ .Values.mysql.imageTag | default "8" }}
+          command: ['sh', '-c',
+                    'until mysqladmin --connect-timeout 2 ping -h{{ $fullName }}-mysql -P{{ .Values.mysql.service.port | default 3306 }} -u{{ .Values.mysql.mysqlUser }} -p$MYSQL_PASSWORD | grep "mysqld is alive"; do echo waiting for mysql; sleep 2; done;']
+          env:
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  {{- if .Values.mysql.enabled }}
+                  name: {{ $fullName }}-mysql
+                  {{- else }}
+                  name: {{ $fullName }}
+                  {{- end }}
+                  key: mysql-password
+        {{- end }}
+        {{- if .Values.rabbitmq.enabled }}
+        - name: check-rabbitmq-ready
+          image: {{ .Values.rabbitmq.image.registry | default "docker.io" }}/{{ .Values.rabbitmq.image.repository | default "bitnami/rabbitmq" }}:{{ .Values.rabbitmq.image.tag | default "3.8.2-debian-9-r31" }}
+          command: ['sh', '-c',
+                    'echo waiting for rabbitmq; until curl --max-time 2 "http://{{ .Values.rabbitmq.rabbitmq.username }}:$RABBITMQ_PASSWORD@{{ $fullName }}-rabbitmq:15672/api/healthchecks/node" | grep "{\"status\":\"ok\"}"; do
+            echo waiting for rabbitmq; sleep 2; done;']
+          env:
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  {{- if .Values.rabbitmq.enabled }}
+                  name: {{ $fullName }}-rabbitmq
+                  {{- else }}
+                  name: {{ $fullName }}
+                  {{- end }}
+                  key: rabbitmq-password
+        {{- end }}
+
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - java
+            - -Duser.timezone={{ .Values.serverTimezone }}
+            - -javaagent:/app/ArmsAgent/arms-bootstrap-1.7.0-SNAPSHOT.jar
+            - -Darms.licenseKey={{ .Values.arms.licenseKey }}
+            - -Darms.appName={{ .Values.arms.appName }}
+            - -jar
+            - ufc-api.jar
+            - --spring.config.location=/etc/ufc/config.yaml
+          ports:
+            - name: http
+              # see secret.yaml server.port
+              containerPort: {{ .Values.serverPort }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: app-conf
+              mountPath: "/etc/ufc"
+              readOnly: true
+            - name: ufc-local-file-storage
+              mountPath: {{ .Values.localFileStore.savePath }}
+          env:
+            {{- if .Values.deployAt }}
+            - name: DEPLOY_AT
+              value: {{ .Values.deployAt }}
+            {{- end }}
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  {{- if .Values.mysql.enabled }}
+                  name: {{ $fullName }}-mysql
+                  {{- else }}
+                  name: {{ $fullName }}
+                  {{- end }}
+                  key: mysql-password
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  {{- if .Values.rabbitmq.enabled }}
+                  name: {{ $fullName }}-rabbitmq
+                  {{- else }}
+                  name: {{ $fullName }}
+                  {{- end }}
+                  key: rabbitmq-password
+            - name: MQTT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: mqtt-password
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: jwt-secret
+            - name: OSS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: oss-access-key-id
+            - name: OSS_ACCESS_KEY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: oss-access-key-secret
+            - name: MAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: mail-password
+            - name: SMS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: sms-access-key-id
+            - name: SMS_ACCESS_KEY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: sms-access-key-secret
+            - name: WECHAT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: wechat-token
+            - name: WECHAT_APP_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: wechat-app-secret
+            - name: WECHAT_PC_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: wechat-pc-secret
+            - name: GEXIN_APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: gexin-app-key
+            - name: GEXIN_APP_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: gexin-app-secret
+            - name: GEXIN_MASTER_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: gexin-master-secret
+            - name: WECHAT_WORK_KEY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: wechat-work-key-secret
+            {{- if .Values.dingTalk.enabled }}
+            - name: DING_TALK_SIGNATURE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: ding-talk-signature
+            {{- end }}
+            {{- if .Values.redis.enabled }}
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: redis-password
+            {{- end }}
+            - name: ARMS_LICENSE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}
+                  key: arms-license-key
+          startupProbe:
+            httpGet:
+              path: /swagger-resources
+              port: http
+            failureThreshold: 30
+            periodSeconds: 10
+      volumes:
+        - name: app-conf
+          configMap:
+            name: {{ $fullName }}
+        - name: ufc-local-file-storage
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default $fullName }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

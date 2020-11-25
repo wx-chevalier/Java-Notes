@@ -1,0 +1,11 @@
+FROM openjdk:8-jre-slim
+ENV TZ Asia/Shanghai
+EXPOSE 8080
+COPY scripts/docker/agent/agent.tar.gz /app/agent.tar.gz
+COPY ufc/ufc-api/build/libs/ufc-api-*.jar /app/ufc-api.jar
+RUN tar -zxvf /app/agent.tar.gz -C /app
+WORKDIR /app
+CMD java -jar ufc-api.jar \
+    -javaagent:/app/ArmsAgent/arms-bootstrap-1.7.0-SNAPSHOT.jar \
+    -Darms.licenseKey=${ARMS_LICENSE_KEY} \
+    -Darms.appName=ufc-be

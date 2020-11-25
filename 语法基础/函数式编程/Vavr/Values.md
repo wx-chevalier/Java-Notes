@@ -153,11 +153,14 @@ public int actionThatTakesResponse(Response response) {
 }
 ```
 
-如果 Try 里面有 Success，它就返回 Try 的值，否则就返回 defaultChainedResult。我们的 httpClient 执行成功，因此 isSuccess 方法返回 true。然后我们可以执行 onSuccess()方法，对 Response 对象进行操作。Try 也有一个方法 andThen，当 Try 的值是 Success 时，它就会接受一个 Consumer 来消费这个值。
+如果 Try 里面有 Success，它就返回 Try 的值，否则就返回 defaultChainedResult。我们的 httpClient 执行成功，因此 isSuccess 方法返回 true。然后我们可以执行 onSuccess()方法，对 Response 对象进行操作。Try 也有一个方法 andThen，当 Try 的值是 Success 时，它就会接受一个 Consumer 来消费这个值。我们可以把我们的 Try 响应当作一个流。要做到这一点，我们需要使用 toStream()方法将其转换为一个 Stream，然后所有在 Stream 类中可用的操作都可以用来对该结果进行操作。如果我们想在 Try 类型上执行一个操作，我们可以使用 transform() 方法，将 Try 作为一个参数，并对其进行操作，而不需要拆开封闭的值。
 
-我们可以把我们的 Try 响应当作一个流。要做到这一点，我们需要使用 toStream()方法将其转换为一个 Stream，然后所有在 Stream 类中可用的操作都可以用来对该结果进行操作。
-
-如果我们想在 Try 类型上执行一个操作，我们可以使用 transform()方法，将 Try 作为一个参数，并对其进行操作，而不需要拆开封闭的值。
+```java
+public int actionThatTakesTryResponse(Try<Response> response, int defaultTransformation){
+    return response.transform(responses -> response.map(it -> it.id.hashCode())
+      .getOrElse(defaultTransformation));
+}
+```
 
 # Lazy
 
@@ -180,6 +183,93 @@ public void givenFunction_whenEvaluatesWithLazy_thenCorrect() {
 在上面的例子中，我们正在评估的函数是 Math.random。请注意，在第二行中，我们检查了值，发现函数还没有被执行。这是因为我们仍然没有对返回值表现出兴趣。在第三行代码中，我们通过调用 Lazy.get 来显示对计算值的兴趣。此时，函数执行，Lazy.evaluated 返回 true。
 
 我们还可以继续通过再次尝试获取值来确认 Lazy 的记忆位。如果再次执行我们提供的函数，我们肯定会得到一个不同的随机数。然而，Lazy 再次懒惰地返回最初计算的值，正如最后的断言所确认的那样。
+
+### 处理异常场景
+
+让我们写一个例子，当我们的 HttpClient 执行时，会抛出 ClientException。与前面的例子相比，我们的 getOrElse 方法将返回 defaultChainedResult，因为 Try 将是 Failure 类型。
+
+```java
+@Test
+public void givenHttpClientFailure_whenMakeACall_shouldReturnFailure() {
+    // given
+    Integer defaultChainedResult = 1;
+    HttpClient httpClient = () -> {
+        throw new ClientException("problem");
+    };
+
+    // when
+    Try<Response> response = new VavrTry(httpClient).getResponse();
+    Integer chainedResult = response
+        .map(this::actionThatTakesResponse)
+        .getOrElse(defaultChainedResult);
+     Option<Response> optionalResponse = response.toOption();
+
+    // then
+    assertTrue(optionalResponse.isEmpty());
+    assertTrue(response.isFailure());
+    response.onFailure(ex -> assertTrue(ex instanceof ClientException));
+    assertEquals(defaultChainedResult, chainedResult);
+}
+```
+
+方法 getReposnse() 返回 Failure，因此方法 isFailure 返回 true，我们可以对返回的响应执行 onFailure() 回调，看到异常是 ClientException 类型。我们可以在返回的响应上执行 onFailure() 回调，看到异常是 ClientException 类型。Try 类型的对象可以使用 toOption() 方法映射到 Option 类型。
+
+当我们不想在所有代码库中携带我们的 Try 结果，但我们有一些方法使用 Option 类型来处理一个显式的缺失值时，它是有用的。当我们将 Failure 映射到 Option 时，那么方法 isEmpty()将返回 true。当 Try 对象是 Success 类型时，对它调用 toOption 将使 Option 被定义，因此方法 isDefined() 将返回 true。
+
+### Pattern Matching
+
+当我们的 httpClient 返回一个 Exception 时，我们可以对该 Exception 的类型进行模式匹配。然后根据该 Exception 的类型，在 recover() 方法中，我们可以决定是否要从该 Exception 中恢复，将 Failure 转化为 Success，或者将计算结果保留为 Failure。
+
+```java
+@Test
+public void givenHttpClientThatFailure_whenMakeACall_shouldReturnFailureAndNotRecover() {
+    // given
+    Response defaultResponse = new Response("b");
+    HttpClient httpClient = () -> {
+        throw new RuntimeException("critical problem");
+    };
+
+    // when
+    Try<Response> recovered = new VavrTry(httpClient).getResponse()
+      .recover(r -> Match(r).of(
+          Case(instanceOf(ClientException.class), defaultResponse)
+      ));
+
+    // then
+    assertTrue(recovered.isFailure());
+
+```
+
+只有当 Exception 的类型是 ClientException 时，recover()方法内部的模式匹配才会将 Failure 变成 Success。否则，它将把它作为一个 Failure()。我们看到我们的 httpClient 抛出了 RuntimeException，因此我们的恢复方法不会处理这种情况，因此 isFailure() 返回 true。如果我们想从恢复的对象中获取结果，但在关键故障的情况下，我们可以使用 getOrElseThrow()方法来实现。
+
+```java
+recovered.getOrElseThrow(throwable -> {
+    throw new RuntimeException(throwable);
+});
+```
+
+有些错误是至关重要的，当它们发生时，我们希望通过在调用堆栈中较高的位置抛出异常来明确地发出信号，让调用者决定进一步的异常处理。在这种情况下，像上面的例子一样重新抛出异常是非常有用的。当我们的客户端抛出一个非关键异常时，我们在 recover() 方法中的模式匹配将把我们的 Failure 变成 Success。我们正在从两种类型的异常 ClientException 和 IllegalArgumentException 中恢复。
+
+```java
+@Test
+public void givenHttpClientThatFailure_whenMakeACall_shouldReturnFailureAndRecover() {
+    // given
+    Response defaultResponse = new Response("b");
+    HttpClient httpClient = () -> {
+        throw new ClientException("non critical problem");
+    };
+
+    // when
+    Try<Response> recovered = new VavrTry(httpClient).getResponse()
+      .recover(r -> Match(r).of(
+        Case(instanceOf(ClientException.class), defaultResponse),
+        Case(instanceOf(IllegalArgumentException.class), defaultResponse)
+       ));
+
+    // then
+    assertTrue(recovered.isSuccess());
+}
+```
 
 # Either
 

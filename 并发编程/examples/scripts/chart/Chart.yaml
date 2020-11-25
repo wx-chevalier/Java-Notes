@@ -1,0 +1,19 @@
+apiVersion: v2
+name: ufc-be
+description: A Helm chart for Kubernetes
+
+type: application
+
+version: 0.2.14-dev
+
+appVersion: 0.2.14-dev
+
+dependencies:
+  - name: mysql
+    version: 1.6.2
+    condition: mysql.enabled
+    repository: https://kubernetes-charts.storage.googleapis.com/
+  - name: rabbitmq
+    version: 6.16.1
+    condition: rabbitmq.enabled
+    repository: https://kubernetes-charts.storage.googleapis.com/

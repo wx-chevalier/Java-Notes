@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "ufc-be.fullname" . }}
+  labels:
+    {{- include "ufc-be.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      # see deployment containers[0].ports
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "ufc-be.selectorLabels" . | nindent 4 }}
