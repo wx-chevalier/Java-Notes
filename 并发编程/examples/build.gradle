@@ -74,7 +74,7 @@ subprojects {
     }
 
     spotbugs {
-        excludeFilter = file("$rootDir/scripts/config/spotbugs-exclude-filter.xml")
+        excludeFilter = file("$rootDir/config/spotbugs-exclude-filter.xml")
     }
 
     spotbugsMain {

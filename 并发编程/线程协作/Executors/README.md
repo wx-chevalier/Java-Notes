@@ -19,7 +19,7 @@ executor.submit(() -> {
 // => Hello pool-1-thread-1
 ```
 
-Executors 必须显式的停止，否则它们将持续监听新的任务。ExecutorService 提供了两个方法来达到这个目的：shutdwon() 会等待正在执行的任务执行完而，shutdownNow()会终止所有正在执行的任务并立即关闭 execuotr。
+Executors 必须显式的停止，否则它们将持续监听新的任务。ExecutorService 提供了两个方法来达到这个目的：shutdwon() 会等待正在执行的任务执行完而，shutdownNow() 会终止所有正在执行的任务并立即关闭 executor。
 
 ```java
 try {

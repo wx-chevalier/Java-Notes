@@ -6,7 +6,7 @@
 *~
 \#*\#
 /.emacs.desktop
-/.emacs.desktop.lock
+/.emacs.desktop.safety.lock
 *.elc
 auto-save-list
 tramp

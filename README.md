@@ -12,11 +12,15 @@
   </a>
 
   <p align="center">
-    <a href="https://github.com/wx-chevalier/Java-Series">速览手册</a>
+    <a href="https://ng-tech.icu/Java-Series"><strong>在线阅读 >> </strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/wx-chevalier/Awesome-CheatSheets">速览手册</a>
     ·
-    <a href="https://github.com/wx-chevalier/Java-Series/issues">代码实践</a>
+    <a href="https://github.com/wx-chevalier">代码实践</a>
     ·
-    <a href="https://github.com/wx-chevalier/Java-Series/issues">参考资料</a>
+    <a href="https://github.com/wx-chevalier/Awesome-Lists">参考资料</a>
+
   </p>
 </p>
 
