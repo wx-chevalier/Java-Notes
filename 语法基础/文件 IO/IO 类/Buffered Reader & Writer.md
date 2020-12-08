@@ -1,8 +1,6 @@
 # BufferedReader
 
-BufferedReader 是支持同步的，而 Scanner 不支持。如果我们处理多线程程序，BufferedReader 应当使用。BufferedReader 相对于 Scanner 有足够大的缓冲区内存。
-
-Scanner 有很少的缓冲区(1KB 字符缓冲)相对于 BufferedReader(8KB 字节缓冲)，但是这是绰绰有余的。BufferedReader 相对于 Scanner 来说要快一点，因为 Scanner 对输入数据进行类解析，而 BufferedReader 只是简单地读取字符序列。
+BufferedReader 是支持同步的，而 Scanner 不支持。如果我们处理多线程程序，BufferedReader 应当使用。BufferedReader 相对于 Scanner 有足够大的缓冲区内存。Scanner 有很少的缓冲区(1KB 字符缓冲)相对于 BufferedReader(8KB 字节缓冲)，但是这是绰绰有余的。BufferedReader 相对于 Scanner 来说要快一点，因为 Scanner 对输入数据进行类解析，而 BufferedReader 只是简单地读取字符序列。
 
 ## 流构建
 
