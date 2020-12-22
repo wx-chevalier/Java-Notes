@@ -6,7 +6,7 @@
 
 此外，Ant 是没有依赖管理的，所以很长一段时间 Ant 用户都不得不手工管理依赖，这是一个令人头疼的问题。幸运的是，Ant 用户现在可以借助 Ivy 管理依赖。而对于 Maven 用户来说，依赖管理是理所当然的，Maven 不仅内置了依赖管理，更有一个可能拥有全世界最多 Java 开源软件包的中央仓库，Maven 用户无须进行任何配置就可以直接享用。
 
-而 Gradle 抛弃了 Maven 的基于 XML 的繁琐配置；众所周知 XML 的阅读体验比较差，对于机器来说虽然容易识别，但毕竟是由人去维护的。取而代之的是 Gradle 采用了领域特定语言 Groovy 的配置，大大简化了构建代码的行数。Maven 的设计核心 Convention Over Configuration 被 Gradle 更加发扬光大，而 Gradle 的配置即代码又超越了 Maven。在 Gradle 中任何配置都可以作为代码被执行的，我们也可以随时使用已有的 Ant 脚本(Ant task 是 Gradle 中的一等公民)、Java 类库、Groovy 类库来辅助完成构建任务的编写。在《[Java-Series](https://github.com/wx-chevalier/Java-Series?q=)》系列文章中也有专门的章节讲解 Gradle，笔者在 Android 与 Spring 项目构建中也会优先选择 Gradle。
+而 Gradle 抛弃了 Maven 的基于 XML 的繁琐配置；众所周知 XML 的阅读体验比较差，对于机器来说虽然容易识别，但毕竟是由人去维护的。取而代之的是 Gradle 采用了领域特定语言 Groovy 的配置，大大简化了构建代码的行数。Maven 的设计核心 Convention Over Configuration 被 Gradle 更加发扬光大，而 Gradle 的配置即代码又超越了 Maven。在 Gradle 中任何配置都可以作为代码被执行的，我们也可以随时使用已有的 Ant 脚本(Ant task 是 Gradle 中的一等公民)、Java 类库、Groovy 类库来辅助完成构建任务的编写。在[《Java-Series](https://github.com/wx-chevalier/Java-Series?q=)》系列文章中也有专门的章节讲解 Gradle，笔者在 Android 与 Spring 项目构建中也会优先选择 Gradle。
 
 # Ant with Ivy
 

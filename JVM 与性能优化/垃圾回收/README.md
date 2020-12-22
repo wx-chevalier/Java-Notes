@@ -6,7 +6,7 @@
 
 Java 虚拟机规范中对垃圾收集器应该如何实现并没有任何规定，因此不同的厂商、不同版本的虚拟机所提供的垃圾收集器都可能会有很大差别，并且一般都会提供参数供用户根据自己的应用特点和要求组合出各个年代所使用的收集器。其中最主流的四个垃圾回收器分别是：通常用于单 CPU 环境的 Serial GC、Throughput/Parallel GC、CMS GC、G1 GC。
 
-> 在《[Java-Series/性能调优](https://github.com/wx-chevalier/Java-Series?q=)》章节中了解更多 GC 优化的案例。
+> 在[《Java-Series/性能调优](https://github.com/wx-chevalier/Java-Series?q=)》章节中了解更多 GC 优化的案例。
 
 # TBD
 
