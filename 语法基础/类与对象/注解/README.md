@@ -125,7 +125,7 @@ public @interface Greeting {
 (3)参数设置类型
 
 - 只能用 public 或默认(default)这两个访问权修饰.例如,String value();这里把方法设为 defaul 默认类型；
-- 参数成员只能用基本类型 byte,short,char,int,long,float,double,boolean 八种基本数据类型和 String ,Enum ,Class , annotations 等数据类型,以及这一些类型的数组.例如,String value();这里的参数成员就为 String;
+- 参数成员只能用基本类型 byte,short,char,int,long,float,double,boolean 八种基本数据类型和 String ,Enum ,Class, annotations 等数据类型,以及这一些类型的数组.例如,String value();这里的参数成员就为 String;
 - 如果只有一个参数成员,最好把参数名称设为"value",后加小括号.例:下面的例子 FruitName 注解就只有一个参数成员。
 
 简单的自定义注解和使用注解实例：

@@ -76,7 +76,7 @@ variable x = (expression) ? value if true : value if false
 ```java
 public class Test {
    public static void main(String[] args){
-      int a , b;
+      int a, b;
       a = 10;
       // 如果 a 等于 1 成立，则设置 b 为 20，否则为 30
       b = (a == 1) ? 20 : 30;

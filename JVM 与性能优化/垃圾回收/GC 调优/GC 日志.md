@@ -14,7 +14,7 @@
 [CMS-concurrent-preclean: 0.001/0.001 secs] [Times: user=0.00 sys=0.00, real=0.01 secs]
 [CMS-concurrent-abortable-preclean-start]
  CMS: abort preclean due to time [CMS-concurrent-abortable-preclean: 0.558/5.093 secs] [Times: user=0.57 sys=0.00, real=5.09 secs]
-[GC (CMS Final Remark) [YG occupancy: 16817 K (29504 K)][Rescan (parallel) , 0.0021918 secs][weak refs processing, 0.0000245 secs][class unloading, 0.0044098 secs][scrub symbol table, 0.0029752 secs][scrub string table, 0.0006820 secs][1 CMS-remark: 19498K(32768K)] 36316K(62272K), 0.0104997 secs] [Times: user=0.02 sys=0.00, real=0.01 secs]
+[GC (CMS Final Remark) [YG occupancy: 16817 K (29504 K)][Rescan (parallel), 0.0021918 secs][weak refs processing, 0.0000245 secs][class unloading, 0.0044098 secs][scrub symbol table, 0.0029752 secs][scrub string table, 0.0006820 secs][1 CMS-remark: 19498K(32768K)] 36316K(62272K), 0.0104997 secs] [Times: user=0.02 sys=0.00, real=0.01 secs]
 [CMS-concurrent-sweep-start]
 [CMS-concurrent-sweep: 0.007/0.007 secs] [Times: user=0.01 sys=0.00, real=0.01 secs]
 [CMS-concurrent-reset-start]
@@ -38,7 +38,7 @@ CMS 日志分为两个 STW(stop the world)，分别是 init remark（1） 与 re
 
 - [CMS-concurrent-abortable-preclean: 0.558/5.093 secs][times: user=0.57 sys=0.00, real=5.09 secs] 并发可中止预清理阶段，运行在并行预清理和重新标记之间，直到获得所期望的 eden 空间占用率。增加这个阶段是为了避免在重新标记阶段后紧跟着发生一次垃圾清除
 
-- [GC (CMS Final Remark) [YG occupancy: 16817 K (29504 K)][rescan (parallel) , 0.0021918 secs][weak refs processing, 0.0000245 secs][class unloading, 0.0044098 secs][scrub symbol table, 0.0029752 secs][scrub string table, 0.0006820 secs][1 CMS-remark: 19498K(32768K)] 36316K(62272K), 0.0104997 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 会 STW(Stop The World)，收集阶段，这个阶段会标记老年代全部的存活对象，包括那些在并发标记阶段更改的或者新创建的引用对象
+- [GC (CMS Final Remark) [YG occupancy: 16817 K (29504 K)][rescan (parallel), 0.0021918 secs][weak refs processing, 0.0000245 secs][class unloading, 0.0044098 secs][scrub symbol table, 0.0029752 secs][scrub string table, 0.0006820 secs][1 CMS-remark: 19498K(32768K)] 36316K(62272K), 0.0104997 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 会 STW(Stop The World)，收集阶段，这个阶段会标记老年代全部的存活对象，包括那些在并发标记阶段更改的或者新创建的引用对象
 
 - [CMS-concurrent-sweep-start] 并发清理阶段开始，与用户线程并发执行。
 
