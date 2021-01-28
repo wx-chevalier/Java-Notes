@@ -1,5 +1,14 @@
 # 并发容器
 
+JUC 里面提供大量的并发容器，涉及到线程交互的时候，使用安全容器可以避免大部分的错误，而且大大降低了代码的复杂度。
+
+- 通过 synchronized 给方法加上内置锁来实现线程安全的类如 Vector，HashTable,StringBuffer
+- AtomicXXX 如 AtomicInteger
+- ConcurrentXXX 如 ConcurrentHashMap
+- BlockingQueue/BlockingDeque
+- CopyOnWriteArrayList/CopyOnWriteArraySet
+- ThreadPoolExecutor
+
 # 快速失败和安全失败
 
 ## 快速失败（fail—fast）

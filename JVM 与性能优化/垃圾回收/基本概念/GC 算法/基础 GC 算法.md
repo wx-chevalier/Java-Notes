@@ -60,7 +60,7 @@ Hotspot 遍历所有对象时，按照年龄从小到大对其所占用的大小
 
 JVM 引入动态年龄计算，主要基于如下两点考虑：
 
-- 如果固定按照 MaxTenuringThreshold 设定的阈值作为晋升条件： a）MaxTenuringThreshold 设置的过大，原本应该晋升的对象一直停留在 Survivor 区，直到 Survivor 区溢出，一旦溢出发生，Eden+Svuvivor 中对象将不再依据年龄全部提升到老年代，这样对象老化的机制就失效了。 b）MaxTenuringThreshold 设置的过小，“过早晋升”即对象不能在新生代充分被回收，大量短期对象被晋升到老年代，老年代空间迅速增长，引起频繁的 Major GC。分代回收失去了意义，严重影响 GC 性能。
+- 如果固定按照 MaxTenuringThreshold 设定的阈值作为晋升条件：a）MaxTenuringThreshold 设置的过大，原本应该晋升的对象一直停留在 Survivor 区，直到 Survivor 区溢出，一旦溢出发生，Eden+Svuvivor 中对象将不再依据年龄全部提升到老年代，这样对象老化的机制就失效了。b）MaxTenuringThreshold 设置的过小，“过早晋升”即对象不能在新生代充分被回收，大量短期对象被晋升到老年代，老年代空间迅速增长，引起频繁的 Major GC。分代回收失去了意义，严重影响 GC 性能。
 
 - 相同应用在不同时间的表现不同：特殊任务的执行或者流量成分的变化，都会导致对象的生命周期分布发生波动，那么固定的阈值设定，因为无法动态适应变化，会造成和上面相同的问题。
 
