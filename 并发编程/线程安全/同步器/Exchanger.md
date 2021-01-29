@@ -52,9 +52,9 @@ public class ExchangeTest {
 线程 pool-1-thread-2交换回来的数据是: 零食
 ```
 
-# Asynchronous(异步)
+# Asynchronous（异步）
 
-### Timeouts
+## Timeouts
 
 任何 future.get()调用都会阻塞，然后等待直到 callable 中止。在最糟糕的情况下，一个 callable 持续运行——因此使你的程序将没有响应。我们可以简单的传入一个时长来避免这种情况。
 

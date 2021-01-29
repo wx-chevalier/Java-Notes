@@ -21,7 +21,7 @@
 [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
 ```
 
-CMS 日志分为两个 STW(stop the world)，分别是 init remark（1） 与 remark（7）两个阶段。一般耗时比 YGC 长约 10 倍：
+CMS 日志分为两个 STW(stop the world)，分别是 init remark（1）与 remark（7）两个阶段。一般耗时比 YGC 长约 10 倍：
 
 - [GC (CMS Initial Mark) [1 CMS-initial-mark: 19498K(32768K)] 36184K(62272K), 0.0018083 secs][times: user=0.01 sys=0.00, real=0.01 secs] 会 STO(Stop The World)，这时候的老年代容量为 32768K，在使用到 19498K 时开始初始化标记。耗时短。
 
