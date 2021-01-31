@@ -201,3 +201,26 @@ if (任务足够小){
   执行这些子任务并等待结果;
 }
 ```
+
+# TimeUnit 枚举
+
+TimeUnit 是 java.util.concurrent 包下面的一个枚举类，TimeUnit 提供了可读性更好的线程暂停操作。在 JDK5 之前，一般我们暂停线程是这样写的：
+
+```java
+Thread.sleep（2400000）// 可读性差
+```
+
+在 JDK5 之后，我们可以这样写：
+
+```java
+TimeUnit.SECONDS.sleep(4);
+TimeUnit.MINUTES.sleep(4);
+TimeUnit.HOURS.sleep(1);
+TimeUnit.DAYS.sleep(1);
+```
+
+另外，TimeUnit 还提供了便捷方法用于把时间转换成不同单位，例如，如果你想把秒转换成毫秒，你可以使用下面代码
+
+```java
+TimeUnit.SECONDS.toMillis(44);// 44,000
+```

@@ -72,6 +72,8 @@ private volatile int state;
 
 # AQS 重要方法与 ReentrantLock 的关联
 
+从架构图中可以得知，AQS 提供了大量用于自定义同步器实现的 Protected 方法。自定义同步器实现的相关方法也只是为了通过修改 State 字段来实现多线程的独占模式或者共享模式。自定义同步器需要实现以下方法（ReentrantLock 需要实现的方法如下，并不是全部）：
+
 # AQS 应用
 
 ## ReentrantLock 的可重入应用
