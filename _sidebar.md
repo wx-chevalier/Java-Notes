@@ -111,9 +111,9 @@
     - 3.4 Set
       - [3.4.1 HashSet](/数据结构/Set/HashSet.md)
     - 3.5 字符串
-      - 3.5.1 JSON
-        - [3.5.1.1 GSON](/数据结构/字符串/JSON/GSON.md)
-        - [3.5.1.2 Jackson](/数据结构/字符串/JSON/Jackson.md)
+      - 3.5.1 Json
+        - [3.5.1.1 GSON](/数据结构/字符串/Json/GSON.md)
+        - [3.5.1.2 Jackson](/数据结构/字符串/Json/Jackson.md)
       - [3.5.2 String](/数据结构/字符串/String.md)
       - [3.5.3 字符](/数据结构/字符串/字符.md)
       - [3.5.4 工具类](/数据结构/字符串/工具类.md)
