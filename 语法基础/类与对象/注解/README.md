@@ -93,7 +93,7 @@ public @interface Column {
 ```
 /**
  *
- * @author peida
+
  *
  */
 @Inherited
@@ -141,7 +141,7 @@ import java.lang.annotation.Target;
 
 /**
  * 水果名称注解
- * @author peida
+
  *
  */
 @Target(ElementType.FIELD)
@@ -163,7 +163,7 @@ import java.lang.annotation.Target;
 
 /**
  * 水果颜色注解
- * @author peida
+
  *
  */
 @Target(ElementType.FIELD)
@@ -172,7 +172,7 @@ import java.lang.annotation.Target;
 public @interface FruitColor {
   /**
    * 颜色枚举
-   * @author peida
+
    *
    */
   public enum Color {
@@ -242,7 +242,7 @@ java.lang.reflect 包下主要包含一些实现反射功能的工具类，实�
 
 /**
  * 水果名称注解
- * @author peida
+
  *
  */
 @Target(ElementType.FIELD)
@@ -254,7 +254,7 @@ public @interface FruitName {
 
 /**
  * 水果颜色注解
- * @author peida
+
  *
  */
 @Target(ElementType.FIELD)
@@ -263,7 +263,7 @@ public @interface FruitName {
 public @interface FruitColor {
     /**
      * 颜色枚举
-     * @author peida
+
      *
      */
     public enum Color{ BULE,RED,GREEN};
@@ -278,7 +278,7 @@ public @interface FruitColor {
 
 /**
  * 水果供应者注解
- * @author peida
+
  *
  */
 @Target(ElementType.FIELD)

@@ -176,7 +176,7 @@ public class ReadAndWriteLockTest {
 /**
  *
  * ReetrantReadWriteLock实现
- * @author itbird
+
  *
  */
 public class ReadAndWriteLockTest {
