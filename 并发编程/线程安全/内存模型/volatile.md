@@ -67,7 +67,7 @@ Java 的内存屏障与我们在《[Concurrent-Series](https://github.com/wx-che
 - 写屏障与(StoreStore、StoreLoad)屏障的关系：在 volatile 变量写之前加入 StoreSore 屏障保证了 volatile 写之前，写缓冲器中的内容已全部刷回告诉缓存，防止前面的写操作和 volatile 写操作之间发生指令重排，在 volatile 写之后加入 StoreLoad 屏障，保证了后面的读/写操作与 volatile 写操作发生指令重排，所以写屏障同时具有 StoreStore 与 StoreLoad 的功能。
 - 读屏障与（LoadLoad、LoadStore）屏障的关系：在 volatile 变量读之后加入 LoadLoad 屏障保证了后面其他读操作的无效队列中无效消息已经被刷回到了高速缓存，在 volatile 变量读操作后加入 LoadStore 屏障，保证了后面其他写操作的无效队列中无效消息已经被刷回高速缓存。读屏障同时具有了 LoadLoad，LoadStore 的功能。
 
-# volatile 的使用优化
+# 缓存行与 volatile 优化
 
 Doug lea 在 JDK 7 的并发包里新增一个队列集合类 LinkedTransferQueue，它在使用 volatile 变量时，用一种追加字节的方式来优化队列出队和入队的性能。LinkedTransferQueue 的代码如下。
 
