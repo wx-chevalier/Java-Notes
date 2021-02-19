@@ -101,11 +101,11 @@
     - [3.1 List](/数据结构/List/README.md)
       
     - [3.2 Map](/数据结构/Map/README.md)
-      - [3.2.1 HashMap 源码分析](/数据结构/Map/HashMap%20源码分析.md)
-      - [3.2.2 HashMap](/数据结构/Map/HashMap.md)
-      - [3.2.3 TreeMap](/数据结构/Map/TreeMap.md)
-      - [3.2.4 hashCode](/数据结构/Map/hashCode.md)
-      - [3.2.5 语法使用](/数据结构/Map/语法使用.md)
+      - 3.2.1 HashMap
+        - [3.2.1.1 HashMap 源码分析](/数据结构/Map/HashMap/HashMap%20源码分析.md)
+        - [3.2.1.2 hashCode](/数据结构/Map/HashMap/hashCode.md)
+        - [3.2.1.3 语法使用](/数据结构/Map/HashMap/语法使用.md)
+      - [3.2.2 TreeMap](/数据结构/Map/TreeMap.md)
     - [3.3 Queue](/数据结构/Queue/README.md)
       
     - 3.4 Set
@@ -131,8 +131,9 @@
         - [3.6.4.1 XML 与 HTML 处理](/数据结构/序列化/XML/XML%20与%20HTML%20处理.md)
     - [3.7 数值类型](/数据结构/数值类型/README.md)
       - [3.7.1 Math](/数据结构/数值类型/Math.md)
-      - [3.7.2 Number](/数据结构/数值类型/Number.md)
-      - [3.7.3 随机数](/数据结构/数值类型/随机数.md)
+      - [3.7.2 包装类型](/数据结构/数值类型/包装类型.md)
+      - [3.7.3 浮点数](/数据结构/数值类型/浮点数.md)
+      - [3.7.4 随机数](/数据结构/数值类型/随机数.md)
     - [3.8 数组](/数据结构/数组/README.md)
       - [3.8.1 Arrays](/数据结构/数组/Arrays.md)
       - [3.8.2 简单数组](/数据结构/数组/简单数组.md)
@@ -142,7 +143,6 @@
     - [3.10 空处理](/数据结构/空处理/README.md)
       - [3.10.1 Null](/数据结构/空处理/Null.md)
       - [3.10.2 Optional](/数据结构/空处理/Optional.md)
-      - [3.10.3 检查工具](/数据结构/空处理/检查工具.md)
     - [3.11 类型基础](/数据结构/类型基础/README.md)
       - [3.11.1 Object](/数据结构/类型基础/Object.md)
       - [3.11.2 原始类型](/数据结构/类型基础/原始类型.md)
