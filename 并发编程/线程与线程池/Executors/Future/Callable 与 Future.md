@@ -1,6 +1,6 @@
 # Callable & Future
 
-Executors 本身提供了一种对于多线程的封装，而 Executor 还支持另一种类型的任务——Callable。Callables 也是类似于 Runnable 的函数接口，不同之处在于，Callable 返回一个值 Future，用来描述一个异步计算的结果。Callable 接口本身是一个 Lambda 表达式(函数式接口)：
+Executors 本身提供了一种对于多线程的封装，而 Executor 还支持另一种类型的任务：Callable。Callables 也是类似于 Runnable 的函数接口，不同之处在于，Callable 返回一个值 Future，用来描述一个异步计算的结果。Callable 接口本身是一个 Lambda 表达式(函数式接口)：
 
 ```java
 Callable<Integer> task = () -> {
@@ -28,7 +28,7 @@ System.out.println("future done? " + future.isDone());
 System.out.print("result: " + result);
 ```
 
-Future 与底层的 executor service 紧密的结合在一起。记住，如果你关闭 executor，所有的未中止的 future 都会抛出异常。
+Future 与底层的 ExecutorService 紧密的结合在一起。记住，如果你关闭 executor，所有的未中止的 future 都会抛出异常。
 
 ```java
 executor.shutdownNow();
