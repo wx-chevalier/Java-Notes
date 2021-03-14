@@ -578,6 +578,6 @@ TreeMap<Integer, String> treeMap2 =
 assertEquals(treeMap2.keySet().mkString(), "631");
 ```
 
-# Todos
+# Links
 
 - https://www.baeldung.com/vavr-collections
