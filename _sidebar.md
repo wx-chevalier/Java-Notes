@@ -206,10 +206,12 @@
       - [4.10.1 Apache Common](/工程实践/第三方库/Apache%20Common/README.md)
         - [4.10.1.1 类型增强](/工程实践/第三方库/Apache%20Common/类型增强.md)
       - [4.10.2 Guava Collections](/工程实践/第三方库/Guava%20Collections/README.md)
-        - 4.10.2.1 并发
-          - [4.10.2.1.1 ListeningExecutorService](/工程实践/第三方库/Guava%20Collections/并发/ListeningExecutorService.md)
-          - [4.10.2.1.2 RateLimiter](/工程实践/第三方库/Guava%20Collections/并发/RateLimiter.md)
-        - [4.10.2.2 集合类](/工程实践/第三方库/Guava%20Collections/集合类/README.md)
+        - 4.10.2.1 其他
+          - [4.10.2.1.1 Preconditions](/工程实践/第三方库/Guava%20Collections/其他/Preconditions.md)
+        - 4.10.2.2 并发
+          - [4.10.2.2.1 ListeningExecutorService](/工程实践/第三方库/Guava%20Collections/并发/ListeningExecutorService.md)
+          - [4.10.2.2.2 RateLimiter](/工程实践/第三方库/Guava%20Collections/并发/RateLimiter.md)
+        - [4.10.2.3 集合类](/工程实践/第三方库/Guava%20Collections/集合类/README.md)
           
       - [4.10.3 Lombok](/工程实践/第三方库/Lombok/README.md)
         - [4.10.3.1 Utils](/工程实践/第三方库/Lombok/Utils.md)

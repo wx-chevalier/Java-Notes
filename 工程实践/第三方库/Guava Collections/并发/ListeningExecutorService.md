@@ -6,8 +6,6 @@
 @RestController
 @RequestMapping(value = "testThread")
 public class TestThread {
-
-
     /**线程池*/
     static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(4, 10, 60,
             TimeUnit.SECONDS,
