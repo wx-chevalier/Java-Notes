@@ -4,14 +4,14 @@
 
 Java 9 为我们提供了用于创建不可变列表、集合与映射的工厂方法，用于完善 Java 8 中提供的 Collections.unmodifiableXXX 系列方法；工厂方法允许创建包含不超过十个不等元素的不可变对象，这些对象在被创建后即不能再被添加、更新或者删除：
 
-```
+```java
 List<String> list=List.of("apple","bat");
 list.add("cat");
 ```
 
 强制操作的话会抛出 `unsupportedOperationException`，并且这种创建方式不允许传入空参数，否则会抛出空指针异常：
 
-```
+```java
 List<String> list=List.of("apple",null);
 ```
 

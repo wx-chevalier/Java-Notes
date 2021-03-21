@@ -100,3 +100,15 @@ JDK 10 增加的主要新语言功能是支持本地变量类型推理。通过�
 关于 Java 的发展，还有一点。从 2006 年开始，Java 的开源进程开始了。今天，JDK 的开源实现已经出现。开源进一步促进了 Java 开发的动态性。归根结底，Java 的创新遗产是安全的。Java 仍然是编程世界所期待的充满活力、灵活的语言。
 
 本书中的材料已经针对 JDK 11 进行了更新。本书通篇描述了许多新的 Java 特性、更新和新增内容。然而，正如前面的讨论所强调的那样，Java 编程的历史是以动态变化为特征的。您将希望回顾每个后续 Java 版本中的新特性。简单地说：Java 的进化还在继续
+
+# Links
+
+- [Java 11 新特性介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247484014&idx=1&sn=f0b39c581b230aea27293b141b5e005d&scene=21#wechat_redirect)
+- [Java 10 新特性介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247484003&idx=1&sn=afc8e72eef3769ec3237d80be0c26ad0&scene=21#wechat_redirect)
+- [Java 09 新特性介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483998&idx=1&sn=c36374370f32d293eaf51c8176a51f15&scene=21#wechat_redirect)
+- [Java 8 新特性 - Stream 介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483931&idx=1&sn=bdee6f57dec5987159b3f3567da6a394&scene=21#wechat_redirect)
+- [Java 8 新特性 - Lambda 表达式介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483923&idx=1&sn=57c720a9ba7dbd79e84a069e0d6fa84f&scene=21#wechat_redirect)
+- [Java 8 新特性 - 新的时间处理方式](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483801&idx=1&sn=eea69b039feb1ae86187ade222e6bfd8&scene=21#wechat_redirect)
+- [Java 8 新特性 - 使用 Optional 处理空指针](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483879&idx=1&sn=1eb37f5a97fda31ebb9d80d6e96cfb88&scene=21#wechat_redirect)
+- [Java 7 新特性介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483992&idx=1&sn=c70281cef0dc4b2ddceaf0f380032ca8&scene=21#wechat_redirect)
+- [**Java 7 新特性 - NIO.2 介绍**](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247484216&idx=1&sn=b713a34d28242d17e534061cf5483099&scene=21#wechat_redirect)
