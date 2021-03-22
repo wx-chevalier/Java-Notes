@@ -4,7 +4,7 @@ JVM 是虚拟机的一种，它的指令集语言是字节码，字节码构成�
 
 class 文件的运行时数据就是 C++对象，也称为 kclass 对象，这些运行时数据在 JDK7 之前是放在永久代（PermGen），JDK8 之后则放在元空间（Metaspace）。
 
-# TBD
+# Links
 
 - https://time.geekbang.org/column/article/11523
 

@@ -8,7 +8,7 @@ Java 虚拟机规范中对垃圾收集器应该如何实现并没有任何规定
 
 > 在[《Java-Series/性能调优](https://github.com/wx-chevalier/Java-Series?q=)》章节中了解更多 GC 优化的案例。
 
-# TBD
+# Links
 
 - https://mp.weixin.qq.com/s/tfyHwbsNCTjvMGTrfQ0qwQ
 - https://toutiao.io/k/vdlyqj

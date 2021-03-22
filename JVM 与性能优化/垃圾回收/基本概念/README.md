@@ -9,6 +9,6 @@ GC 把程序不用的内存空间视为「垃圾」，（几乎所有的）GC �
 
 GC 给我们带来的好处不言而喻，选择 GC 而不是手动释放资源的原因很简单：程序比人更可靠。即便是 C/C++ 这种没有 GC 的语言，也有类似 Boehm GC 这样的第三方库来实现内存的自动管理了。可以毫不夸张地说，GC 已经是现代编程语言的标配。
 
-# TBD
+# Links
 
 - https://mp.weixin.qq.com/s/iklfWLmSD4XMAKmFcffp9g

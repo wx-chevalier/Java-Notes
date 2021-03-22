@@ -43,7 +43,7 @@ Asynchronous IO 即异步非阻塞的编程方式。与 NIO 不同，当进行�
 
 异步非阻塞，服务器实现模式为一个有效请求一个线程，客户端的 I/O 请求都是由 OS 先完成了再通知服务器应用去启动线程进行处理。AIO 方式使用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用 OS 参与并发操作，编程比较复杂，JDK7 开始支持。
 
-# TBD
+# Links
 
 - https://parg.co/kmG
 - https://mp.weixin.qq.com/s/uOPio2rBwcIK7R8O6FNCkA

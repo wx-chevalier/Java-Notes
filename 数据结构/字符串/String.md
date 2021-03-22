@@ -116,7 +116,7 @@ public class Test {
 }
 ```
 
-# TBD
+# Links
 
 - [How-the-JVM-compares-your-strings](http://jcdav.is/2016/09/01/How-the-JVM-compares-your-strings/)
 

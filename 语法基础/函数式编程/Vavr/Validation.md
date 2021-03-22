@@ -66,6 +66,6 @@ public void whenValidationWorks_thenCorrect() {
 
 一个有效的值包含在 Validation.Valid 实例中，一个验证错误的列表包含在 Validation.Invalid 实例中。所以任何验证方法都必须返回两者之一。
 
-# TBD
+# Links
 
 - https://www.baeldung.com/vavr-validation-api

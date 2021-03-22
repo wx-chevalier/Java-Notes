@@ -97,7 +97,7 @@ Java 对象头里的 Mark Word 里默认存储对象的 HashCode、分代年龄�
 
 ![Mark Word的存储结构](https://s3.ax1x.com/2021/01/29/yPQJW4.png)
 
-# TBD
+# Links
 
 - https://blog.csdn.net/significantfrank/article/details/80399179 Synchronized 和 Lock 该如何选择
 
