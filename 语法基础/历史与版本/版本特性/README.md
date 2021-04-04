@@ -6,9 +6,7 @@ Java 的最初发布简直是革命性的，但它并不标志着 Java 快速创
 
 Java 的下一个重要版本是 Java 2，这里的 "2 "表示 "第二代"。Java 2 的诞生是一个分水岭，标志着 Java "现代时代 "的开始。Java 2 的第一个版本带有 1.2 的版本号。Java 2 的第一个版本使用了 1.2 的版本号，这似乎很奇怪。原因是它原本指的是 Java 库的内部版本号，但后来被泛指整个版本。随着 Java 2 的发布，Sun 公司将 Java 产品重新包装为 J2SE（Java 2 Platform Standard Edition），版本号开始应用于该产品。Java 2 增加了对一些新功能的支持，如 Swing 和 Collections Framework，它还增强了 Java 虚拟机和各种编程工具。Java 2 也包含了一些废弃的功能。最重要的影响了 Thread 类，其中方法 suspend( )、resume( )和 stop( )被废弃。
 
-J2SE 1.3 是对原始 Java 2 版本的第一次重大升级。在大部分情况下，它增加了现有的功能，并 "收紧 "了开发环境。一般来说，为 1.2 版本编写的程序和为 1.3 版本编写的程序在源代码上是兼容的。虽然 1.3 版本包含的变化比前面三个主要版本要小，但它还是很重要。
-
-J2SE 1.4 的发布进一步增强了 Java。这个版本包含了几个重要的升级、增强和添加。例如，它增加了新的关键字 assert、链式异常和基于通道的 I/O 子系统。它还对 Collections Framework 和网络类进行了修改。此外，整个过程中还做了许多小改动。尽管有大量的新特性，1.4 版本仍然保持了与之前版本近乎 100%的源代码兼容性。
+J2SE 1.3 是对原始 Java 2 版本的第一次重大升级。在大部分情况下，它增加了现有的功能，并 "收紧 "了开发环境。一般来说，为 1.2 版本编写的程序和为 1.3 版本编写的程序在源代码上是兼容的。虽然 1.3 版本包含的变化比前面三个主要版本要小，但它还是很重要。J2SE 1.4 的发布进一步增强了 Java。这个版本包含了几个重要的升级、增强和添加。例如，它增加了新的关键字 assert、链式异常和基于通道的 I/O 子系统。它还对 Collections Framework 和网络类进行了修改。此外，整个过程中还做了许多小改动。尽管有大量的新特性，1.4 版本仍然保持了与之前版本近乎 100%的源代码兼容性。
 
 Java 的下一个版本是 J2SE 5，它是革命性的。与之前大多数的 Java 升级不同的是，J2SE 5 提供了重要的、但有分寸的改进，它从根本上扩展了该语言的范围、能力和范围。为了掌握 J2SE 5 对 Java 所做的改变的规模，请考虑下面的主要新特性列表。
 
@@ -109,6 +107,5 @@ JDK 10 增加的主要新语言功能是支持本地变量类型推理。通过�
 - [Java 8 新特性 - Stream 介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483931&idx=1&sn=bdee6f57dec5987159b3f3567da6a394&scene=21#wechat_redirect)
 - [Java 8 新特性 - Lambda 表达式介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483923&idx=1&sn=57c720a9ba7dbd79e84a069e0d6fa84f&scene=21#wechat_redirect)
 - [Java 8 新特性 - 新的时间处理方式](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483801&idx=1&sn=eea69b039feb1ae86187ade222e6bfd8&scene=21#wechat_redirect)
-- [Java 8 新特性 - 使用 Optional 处理空指针](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483879&idx=1&sn=1eb37f5a97fda31ebb9d80d6e96cfb88&scene=21#wechat_redirect)
 - [Java 7 新特性介绍](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247483992&idx=1&sn=c70281cef0dc4b2ddceaf0f380032ca8&scene=21#wechat_redirect)
 - [**Java 7 新特性 - NIO.2 介绍**](https://mp.weixin.qq.com/s?__biz=MzI1MDIxNjQ1OQ==&mid=2247484216&idx=1&sn=b713a34d28242d17e534061cf5483099&scene=21#wechat_redirect)

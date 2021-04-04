@@ -1,27 +1,17 @@
-# Java 特性
+# Java 设计理念
 
 如果不看一下 Java 的流行语，对 Java 历史的讨论就不完整。虽然促成 Java 发明的基本力量是可移植性和安全性，但其他因素在塑造 Java 语言的最终形态时也发挥了重要作用。Java 团队将这些关键的考虑因素总结为以下的流行语列表。
 
 - Simple
-
 - Secure
-
 - Portable
-
 - Object-oriented
-
 - Robust
-
 - Multithreaded
-
 - Architecture-neutral
-
 - Interpreted
-
 - High performance
-
 - Distributed
-
 - Dynamic
 
 其中有两个热词已经讨论过了：安全和便携。让我们来看看其他每一个都意味着什么。
