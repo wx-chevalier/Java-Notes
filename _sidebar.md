@@ -1,6 +1,7 @@
   - [1 INTRODUCTION](/INTRODUCTION.md)
   - [2 实践案例](/实践案例/README.md)
-    
+    - 2.1 面试题
+      - [2.1.1 Java 核心技术 36 讲面试题](/实践案例/面试题/Java%20核心技术%2036%20讲面试题.md)
   - [3 语法基础](/语法基础/README.md)
     - [3.1 快速开始](/语法基础/快速开始/README.md)
       - [3.1.1 Hello World](/语法基础/快速开始/Hello%20World.md)
