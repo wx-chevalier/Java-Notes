@@ -274,3 +274,7 @@ public class LeeMain {
     }
 }
 ```
+
+# Links
+
+- [2021-源码级深挖AQS队列同步器](https://mp.weixin.qq.com/s/cJ0t1vQGzBe6AnaB8sYXaA): 通过理解队列同步器的工作原理，对我们了解和使用这些工具类会有很大的帮助。
