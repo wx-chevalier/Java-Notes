@@ -42,7 +42,7 @@
     </dependencyManagement>
 
     <properties>
-        <spring.version>4.3.4.RELEASE</spring.version>
+        <spring.version>4.3.29.RELEASE</spring.version>
         <akka.version>2.4.14</akka.version>
     </properties>
 
