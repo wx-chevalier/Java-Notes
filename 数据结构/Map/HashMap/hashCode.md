@@ -181,3 +181,7 @@ public class Main {
 ```
 
 这段代码输出的结果为“null”，想必其中的原因大家应该都清楚了。因此，在设计 hashCode 方法和 equals 方法的时候，如果对象中的数据易变，则最好在 equals 方法和 hashCode 方法中不要依赖于该字段。
+
+# Links
+
+- https://mp.weixin.qq.com/s/XMQ27dyGokAegjOnba7FJA hashCode 为什么乘以 31？深入理解 hashCode 和 hash 算法

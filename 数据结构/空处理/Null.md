@@ -43,14 +43,3 @@ c static void main(String[] args) {
     }
 }
 ```
-
-# 集合中的 key
-
-| 集合类            | key         | value       | super       | 说明         |
-| ----------------- | ----------- | ----------- | ----------- | ------------ |
-| HashTable         | 不能为 null | 不能为 null | Dictionary  | 线程安全     |
-| ConcurrentHashMap | 不能为 null | 不能为 null | AbstractMap | 线程局部安全 |
-| TreeMap           | 不能为 null | 可以为 null | AbstractMap | 线程不安全   |
-| HashMap           | 可以为 null | 可以为 null | AbstractMap | 线程不安全   |
-
-hash 表需要进行 hash 值运算，key 不能为 null 好理解，如果 map 中 value 为 null 也好理解。表中不好理解的是 HashMap 中 key 可以为 null,看下面代码中对 null 有个特殊处理，索引位置为 0。
