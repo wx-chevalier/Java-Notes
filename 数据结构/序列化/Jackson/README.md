@@ -1,5 +1,3 @@
-# Java 中 JSON 处理
-
 # Jackson
 
 - [jackson-databind 文档](https://github.com/FasterXML/jackson-databind)
