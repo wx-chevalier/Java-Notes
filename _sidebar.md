@@ -133,21 +133,20 @@
       - [4.5.3 工具类](/数据结构/字符串/工具类.md)
       - [4.5.4 正则表达式](/数据结构/字符串/正则表达式.md)
     - 4.6 序列化
-      - [4.6.1 FastJson](/数据结构/序列化/FastJson/README.md)
-        - [4.6.1.1 基本使用](/数据结构/序列化/FastJson/基本使用.md)
-      - [4.6.2 Jackson](/数据结构/序列化/Jackson/README.md)
-        - [4.6.2.1 JSON Tree Model](/数据结构/序列化/Jackson/JSON%20Tree%20Model.md)
-        - [4.6.2.2 ObjectMapper](/数据结构/序列化/Jackson/ObjectMapper.md)
-        - [4.6.2.3 类注解](/数据结构/序列化/Jackson/类注解.md)
-        - [4.6.2.4 类转化](/数据结构/序列化/Jackson/类转化.md)
-      - 4.6.3 Json
-        - [4.6.3.1 GSON](/数据结构/序列化/Json/GSON.md)
-        - [4.6.3.2 Jackson](/数据结构/序列化/Json/Jackson/README.md)
-          
-      - [4.6.4 Serialization](/数据结构/序列化/Serialization/README.md)
-        - [4.6.4.1 Externalizable](/数据结构/序列化/Serialization/Externalizable.md)
-      - 4.6.5 XML
-        - [4.6.5.1 XML 与 HTML 处理](/数据结构/序列化/XML/XML%20与%20HTML%20处理.md)
+      - 4.6.1 Json
+        - [4.6.1.1 FastJson](/数据结构/序列化/Json/FastJson/README.md)
+          - [4.6.1.1.1 基本使用](/数据结构/序列化/Json/FastJson/基本使用.md)
+        - [4.6.1.2 GSON](/数据结构/序列化/Json/GSON.md)
+        - [4.6.1.3 Jackson](/数据结构/序列化/Json/Jackson/README.md)
+          - [4.6.1.3.1 JSON Tree Model](/数据结构/序列化/Json/Jackson/JSON%20Tree%20Model.md)
+          - [4.6.1.3.2 ObjectMapper](/数据结构/序列化/Json/Jackson/ObjectMapper.md)
+          - [4.6.1.3.3 基础使用](/数据结构/序列化/Json/Jackson/基础使用.md)
+          - [4.6.1.3.4 泛型](/数据结构/序列化/Json/Jackson/泛型.md)
+          - [4.6.1.3.5 类注解](/数据结构/序列化/Json/Jackson/类注解.md)
+      - [4.6.2 Serialization](/数据结构/序列化/Serialization/README.md)
+        - [4.6.2.1 Externalizable](/数据结构/序列化/Serialization/Externalizable.md)
+      - 4.6.3 XML
+        - [4.6.3.1 XML 与 HTML 处理](/数据结构/序列化/XML/XML%20与%20HTML%20处理.md)
     - [4.7 数值类型](/数据结构/数值类型/README.md)
       - [4.7.1 Math](/数据结构/数值类型/Math.md)
       - [4.7.2 包装类型](/数据结构/数值类型/包装类型.md)
