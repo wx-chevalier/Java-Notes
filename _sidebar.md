@@ -280,9 +280,11 @@
     - [7.4 并发容器](/并发编程/并发容器/README.md)
       - [7.4.1 ConcurrentHashMap](/并发编程/并发容器/ConcurrentHashMap/README.md)
         - [7.4.1.1 不安全的 HashMap](/并发编程/并发容器/ConcurrentHashMap/不安全的%20HashMap.md)
-        - 7.4.1.2 源码分析
-          - [7.4.1.2.1 重要的内部类](/并发编程/并发容器/ConcurrentHashMap/源码分析/重要的内部类.md)
-        - [7.4.1.3 语法使用](/并发编程/并发容器/ConcurrentHashMap/语法使用.md)
+        - [7.4.1.2 语法使用](/并发编程/并发容器/ConcurrentHashMap/语法使用.md)
+        - 7.4.1.3 源码分析
+          - [7.4.1.3.1 JDK 7 与 JDK 8 对比](/并发编程/并发容器/ConcurrentHashMap/源码分析/JDK%207%20与%20JDK%208%20对比.md)
+          - [7.4.1.3.2 Unsafe 与 CAS](/并发编程/并发容器/ConcurrentHashMap/源码分析/Unsafe%20与%20CAS.md)
+          - [7.4.1.3.3 重要的内部类](/并发编程/并发容器/ConcurrentHashMap/源码分析/重要的内部类.md)
       - [7.4.2 ConcurrentSkipListMap](/并发编程/并发容器/ConcurrentSkipListMap.md)
       - [7.4.3 CopyOnWrite](/并发编程/并发容器/CopyOnWrite.md)
     - 7.5 并发模型
