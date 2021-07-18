@@ -220,13 +220,21 @@
     - 5.10 第三方库
       - [5.10.1 Apache Common](/工程实践/第三方库/Apache%20Common/README.md)
         - [5.10.1.1 类型增强](/工程实践/第三方库/Apache%20Common/类型增强.md)
-      - [5.10.2 Guava Collections](/工程实践/第三方库/Guava%20Collections/README.md)
+      - [5.10.2 Guava](/工程实践/第三方库/Guava/README.md)
         - 5.10.2.1 其他
-          - [5.10.2.1.1 Preconditions](/工程实践/第三方库/Guava%20Collections/其他/Preconditions.md)
+          - [5.10.2.1.1 Preconditions](/工程实践/第三方库/Guava/其他/Preconditions.md)
         - 5.10.2.2 并发
-          - [5.10.2.2.1 ListeningExecutorService](/工程实践/第三方库/Guava%20Collections/并发/ListeningExecutorService.md)
-          - [5.10.2.2.2 RateLimiter](/工程实践/第三方库/Guava%20Collections/并发/RateLimiter.md)
-        - [5.10.2.3 集合类](/工程实践/第三方库/Guava%20Collections/集合类/README.md)
+          - [5.10.2.2.1 ListenableFuture](/工程实践/第三方库/Guava/并发/ListenableFuture/README.md)
+            - [5.10.2.2.1.1 SettableFuture](/工程实践/第三方库/Guava/并发/ListenableFuture/SettableFuture.md)
+          - [5.10.2.2.2 RateLimiter](/工程实践/第三方库/Guava/并发/RateLimiter.md)
+          - [5.10.2.2.3 Service](/工程实践/第三方库/Guava/并发/Service/README.md)
+            
+          - 5.10.2.2.4 容器
+            - [5.10.2.2.4.1 AtomicLongMap](/工程实践/第三方库/Guava/并发/容器/AtomicLongMap.md)
+          - [5.10.2.2.5 缓存](/工程实践/第三方库/Guava/并发/缓存/README.md)
+            - [5.10.2.2.5.1 CacheBuilder](/工程实践/第三方库/Guava/并发/缓存/CacheBuilder.md)
+            - [5.10.2.2.5.2 MapMaker](/工程实践/第三方库/Guava/并发/缓存/MapMaker.md)
+        - [5.10.2.3 集合类](/工程实践/第三方库/Guava/集合类/README.md)
           
       - [5.10.3 Lombok](/工程实践/第三方库/Lombok/README.md)
         - [5.10.3.1 Utils](/工程实践/第三方库/Lombok/Utils.md)
@@ -272,6 +280,9 @@
     - [7.4 并发容器](/并发编程/并发容器/README.md)
       - [7.4.1 ConcurrentHashMap](/并发编程/并发容器/ConcurrentHashMap/README.md)
         - [7.4.1.1 不安全的 HashMap](/并发编程/并发容器/ConcurrentHashMap/不安全的%20HashMap.md)
+        - 7.4.1.2 源码分析
+          - [7.4.1.2.1 重要的内部类](/并发编程/并发容器/ConcurrentHashMap/源码分析/重要的内部类.md)
+        - [7.4.1.3 语法使用](/并发编程/并发容器/ConcurrentHashMap/语法使用.md)
       - [7.4.2 ConcurrentSkipListMap](/并发编程/并发容器/ConcurrentSkipListMap.md)
       - [7.4.3 CopyOnWrite](/并发编程/并发容器/CopyOnWrite.md)
     - 7.5 并发模型
