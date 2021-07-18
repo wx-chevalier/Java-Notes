@@ -1,8 +1,8 @@
 # Java 中的映射类型
 
-Java 为数据结构中的映射定义了一个接口 java.util.Map，此接口主要有四个常用的实现类，分别是 HashMap、Hashtable、LinkedHashMap 和 TreeMap，类继承关系如下图所示：
+Map 是 Key-Value 对映射的抽象接口，该映射不包括重复的键，即一个键对应一个值；此接口主要有四个常用的实现类，分别是 HashMap、Hashtable、LinkedHashMap 和 TreeMap。
 
-![](https://i.postimg.cc/nLrqZY8v/image.png)
+![Map 类之间关系](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/16/60f159c75132923bf8140ec5.jpg)
 
 下面针对各个实现类的特点做一些说明：
 
@@ -14,4 +14,15 @@ Java 为数据结构中的映射定义了一个接口 java.util.Map，此接口�
 
 - TreeMap：TreeMap 实现 SortedMap 接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器，当用 Iterator 遍历 TreeMap 时，得到的记录是排过序的。如果使用排序的映射，建议使用 TreeMap。在使用 TreeMap 时，key 必须实现 Comparable 接口或者在构造 TreeMap 传入自定义的 Comparator，否则会在运行时抛出 java.lang.ClassCastException 类型的异常。
 
-对于上述四种 Map 类型的类，要求映射中的 key 是不可变对象。不可变对象是该对象在创建后它的哈希值不会被改变。如果对象的哈希值发生变化，Map 对象很可能就定位不到映射的位置了。
+对于上述四种 Map 类型的类，要求映射中的 key 是不可变对象。不可变对象是该对象在创建后它的哈希值不会被改变。如果对象的哈希值发生变化，Map 对象很可能就定位不到映射的位置了。必须指出的是，虽然容器号称存储的是 Java 对象，但实际上并不会真正将 Java 对象放入容器中，只是在容器中保留这些对象的引用。也就是说，Java 容器实际上包含的是引用变量，而这些引用变量指向了我们要实际保存的 Java 对象。
+
+# 集合中的 key
+
+| 集合类            | key         | value       | super       | 说明         |
+| ----------------- | ----------- | ----------- | ----------- | ------------ |
+| HashTable         | 不能为 null | 不能为 null | Dictionary  | 线程安全     |
+| ConcurrentHashMap | 不能为 null | 不能为 null | AbstractMap | 线程局部安全 |
+| TreeMap           | 不能为 null | 可以为 null | AbstractMap | 线程不安全   |
+| HashMap           | 可以为 null | 可以为 null | AbstractMap | 线程不安全   |
+
+hash 表需要进行 hash 值运算，key 不能为 null 好理解，如果 map 中 value 为 null 也好理解。表中不好理解的是 HashMap 中 key 可以为 null,看下面代码中对 null 有个特殊处理，索引位置为 0。
