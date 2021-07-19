@@ -4,7 +4,7 @@ AtomicReference 和 AtomicInteger 非常类似，不同之处就在于 AtomicInt
 
 AtomicReference 是作用是对”对象”进行原子操作。 提供了一种读和写都是原子性的对象引用变量。原子意味着多个线程试图改变同一个 AtomicReference(例如比较和交换操作)将不会使得 AtomicReference 处于不一致的状态。
 
-# 常用方法
+# 创建
 
 ```java
 public class SimpleObject {
@@ -95,6 +95,46 @@ public class AtomicReferenceTest {
         SimpleObject simpleObject3 = atomicReference3.get();
         System.out.println("simpleObject  Value: " + simpleObject2.toString());
         System.out.println("simpleObject  Value: " + simpleObject3.toString());
+    }
+}
+```
+
+# getAndUpdate
+
+AtomicReference 类的 getAndUpdate() 方法用于原子更新，该更新通过对当前值应用指定的 updateFunction 操作来更新 AtomicReference 的当前值。它以 updateFunction 接口的对象为参数，并将该对象中指定的操作应用于当前值。它返回先前的值。
+
+```java
+public final V getAndUpdate(UnaryOperator<V> updateFunction)
+```
+
+此方法接受 updateFunction，它是没有副作用的函数。
+
+```java
+public class GFG {
+    public static void main(String args[])
+    {
+
+        // AtomicReference with value
+        AtomicReference<Integer> ref
+            = new AtomicReference<>(987654);
+
+        // Declaring the updateFunction
+        // applying function
+        UnaryOperator twoDigits
+            = (v)
+            -> v.toString()
+                   .substring(0, 2);
+
+        // apply getAndUpdate()
+        int value = ref.getAndUpdate(twoDigits);
+
+        // print AtomicReference
+        System.out.println(
+            "The AtomicReference previous value:"
+            + value);
+        System.out.println(
+            "The AtomicReference new value:"
+            + ref.get()); // 98
     }
 }
 ```
