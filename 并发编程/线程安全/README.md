@@ -1,18 +1,71 @@
+> 参阅《[Concurrent-Series](https://github.com/wx-chevalier/Concurrent-Series?q=线程安全)》相关章节了解线程安全知识。
+
 # 线程安全
 
-线程如果都各自干活互不搭理的话自然相安无事，但多数情况下线程直接需要打交道，而且需要分享共享资源，那么这个时候最核心的就是线程安全了。当多个线程访问同一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替运行，也不需要进行额外的同步，或者在调用方进行任何其他的协调操作，调用这个对象的行为都可以获取正确的结果，那这个对象是线程安全的。
+在 Java 中，保证线程安全一般会用两种方式：锁和原子变量。volatile 确保每次操作都能强制同步 CPU 缓存和主存直接的变量。而且在编译期间能阻止指令重排。读写并发情况下 volatile 也不能确保线程安全。
 
-- 无状态：这个有点函数式编程的味道，总之就是线程只有入参和局部变量，如果变量是引用的话，确保变量的创建和调用生命周期都发生在线程栈内，就可以确保线程安全。
-- 无共享状态：完全要求线程无状态比较难实现，必要的状态是无法避免的，那么我们就必须维护不同线程之间的不同状态，这可是个麻烦事。幸好我们有 ThreadLocal 这个神器，该对象跟当前线程绑定，而且只对当前线程可见，完美解决了无共享状态的问题。
-- 不可变状态：最后实在没办法避免状态共享，在线程之间共享状态，最怕的就是无法确保能维护好正确的读写顺序，而且多线程确实也无法正确维护好这个共享变量。那么我们索性粗暴点，把共享的状态定位不可变，比如价格 final 修饰一下，这样就达到安全状态共享。
-- 线程同步：锁、事件等，一个线程通常也不是所有步骤都需要共享状态，而是部分环节才需要的，那么我们把共享状态的代码拆开，无共享状态的那部分自然不用关心，而共享状态的小段代码，则通过加入消息组件来传递状态。这个设计到并发模式的流水线编程模式，下文并发模式会重点介绍。
+# 锁
 
-我们最早接触线程安全可能是 JDK 提供的一些号称线程安全的容器，比如 Vetor 较 ArrayList 是线程安全，HashTable 较 HashMap 是线程安全？其实线程安全类并不代表也不等同线程安全的程序，而线程不安全的类同样可以完成线程安全的程序。我们关注的也就是写出线程安全的程序，那么如何写出线程安全的代码呢，核心就是避免共享的可变状态。
+![通过加锁的方式实现线程安全](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/22/60f92c625132923bf8d6fd1a.jpg)
 
-synchronized 同步，该关键字确保代码块同一时间只被一个线程执行，在这个前提下再设计符合线程安全的逻辑：
+采取加锁的方式，默认线程会冲突，访问数据时，先加上锁再访问，访问之后再解锁。通过锁界定一个临界区，同时只有一个线程进入。如上图所示，Thread2 访问 Entry 的时候，加了锁，Thread1 就不能再执行访问 Entry 的代码，从而保证线程安全。下面是 ArrayBlockingQueue 通过加锁的方式实现的 offer 方法，保证线程安全。
 
-- 对象：对象加锁，进入同步代码块之前获取对象锁
-- 实例方法：对象加锁，执行实例方法前获取对象实例锁
-- 类方法：类加锁，执行类方法前获取类锁
+```java
+public boolean offer(E e) {
+    checkNotNull(e);
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        if (count == items.length)
+            return false;
+        else {
+            insert(e);
+            return true;
+        }
+    } finally {
+        lock.unlock();
+    }
+}
+```
 
-volatile 确保每次操作都能强制同步 CPU 缓存和主存直接的变量。而且在编译期间能阻止指令重排。读写并发情况下 volatile 也不能确保线程安全。
+# 原子变量
+
+原子变量能够保证原子性的操作，意思是某个任务在执行过程中，要么全部成功，要么全部失败回滚，恢复到执行之前的初态，不存在初态和成功之间的中间状态。例如 CAS 操作，要么比较并交换成功，要么比较并交换失败。由 CPU 保证原子性。通过原子变量可以实现线程安全。执行某个任务的时候，先假定不会有冲突，若不发生冲突，则直接执行成功；当发生冲突的时候，则执行失败，回滚再重新操作，直到不发生冲突。
+
+![通过原子变量 CAS 实现线程安全](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/22/60f92eb75132923bf8de26e1.jpg)
+
+如图所示，Thread1 和 Thread2 都要把 Entry 加 1。若不加锁，也不使用 CAS，有可能 Thread1 取到了 myValue=1，Thread2 也取到了 myValue=1，然后相加，Entry 中的 value 值为 2。这与预期不相符，我们预期的是 Entry 的值经过两次相加后等于 3。CAS 会先把 Entry 现在的 value 跟线程当初读出的值相比较，若相同，则赋值；若不相同，则赋值执行失败。一般会通过 while/for 循环来重新执行，直到赋值成功。
+
+代码示例是 AtomicInteger 的 getAndAdd 方法。CAS 是 CPU 的一个指令，由 CPU 保证原子性。
+
+```java
+/**
+ * Atomically adds the given value to the current value.
+ *
+ * @param delta the value to add
+ * @return the previous value
+ */
+public final int getAndAdd(int delta) {
+    for (;;) {
+        int current = get();
+        int next = current + delta;
+        if (compareAndSet(current, next))
+            return current;
+    }
+}
+
+/**
+ * Atomically sets the value to the given updated value
+ * if the current value {@code ==} the expected value.
+ *
+ * @param expect the expected value
+ * @param update the new value
+ * @return true if successful. False return indicates that
+ * the actual value was not equal to the expected value.
+ */
+public final boolean compareAndSet(int expect, int update) {
+    return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
+}
+```
+
+在高度竞争的情况下，锁的性能将超过原子变量的性能，但是更真实的竞争情况下，原子变量的性能将超过锁的性能。同时原子变量不会有死锁等活跃性问题。
