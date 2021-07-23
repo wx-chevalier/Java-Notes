@@ -22,4 +22,6 @@ JVM 上的线程池通常应被分为以下三类：CPU-bound、Blocking IO、No
 
 在这一点上，对于任何框架或库，如果 a）使配置线程池变得困难，或者 b）直接默认为一个你无法控制的线程池，都要非常谨慎地看待。无论如何，你几乎总是会在你的应用程序中的某个地方有某种单子对象，它有这三个池子，预先配置好供使用。如果你赞成 "隐式 ExecutionContext 模式"，那么你应该让 CPU 池成为隐式的，而其他的必须明确选择。
 
-## Loom
+# Links
+
+- https://mp.weixin.qq.com/s/skBA9RwVBLnw8BYZhcUSrA Java 线程池原理及最佳实践（1.5W 字，面试必问）
