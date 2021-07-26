@@ -204,12 +204,12 @@ interface LongCalculator{
 
 一个 Lambda 表达式表示一个在函数接口中定义的匿名函数，方法引用使用现有方法创建一个 Lambda 表达式。方法引用的一般语法是 `Qualifier::MethodName` 两个连续的冒号作为分隔符。MethodName 是方法的名称，Qualifier 告诉在哪里可以找到方法的引用。方法参考有六种类型。
 
-- TypeName::staticMethod - 类、接口或枚举的静态方法的引用。
-- objectRef::instanceMethod - 对实例方法的引用
-- ClassName::instanceMethod - 引用类的实例方法
-- TypeName.super::instanceMethod - 从对象的超类型中引用一个实例方法。
-- ClassName::new - 类的构造函数的引用
-- ArrayTypeName::new - 引用指定数组类型的构造函数。
+- TypeName::staticMethod: 类、接口或枚举的静态方法的引用。
+- objectRef::instanceMethod: 对实例方法的引用
+- ClassName::instanceMethod: 引用类的实例方法
+- TypeName.super::instanceMethod: 从对象的超类型中引用一个实例方法。
+- ClassName::new: 类的构造函数的引用
+- ArrayTypeName::new: 引用指定数组类型的构造函数。
 
 ## Static Method References
 
@@ -373,17 +373,18 @@ public class Main{
     new Util();
   }
 }
+
 class Util extends ParentUtil{
 
   public Util(){
     BiFunction<String,  String,String> strFunc = this::append;
-    String name ="test";
-    String s=  strFunc.apply(name," hi");
+    String name = "test";
+    String s = strFunc.apply(name," hi");
     System.out.println(s);
 
     strFunc = Util.super::append;
     name ="test";
-    s=  strFunc.apply(name," Java Lambda Tutorial");
+    s = strFunc.apply(name," Java Lambda Tutorial");
     System.out.println(s);
 
   }
@@ -458,8 +459,8 @@ import java.util.function.Function;
 
 public class Main{
   public static void main(String[] argv){
-    Function<Integer, int[]>  arrayCreator3 = int[]::new;
-    int[] intArray  = arrayCreator3.apply(5);
+    Function<Integer, int[]> arrayCreator3 = int[]::new;
+    int[] intArray = arrayCreator3.apply(5);
     System.out.println(Arrays.toString(intArray));
   }
 }
