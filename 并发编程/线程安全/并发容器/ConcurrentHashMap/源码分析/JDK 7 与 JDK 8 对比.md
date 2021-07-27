@@ -12,7 +12,7 @@ Segment 内部类继承自 ReentrantLock，因此习惯将 JDK 7 CHM 的这种�
 
 ```java
 final V put(K key, int hash, V value, boolean onlyIfAbsent) {
-    HashEntry<K,V> node = tryLock() ? null :
+    HashEntry<K,V> node = tryLock() ? null
         scanAndLockForPut(key, hash, value);
     V oldValue;
     try {
