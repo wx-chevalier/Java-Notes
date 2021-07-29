@@ -8,10 +8,10 @@ Java NIO 有三个核心组件(core components)：Channels、Buffers、Selectors
 
 Channel 和传统 IO 中的 Stream 流很相似。只不过 Stream 是单向的，要么是 InputStream 只能进行读，要么是 OutputStream 只能进行写。而 Channel 是双向的。以下是常用的几种通道：
 
-- FileChannel - 可以向文件读写数据
-- SocketChanel - 以 TCP 来向网络连接的两端读写数据
-- ServerSocketChanel - 能够监听客户端发起的 TCP 连接，并为每个 TCP 连接创建一个新的 SocketChannel
-- DatagramChannel - 以 UDP 协议来向网络连接的两端读写数据
+- FileChannel: 可以向文件读写数据
+- SocketChanel: 以 TCP 来向网络连接的两端读写数据
+- ServerSocketChanel: 能够监听客户端发起的 TCP 连接，并为每个 TCP 连接创建一个新的 SocketChannel
+- DatagramChannel: 以 UDP 协议来向网络连接的两端读写数据
 
 ## Buffer（缓冲区）
 
@@ -55,11 +55,13 @@ selectionKey.isWritable();        // 是否写就绪
 Selector selector = Selector.open();
 // 创建 ServerSocketChannel 并绑定到指定端口
 ServerSocketChannel server = ServerSocketChannel.open();
+
 server.bind(new InetSocketAddress("127.0.0.1", 1234));
 // 设置 ServerSocketChannel 为 non-blocking
 server.configureBlocking(false);
 // 将 server channel 注册到 selector 并设置监听 OP_ACCEPT 事件
 server.register(selector, SelectionKey.OP_ACCEPT);
+
 while (true) {
     // selector 被 select() 阻塞
     // select() 会把注册的事件添加到 SelectionKeys (只增不减)
