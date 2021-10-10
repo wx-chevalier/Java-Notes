@@ -6,7 +6,6 @@ Vavr 实现了一套新的 Java 集合框架来匹配函数式编程范式，Vav
 
 ```java
 Arrays.asList(1, 2, 3).stream().reduce((i, j) -> i + j);
-
 IntStream.of(1, 2, 3).sum();
 ```
 
