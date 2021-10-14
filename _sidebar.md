@@ -81,8 +81,10 @@
         - [3.8.2.2 异常处理](/语法基础/函数式编程/Stream%20API/异常处理.md)
         - [3.8.2.3 操作符](/语法基础/函数式编程/Stream%20API/操作符.md)
       - [3.8.3 Vavr [7]](/语法基础/函数式编程/Vavr/README.md)
-        - [3.8.3.1 Collections](/语法基础/函数式编程/Vavr/Collections.md)
-        - [3.8.3.2 Concurrency](/语法基础/函数式编程/Vavr/Concurrency.md)
+        - 3.8.3.1 Collections [1]
+          - [3.8.3.1.1 Collections](/语法基础/函数式编程/Vavr/Collections/Collections.md)
+        - 3.8.3.2 Concurrency [1]
+          - [3.8.3.2.1 Concurrency](/语法基础/函数式编程/Vavr/Concurrency/Concurrency.md)
         - [3.8.3.3 Functions](/语法基础/函数式编程/Vavr/Functions.md)
         - [3.8.3.4 Pattern Matching](/语法基础/函数式编程/Vavr/Pattern%20Matching.md)
         - [3.8.3.5 Tuples](/语法基础/函数式编程/Vavr/Tuples.md)
@@ -218,7 +220,7 @@
       - [5.8.2 界面基础](/工程实践/Swing/界面基础.md)
     - [5.9 模块化](/工程实践/模块化/README.md)
       
-    - 5.10 第三方库 [4]
+    - 5.10 第三方库 [5]
       - [5.10.1 Apache Common [1]](/工程实践/第三方库/Apache%20Common/README.md)
         - [5.10.1.1 类型增强](/工程实践/第三方库/Apache%20Common/类型增强.md)
       - [5.10.2 Guava [3]](/工程实践/第三方库/Guava/README.md)
@@ -237,14 +239,16 @@
             - [5.10.2.2.5.2 MapMaker](/工程实践/第三方库/Guava/并发/缓存/MapMaker.md)
         - [5.10.2.3 集合类](/工程实践/第三方库/Guava/集合类/README.md)
           
-      - [5.10.3 Lombok [3]](/工程实践/第三方库/Lombok/README.md)
-        - [5.10.3.1 Utils [1]](/工程实践/第三方库/Lombok/Utils/README.md)
-          - [5.10.3.1.1 Builder](/工程实践/第三方库/Lombok/Utils/Builder.md)
-        - [5.10.3.2 数据对象](/工程实践/第三方库/Lombok/数据对象.md)
-        - [5.10.3.3 类属性](/工程实践/第三方库/Lombok/类属性.md)
-      - [5.10.4 ModelMapper [2]](/工程实践/第三方库/ModelMapper/README.md)
-        - [5.10.4.1 ModelMapper](/工程实践/第三方库/ModelMapper/ModelMapper.md)
-        - [5.10.4.2 快速开始](/工程实践/第三方库/ModelMapper/快速开始.md)
+      - [5.10.3 Hutool](/工程实践/第三方库/Hutool/README.md)
+        
+      - [5.10.4 Lombok [3]](/工程实践/第三方库/Lombok/README.md)
+        - [5.10.4.1 Utils [1]](/工程实践/第三方库/Lombok/Utils/README.md)
+          - [5.10.4.1.1 Builder](/工程实践/第三方库/Lombok/Utils/Builder.md)
+        - [5.10.4.2 数据对象](/工程实践/第三方库/Lombok/数据对象.md)
+        - [5.10.4.3 类属性](/工程实践/第三方库/Lombok/类属性.md)
+      - [5.10.5 ModelMapper [2]](/工程实践/第三方库/ModelMapper/README.md)
+        - [5.10.5.1 ModelMapper](/工程实践/第三方库/ModelMapper/ModelMapper.md)
+        - [5.10.5.2 快速开始](/工程实践/第三方库/ModelMapper/快速开始.md)
     - 5.11 系统调用 [3]
       - [5.11.1 RMI](/工程实践/系统调用/RMI.md)
       - [5.11.2 命令执行](/工程实践/系统调用/命令执行.md)
