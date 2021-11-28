@@ -1,34 +1,10 @@
-# ExecutorService
-
-## 生命周期
-
-ExecutorService 接口继承了 Executor 接口，定义了一些生命周期的方法
-
-```java
-public interface ExecutorService extends Executor {
-  void shutdown();
-  List<Runnable> shutdownNow();
-  boolean isShutdown();
-  boolean isTerminated();
-  boolean awaitTermination(long timeout, TimeUnit unit)
-    throws InterruptedException;
-}
-```
-
-- shutdown 方法：这个方法会平滑地关闭 ExecutorService，当我们调用这个方法时，ExecutorService 停止接受任何新的任务且等待已经提交的任务执行完成(已经提交的任务会分两类：一类是已 经在执行的，另一类是还没有开始执行的)，当所有已经提交的任务执行完毕后将会关闭 ExecutorService。
-
-- awaitTermination 方法：这个方法有两个参数，一个是 timeout 即超 时时间，另一个是 unit 即时间单位。这个方法会使线程等待 timeout 时长，当超过 timeout 时间后，会监测 ExecutorService 是否已经关闭，若关闭则返回 true，否则返回 false。一般情况下会和 shutdown 方法组合使用。
-
 # Executors
 
 Executors 类提供了便利的工厂方法来创建不同类型的 ExecutorServices，分别为：
 
 - newCachedThreadPool 创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。
-
 - newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。
-
 - newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行。
-
 - newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。
 
 ```java
@@ -54,7 +30,7 @@ public static void main(String[] args) {
 }
 ```
 
-## CachedThreadPool
+# CachedThreadPool
 
 CachedThreadPool 会创建一个缓存区，将初始化的线程缓存起来。会终止并且从缓存中移除已有 60 秒未被使用的线程。如果线程有可用的，就使用之前创建好的线程，如果线程没有可用的，就新创建线程。
 
@@ -76,7 +52,7 @@ public static ExecutorService newCachedThreadPool() {
 }
 ```
 
-## FixedThreadPool
+# FixedThreadPool
 
 在 FixedThreadPool 中，有一个固定大小的池。如果当前需要执行的任务超过池大小，那么多出的任务处于等待状态，直到有空闲下来的线程执行任务，如果当前需要执行的任务小于池大小，空闲的线程也不会去销毁。
 
@@ -106,7 +82,7 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 
 执行结果：创建了一个固定大小的线程池，容量为 3，然后循环执行了 4 个任务。由输出结果可以看到，前 3 个任务首先执行完，然后空闲下来的线程去执行第 4 个任务。
 
-## SingleThreadExecutor
+# SingleThreadExecutor
 
 SingleThreadExecutor 得到的是一个单个的线程，这个线程会保证你的任务执行完成。如果当前线程意外终止，会创建一个新线程继续执行任务，这和我们直接创建线程不同，也和 newFixedThreadPool(1)不同。
 
@@ -125,7 +101,7 @@ public static ExecutorService newSingleThreadExecutor() {
 }
 ```
 
-## ScheduledThreadPool
+# ScheduledThreadPool
 
 ScheduledThreadPool 是一个固定大小的线程池，与 FixedThreadPool 类似，执行的任务是定时执行。
 

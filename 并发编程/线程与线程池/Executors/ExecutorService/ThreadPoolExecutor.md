@@ -46,9 +46,7 @@ ThreadPoolExecutor 最常用的构造方法如下：
 其中 corePoolSize，maximumPoolSize 以及 KeepAliveTime 决定着线程池中线程的创建和消亡。
 
 - corePoolSize 为正常情况下线程池中线程的数量。
-
 - maximumPoolSize 为线程池线程数量的上限，当提交给线程池中得任务数量过多时线程池会临时创建新的工作线程来执行这些任务，但保证线程池中线程的总量不会超过 maximumPoolSize。
-
 - keepAliveTime 表示当线程池中的线程数量超过了 corePoolSize 的时候，如果一个线程的闲置时间超过了 keepAliveTime 那么这个线程就有可能被消灭（TimeUnit 为 keepAliveTime 的单位）。
 
 合理的配置这三个参数可以保证线程池“弹性”，当任务请求量大的时候线程池中的线程数量会扩大到 maximumPoolSize 来提高线程池的吞吐量。而当请求量不是很大的时候线程池大小有又可以减少到 corePoolSize 来保证不会有更多的空闲线程浪费系统资源。以 newFixedThreadPool 方法为例：
