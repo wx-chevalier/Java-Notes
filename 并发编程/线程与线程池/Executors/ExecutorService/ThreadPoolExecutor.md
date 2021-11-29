@@ -1,6 +1,35 @@
 # ThreadPoolExecutor
 
-Executors 工厂生产的主要是 ThreadPoolExecutor, 例如 newCachedThreadPool, newFixedThreadPool, 以及 newScheduledThreadExecutor 方法返回的都是 ThreadPoolExecutor 实例。ThreadPoolExecutor 支持用户自定义。如果默认的 Executors 工厂默认生产的 ThreadPoolExecutor 的执行策略不能满足需求，则可以定制自己的策略。
+Executors 工厂生产的主要是 ThreadPoolExecutor, 例如 newCachedThreadPool, newFixedThreadPool, 以及 newScheduledThreadExecutor 方法返回的都是 ThreadPoolExecutor 实例。ThreadPoolExecutor 支持用户自定义。如果默认的 Executors 工厂默认生产的 ThreadPoolExecutor 的执行策略不能满足需求，则可以定制自己的策略。Executors 创建线程池方法本质上都是使用了 ThreadPoolExecutor，因为这些创建线程池的静态方法都是返回 ThreadPoolExecutor 对象，和我们手动创建 ThreadPoolExecutor 对象的区别就是我们不需要自己传构造函数的参数。ThreadPoolExecutor 的构造函数共有四个，但最终调用的都是同一个：
+
+```java
+public ThreadPoolExecutor(int corePoolSize,
+                          int maximumPoolSize,
+                          long keepAliveTime,
+                          TimeUnit unit,
+                          BlockingQueue<Runnable> workQueue,
+                          ThreadFactory threadFactory,
+                          RejectedExecutionHandler handler)
+```
+
+构造函数参数说明：
+
+- corePoolSize => 线程池核心线程数量
+- maximumPoolSize => 线程池最大数量
+- keepAliveTime => 空闲线程存活时间
+- unit => 时间单位
+- workQueue => 线程池所使用的缓冲队列
+- threadFactory => 线程池创建线程使用的工厂
+- handler => 线程池对拒绝任务的处理策略
+
+![执行逻辑与线程池参数关系](https://s3.ax1x.com/2020/11/25/DaJjDs.png)
+
+执行逻辑说明：
+
+- 判断核心线程数是否已满，核心线程数大小和`corePoolSize`参数有关，未满则创建线程执行任务
+- 若核心线程池已满，判断队列是否满，队列是否满和`workQueue`参数有关，若未满则加入队列中
+- 若队列已满，判断线程池是否已满，线程池是否已满和`maximumPoolSize`参数有关，若未满创建线程执行任务
+- 若线程池已满，则采用拒绝策略处理无法执执行的任务，拒绝策略和`handler`参数有关
 
 ThreadPoolExecutor 最常用的构造方法如下：
 
@@ -227,5 +256,3 @@ public interface ThreadFactory {
 ```
 
 可以通过实现这个接口来定制线程工厂。
-
-# Links
