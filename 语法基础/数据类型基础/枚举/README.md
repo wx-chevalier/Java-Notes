@@ -32,6 +32,7 @@ public enum WeekDay {
   Fri("Friday"),
   Sat("Saturday"),
   Sun("Sunday");
+
   private final String day;
 
   private WeekDay(String day) {
@@ -55,44 +56,103 @@ public enum WeekDay {
 }
 ```
 
-# 自定义枚举类型
+# 枚举值关联
 
-在 JDK5 之前，Java 语言不支持枚举类型，只能用类（class）来模拟实现枚举类型。
+我们可以创建如下的枚举类型：
 
 ```java
-/** 订单状态枚举 */
-public final class OrderStatus {
-  /** 属性相关 */
-  /** 状态取值 */
-  private final int value;
+public enum Element {
+    H("Hydrogen"),
+    HE("Helium"),
+    // ...
+    NE("Neon");
 
-  /** 状态描述 */
-  private final String description;
+    public final String label;
 
-  /** 常量相关 */
-  /** 已创建(1) */
-  public static final OrderStatus CREATED = new OrderStatus(1, "已创建");
+    private Element(String label) {
+        this.label = label;
+    }
+}
+```
 
-  /** 进行中(2) */
-  public static final OrderStatus PROCESSING = new OrderStatus(2, "进行中");
+首先，我们注意到声明列表中的特殊语法。这就是枚举类型的构造函数被调用的方式。尽管对枚举类型使用 new 操作符是非法的，但我们可以在声明列表中传递构造器参数。
 
-  /** 已完成(3) */
-  public static final OrderStatus FINISHED = new OrderStatus(3, "已完成");
+然后我们声明一个实例变量 label。这里面有几件事需要注意。
 
-  /** 构造函数 */
-  private OrderStatus(int value, String description) {
-    this.value = value;
-    this.description = description;
-  }
+- 首先，我们选择了标签标识符而不是名称。尽管成员字段名可以使用，但我们还是选择了 label，以避免与预定义的 Enum.name()方法相混淆。
+- 第二，我们的标签字段是 final 的。虽然枚举的字段不一定是 finals 的，但在大多数情况下我们不希望我们的标签发生变化。本着枚举值是恒定的精神，这是有道理的。
+- 最后，标签字段是 public 的，所以我们可以直接访问标签。
 
-  /** 获取状态取值 */
-  public int getValue() {
-    return value;
-  }
+```java
+System.out.println(BE.label);
+```
 
-  /** 获取状态描述 */
-  public String getDescription() {
-    return description;
-  }
+另一方面，该字段可以是私有的，用 getLabel()方法访问。为了简洁起见，本文将继续使用公共字段的样式。Java 为所有枚举类型提供了一个 valueOf(String)方法。因此，我们总是可以根据声明的名称得到一个枚举的值。
+
+```java
+assertSame(Element.LI, Element.valueOf("LI"));
+```
+
+然而，我们可能也想通过我们的标签字段来查询一个枚举值。要做到这一点，我们可以添加一个静态方法。
+
+```java
+public static Element valueOfLabel(String label) {
+    for (Element e : values()) {
+        if (e.label.equals(label)) {
+            return e;
+        }
+    }
+    return null;
+}
+```
+
+static valueOfLabel()方法遍历元素值，直到找到一个匹配的元素。如果没有找到匹配的，它就返回 null。反之，可以抛出一个异常，而不是返回 null。
+
+```java
+assertSame(Element.LI, Element.valueOfLabel("Lithium"));
+```
+
+为了提高值查询的效率，我们还可以添加如下的缓存：
+
+```java
+public enum Element {
+    H("Hydrogen", 1, 1.008f),
+    HE("Helium", 2, 4.0026f),
+    // ...
+    NE("Neon", 10, 20.180f);
+
+    private static final Map<String, Element> BY_LABEL = new HashMap<>();
+    private static final Map<Integer, Element> BY_ATOMIC_NUMBER = new HashMap<>();
+    private static final Map<Float, Element> BY_ATOMIC_WEIGHT = new HashMap<>();
+
+    static {
+        for (Element e : values()) {
+            BY_LABEL.put(e.label, e);
+            BY_ATOMIC_NUMBER.put(e.atomicNumber, e);
+            BY_ATOMIC_WEIGHT.put(e.atomicWeight, e);
+        }
+    }
+
+    public final String label;
+    public final int atomicNumber;
+    public final float atomicWeight;
+
+    private Element(String label, int atomicNumber, float atomicWeight) {
+        this.label = label;
+        this.atomicNumber = atomicNumber;
+        this.atomicWeight = atomicWeight;
+    }
+
+    public static Element valueOfLabel(String label) {
+        return BY_LABEL.get(label);
+    }
+
+    public static Element valueOfAtomicNumber(int number) {
+        return BY_ATOMIC_NUMBER.get(number);
+    }
+
+    public static Element valueOfAtomicWeight(float weight) {
+        return BY_ATOMIC_WEIGHT.get(weight);
+    }
 }
 ```

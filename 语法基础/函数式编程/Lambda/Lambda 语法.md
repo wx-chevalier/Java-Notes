@@ -305,6 +305,7 @@ public class Main{
     util.debug();
   }
 }
+
 class Util{
   private int count=0;
   public void print(String s){
@@ -421,7 +422,7 @@ public class Main{
     System.out.println(func2.apply("test"));
 
     Supplier<String> func3  = String::new;
-    System.out.println("Empty String:"+func3.get());
+    System.out.println("Empty String:" + func3.get());
 
     Function<String,String> func4  = String::new;
     System.out.println(func4.apply("test"));

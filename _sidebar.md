@@ -83,8 +83,8 @@
       - [3.8.3 Vavr](/语法基础/函数式编程/Vavr/README.md)
         - 3.8.3.1 Collections
           - [3.8.3.1.1 Collections](/语法基础/函数式编程/Vavr/Collections/Collections.md)
-        - 3.8.3.2 Concurrency
-          - [3.8.3.2.1 Concurrency](/语法基础/函数式编程/Vavr/Concurrency/Concurrency.md)
+        - [3.8.3.2 Concurrency](/语法基础/函数式编程/Vavr/Concurrency/README.md)
+          
         - [3.8.3.3 Functions](/语法基础/函数式编程/Vavr/Functions.md)
         - [3.8.3.4 Pattern Matching](/语法基础/函数式编程/Vavr/Pattern%20Matching.md)
         - [3.8.3.5 Tuples](/语法基础/函数式编程/Vavr/Tuples.md)
