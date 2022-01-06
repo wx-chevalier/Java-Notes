@@ -6,8 +6,8 @@ BufferedReader 是支持同步的，而 Scanner 不支持。如果我们处理�
 
 ```java
 // 要找 resource 目录下的某个文件
-BufferedReader bufferedReaderB = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/B/B1.txt")));
-String url = this.getClass().getResource("/userFile.properties").getFile();
+BufferedReader bufferedReaderB = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/B/B1.txt")));
+String url = this.getClass().getResource("/userFile.properties").getFile();
 
 // 找某个类
 File f = new File(MyClass.class.getProtectionDomain().getCodeSource().getLocation().getPath());
@@ -158,56 +158,56 @@ public void givenBufferedReader_whenSkipsWhitespacesAtBeginning_thenOk()
 ## 按行读取
 
 ```java
-public class ReadSelectedLine{
-    // 读取文件指定行。
-    static void readAppointedLineNumber(File sourceFile, int lineNumber)
-         throws IOException {
-     FileReader in = new FileReader(sourceFile);
-     LineNumberReader reader = new LineNumberReader(in);
-     String s = "";
-     if (lineNumber <= 0 || lineNumber > getTotalLines(sourceFile)) {
-         System.out.println("不在文件的行数范围(1至总行数)之内。");
-         System.exit(0);
-     }
-     int lines = 0;
-     while (s != null) {
-         lines++;
-         s = reader.readLine();
-         if((lines - lineNumber) == 0) {
-          System.out.println(s);
-          System.exit(0);
-         }
-     }
-     reader.close();
-     in.close();
+public class ReadSelectedLine{
+    // 读取文件指定行。
+    static void readAppointedLineNumber(File sourceFile, int lineNumber)
+         throws IOException {
+     FileReader in = new FileReader(sourceFile);
+     LineNumberReader reader = new LineNumberReader(in);
+     String s = "";
+     if (lineNumber <= 0 || lineNumber > getTotalLines(sourceFile)) {
+         System.out.println("不在文件的行数范围(1至总行数)之内。");
+         System.exit(0);
+     }
+     int lines = 0;
+     while (s != null) {
+         lines++;
+         s = reader.readLine();
+         if((lines - lineNumber) == 0) {
+          System.out.println(s);
+          System.exit(0);
+         }
+     }
+     reader.close();
+     in.close();
     }
-    // 文件内容的总行数。
-    static int getTotalLines(File file) throws IOException {
-     FileReader in = new FileReader(file);
-     LineNumberReader reader = new LineNumberReader(in);
-     String s = reader.readLine();
-     int lines = 0;
-     while (s != null) {
-         lines++;
-         s = reader.readLine();
-     }
-     reader.close();
-     in.close();
-     return lines;
+    // 文件内容的总行数。
+    static int getTotalLines(File file) throws IOException {
+     FileReader in = new FileReader(file);
+     LineNumberReader reader = new LineNumberReader(in);
+     String s = reader.readLine();
+     int lines = 0;
+     while (s != null) {
+         lines++;
+         s = reader.readLine();
+     }
+     reader.close();
+     in.close();
+     return lines;
     }
 
     /**
-     * 读取文件指定行。
-     */
-    public static void main(String[] args) throws IOException {
-     // 指定读取的行号
-     int lineNumber = 2;
-     // 读取文件
-     File sourceFile = new File("D:/java/test.txt");
-     // 读取指定的行
-     readAppointedLineNumber(sourceFile, lineNumber);
-     // 获取文件的内容的总行数
-     System.out.println(getTotalLines(sourceFile));
+     * 读取文件指定行。
+     */
+    public static void main(String[] args) throws IOException {
+     // 指定读取的行号
+     int lineNumber = 2;
+     // 读取文件
+     File sourceFile = new File("D:/java/test.txt");
+     // 读取指定的行
+     readAppointedLineNumber(sourceFile, lineNumber);
+     // 获取文件的内容的总行数
+     System.out.println(getTotalLines(sourceFile));
     }
 }
 ```
