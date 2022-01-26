@@ -7,3 +7,5 @@
 - https://www.zhihu.com/question/20097631/answer/676214307
 
 - https://cubox.pro/c/rV8hab 这些不可不知的JVM知识，我都用思维导图整理好了 偏总结性质
+
+- https://mp.weixin.qq.com/s/mQErApHnlacTgdbtJV2y9w 据说看完这篇 JVM 要一小时 
