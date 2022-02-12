@@ -11,6 +11,11 @@
 # Links
 
 - https://mp.weixin.qq.com/s/w-C9QkMQhgnAChnRrsrXIw
+
 - https://www.jianshu.com/p/3f6b26ee51ce
+
 - [concurrency-torture-testing-your-code-within-the-java-memory-model](http://zeroturnaround.com/rebellabs/concurrency-torture-testing-your-code-within-the-java-memory-model/)
+
 - https://zhuanlan.zhihu.com/p/91788985
+
+- https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw Java并发六十问，图文详解，快来看看你会多少道！
