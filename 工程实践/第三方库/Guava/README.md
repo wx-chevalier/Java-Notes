@@ -13,7 +13,7 @@ Guava 项目包含了谷歌在基于 Java 的项目中依赖的几个 Google 核
 - 集合类：集合类库是 Guava 对 JDK 集合类的扩展， 这是 Guava 项目最完善和为人所知的部分。
 
   - Immutable collections（不变的集合）： 防御性编程， 不可修改的集合，并且提高了效率。
-  - New collection types(新集合类型)：JDK collections 没有的一些集合类型，主要有：multisets，multimaps，tables， bidirectional maps 等等
+  - New collection types(新集合类型)：JDK collections 没有的一些集合类型，主要有：multisets，multimaps，tables，bidirectional maps 等等
   - Powerful collection utilities（强大的集合工具类）： java.util.Collections 中未包含的常用操作工具类
   - Extension utilities（扩展工具类）：给 Collection 对象添加一个装饰器还是实现迭代器? 我们可以更容易的实现这些。
 
