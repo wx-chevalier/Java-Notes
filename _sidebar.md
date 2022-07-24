@@ -241,7 +241,7 @@
             - [5.9.2.2.5.1 CacheBuilder](/工程实践/第三方库/Guava/并发/缓存/CacheBuilder.md)
             - [5.9.2.2.5.2 MapMaker](/工程实践/第三方库/Guava/并发/缓存/MapMaker.md)
         - [5.9.2.3 集合类](/工程实践/第三方库/Guava/集合类/README.md)
-          
+          - [5.9.2.3.1 EvictingQueue](/工程实践/第三方库/Guava/集合类/EvictingQueue.md)
       - [5.9.3 Hutool](/工程实践/第三方库/Hutool/README.md)
         
       - [5.9.4 Lombok](/工程实践/第三方库/Lombok/README.md)
