@@ -1,4 +1,4 @@
-> 在阅读本篇之前，建议先阅读[《并发编程导论](https://ng-tech.icu/Concurrent-Series/#/)》。
+> 在阅读本篇之前，建议先阅读[《并发编程导论](https://wx-chevalier.github.io/Concurrent-Series/#/)》。
 
 # Java 并发编程
 
@@ -18,4 +18,4 @@
 
 - https://zhuanlan.zhihu.com/p/91788985
 
-- https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw Java并发六十问，图文详解，快来看看你会多少道！
+- https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw Java 并发六十问，图文详解，快来看看你会多少道！
