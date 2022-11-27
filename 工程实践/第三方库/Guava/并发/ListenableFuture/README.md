@@ -280,6 +280,50 @@ public class ListeningFutureDemo {
 }
 ```
 
+## 与 CompletableFuture 之间互相转化
+
+```java
+public class ListenableFutureAdapter<T> {
+
+    private final ListenableFuture<T> listenableFuture;
+    private final CompletableFuture<T> completableFuture;
+
+    public ListenableFutureAdapter(ListenableFuture<T> listenableFuture) {
+        this.listenableFuture = listenableFuture;
+        this.completableFuture = new CompletableFuture<T>() {
+            @Override
+            public boolean cancel(boolean mayInterruptIfRunning) {
+                boolean cancelled = listenableFuture.cancel(mayInterruptIfRunning);
+                super.cancel(cancelled);
+                return cancelled;
+            }
+        };
+
+        Futures.addCallback(this.listenableFuture, new FutureCallback<T>() {
+            @Override
+            public void onSuccess(T result) {
+                completableFuture.complete(result);
+            }
+
+            @Override
+            public void onFailure(Throwable ex) {
+                completableFuture.completeExceptionally(ex);
+            }
+        });
+    }
+
+    public CompletableFuture<T> getCompletableFuture() {
+        return completableFuture;
+    }
+
+    public static final <T> CompletableFuture<T> toCompletable(ListenableFuture<T> listenableFuture) {
+        ListenableFutureAdapter<T> listenableFutureAdapter = new ListenableFutureAdapter<>(listenableFuture);
+        return listenableFutureAdapter.getCompletableFuture();
+    }
+
+}
+```
+
 # 实践案例
 
 ## 异步阻塞
