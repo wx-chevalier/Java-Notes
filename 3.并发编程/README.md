@@ -1,4 +1,4 @@
-> 在阅读本篇之前，建议先阅读[《并发编程导论](https://wx-chevalier.github.io/Concurrent-Series/#/)》。
+> 在阅读本篇之前，建议先阅读[《并发编程导论](https://ng-tech.icu/books/Concurrent-Series/#/)》。
 
 # Java 并发编程
 
