@@ -220,36 +220,38 @@
           - [5.4.2.4.8 错误处理](/3.并发编程/并发框架/RxJava/操作符/错误处理.md)
         - 5.4.2.5 架构机制 [1]
           - [5.4.2.5.1 原理浅析](/3.并发编程/并发框架/RxJava/架构机制/原理浅析.md)
-    - [5.5 线程与线程池 [6]](/3.并发编程/线程与线程池/README.md)
-      - [5.5.1 Executors [2]](/3.并发编程/线程与线程池/Executors/README.md)
-        - [5.5.1.1 ExecutorService [4]](/3.并发编程/线程与线程池/Executors/ExecutorService/README.md)
-          - [5.5.1.1.1 Executors](/3.并发编程/线程与线程池/Executors/ExecutorService/Executors.md)
-          - [5.5.1.1.2 ThreadPoolExecutor](/3.并发编程/线程与线程池/Executors/ExecutorService/ThreadPoolExecutor.md)
-          - [5.5.1.1.3 任务执行](/3.并发编程/线程与线程池/Executors/ExecutorService/任务执行.md)
-          - [5.5.1.1.4 快速开始](/3.并发编程/线程与线程池/Executors/ExecutorService/快速开始.md)
-        - 5.5.1.2 Future [2]
-          - [5.5.1.2.1 Callable 与 Future](/3.并发编程/线程与线程池/Executors/Future/Callable%20与%20Future.md)
-          - [5.5.1.2.2 CompletableFuture](/3.并发编程/线程与线程池/Executors/Future/CompletableFuture.md)
-      - [5.5.2 ForkJoin [2]](/3.并发编程/线程与线程池/ForkJoin/README.md)
-        - [5.5.2.1 ForkJoin 内部实现](/3.并发编程/线程与线程池/ForkJoin/ForkJoin%20内部实现.md)
-        - [5.5.2.2 ForkJoin 语法使用](/3.并发编程/线程与线程池/ForkJoin/ForkJoin%20语法使用.md)
-      - 5.5.3 协程 [1]
-        - [5.5.3.1 Loom](/3.并发编程/线程与线程池/协程/Loom/README.md)
+    - [5.5 线程与线程池 [7]](/3.并发编程/线程与线程池/README.md)
+      - 5.5.1 999.参考资料 [1]
+        - [5.5.1.1 Java 线程池实现原理及其在美团业务中的实践](/3.并发编程/线程与线程池/999.参考资料/2020-Java%20线程池实现原理及其在美团业务中的实践.md)
+      - [5.5.2 Executors [2]](/3.并发编程/线程与线程池/Executors/README.md)
+        - [5.5.2.1 ExecutorService [4]](/3.并发编程/线程与线程池/Executors/ExecutorService/README.md)
+          - [5.5.2.1.1 Executors](/3.并发编程/线程与线程池/Executors/ExecutorService/Executors.md)
+          - [5.5.2.1.2 ThreadPoolExecutor](/3.并发编程/线程与线程池/Executors/ExecutorService/ThreadPoolExecutor.md)
+          - [5.5.2.1.3 任务执行](/3.并发编程/线程与线程池/Executors/ExecutorService/任务执行.md)
+          - [5.5.2.1.4 快速开始](/3.并发编程/线程与线程池/Executors/ExecutorService/快速开始.md)
+        - 5.5.2.2 Future [2]
+          - [5.5.2.2.1 Callable 与 Future](/3.并发编程/线程与线程池/Executors/Future/Callable%20与%20Future.md)
+          - [5.5.2.2.2 CompletableFuture](/3.并发编程/线程与线程池/Executors/Future/CompletableFuture.md)
+      - [5.5.3 ForkJoin [2]](/3.并发编程/线程与线程池/ForkJoin/README.md)
+        - [5.5.3.1 ForkJoin 内部实现](/3.并发编程/线程与线程池/ForkJoin/ForkJoin%20内部实现.md)
+        - [5.5.3.2 ForkJoin 语法使用](/3.并发编程/线程与线程池/ForkJoin/ForkJoin%20语法使用.md)
+      - 5.5.4 协程 [1]
+        - [5.5.4.1 Loom](/3.并发编程/线程与线程池/协程/Loom/README.md)
           
-      - 5.5.4 定时器 [1]
-        - [5.5.4.1 定时器](/3.并发编程/线程与线程池/定时器/定时器.md)
-      - [5.5.5 线程 [2]](/3.并发编程/线程与线程池/线程/README.md)
-        - 5.5.5.1 ThreadLocal [2]
-          - [5.5.5.1.1 ThreadLocal](/3.并发编程/线程与线程池/线程/ThreadLocal/ThreadLocal.md)
-          - [5.5.5.1.2 ThreadLocalRandom](/3.并发编程/线程与线程池/线程/ThreadLocal/ThreadLocalRandom.md)
-        - 5.5.5.2 线程管理 [4]
-          - [5.5.5.2.1 Thread 与 Runnable](/3.并发编程/线程与线程池/线程/线程管理/Thread%20与%20Runnable.md)
-          - [5.5.5.2.2 守护线程](/3.并发编程/线程与线程池/线程/线程管理/守护线程.md)
-          - [5.5.5.2.3 生命周期](/3.并发编程/线程与线程池/线程/线程管理/生命周期.md)
-          - [5.5.5.2.4 线程创建](/3.并发编程/线程与线程池/线程/线程管理/线程创建.md)
-      - [5.5.6 线程池 [2]](/3.并发编程/线程与线程池/线程池/README.md)
-        - [5.5.6.1 线程调优](/3.并发编程/线程与线程池/线程池/线程调优.md)
-        - [5.5.6.2 自定义线程池](/3.并发编程/线程与线程池/线程池/自定义线程池.md)
+      - 5.5.5 定时器 [1]
+        - [5.5.5.1 定时器](/3.并发编程/线程与线程池/定时器/定时器.md)
+      - [5.5.6 线程 [2]](/3.并发编程/线程与线程池/线程/README.md)
+        - 5.5.6.1 ThreadLocal [2]
+          - [5.5.6.1.1 ThreadLocal](/3.并发编程/线程与线程池/线程/ThreadLocal/ThreadLocal.md)
+          - [5.5.6.1.2 ThreadLocalRandom](/3.并发编程/线程与线程池/线程/ThreadLocal/ThreadLocalRandom.md)
+        - 5.5.6.2 线程管理 [4]
+          - [5.5.6.2.1 Thread 与 Runnable](/3.并发编程/线程与线程池/线程/线程管理/Thread%20与%20Runnable.md)
+          - [5.5.6.2.2 守护线程](/3.并发编程/线程与线程池/线程/线程管理/守护线程.md)
+          - [5.5.6.2.3 生命周期](/3.并发编程/线程与线程池/线程/线程管理/生命周期.md)
+          - [5.5.6.2.4 线程创建](/3.并发编程/线程与线程池/线程/线程管理/线程创建.md)
+      - [5.5.7 线程池 [2]](/3.并发编程/线程与线程池/线程池/README.md)
+        - [5.5.7.1 线程调优](/3.并发编程/线程与线程池/线程池/线程调优.md)
+        - [5.5.7.2 自定义线程池](/3.并发编程/线程与线程池/线程池/自定义线程池.md)
     - [5.6 线程安全 [4]](/3.并发编程/线程安全/README.md)
       - [5.6.1 内存模型 [1]](/3.并发编程/线程安全/内存模型/README.md)
         - [5.6.1.1 volatile](/3.并发编程/线程安全/内存模型/volatile.md)
