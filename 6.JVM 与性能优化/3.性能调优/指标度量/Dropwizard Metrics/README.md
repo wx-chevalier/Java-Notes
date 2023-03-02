@@ -211,3 +211,73 @@ public class HistogramTest {
 }
 
 ```
+
+运行之后结果大致如下：
+
+```sh
+-- Histograms --------------------------------------------
+java.util.Queue.queue.histogram
+             count = 56
+               min = 1122
+               max = 99650
+              mean = 48735.12
+            stddev = 28609.02
+            median = 49493.00
+              75% <= 72323.00
+              95% <= 90773.00
+              98% <= 94011.00
+              99% <= 99650.00
+            99.9% <= 99650.00
+```
+
+## Timers
+
+Timer 其实是 Histogram 和 Meter 的结合， histogram 某部分代码/调用的耗时， meter 统计 TPS。
+Timer 其实是 Histogram 和 Meter 的结合， histogram 某部分代码/调用的耗时， meter 统计 TPS。
+
+```
+public class TimerTest {
+
+    public static Random random = new Random();
+
+    public static void main(String[] args) throws InterruptedException {
+        MetricRegistry registry = new MetricRegistry();
+        ConsoleReporter reporter = ConsoleReporter.forRegistry(registry).build();
+        reporter.start(1, TimeUnit.SECONDS);
+
+        Timer timer = registry.timer(MetricRegistry.name(TimerTest.class,"get-latency"));
+
+        Timer.Context ctx;
+
+        while(true){
+            ctx = timer.time();
+            Thread.sleep(random.nextInt(1000));
+            ctx.stop();
+        }
+
+    }
+
+}
+```
+
+运行之后结果如下：
+
+```
+-- Timers ------------------------------------------------
+com.alibaba.wuchong.metrics.TimerTest.get-latency
+             count = 38
+         mean rate = 1.90 calls/second
+     1-minute rate = 1.66 calls/second
+     5-minute rate = 1.61 calls/second
+    15-minute rate = 1.60 calls/second
+               min = 13.90 milliseconds
+               max = 988.71 milliseconds
+              mean = 519.21 milliseconds
+            stddev = 286.23 milliseconds
+            median = 553.84 milliseconds
+              75% <= 763.64 milliseconds
+              95% <= 943.27 milliseconds
+              98% <= 988.71 milliseconds
+              99% <= 988.71 milliseconds
+            99.9% <= 988.71 milliseconds
+```
