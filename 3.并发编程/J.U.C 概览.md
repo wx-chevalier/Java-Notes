@@ -149,9 +149,9 @@ public final boolean compareAndSet(int expect, int update) {
 
 在 Java 中，主要有以下类型的阻塞队列：
 
-- ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列。
-- LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。
-- PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列。
+- ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列。
+- LinkedBlockingQueue：一个由链表结构组成的有界阻塞队列。
+- PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。
 - DelayQueue：一个支持延时获取元素的无界阻塞队列。
 - SynchronousQueue：一个不存储元素的阻塞队列。
 - LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
