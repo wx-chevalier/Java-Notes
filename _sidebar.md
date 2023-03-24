@@ -260,12 +260,12 @@
       - [5.6.3 并发容器 [4]](/3.并发编程/线程安全/并发容器/README.md)
         - [5.6.3.1 ConcurrentHashMap [3]](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/README.md)
           - [5.6.3.1.1 不安全的 HashMap](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/不安全的%20HashMap.md)
-          - [5.6.3.1.2 语法使用](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/语法使用.md)
-          - 5.6.3.1.3 源码分析 [4]
-            - [5.6.3.1.3.1 JDK 7 与 JDK 8 对比](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/源码分析/JDK%207%20与%20JDK%208%20对比.md)
-            - [5.6.3.1.3.2 值存取](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/源码分析/值存取.md)
-            - [5.6.3.1.3.3 构造与扩容](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/源码分析/构造与扩容.md)
-            - [5.6.3.1.3.4 重要的内部类](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/源码分析/重要的内部类.md)
+          - 5.6.3.1.2 源码分析 [4]
+            - [5.6.3.1.2.1 JDK 7 与 JDK 8 对比](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/源码分析/JDK%207%20与%20JDK%208%20对比.md)
+            - [5.6.3.1.2.2 值存取](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/源码分析/值存取.md)
+            - [5.6.3.1.2.3 构造与扩容](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/源码分析/构造与扩容.md)
+            - [5.6.3.1.2.4 重要的内部类](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/源码分析/重要的内部类.md)
+          - [5.6.3.1.3 语法使用](/3.并发编程/线程安全/并发容器/ConcurrentHashMap/语法使用.md)
         - [5.6.3.2 ConcurrentSkipListMap](/3.并发编程/线程安全/并发容器/ConcurrentSkipListMap.md)
         - [5.6.3.3 CopyOnWrite](/3.并发编程/线程安全/并发容器/CopyOnWrite.md)
         - 5.6.3.4 同步器 [4]
