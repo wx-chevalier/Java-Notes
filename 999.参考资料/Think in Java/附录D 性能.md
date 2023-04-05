@@ -219,7 +219,7 @@ D.4.5 一般书籍
 
 [14] 《More Programming Pearls》（编程拾贝第二版）。作者：JonBentley。“Association for Computing Machinery”，1998 年 2 月。
 
-[15] 《Programming Pearls》（编程拾贝）。作者：Jone Bentley。Addison-Wesley 1989 年出版。第 2 部分强调了常规的性能改善问题。 [16] 《Code Complete:A Practical Handbook of Software Construction》（完整代码索引：实用软件开发手册）。作者：Steve McConnell。Microsoft 出版社 1993 年出版，第 9 章。
+[15] 《Programming Pearls》（编程拾贝）。作者：Jone Bentley。Addison-Wesley 1989 年出版。第 2 部分强调了常规的性能改善问题。[16] 《Code Complete:A Practical Handbook of Software Construction》（完整代码索引：实用软件开发手册）。作者：Steve McConnell。Microsoft 出版社 1993 年出版，第 9 章。
 
 [17] 《Object-Oriented System Development》（面向对象系统的开发）。作者：Champeaux，Lea 和 Faure。第 25 章。
 

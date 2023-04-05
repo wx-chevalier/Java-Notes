@@ -36,13 +36,13 @@
 
     5） 删除的方法用 remove/delete 做前缀。
 
-    6） 修改的方法用 update 做前缀。 **B) 领域模型命名规约**
+    6） 修改的方法用 update 做前缀。**B) 领域模型命名规约**
 
     1） 数据对象：xxxDO，xxx 即为数据表名。
 
     2） 数据传输对象：xxxDTO，xxx 为业务领域相关的名称。
 
-    3） 展示对象：xxxVO，xxx 一般为网页名称。 4） POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。
+    3） 展示对象：xxxVO，xxx 一般为网页名称。4） POJO 是 DO/DTO/BO/VO 的统称，禁止命名成 xxxPOJO。
 
 ##### （二）常量的定义
 
@@ -72,11 +72,11 @@
 
    3）方法调用的点符号与下文一起换行。
 
-   4）方法调用中的多个参数需要换行时，在逗号后进行。 5）在括号前不要换行。
+   4）方法调用中的多个参数需要换行时，在逗号后进行。5）在括号前不要换行。
 
 8. 【强制】方法参数在定义和传入时，多个参数逗号后面必须加空格。如`method(args1, args2, args3);`
 
-9. 【推荐】不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性。 说明:任何情形，没有必要插入多个空行进行隔开。
+9. 【推荐】不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性。说明:任何情形，没有必要插入多个空行进行隔开。
 
 ##### （四）OOP 规范
 
@@ -122,7 +122,7 @@ public class InitTest {
 ```
 
 1. 【强制】POJO 类必须写 toString 方法。如果继承了另一个 POJO 类，注意在前面加一下 super.toString。
-2. 【强制】禁止在 POJO 类中，同时存在对应属性 xxx 的 isXxx()和 getXxx()方法。 因为框架在调用属性 xxx 的提取方法时，并不能确定哪个方法一定是被优先调用到的。
+2. 【强制】禁止在 POJO 类中，同时存在对应属性 xxx 的 isXxx()和 getXxx()方法。因为框架在调用属性 xxx 的提取方法时，并不能确定哪个方法一定是被优先调用到的。
 3. 【推荐】使用索引访问用 String 的 split 方法得到的数组时，需做最后一个分隔符后有无内容的检查，否则会有抛 IndexOutOfBoundsException 的风险。
 4. 【推荐】当一个类有多个构造方法，或者多个同名方法，这些方法应该按顺序放置在一起，便 于阅读，此条规则优先于下一条。
 5. 【推荐】 类内方法定义的顺序依次是：公有方法或保护方法 > 私有方法 > getter / setter 方法。
@@ -208,7 +208,7 @@ list.addAll(temp);
 
    List list = Arrays.asList(str);
 
-   第一种情况：list.add("yangguanbao"); 运行时异常。 第二种情况：str[0] = "change"; 也会随之修改，反之亦然。
+   第一种情况：list.add("yangguanbao"); 运行时异常。第二种情况：str[0] = "change"; 也会随之修改，反之亦然。
 
 ```
 //正确的操作
@@ -256,7 +256,7 @@ System.out.println(list.toString());
 
    实例：HashMap 需要放置 1024 个元素，由于没有设置容量初始大小，随着元素增加而被迫不断扩容， resize()方法总共会调用 8 次，反复重建哈希表和数据迁移。当放置的集合元素个数达千万级时会影响程序 性能。
 
-2. 【推荐】使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历。 entrySet 只是遍历了一次就把 key 和 value 都放到了 entry 中，效率更高。如果是 JDK8，使用 Map.forEach 方法。
+2. 【推荐】使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历。entrySet 只是遍历了一次就把 key 和 value 都放到了 entry 中，效率更高。如果是 JDK8，使用 Map.forEach 方法。
 
 ```
 Map<Integer,Integer> map = new HashMap<>(16);for(int i=0;i<10;i++){    map.put(i,i);}System.out.println("通过Map.entrySet遍历key和value");for (Map.Entry<Integer, Integer> entry : map.entrySet()) {    System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());}map.forEach((k,v)->{    System.out.println("key= " + k + " and value= " + v);});
@@ -281,7 +281,7 @@ Map<Integer,Integer> map = new HashMap<>(16);for(int i=0;i<10;i++){    map.put(i
 
 3. 【强制】SimpleDateFormat 是线程不安全的类，一般不要定义为 static 变量，如果定义为 static， 必须加锁，或者使用 DateUtils 工具类。
 
-4. 【强制】必须回收自定义的 ThreadLocal 变量，尤其在线程池场景下，线程经常会被复用， 如果不清理自定义的 ThreadLocal 变量，可能会影响后续业务逻辑和造成内存泄露等问题。 尽量在代理中使用 try-finally 块进行回收。
+4. 【强制】必须回收自定义的 ThreadLocal 变量，尤其在线程池场景下，线程经常会被复用， 如果不清理自定义的 ThreadLocal 变量，可能会影响后续业务逻辑和造成内存泄露等问题。尽量在代理中使用 try-finally 块进行回收。
 
 ```
 objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.remove();}
@@ -308,7 +308,7 @@ objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.
 
    说明：以下两种场景会触发类型对齐的拆箱操作：
 
-   1） 表达式 1 或表达式 2 的值只要有一个是原始类型。 2） 表达式 1 或表达式 2 的值的类型不一致，会强制拆箱升级成表示范围更大的那个类型。
+   1） 表达式 1 或表达式 2 的值只要有一个是原始类型。2） 表达式 1 或表达式 2 的值的类型不一致，会强制拆箱升级成表示范围更大的那个类型。
 
    ```
    Integer a = 1;Integer b = 2;Integer c = null;Boolean flag = false;// a*b的结果是int类型，那么c会强制拆箱成int类型，抛出空指针异常Integer result = (flag?a*b:c);
@@ -328,13 +328,13 @@ objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.
 
    3） 需要极高稳定性和可用性的方法。
 
-   4） 对外提供的开放接口，不管是 RPC/API/HTTP 接口。 5） 敏感权限入口。
+   4） 对外提供的开放接口，不管是 RPC/API/HTTP 接口。5） 敏感权限入口。
 
 ##### （九）注释规约
 
 1. 【强制】类、类属性、类方法的注释必须使用 Javadoc 规范，使用/\*_内容_/格式，不得使用 // xxx 方式。
 2. 【强制】所有的抽象方法（包括接口中的方法）必须要用 Javadoc 注释、除了返回值、参数、 异常说明外，还必须指出该方法做什么事情，实现什么功能。
-3. 【强制】所有的类都必须添加创建者和创建日期。 说明：在设置模板时，注意 IDEA 的@author 为`${USER}`，而 eclipse 的@author 为`${user}`，大小写有区别，而日期的设置统一为 yyyy/MM/dd 的格式。
+3. 【强制】所有的类都必须添加创建者和创建日期。说明：在设置模板时，注意 IDEA 的@author 为`${USER}`，而 eclipse 的@author 为`${user}`，大小写有区别，而日期的设置统一为 yyyy/MM/dd 的格式。
 4. 【强制】方法内部单行注释，在被注释语句上方另起一行，使用//注释。方法内部多行注释使 用/\* \*/注释，注意与代码对齐。
 5. 【强制】所有的枚举类型字段必须要有注释，说明每个数据项的用途。
 
@@ -352,7 +352,7 @@ objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.
 
    b） URL 路径不能使用大写，单词如果需要分隔，统一使用下划线。
 
-   c） 路径禁止携带表示请求内容类型的后缀，比如".json",".xml"，通过 accept 头表达即可。 3） 请求方法：对具体操作的定义，常见的请求方法如下：
+   c） 路径禁止携带表示请求内容类型的后缀，比如".json",".xml"，通过 accept 头表达即可。3） 请求方法：对具体操作的定义，常见的请求方法如下：
 
    a） GET：从服务器取出资源。
 
@@ -360,7 +360,7 @@ objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.
 
    c） PUT：在服务器更新资源。
 
-   d） DELETE：从服务器删除资源。 4） 请求内容：URL 带的参数必须无敏感信息或符合安全要求；body 里带参数时必须设置 Content-Type。 5） 响应体：响应体 body 可放置多种数据类型，由 Content-Type 头来确定。
+   d） DELETE：从服务器删除资源。4） 请求内容：URL 带的参数必须无敏感信息或符合安全要求；body 里带参数时必须设置 Content-Type。5） 响应体：响应体 body 可放置多种数据类型，由 Content-Type 头来确定。
 
 2. 【强制】前后端数据列表相关的接口返回，如果为空，则返回空数组[]或空集合{}，这样可以减少前端很多琐碎的 null 判断。
 
@@ -377,7 +377,7 @@ objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.
 Long a = 123L;String s = String.valueOf(a);
 ```
 
-1. HTTP 请求通过 URL 传递参数时，不能超过 2048 字节。 说明：不同浏览器对于 URL 的最大长度限制略有不同，并且对超出最大长度的处理逻辑也有差异，2048 字节是取所有浏览器的最小值。
+1. HTTP 请求通过 URL 传递参数时，不能超过 2048 字节。说明：不同浏览器对于 URL 的最大长度限制略有不同，并且对超出最大长度的处理逻辑也有差异，2048 字节是取所有浏览器的最小值。
 2. 【强制】HTTP 请求通过 body 传递内容时，必须控制长度，超出最大长度后，后端解析会出错。
 3. 【强制】在翻页场景中，用户输入参数的小于 1，则前端返回第一页参数给后端；后端发现用 户输入的参数大于总页数，直接返回最后一页。
 4. 【强制】服务器内部重定向必须使用 forward；外部重定向地址必须使用 URL 统一代理模块 生成，否则会因线上采用 HTTPS 协议而导致浏览器提示“不安全”，并且还会带来 URL 维护不一致的问题。
@@ -434,13 +434,13 @@ Long a = 123L;String s = String.valueOf(a);
 
 3. 【推荐】防止 NPE，是程序员的基本修养，注意 NPE 产生的场景：
 
-   1） 返回类型为基本数据类型，return 包装数据类型的对象时，自动拆箱有可能产生 NPE。如 public int f() { return Integer 对象}， 如果为 null，自动解箱抛 NPE。 2） 数据库的查询结果可能为 null。
+   1） 返回类型为基本数据类型，return 包装数据类型的对象时，自动拆箱有可能产生 NPE。如 public int f() { return Integer 对象}， 如果为 null，自动解箱抛 NPE。2） 数据库的查询结果可能为 null。
 
    3） 集合里的元素即使 isNotEmpty，取出的数据元素也可能为 null。
 
    4） 远程调用返回对象时，一律要求进行空指针判断，防止 NPE。
 
-   5） 对于 Session 中获取的数据，建议进行 NPE 检查，避免空指针。 6） 级联调用 obj.getA().getB().getC()；一连串调用，易产生 NPE。
+   5） 对于 Session 中获取的数据，建议进行 NPE 检查，避免空指针。6） 级联调用 obj.getA().getB().getC()；一连串调用，易产生 NPE。
 
 ##### （三）日志规约
 
@@ -467,7 +467,7 @@ Long a = 123L;String s = String.valueOf(a);
 
 ### 四、安全规约
 
-1. 【强制】隶属于用户个人的页面或者功能必须进行权限控制校验。 说明：防止没有做水平权限校验就可随意访问、修改、删除别人的数据，比如查看他人的私信内容。
+1. 【强制】隶属于用户个人的页面或者功能必须进行权限控制校验。说明：防止没有做水平权限校验就可随意访问、修改、删除别人的数据，比如查看他人的私信内容。
 
 2. 【强制】用户输入的 SQL 参数严格使用参数绑定或者 METADATA 字段值限定，防止 SQL 注入， 禁止字符串拼接 SQL 访问数据库。
 
@@ -495,7 +495,7 @@ Long a = 123L;String s = String.valueOf(a);
 
    任何字段如果为非负数，必须是 unsigned。
 
-   POJO 类中的任何布尔类型的变量，都不要加 is 前缀，所以，需要在设置从 is_xxx 到 Xxx 的映射关系。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的命名方式是为了明确其取值含 义与取值范围。 正例：表达逻辑删除的字段名 is_deleted，1 表示删除，0 表示未删除。
+   POJO 类中的任何布尔类型的变量，都不要加 is 前缀，所以，需要在设置从 is_xxx 到 Xxx 的映射关系。数据库表示是与否的值，使用 tinyint 类型，坚持 is_xxx 的命名方式是为了明确其取值含 义与取值范围。正例：表达逻辑删除的字段名 is_deleted，1 表示删除，0 表示未删除。
 
 2. 【强制】表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。
 
@@ -545,7 +545,7 @@ CREATE TABLE IF NOT EXISTS `表名`(   `id` INT(11) NOT NULL AUTO_INCREMENT,#AUT
 
    1） consts 单表中最多只有一个匹配行（主键或者唯一索引），在优化阶段即可读取到数据。
 
-   2） ref 指的是使用普通的索引（normal index）。 3） range 对索引进行范围检索。
+   2） ref 指的是使用普通的索引（normal index）。3） range 对索引进行范围检索。
 
 2. 【推荐】防止因字段类型不同造成的隐式转换，导致索引失效。
 
@@ -565,7 +565,7 @@ count(*)包括了所有的列,相当于行数,在统计结果的时候,不会忽
 
    > 可以使用如下方式来避免 sum 的 NPE 问题：SELECT IFNULL(SUM(column), 0) FROM table;
 
-3. 【强制】使用 ISNULL()来判断是否为 NULL 值。 说明：NULL 与任何值的直接比较都为 NULL。
+3. 【强制】使用 ISNULL()来判断是否为 NULL 值。说明：NULL 与任何值的直接比较都为 NULL。
 
    1） NULL<>NULL 的返回结果是 NULL，而不是 false。
 

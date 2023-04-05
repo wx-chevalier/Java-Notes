@@ -33,7 +33,7 @@ MetricRegistry.name(Queue.class, "responses", "size")
 
 # Metrics 数据展示
 
-Metrics 提供了 Report 接口，用于展示 metrics 获取到的统计数据。metrics-core 中主要实现了四种 reporter： JMX, console, SLF4J, 和 CSV。 在本文的例子中，我们使用 ConsoleReporter 。
+Metrics 提供了 Report 接口，用于展示 metrics 获取到的统计数据。metrics-core 中主要实现了四种 reporter： JMX, console, SLF4J, 和 CSV。在本文的例子中，我们使用 ConsoleReporter 。
 
 # 五种 Metrics 类型
 

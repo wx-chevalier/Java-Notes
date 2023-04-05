@@ -2,7 +2,7 @@
 
 AtomicReference 和 AtomicInteger 非常类似，不同之处就在于 AtomicInteger 是对整数的封装，而 AtomicReference 则对应普通的对象引用；也就是它可以保证你在修改对象引用时的线程安全性。
 
-AtomicReference 是作用是对”对象”进行原子操作。 提供了一种读和写都是原子性的对象引用变量。原子意味着多个线程试图改变同一个 AtomicReference(例如比较和交换操作)将不会使得 AtomicReference 处于不一致的状态。
+AtomicReference 是作用是对”对象”进行原子操作。提供了一种读和写都是原子性的对象引用变量。原子意味着多个线程试图改变同一个 AtomicReference(例如比较和交换操作)将不会使得 AtomicReference 处于不一致的状态。
 
 # 创建
 
