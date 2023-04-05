@@ -45,7 +45,7 @@ Retained Heap，对象 X 的 Retained Heap 指的时候它的 Retained set 中�
 
 A 和 B 是 gc roots 中的节点（方法参数、局部变量，或者调用了 wait()、notify()或 synchronized()的对象）等等。可以看出，E 的存在，会导致 G 无法被回收，因此 E 的 Retained set 是 E 和 G；C 的存在，会导致 E、D、F、G、H 都无法被回收，因此 C 的 Retined set 是 C、E、D、F、G、H；A 和 B 的存在，会导致 C、E、D、F、G、H 都无法被回收，因此 A 和 B 的 Retained set 是 A、B、C、E、D、F、G、H。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/4AG6tic68AGaP8ElL7YbHfYIXWkQotTX1KwPnRCacrYXPFtdA5HEMn8WeYWHGljgT5de60ctsVK6cPuuaasTZaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![Shallow 与 Retained Heap](https://assets.ng-tech.icu/item/20230405111009.png)
 
 ## Dominator Tree
 
@@ -53,4 +53,4 @@ MAT 根据堆上的对象引用关系构建了支配树（Dominator Tree），�
 
 支配树是基于对象的引用关系图建立的，在支配树中每个节点都是它的子节点的直接支配节点。基于支配树可以很清楚得看到对象之间的依赖关系。下图中，x 节点的子树就是所有被 x 支配的节点集合，也正式 x 的 retained set；如果 x 是 y 的直接支配节点，那么 x 的支配节点也可以支配 y；支配树中的边跟对象引用图中的引用关系并不是一一对应的。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/4AG6tic68AGaP8ElL7YbHfYIXWkQotTX1aibXxeugr62WkInfljcOB1BuzXzYXcWc0q7HBicicib7wn1bKagkBib8TQw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![Dominator Tree](https://assets.ng-tech.icu/item/20230405110950.png)
