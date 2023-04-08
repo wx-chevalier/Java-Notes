@@ -132,7 +132,7 @@ abstract class AbstractAccess {
 
 上一章的 **Instrument** 类可以很轻易地转换为一个抽象类。只需要部分方法是 **abstract** 即可。将一个类指明为 **abstract** 并不强制类中的所有方法必须都是抽象方法。如下图所示：
 
-![类图](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1562653648586.png)
+![类图](https://assets.ng-tech.icu/book/on-java-8/1562653648586.png)
 
 下面是修改成使用抽象类和抽象方法的管弦乐器的例子：
 
@@ -653,7 +653,7 @@ Twist
 
 回顾下乐器的例子，使用接口的话：
 
-![类图](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1562737974623.png)
+![类图](https://assets.ng-tech.icu/book/on-java-8/1562737974623.png)
 
 类 **Woodwind** 和 **Brass** 说明一旦实现了某个接口，那么其实现就变成一个普通类，可以按常规方式扩展它。
 
@@ -1073,7 +1073,7 @@ Waveform 0
 
 接口没有任何实现——也就是说，没有任何与接口相关的存储——因此无法阻止结合的多接口。这是有价值的，因为你有时需要表示“一个 **x** 是一个 **a** 和一个 **b** 以及一个 **c**”。
 
-![类图](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1562999314238.png)
+![类图](https://assets.ng-tech.icu/book/on-java-8/1562999314238.png)
 
 派生类并不要求必须继承自抽象的或“具体的”（没有任何抽象方法）的基类。如果继承一个非接口的类，那么只能继承一个类，其余的基元素必须都是接口。需要将所有的接口名称置于 **implements** 关键字之后且用逗号分隔。可以有任意多个接口，并可以向上转型为每个接口，因为每个接口都是独立的类型。下例展示了一个由多个接口组合而成的具体类产生的新类：
 

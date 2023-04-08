@@ -2,13 +2,13 @@
 
 Netty 是一个异步网络库，使 Java NIO 的功能更好用。在《[Concurrent-Series/并发 IO](https://github.com/wx-chevalier/Concurrent-Series?q=)》中我们讨论了 Reactor 模型，Netty 主要基于主从 Reactor 多线程模型发展出来的：
 
-![Netty 模型](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/29/61022c2a5132923bf8d96dbf.jpg)
+![Netty 模型](https://assets.ng-tech.icu/superbed/2021/07/29/61022c2a5132923bf8d96dbf.jpg)
 
 # Netty 网络分层架构
 
 Nettty 逻辑架构为典型网络分层架构设计，从下到上分别为网络通信层、事件调度层、服务编排层。
 
-![Netty 分层架构](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/29/61022c4a5132923bf8d9c41d.jpg)
+![Netty 分层架构](https://assets.ng-tech.icu/superbed/2021/07/29/61022c4a5132923bf8d9c41d.jpg)
 
 - 网络通信层：它执行网络 I/O 操作，核心组件包含 BootStrap、ServerBootStrap、Channel。
 

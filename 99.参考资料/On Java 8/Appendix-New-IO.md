@@ -548,7 +548,7 @@ Double Buffer 0 -> 4.8E-322,
 
 **ByteBuffer** 通过“包装”一个 8 字节数组生成，然后通过所有不同基本类型的视图缓冲区显示该数组。下图显示了从不同类型的缓冲区读取数据时，数据显示的差异：
 
-![1554546258113](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546258113.png)
+![1554546258113](https://assets.ng-tech.icu/book/on-java-8/1554546258113.png)
 
 <!-- Endians -->
 
@@ -560,7 +560,7 @@ Double Buffer 0 -> 4.8E-322,
 
 下例是一个包含两个字节的 **ByteBuffer** ：
 
-![1554546378822](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546378822.png)
+![1554546378822](https://assets.ng-tech.icu/book/on-java-8/1554546378822.png)
 
 将数据作为 **short** 型来读取（`ByteBuffer.asshortbuffer()`)），生成数字 97 （00000000 01100001）。更改为“低位优先”后 将生成数字 24832 （01100001 00000000）。
 
@@ -610,7 +610,7 @@ public class Endians {
 
 下图说明了 **nio** 类之间的关系，展示了如何移动和转换数据。例如，要将字节数组写入文件，使用 **ByteBuffer.**`wrap()` 方法包装字节数组，使用 `getChannel()` 在 **FileOutputStream** 上打开通道，然后从 **ByteBuffer** 将数据写入 **FileChannel**。
 
-![1554546452861](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546452861.png)
+![1554546452861](https://assets.ng-tech.icu/book/on-java-8/1554546452861.png)
 
 **ByteBuffer** 是将数据移入和移出通道的唯一方法，我们只能创建一个独立的基本类型缓冲区，或者使用 `as` 方法从 **ByteBuffer** 获得一个新缓冲区。也就是说，不能将基本类型缓冲区转换为 **ByteBuffer**。但我们能够通过视图缓冲区将基本类型数据移动到 **ByteBuffer** 中或移出 **ByteBuffer**。
 
@@ -679,33 +679,33 @@ UsingBuffers
 
 下面是程序在 `symmetricgrab()` 方法入口时缓冲区的样子:
 
-![1554546627710](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546627710.png)
+![1554546627710](https://assets.ng-tech.icu/book/on-java-8/1554546627710.png)
 
 position 指向缓冲区中的第一个元素，capacity 和 limit 紧接在最后一个元素之后。在`symmetricgrab()` 中，**while** 循环迭代到 position 等于 limit。当在缓冲区上调用相对位置的 `get()` 或 `put()` 函数时，缓冲区的位置会发生变化。你可以调用绝对位置的 `get()` 和 `put()` 方法，它们包含索引参数：`get()` 或 `put()` 发生的位置。这些方法不修改缓冲区 position 的值。
 
 当控件进入 **while** 循环时，使用 `mark()` 设置 mark 的值。缓冲区的状态为：
 
-![1554546666685](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546666685.png)
+![1554546666685](https://assets.ng-tech.icu/book/on-java-8/1554546666685.png)
 
 两个相对 `get()` 调用将前两个字符的值保存在变量 `c1` 和 `c2` 中。在这两个调用之后，缓冲区看起来是这样的：
 
-![1554546693664](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546693664.png)
+![1554546693664](https://assets.ng-tech.icu/book/on-java-8/1554546693664.png)
 
 为了执行交换，我们在位置 0 处编写 `c2`，在位置 1 处编写 `c1`。我们可以使用绝对 `put()` 方法来实现这一点，或者用 `reset()` 方法，将 position 的值设置为 mark：
 
-![1554546847181](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546847181.png)
+![1554546847181](https://assets.ng-tech.icu/book/on-java-8/1554546847181.png)
 
 两个 `put()` 方法分别编写 `c2` 和 `c1` ：
 
-![1554546861836](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546861836.png)
+![1554546861836](https://assets.ng-tech.icu/book/on-java-8/1554546861836.png)
 
 在下一次循环中，将 mark 设置为 position 的当前值：
 
-![1554546881189](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546881189.png)
+![1554546881189](https://assets.ng-tech.icu/book/on-java-8/1554546881189.png)
 
 该过程将继续，直到遍历整个缓冲区为止。在 **while** 循环的末尾，position 位于缓冲区的末尾。如果显示缓冲区，则只显示位置和限制之间的字符。因此，要显示缓冲区的全部内容，必须使用 `rewind()` 将 position 设置为缓冲区的开始位置。这是 `rewind()` 调用后缓冲区的状态（mark 的值变成未定义）：
 
-![1554546890132](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1554546890132.png)
+![1554546890132](https://assets.ng-tech.icu/book/on-java-8/1554546890132.png)
 
 再次调用 `symmetricgrab()` 方法时，**CharBuffer** 将经历相同的过程并恢复到原始状态。
 

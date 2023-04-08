@@ -1,6 +1,6 @@
 # 运行期优化
 
-![运行期优化.png](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/understanding-the-jvm/运行期优化.png)
+![运行期优化.png](https://assets.ng-tech.icu/book/understanding-the-jvm/运行期优化.png)
 
 我们知道，Java 是解释执行的，可是解释执行毕竟还是有点慢的，这也使得 Java 一直被认为是效率低下的语言……，不过随着即时编译技术的发展，Java 的运行速度得到了很大的提升，在本篇文章中，我们将会对 Java 的运行期优化，也就是即时编译 (Just In Time, JIT) 时进行的优化进行详细的讲解，我们先来看看什么是即时编译。
 
@@ -107,7 +107,7 @@ C1 与 C2 编译器会同时工作，许多代码可能会被多次编译。
 
 #### HotSpot 热点代码探测流程
 
-![基于计数器的热点代码探测流程.png](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/understanding-the-jvm/基于计数器的热点代码探测流程.png)
+![基于计数器的热点代码探测流程.png](https://assets.ng-tech.icu/book/understanding-the-jvm/基于计数器的热点代码探测流程.png)
 
 ### 热点代码编译的过程？
 

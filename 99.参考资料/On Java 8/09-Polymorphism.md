@@ -183,7 +183,7 @@ Java 中除了 **static** 和 **final** 方法（**private** 方法也是隐式�
 
 形状的例子中，有一个基类称为 **Shape** ，多个不同的派生类型分别是：**Circle**，**Square**，**Triangle** 等等。这个例子之所以好用，是因为我们可以直接说“圆(Circle)是一种形状(Shape)”，这很容易理解。继承图展示了它们之间的关系：
 
-![形状继承图](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1561774164644.png)
+![形状继承图](https://assets.ng-tech.icu/book/on-java-8/1561774164644.png)
 
 向上转型就像下面这么简单：
 
@@ -332,7 +332,7 @@ Circle.draw()
 
 考虑一下乐器的例子，如果在基类中添加更多的方法，并加入一些新类，将会发生什么呢：
 
-![乐器继承图](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1562252767216.png)
+![乐器继承图](https://assets.ng-tech.icu/book/on-java-8/1562252767216.png)
 
 所有的新类都可以和原有类正常运行，不需要改动 `tune()` 方法。即使 `tune()` 方法单独存放在某个文件中，而且向 **Instrument** 接口中添加了新的方法，`tune()` 方法也无需再编译就能正确运行。下面是类图的实现：
 
@@ -1161,21 +1161,21 @@ SadActor
 
 采用“纯粹”的方式创建继承层次结构看上去是最清晰的方法。即只有基类的方法才能在派生类中被重写，就像下图这样：
 
-![类图](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1562406479787.png)
+![类图](https://assets.ng-tech.icu/book/on-java-8/1562406479787.png)
 
 这被称作纯粹的“is - a"关系，因为类的接口已经确定了它是什么。继承可以确保任何派生类都拥有基类的接口，绝对不会少。如果按图上这么做，派生类将只拥有基类的接口。
 
 纯粹的替代意味着派生类可以完美地替代基类，当使用它们时，完全不需要知道这些子类的信息。也就是说，基类可以接收任意发送给派生类的消息，因为它们具有完全相同的接口。只需将派生类向上转型，不要关注对象的具体类型。所有一切都可以通过多态处理。
 
-![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1562409366638.png)
+![](https://assets.ng-tech.icu/book/on-java-8/1562409366638.png)
 
 按这种方式思考，似乎只有纯粹的“is - a”关系才是唯一明智的做法，其他任何设计只会导致混乱且注定失败。这其实也是个陷阱。一旦按这种方式开始思考，就会转而发现继承扩展接口（遗憾的是，extends 关键字似乎怂恿我们这么做）才是解决特定问题的完美方案。这可以称为“is - like - a” 关系，因为派生类就像是基类——它有着相同的基本接口，但还具有需要额外方法实现的其他特性：
 
-![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1562409366637.png)
+![](https://assets.ng-tech.icu/book/on-java-8/1562409366637.png)
 
 虽然这是一种有用且明智的方法（依赖具体情况），但是也存在缺点。派生类中接口的扩展部分在基类中不存在（不能通过基类访问到这些扩展接口），因此一旦向上转型，就不能通过基类调用这些新方法：
 
-![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/on-java-8/1562409926765.png)
+![](https://assets.ng-tech.icu/book/on-java-8/1562409926765.png)
 
 如果不向上转型，就不会遇到这个问题。但是通常情况下，我们需要重新查明对象的确切类型，从而能够访问该类型中的扩展方法。下一节说明如何做到这点。
 

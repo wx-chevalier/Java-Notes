@@ -23,7 +23,7 @@
 
 首先获取一个直观的认识：
 
-![JVM运行时的数据区域.png](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/understanding-the-jvm/JVM运行时的数据区域.png)
+![JVM运行时的数据区域.png](https://assets.ng-tech.icu/book/understanding-the-jvm/JVM运行时的数据区域.png)
 
 总共也就这么 5 个区（直接内存不属于 JVM 运行时数据区的一部分），除了程序计数器其他的地方都有可能出现 OOM (OutOfMemoryError)，其中像是程序计数器和两个栈（Java 虚拟机栈 & 本地方法栈）都是每个线程要有一个的，所以肯定是线程隔离的。而其他 2 个区就是线程共享的了，也就是说，如果有多个线程要同时访问这两个区的数据，是会出现线程安全问题的。接下来，我们将对这些区域进行详细的介绍。
 
@@ -134,7 +134,7 @@ Java 程序需要通过虚拟机栈上的 reference 数据来操作堆上的具�
 
 优势：对象移动的时候（这在垃圾回收时十分常见）只需改变句柄池中对象实例数据的指针，不需要修改 reference 本身。
 
-![对象的访问定位_句柄访问.png](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/understanding-the-jvm/对象的访问定位_句柄访问.png)
+![对象的访问定位_句柄访问.png](https://assets.ng-tech.icu/book/understanding-the-jvm/对象的访问定位_句柄访问.png)
 
 #### 直接指针访问
 
@@ -142,4 +142,4 @@ Java 程序需要通过虚拟机栈上的 reference 数据来操作堆上的具�
 
 优势：减少了一次指针定位对象实例数据的开销，速度更快。
 
-![对象的访问定位_直接指针访问.png](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/understanding-the-jvm/对象的访问定位_直接指针访问.png)
+![对象的访问定位_直接指针访问.png](https://assets.ng-tech.icu/book/understanding-the-jvm/对象的访问定位_直接指针访问.png)

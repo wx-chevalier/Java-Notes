@@ -4,7 +4,7 @@
 
 JDK 7 版 CHM 使用 Segment 与 HashEntry 两种数据结构，示意图如下。
 
-![CHM JDK 7](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/18/60f38aa15132923bf8364121.png)
+![CHM JDK 7](https://assets.ng-tech.icu/superbed/2021/07/18/60f38aa15132923bf8364121.png)
 
 可见，整个 CHM 存储空间被划分成 16 个 Segment，每个 Segment 内又包含 0 到多个 HashEntry 的单链表（有一个 HashEntry 数组存储链表头节点），每个链表就是一个哈希桶。HashEntry 内存储具体的键值及哈希码。
 
@@ -99,9 +99,9 @@ private HashEntry<K,V> scanAndLockForPut(K key, int hash, V value) {
 
 JDK 8 版 CHM 使用与 HashMap 相同的数据结构，即哈希桶数组（Node[]）+链表或红黑树，示意图如下。
 
-![JDK 8](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/18/60f38c995132923bf8442a64.png)
+![JDK 8](https://assets.ng-tech.icu/superbed/2021/07/18/60f38c995132923bf8442a64.png)
 
-![红黑树](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/18/60f38cb35132923bf844e8b7.png)
+![红黑树](https://assets.ng-tech.icu/superbed/2021/07/18/60f38cb35132923bf844e8b7.png)
 
 虽然 JDK 8 的 CHM 源码里还保留着 Segment 的定义，但已经不再使用了。以下则是插入数据的核心方法 putVal()的源码。
 

@@ -2,7 +2,7 @@
 
 Map 是 Key-Value 对映射的抽象接口，该映射不包括重复的键，即一个键对应一个值；此接口主要有四个常用的实现类，分别是 HashMap、Hashtable、LinkedHashMap 和 TreeMap。
 
-![Map 类之间关系](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/superbed/2021/07/16/60f159c75132923bf8140ec5.jpg)
+![Map 类之间关系](https://assets.ng-tech.icu/superbed/2021/07/16/60f159c75132923bf8140ec5.jpg)
 
 下面针对各个实现类的特点做一些说明：
 
