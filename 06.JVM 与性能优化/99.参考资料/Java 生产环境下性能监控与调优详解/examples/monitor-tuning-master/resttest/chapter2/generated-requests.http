@@ -1,0 +1,11 @@
+### 堆内存溢出
+GET http://localhost:8080/heap
+
+### 非堆内存溢出
+GET http://localhost:8080/nonheap
+
+### 死循环
+GET http://localhost:8080/loop
+
+### 死锁
+GET http://localhost:8080/deadlock

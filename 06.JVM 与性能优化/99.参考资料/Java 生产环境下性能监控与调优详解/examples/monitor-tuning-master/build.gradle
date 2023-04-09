@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '2.0.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'cn.mrcode.stady'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    maven { url "https://dl.bintray.com/btraceio/maven" }
+    maven { url "https://maven.aliyun.com/repository/public" }
+    maven { url "https://raw.github.com/thinkgem/repository/master" }
+    maven { url 'https://repo.spring.io/libs-snapshot' }
+    maven { url "https://maven.repository.redhat.com/ga/" }
+    maven { url "http://maven.nuiton.org/nexus/content/groups/releases/" }
+    maven { url "https://repository.cloudera.com/artifactory/cloudera-repos/" }
+    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    implementation 'asm:asm:3.3.1'
+    implementation 'org.openjdk.btrace:btrace-agent:2.0.3'
+    implementation 'org.openjdk.btrace:btrace-boot:2.0.3'
+    implementation 'org.openjdk.btrace:btrace-client:2.0.3'
+}
+
+test { exclude '**/*.class' }
+
+test {
+    useJUnitPlatform()
+}

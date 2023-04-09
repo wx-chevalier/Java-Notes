@@ -1,0 +1,17 @@
+### 方法入参
+GET http://localhost:8080/ch4/arg1?name=mrcode
+
+### 构造函数
+GET http://localhost:8080/ch4/constructor?id=1&name=mrcode
+
+### 拦截重载方法1
+GET http://localhost:8080/ch4/same1?id=1
+
+### 拦截重载方法2
+GET http://localhost:8080/ch4/same2?id=1&name=mrcode
+
+### 获取异常
+GET http://localhost:8080/ch4/exception
+
+### 获取复杂类型
+GET http://localhost:8080/ch4/arg2?id=1&name=mrcode
