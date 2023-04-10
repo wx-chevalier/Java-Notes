@@ -1,6 +1,6 @@
 # 《深入理解 Java 虚拟机》阅读笔记
 
-本 repo 为《深入理解 Java 虚拟机 第2版》的阅读笔记，并对全书内容按照自己的理解进行了一定程度的整理。《深入理解 Java 虚拟机 第2版》原书主要分为了五个部分，这里仅对前四个部分进行讲解，第五部分（高效并发）整合进了另一个 repo：[Java 并发编程实战的阅读笔记](https://github.com/TangBean/Java-Concurrency-in-Practice) 中。
+本 repo 为《深入理解 Java 虚拟机 第 2 版》的阅读笔记，并对全书内容按照自己的理解进行了一定程度的整理。《深入理解 Java 虚拟机 第 2 版》原书主要分为了五个部分，这里仅对前四个部分进行讲解，第五部分（高效并发）整合进了另一个 repo：[Java 并发编程实战的阅读笔记](https://github.com/TangBean/Java-Concurrency-in-Practice) 中。
 
 其中前两部分：Java 内存管理机制和 Java 虚拟机程序执行需要重点掌握，并且内容也是比较多的。本 repo 将原书中有关虚拟机性能监控及故障处理的部分单抽了出来，组成了本 repo 的第三部分。第四部分对应于原书的第四部分，程序编译与代码优化，不过仅对 Java 的运行期优化，也就是 JIT 时进行的优化进行了总结，编译器优化部分尚未进行深入研究。
 
@@ -12,42 +12,48 @@
 
 ### Java 内存管理机制
 
-- [00-Java内存区域详解](./Ch1-Java内存管理机制/00-Java内存区域详解.md)
-- [01-OOM异常](./Ch1-Java内存管理机制/01-OOM异常.md)
-- [02-垃圾收集(GC)](./Ch1-Java内存管理机制/02-垃圾收集(GC).md)
-- [03-Java内存分配策略](./Ch1-Java内存管理机制/03-Java内存分配策略.md)
+- [00-Java 内存区域详解](./Ch1-Java内存管理机制/00-Java内存区域详解.md)
+- [01-OOM 异常](./Ch1-Java内存管理机制/01-OOM异常.md)
+- [02-垃圾收集(GC)](<./Ch1-Java内存管理机制/02-垃圾收集(GC).md>)
+- [03-Java 内存分配策略](./Ch1-Java内存管理机制/03-Java内存分配策略.md)
 
 ### Java 虚拟机程序执行
 
-- [00-Class文件的组成结构](./Ch2-Java虚拟机程序执行/00-Class文件的组成结构.md)
+- [00-Class 文件的组成结构](./Ch2-Java虚拟机程序执行/00-Class文件的组成结构.md)
 - [01-虚拟机的类加载机制](./Ch2-Java虚拟机程序执行/01-虚拟机的类加载机制.md)
 - 02-虚拟机字节码执行引擎
-	- [00-虚拟机栈栈帧结构](./Ch2-Java虚拟机程序执行/02-虚拟机字节码执行引擎_00-虚拟机栈栈帧结构.md)
-	- [01-方法调用](./Ch2-Java虚拟机程序执行/02-虚拟机字节码执行引擎_01-方法调用.md)
-	- [02-基于栈的字节码解释执行引擎](./Ch2-Java虚拟机程序执行/02-虚拟机字节码执行引擎_02-基于栈的字节码解释执行引擎.md)
-- [附录0-实现Java类的热替换](./Ch2-Java虚拟机程序执行/附录0-实现Java类的热替换.md)
+  - [00-虚拟机栈栈帧结构](./Ch2-Java虚拟机程序执行/02-虚拟机字节码执行引擎_00-虚拟机栈栈帧结构.md)
+  - [01-方法调用](./Ch2-Java虚拟机程序执行/02-虚拟机字节码执行引擎_01-方法调用.md)
+  - [02-基于栈的字节码解释执行引擎](./Ch2-Java虚拟机程序执行/02-虚拟机字节码执行引擎_02-基于栈的字节码解释执行引擎.md)
+- [附录 0-实现 Java 类的热替换](./Ch2-Java虚拟机程序执行/附录0-实现Java类的热替换.md)
 
 ### 虚拟机性能监控及故障处理
 
 - [00-常用虚拟机性能监控工具](./Ch3-虚拟机性能监控及故障处理/00-常用虚拟机性能监控工具.md)
-- [01-JVM常见参数设置](./Ch3-虚拟机性能监控及故障处理/01-JVM常见参数设置.md)
+- [01-JVM 常见参数设置](./Ch3-虚拟机性能监控及故障处理/01-JVM常见参数设置.md)
 - [02-虚拟机调优案例分析](./Ch3-虚拟机性能监控及故障处理/02-虚拟机调优案例分析.md)
 
 ### Java 程序运行优化
 
-- [00-Java运行期优化](./Ch4-Java程序运行优化/00-Java运行期优化.md)
-
-
+- [00-Java 运行期优化](./Ch4-Java程序运行优化/00-Java运行期优化.md)
 
 ## “串一串” Java 虚拟机的知识点
 
 本文将按照 Content 中给出的四个部分加上 Java 的内存模型部分进行说明，首先先来说说 Java 的内存管理机制。
 
-- [说说 Java 的内存管理机制](#说说-java-的内存管理机制)
-- [说说 Java 虚拟机程序执行](#说说-java-虚拟机程序执行)
-- [说说虚拟机性能监控及故障处理](#说说虚拟机性能监控及故障处理)
-- [说说 JIT 优化](#说说-jit-优化)
-- [说说 Java 的内存模型 (JMM)](#说说-java-的内存模型-jmm)
+- [《深入理解 Java 虚拟机》阅读笔记](#深入理解-java-虚拟机阅读笔记)
+  - [Content](#content)
+    - [Java 内存管理机制](#java-内存管理机制)
+    - [Java 虚拟机程序执行](#java-虚拟机程序执行)
+    - [虚拟机性能监控及故障处理](#虚拟机性能监控及故障处理)
+    - [Java 程序运行优化](#java-程序运行优化)
+  - [“串一串” Java 虚拟机的知识点](#串一串-java-虚拟机的知识点)
+    - [说说 Java 的内存管理机制](#说说-java-的内存管理机制)
+    - [说说 Java 虚拟机程序执行](#说说-java-虚拟机程序执行)
+    - [说说虚拟机性能监控及故障处理](#说说虚拟机性能监控及故障处理)
+    - [说说 JIT 优化](#说说-jit-优化)
+    - [说说 Java 的内存模型 (JMM)](#说说-java-的内存模型-jmm)
+  - [项目推荐](#项目推荐)
 
 ### 说说 Java 的内存管理机制
 
@@ -56,7 +62,7 @@
 虚拟机对内存的管理，其实就是收拾那些存放我们不会再用的对象的内存，把它们清了拿来放新的对象。所以它首先需要研究下以下几个问题：
 
 - 这堆报废了的对象到底被放哪了？（Java 堆和方法区）
-	- 5 个数据区域：[程序计数器](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8)、[Java 虚拟机栈](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88)、[本地方法栈](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88)、[Java 堆](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#java-%E5%A0%86)、[方法区](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#%E6%96%B9%E6%B3%95%E5%8C%BA)。
+  - 5 个数据区域：[程序计数器](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8)、[Java 虚拟机栈](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#java-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88)、[本地方法栈](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88)、[Java 堆](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#java-%E5%A0%86)、[方法区](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#%E6%96%B9%E6%B3%95%E5%8C%BA)。
 - 这堆放报废对象的地方会不会内存泄漏？或者换一个洋气点的叫法，会不会 OOM？（[每个区的 OOM](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/01-OOM%E5%BC%82%E5%B8%B8.md#oom-%E5%BC%82%E5%B8%B8-outofmemoryerror)）
 - 对象是咋被放到这些地方的？（[堆中对象的创建](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E9%81%87%E5%88%B0%E4%B8%80%E6%9D%A1-new-%E6%8C%87%E4%BB%A4%E6%97%B6)）
 - 对象被安置好了之后虚拟机怎么再次找到它？（[堆中对象的访问](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/00-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E8%AF%A6%E8%A7%A3.md#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE)）
@@ -64,21 +70,21 @@
 知道对象都放哪了，虚拟机就知道去哪里找报废的对象了，接下来就涉及到了 Java 的一大超级特色：垃圾收集（GC）了，垃圾收集，正如其名，就是把这些报废的对象给清了，腾出来地方放新对象，它主要关心以下几个事情：
 
 - 哪些内存需要回收？
-	- 放对象的地方需要垃圾回收：Java 堆和方法区。
-- 什么时候回收？（[判断对象的生死](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E6%AD%BB)）
-	- 判断对象报废了没的算法（重点）：[引用计数法](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%AE%97%E6%B3%95) 和 [可达性分析法](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E4%B8%BB%E6%B5%81)。
+  - 放对象的地方需要垃圾回收：Java 堆和方法区。
+- 什么时候回收？（[判断对象的生死](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E6%AD%BB>)）
+  - 判断对象报废了没的算法（重点）：[引用计数法](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%AE%97%E6%B3%95>) 和 [可达性分析法](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E4%B8%BB%E6%B5%81>)。
 - 如何回收？
-  - GC 算法原理（[垃圾收集算法](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95)）
-  	- [基础：标记 - 清除算法](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%9F%BA%E7%A1%80%E6%A0%87%E8%AE%B0---%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95)
-  	- [解决效率问题：复制算法](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E8%A7%A3%E5%86%B3%E6%95%88%E7%8E%87%E9%97%AE%E9%A2%98%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95)
-  	- [解决空间碎片问题：标记 - 整理算法](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E8%A7%A3%E5%86%B3%E7%A9%BA%E9%97%B4%E7%A2%8E%E7%89%87%E9%97%AE%E9%A2%98%E6%A0%87%E8%AE%B0---%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95)
-  	- [进化：分代收集算法](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E8%BF%9B%E5%8C%96%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95)
+  - GC 算法原理（[垃圾收集算法](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95>)）
+    - [基础：标记 - 清除算法](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E5%9F%BA%E7%A1%80%E6%A0%87%E8%AE%B0---%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95>)
+    - [解决效率问题：复制算法](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E8%A7%A3%E5%86%B3%E6%95%88%E7%8E%87%E9%97%AE%E9%A2%98%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95>)
+    - [解决空间碎片问题：标记 - 整理算法](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E8%A7%A3%E5%86%B3%E7%A9%BA%E9%97%B4%E7%A2%8E%E7%89%87%E9%97%AE%E9%A2%98%E6%A0%87%E8%AE%B0---%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95>)
+    - [进化：分代收集算法](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#%E8%BF%9B%E5%8C%96%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95>)
   - GC 算法的真正实现：
-    - [7 个葫芦娃，哦不，垃圾收集器](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#7-%E4%B8%AA%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8)
-    	- 新生代：Serial、ParNew、Parallel Scavenge
-    	- 老年代：Serial Old、Parallel Old、CMS
-    	- 全能：G1
-    - [HotSpot 虚拟机如何高效实现 GC 算法](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#hotspot-%E4%B8%AD-gc-%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0)
+    - [7 个葫芦娃，哦不，垃圾收集器](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#7-%E4%B8%AA%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8>)
+      - 新生代：Serial、ParNew、Parallel Scavenge
+      - 老年代：Serial Old、Parallel Old、CMS
+      - 全能：G1
+    - [HotSpot 虚拟机如何高效实现 GC 算法](<https://github.com/TangBean/understanding-the-jvm/blob/master/Ch1-Java%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/02-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86(GC).md#hotspot-%E4%B8%AD-gc-%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0>)
 
 说完了对象是怎么被回收的，现在才算是把 Java 的内存管理机制需要用到的小零件给补全了。也就是说，Java 的内存管理流程应该是这样滴：
 
@@ -107,10 +113,10 @@
   - [类加载器的分类？](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch2-Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C/01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB)
   - [什么双亲委派模型？](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch2-Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C/01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B)
   - 破坏双亲委派模型？
-  	- [实现 Java 类的热替换](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch2-Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C/%E9%99%84%E5%BD%950-%E5%AE%9E%E7%8E%B0Java%E7%B1%BB%E7%9A%84%E7%83%AD%E6%9B%BF%E6%8D%A2.md#%E5%AE%9E%E7%8E%B0-java-%E7%B1%BB%E7%9A%84%E7%83%AD%E6%9B%BF%E6%8D%A2)
+    - [实现 Java 类的热替换](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch2-Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C/%E9%99%84%E5%BD%950-%E5%AE%9E%E7%8E%B0Java%E7%B1%BB%E7%9A%84%E7%83%AD%E6%9B%BF%E6%8D%A2.md#%E5%AE%9E%E7%8E%B0-java-%E7%B1%BB%E7%9A%84%E7%83%AD%E6%9B%BF%E6%8D%A2)
   - 如何自定义类加载器？
-  	- 需要保留双亲委派模型：`extends ClassLoader`，重写 `findClass()`
-  	- 破坏双亲委派模型：直接重写 `loadClass()`
+    - 需要保留双亲委派模型：`extends ClassLoader`，重写 `findClass()`
+    - 破坏双亲委派模型：直接重写 `loadClass()`
 
 将类加载到内存之后，接下来就要考虑如何执行这个类中的方法了。我们知道 5 大内存区域中的 Java 虚拟机栈是服务与 Java 方法的内存模型，那么我们首先应该了解一下 [虚拟机栈的栈帧到底是怎样的结构](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch2-Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C/02-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E_00-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84.md#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84)，虚拟机栈的栈帧结构包括如下几个部分：
 
@@ -158,8 +164,8 @@ JIT (Just In Time)，也就是即时编译，首先我们需要知道 [什么是
   - [什么是热点代码？(两种)](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch4-Java%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E4%BC%98%E5%8C%96/00-Java%E8%BF%90%E8%A1%8C%E6%9C%9F%E4%BC%98%E5%8C%96.md#%E4%BB%80%E4%B9%88%E6%98%AF%E7%83%AD%E7%82%B9%E4%BB%A3%E7%A0%81)
   - [什么是 “多次” 执行？](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch4-Java%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E4%BC%98%E5%8C%96/00-Java%E8%BF%90%E8%A1%8C%E6%9C%9F%E4%BC%98%E5%8C%96.md#%E4%BB%80%E4%B9%88%E6%98%AF-%E5%A4%9A%E6%AC%A1-%E6%89%A7%E8%A1%8C)
   - HotSpot 采用的是基于计数器的热点探测方法，并且为了对两种热点代码进行探测，[每个方法有 2 个计数器](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch4-Java%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E4%BC%98%E5%8C%96/00-Java%E8%BF%90%E8%A1%8C%E6%9C%9F%E4%BC%98%E5%8C%96.md#hotspot-%E4%B8%AD%E6%AF%8F%E4%B8%AA%E6%96%B9%E6%B3%95%E7%9A%84-2-%E4%B8%AA%E8%AE%A1%E6%95%B0%E5%99%A8)：
-  	- 方法调用计数器
-  	- 回边计数器
+    - 方法调用计数器
+    - 回边计数器
   - [HotSpot 热点代码探测流程](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch4-Java%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E4%BC%98%E5%8C%96/00-Java%E8%BF%90%E8%A1%8C%E6%9C%9F%E4%BC%98%E5%8C%96.md#hotspot-%E7%83%AD%E7%82%B9%E4%BB%A3%E7%A0%81%E6%8E%A2%E6%B5%8B%E6%B5%81%E7%A8%8B)
 - [热点代码编译的过程？](https://github.com/TangBean/understanding-the-jvm/blob/master/Ch4-Java%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E4%BC%98%E5%8C%96/00-Java%E8%BF%90%E8%A1%8C%E6%9C%9F%E4%BC%98%E5%8C%96.md#%E7%83%AD%E7%82%B9%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E7%9A%84%E8%BF%87%E7%A8%8B)
 
@@ -181,8 +187,6 @@ Java 的内存模型主要就是研究一个变量的值是怎么在主内存、
 简单的来讲，就是掌握 [Java 内存模型中的 8 个原子操作](https://github.com/TangBean/Java-Concurrency-in-Practice/blob/master/Ch0-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/00-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md#java-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84-8-%E4%B8%AA%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C)，并且知道 [Java 内存间是如何通过这 8 个操作进行变量传递的](https://github.com/TangBean/Java-Concurrency-in-Practice/blob/master/Ch0-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/00-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md#java-%E5%86%85%E5%AD%98%E9%97%B4%E7%9A%84%E6%93%8D%E4%BD%9C)。
 
 其实 Java 的内存模型就是围绕着在并发的过程中如何处理 [原子性](https://github.com/TangBean/Java-Concurrency-in-Practice/blob/master/Ch0-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/00-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md#%E5%8E%9F%E5%AD%90%E6%80%A7)、[可见性](https://github.com/TangBean/Java-Concurrency-in-Practice/blob/master/Ch0-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/00-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md#%E5%8F%AF%E8%A7%81%E6%80%A7)、[有序性](https://github.com/TangBean/Java-Concurrency-in-Practice/blob/master/Ch0-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/00-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md#%E6%9C%89%E5%BA%8F%E6%80%A7) 这 3 个特征建立的。同时 Java 除了可以依靠 volatile 和 synchronized 来保证有序性外，它自己本身还有一个 [Happens-Before 原则](https://github.com/TangBean/Java-Concurrency-in-Practice/blob/master/Ch0-Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/00-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md#happens-before-%E8%A7%84%E5%88%99)，依靠这个原则，我们就可以判断并发环境下的两个操作是否可能存在冲突了。
-
-
 
 ## 项目推荐
 
