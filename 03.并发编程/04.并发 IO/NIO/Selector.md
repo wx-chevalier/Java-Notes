@@ -7,7 +7,7 @@ Java 的 NIO 为 Reactor 模式提供了实现的基础机制，它的 Selector 
 - Reactor 负责响应 IO 事件，一旦发生，广播发送给相应的 Handler 去处理,这类似于 AWT 的 thread
 - Handler 是负责非堵塞行为，类似于 AWT ActionListeners；同时负责将 handlers 与 event 事件绑定，类似于 AWT addActionListener
 
-![](https://i.postimg.cc/1tBYv4zR/image.png)
+![](https://assets.ng-tech.icu/item/20230417213458.png)
 
 # Links
 

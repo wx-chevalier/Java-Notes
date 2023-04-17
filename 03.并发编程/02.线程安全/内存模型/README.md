@@ -2,7 +2,7 @@
 
 # Java 内存模型（Java Memory Model, JMM）
 
-![Java 内存模型](https://i.postimg.cc/gjsm3wvg/image.png)
+![Java 内存模型](https://assets.ng-tech.icu/item/20230417213538.png)
 
 由于现代计算机处理器与存储设备的运算速度存在几个数量级的差异，所以现代计算机都会在处理器与主内存之间加上高速缓存作为缓冲：将处理器计算所需数据复制到高速缓存，处理器直接从高速缓存中获取数据计算，同时处理器将计算结果放入缓存，再由缓存同步至主内存。
 

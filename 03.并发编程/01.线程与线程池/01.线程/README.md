@@ -10,7 +10,7 @@ Java 线程在 JDK1.2 之前，是基于称为绿色线程（Green Threads）的
 
 对于 Sun JDK 来说，它的 Windows 版与 Linux 版都是使用一对一的线程模型实现的，一条 Java 线程就映射到一条轻量级进程之中，因为 Windows 和 Linux 系统提供的线程模型就是一对一的。也就是说，现在的 Java 中线程的本质，其实就是操作系统中的线程，Linux 下是基于 pthread 库实现的轻量级进程，Windows 下是原生的系统 Win32 API 提供系统调用从而实现多线程。
 
-![Java 线程状态的变化](https://i.postimg.cc/vZL0GhDr/image.png)
+![Java 线程状态的变化](https://assets.ng-tech.icu/item/20230417211943.png)
 
 在现在的操作系统中，因为线程依旧被视为轻量级进程，所以操作系统中线程的状态实际上和进程状态是一致的模型。从实际意义上来讲，操作系统中的线程除去 new 和 terminated 状态，一个线程真实存在的状态，只有：
 
