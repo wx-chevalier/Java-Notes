@@ -1,4 +1,4 @@
-> 本节侧重于 Java 内置数据结构的解析，如果想了解更多数据结构与算法的设计请参阅《[Algorithm-Series](https://github.com/wx-chevalier/Algorithm-Series?q=)》
+> 本节侧重于 Java 内置数据结构的解析，如果想了解更多数据结构与算法的设计请参阅《[Algorithm-Notes](https://github.com/wx-chevalier/Algorithm-Notes?q=)》
 
 # Java 数据结构
 

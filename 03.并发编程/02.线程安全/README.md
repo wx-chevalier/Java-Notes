@@ -1,4 +1,4 @@
-> 参阅《[Concurrent-Series](https://github.com/wx-chevalier/Concurrent-Series?q=线程安全)》相关章节了解线程安全知识。
+> 参阅《[Concurrent-Notes](https://github.com/wx-chevalier/Concurrent-Notes?q=线程安全)》相关章节了解线程安全知识。
 
 # 线程安全
 

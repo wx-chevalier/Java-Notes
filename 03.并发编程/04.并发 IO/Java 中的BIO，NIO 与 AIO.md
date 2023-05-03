@@ -1,6 +1,6 @@
 # BIO，NIO 与 AIO
 
-在《[Concurrent-Series](https://github.com/wx-chevalir/Concurrent-Series?q=)》中我们介绍了 Unix 中的五种 IO 模型，除信号驱动模型外，Java 对其它四种 IO 模型都有支持；其中 Java 最早提供的 blocking IO 即是阻塞 IO，而 NIO 即是非阻塞 IO，同时 NIO 中的 Reactor 模式即是 IO 多路复用模型的实现，通过 AIO 实现的 Proactor 模式即是异步 IO 模型的实现。
+在《[Concurrent-Notes](https://github.com/wx-chevalir/Concurrent-Notes?q=)》中我们介绍了 Unix 中的五种 IO 模型，除信号驱动模型外，Java 对其它四种 IO 模型都有支持；其中 Java 最早提供的 blocking IO 即是阻塞 IO，而 NIO 即是非阻塞 IO，同时 NIO 中的 Reactor 模式即是 IO 多路复用模型的实现，通过 AIO 实现的 Proactor 模式即是异步 IO 模型的实现。
 
 Java 中传统的 IO 都是阻塞 IO，比如通过 socket 来读数据，调用 read 方法之后，如果数据没有就绪，当前线程就会一直阻塞在 read 方法调用那里，直到有数据才返回。因此在传统的网络服务设计模式中，比较经典的模式是多线程或线程池。当一条线程正在处理一个 client 的请求时，它是阻塞的状态，这时如果又来了一个 client 的请求，只好再启动一个新的线程去服务它，一个线程的阻塞不会影响其他线程工作。这种服务方式虽然看起来简便，但服务器为每个 client 都启动一个线程，资源消耗非常大。线程池的方式使得线程可以重复使用，在一定程度上减少了创建和销毁线程的系统开销。
 
@@ -8,7 +8,7 @@ Java 中传统的 IO 都是阻塞 IO，比如通过 socket 来读数据，调用
 
 ## BIO
 
-BIO 编程方式通常是在 JDK1.4 版本之前常用的编程方式。编程实现过程为：首先在服务端启动一个 ServerSocket 来监听网络请求，客户端启动 Socket 发起网络请求，默认情况下 ServerSocket 回建立一个线程来处理此请求，如果服务端没有线程可用，客户端则会阻塞等待或遭到拒绝。且建立好的连接，在通讯过程中，是同步的。在并发处理效率上比较低。大致结构如下：
+BIO 编程方式通常是在 JDK1.4 版本之前常用的编程方式。编程实现过程为：首先在服务端启动一个 ServerSocket 来监听网络请求，客户端启动 Socket 发起网络请求，默认情况下 ServerSocket 会建立一个线程来处理此请求，如果服务端没有线程可用，客户端则会阻塞等待或遭到拒绝。且建立好的连接，在通讯过程中，是同步的。在并发处理效率上比较低。大致结构如下：
 
 ![BIO 结构](https://s1.ax1x.com/2020/03/23/8o8kDS.md.png)
 
@@ -39,4 +39,4 @@ Asynchronous IO 即异步非阻塞的编程方式。与 NIO 不同，当进行�
 
 # Links
 
-- https://zhuanlan.zhihu.com/p/386745556 这是我看过对bio，nio，aio解释的最透彻的文章！！！
+- https://zhuanlan.zhihu.com/p/386745556 这是我看过对 bio，nio，aio 解释的最透彻的文章！！！

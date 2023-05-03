@@ -1,6 +1,6 @@
 # Netty
 
-Netty 是一个异步网络库，使 Java NIO 的功能更好用。在《[Concurrent-Series/并发 IO](https://github.com/wx-chevalier/Concurrent-Series?q=)》中我们讨论了 Reactor 模型，Netty 主要基于主从 Reactor 多线程模型发展出来的：
+Netty 是一个异步网络库，使 Java NIO 的功能更好用。在《[Concurrent-Notes/并发 IO](https://github.com/wx-chevalier/Concurrent-Notes?q=)》中我们讨论了 Reactor 模型，Netty 主要基于主从 Reactor 多线程模型发展出来的：
 
 ![Netty 模型](https://assets.ng-tech.icu/superbed/2021/07/29/61022c2a5132923bf8d96dbf.jpg)
 

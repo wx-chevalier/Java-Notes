@@ -7,12 +7,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/wx-chevalier/Java-Series">
+  <a href="https://github.com/wx-chevalier/Java-Notes">
     <img src="https://assets.ng-tech.icu/item/header.svg" alt="Logo" style="width: 100vw;height: 400px" />
   </a>
 
   <p align="center">
-    <a href="https://ng-tech.icu/books/Java-Series"><strong>在线阅读 >> </strong></a>
+    <a href="https://ng-tech.icu/books/Java-Notes"><strong>在线阅读 >> </strong></a>
     <br />
     <br />
     <a href="https://github.com/wx-chevalier">代码案例</a>
@@ -51,13 +51,13 @@ Java 是由 Sun Microsystems 公司于 1995 年 5 月推出的高级程序设计
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/Java-Series.svg?style=flat-square
-[contributors-url]: https://github.com/wx-chevalier/Java-Series/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/Java-Series.svg?style=flat-square
-[forks-url]: https://github.com/wx-chevalier/Java-Series/network/members
-[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/Java-Series.svg?style=flat-square
-[stars-url]: https://github.com/wx-chevalier/Java-Series/stargazers
-[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/Java-Series.svg?style=flat-square
-[issues-url]: https://github.com/wx-chevalier/Java-Series/issues
-[license-shield]: https://img.shields.io/github/license/wx-chevalier/Java-Series.svg?style=flat-square
-[license-url]: https://github.com/wx-chevalier/Java-Series/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/Java-Notes.svg?style=flat-square
+[contributors-url]: https://github.com/wx-chevalier/Java-Notes/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/Java-Notes.svg?style=flat-square
+[forks-url]: https://github.com/wx-chevalier/Java-Notes/network/members
+[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/Java-Notes.svg?style=flat-square
+[stars-url]: https://github.com/wx-chevalier/Java-Notes/stargazers
+[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/Java-Notes.svg?style=flat-square
+[issues-url]: https://github.com/wx-chevalier/Java-Notes/issues
+[license-shield]: https://img.shields.io/github/license/wx-chevalier/Java-Notes.svg?style=flat-square
+[license-url]: https://github.com/wx-chevalier/Java-Notes/blob/master/LICENSE.txt

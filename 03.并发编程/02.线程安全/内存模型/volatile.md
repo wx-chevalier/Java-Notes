@@ -62,7 +62,7 @@ instance = new Singleton(); // instance是volatile变量
 - StoreStore 屏障：对于 Store1,StoreStore,Store2 这样的语句，在 Store2 及后续写入操作前要保证 Store1 的写入操作对其他处理器可见；
 - StoreLoad 屏障：对于 Store1,StoreLoad,Load2 这样的语句，在 Load2 及后续读取操作前，Store1 的写入对所有处理器可见。
 
-Java 的内存屏障与我们在《[Concurrent-Series](https://github.com/wx-chevalier/Concurrent-Series?q=)》中讨论的读写屏障的关系如下：
+Java 的内存屏障与我们在《[Concurrent-Notes](https://github.com/wx-chevalier/Concurrent-Notes?q=)》中讨论的读写屏障的关系如下：
 
 - 写屏障与(StoreStore、StoreLoad)屏障的关系：在 volatile 变量写之前加入 StoreSore 屏障保证了 volatile 写之前，写缓冲器中的内容已全部刷回告诉缓存，防止前面的写操作和 volatile 写操作之间发生指令重排，在 volatile 写之后加入 StoreLoad 屏障，保证了后面的读/写操作与 volatile 写操作发生指令重排，所以写屏障同时具有 StoreStore 与 StoreLoad 的功能。
 - 读屏障与（LoadLoad、LoadStore）屏障的关系：在 volatile 变量读之后加入 LoadLoad 屏障保证了后面其他读操作的无效队列中无效消息已经被刷回到了高速缓存，在 volatile 变量读操作后加入 LoadStore 屏障，保证了后面其他写操作的无效队列中无效消息已经被刷回高速缓存。读屏障同时具有了 LoadLoad，LoadStore 的功能。

@@ -1,4 +1,4 @@
-> 在《[Concurrent-Series](https://github.com/wx-chevalier/Concurrent-Series?q=)》中我们详细讨论了并发编程中的内存模型相关内容。
+> 在《[Concurrent-Notes](https://github.com/wx-chevalier/Concurrent-Notes?q=)》中我们详细讨论了并发编程中的内存模型相关内容。
 
 # Java 内存模型（Java Memory Model, JMM）
 
