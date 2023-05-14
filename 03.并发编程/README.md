@@ -21,3 +21,5 @@
 - https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw Java 并发六十问，图文详解，快来看看你会多少道！
 
 - https://github.com/crisxuan/bestJavaer/tree/master/java-concurrent
+
+- https://github.com/MaJesTySA/JVM-JUC-Core/tree/master
