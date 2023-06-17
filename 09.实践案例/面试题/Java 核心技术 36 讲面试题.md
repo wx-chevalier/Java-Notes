@@ -44,7 +44,7 @@
 
 #### int 和 Integer 有什么区别?谈谈 Integer 的值缓存范围。
 
-- `int`是我们常说的整形数字,是 Java 的 8 个原始数据类型(Primitive Types,boolean、byte 、short、char、int、foat、double、long)之一。Java 语言虽然号称一切都是对象, 但原始数据类型是例外。
+- `int`是我们常说的整形数字,是 Java 的 8 个原始数据类型(Primitive Types,boolean、byte、short、char、int、foat、double、long)之一。Java 语言虽然号称一切都是对象, 但原始数据类型是例外。
 - `Integer`是 int 对应的包装类,它有一个 int 类型的字段存储数据,并且提供了基本操作,比如数学运算、int 和字符串之间转换等。在 Java 5 中,引入了自动装箱和自动拆箱功能 (boxing/unboxing),Java 可以根据上下文,自动进行转换,极大地简化了相关编程。
 - Integer 的值默认缓存 是-128 到 127 之间。缓存上限值实际是可以根据需要调整的,JVM 提供了参数设置: `-XX:AutoBoxCacheMax=N`。
 - 不管是 Integer 还 Boolean 等,都被声明为“private final”,所以,它们同样是不可变类型!
@@ -66,7 +66,7 @@
 #### 对比 Hashtable、HashMap、TreeMap 有什么不同?
 
 - `元素特性`：HashTable 中的 key、value 都不能为 null;HashMap 中的 key、value 可以为 null,很显然只能有一个 key 为 null 的键值对,但是允许有多个值为 null 的键值对;TreeMap 中当未实现 Comparator 接口时,key 不可以为 null;当实现 Comparator 接口时,若未对 null 情况进行判断,则 key 不可以为 null,反之亦然。
-- `顺序特性`：HashTable 、HashMap 具有无序特性。TreeMap 是利用红黑树来实现的(树中的每个节点的值,都会大于或等于它的左子树种的所有节点的值,并且小于或等于它的右子树中的所有节点的 值),实现了 SortMap 接口,能够对保存的记录根据键进行排序。所以一般需要排序的情况下是选择 TreeMap 来进行,默认为升序排序方式(深度优先搜索),可自定义实现 Comparator 接口 实现排序方式。
+- `顺序特性`：HashTable、HashMap 具有无序特性。TreeMap 是利用红黑树来实现的(树中的每个节点的值,都会大于或等于它的左子树种的所有节点的值,并且小于或等于它的右子树中的所有节点的 值),实现了 SortMap 接口,能够对保存的记录根据键进行排序。所以一般需要排序的情况下是选择 TreeMap 来进行,默认为升序排序方式(深度优先搜索),可自定义实现 Comparator 接口 实现排序方式。
 - `初始化与增长方式`：初始化时:HashTable 在不指定容量的情况下的默认容量为 11,且不要求底层数组的容量一定要为 2 的整数次幂;HashMap 默认容量为 16,且要求容量一定为 2 的整数次幂。扩容时:Hashtable 将容量变为原来的 2 倍加 1;HashMap 扩容将容量变为原来的 2 倍。
 - `HashMap`基于哈希思想,实现对数据的读写。当我们将键值对传递给`put()`方法时,它调用`键对象的hashCode()`方法来计算`hashcode`,然后找到`bucket`位置来储存值对象。当获取对象时, 通过键对象的`equals()方法找到正确的键值对,然后返回值对象`。HashMap 使用`链表来解决碰撞问题`,当发生碰撞了,对象将会储存在链表的下一个节点中。HashMap 在每个链表节点中储存 键值对对象。当两个不同的键对象的 hashcode 相同时,它们会储存在同一个 bucket 位置的链表中,可通过键对象的 equals()方法用来找到键值对。如果链表大小超过阈值 ( 8),链表就会被改造为树形结构(红黑树)。
 

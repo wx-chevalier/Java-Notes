@@ -4,7 +4,7 @@ JSR，全称 Java Specification Requests，即 Java 规范提案，主要是用�
 
 J.U.C. 即 java.util.concurrent 的缩写，该包参考自 EDU.oswego.cs.dl.util.concurrent，是 JSR 166 标准规范的一个实现；
 
-# Executor 框架（线程池、 Callable 、Future）
+# Executor 框架（线程池、 Callable、Future）
 
 简单的说，就是一个任务的执行和调度框架，涉及的类如下图所示：
 

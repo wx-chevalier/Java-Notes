@@ -265,7 +265,7 @@ public @interface Override {
 
 ### 2.2 注解信息
 
-对于 `@Retention` 类型为 `RUNTIME` 的注解，可以利用反射机制查看其信息。因为注解可以运用在不同目标上，所以 Class 、Field、Method、Constructor 都有如下方法：
+对于 `@Retention` 类型为 `RUNTIME` 的注解，可以利用反射机制查看其信息。因为注解可以运用在不同目标上，所以 Class、Field、Method、Constructor 都有如下方法：
 
 ```java
 // 获取所有注解

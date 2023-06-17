@@ -23,7 +23,7 @@ BlockingQueue<String> blockingQueue = new LinkedBlockingDeque<>();
 BlockingQueue<String> blockingQueue = new LinkedBlockingDeque<>(10);
 ```
 
-上面这句代码中，我们设置了 blockingQueue 的容量为 10 。这意味着当消费者尝试将元素添加到已经满了的队列时，结果取决于添加元素的方法（ offer() 、add() 、put() ) ，它将阻塞，直到有足够的空间可以插入元素。否则，添加操作将会失败。
+上面这句代码中，我们设置了 blockingQueue 的容量为 10 。这意味着当消费者尝试将元素添加到已经满了的队列时，结果取决于添加元素的方法（ offer()、add()、put() ) ，它将阻塞，直到有足够的空间可以插入元素。否则，添加操作将会失败。
 
 使用有限队列是设计并发程序的好方法，因为当我们将元素插入到已经满了的队列时，这些操作需要等到消费者赶上并在队列中提供一些空间。这种机制可以让那个我们不做任何其它更改就可以实现节流。
 
