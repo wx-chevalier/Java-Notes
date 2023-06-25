@@ -101,7 +101,7 @@ jinfo -flag CMSInitiatingOccupancyFraction 13604
 
 ## 五、jmap
 
-jmap（Memory Map for Java）命令主要用于生成堆转储快照（一般称为 heapdump 或 dump 文件）。除此之外，它还可以用来查询 finalize 执行队列、Java 堆和方法区的详细信息，如空间使用率、当前使用的收集器等。 使用格式如下：
+jmap（Memory Map for Java）命令主要用于生成堆转储快照（一般称为 heapdump 或 dump 文件）。除此之外，它还可以用来查询 finalize 执行队列、Java 堆和方法区的详细信息，如空间使用率、当前使用的收集器等。使用格式如下：
 
 ```shell
 jmap [option] <pid>
@@ -128,7 +128,7 @@ jmap -dump:format=b,file=test.bin 3260
 
 ## 六、jhat
 
-jhat（JVM Heap Analysis Tool）命令主要用来分析 jmap 生成的堆转储快照。 假设我们有如下一段程序：
+jhat（JVM Heap Analysis Tool）命令主要用来分析 jmap 生成的堆转储快照。假设我们有如下一段程序：
 
 ```java
 public class StackOverFlowTest {

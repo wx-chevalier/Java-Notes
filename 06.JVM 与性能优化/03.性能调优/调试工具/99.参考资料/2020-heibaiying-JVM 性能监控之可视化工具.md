@@ -40,7 +40,7 @@ JConsole（Java Monitoring and Management Console）是一款基于 JMX（Java M
 
 ### 3.1 简介
 
-VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最强大的运行监视和故障处理程序之一， 它除了支持常规的运行监视、故障处理等功能外，还能用于性能分析（Profiling）。同时因为 VisualVM 是基于 NetBeans 平台的开发工具，所以它还支持通过插件来进行功能的拓展。VisualVM 的主要功能如下：
+VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最强大的运行监视和故障处理程序之一，它除了支持常规的运行监视、故障处理等功能外，还能用于性能分析（Profiling）。同时因为 VisualVM 是基于 NetBeans 平台的开发工具，所以它还支持通过插件来进行功能的拓展。VisualVM 的主要功能如下：
 
 - 显示虚拟机进程及其配置信息、环境信息（与 jps、jinfo 功能类似）；
 - 监视应用程序的处理器、垃圾收集、堆、方法区以及线程的信息（与 jstat、jstack 功能类似）；
@@ -50,7 +50,7 @@ VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最�
 
 ### 3.2 使用
 
-打开位于 bin 目录下的 `jvisualvm` 程序， 它会自动扫描当前主机上的所有 JVM 进程：
+打开位于 bin 目录下的 `jvisualvm` 程序，它会自动扫描当前主机上的所有 JVM 进程：
 
 <div align="center"> <img src="https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvisual.png"/> </div>
 

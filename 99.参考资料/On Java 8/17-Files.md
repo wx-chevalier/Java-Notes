@@ -736,11 +736,11 @@ dir.tmp
 
 ## 文件读写
 
-此时，我们可以对路径和目录做任何事情。 现在让我们看一下操纵文件本身的内容。
+此时，我们可以对路径和目录做任何事情。现在让我们看一下操纵文件本身的内容。
 
 如果一个文件很“小”，也就是说“它运行得足够快且占用内存小”，那么 `java.nio.file.Files` 类中的实用程序将帮助你轻松读写文本和二进制文件。
 
-`Files.readAllLines()` 一次读取整个文件（因此，“小”文件很有必要），产生一个`List<String>`。 对于示例文件，我们将重用`streams/Cheese.dat`：
+`Files.readAllLines()` 一次读取整个文件（因此，“小”文件很有必要），产生一个`List<String>`。对于示例文件，我们将重用`streams/Cheese.dat`：
 
 ```java
 // files/ListOfLines.java
@@ -767,7 +767,7 @@ It's certainly uncon
 */
 ```
 
-跳过注释行，其余的内容每行只打印一半。 这实现起来很简单：你只需将 `Path` 传递给 `readAllLines()` （以前的 java 实现这个功能很复杂）。`readAllLines()` 有一个重载版本，包含一个 `Charset` 参数来存储文件的 Unicode 编码。
+跳过注释行，其余的内容每行只打印一半。这实现起来很简单：你只需将 `Path` 传递给 `readAllLines()` （以前的 java 实现这个功能很复杂）。`readAllLines()` 有一个重载版本，包含一个 `Charset` 参数来存储文件的 Unicode 编码。
 
 `Files.write()` 被重载以写入 `byte` 数组或任何 `Iterable` 对象（它也有 `Charset` 选项）：
 

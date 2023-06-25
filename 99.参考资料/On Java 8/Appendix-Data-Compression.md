@@ -162,11 +162,11 @@ public class ZipCompress {
 }
 ```
 
-对于要添加到存档的每个文件，必须调用 `putNextEntry()` 并传递 **ZipEntry** 对象。 **ZipEntry** 对象包含一个扩展接口，用于获取和设置 Zip 文件中该特定条目的所有可用数据：名称，压缩和未压缩大小，日期，CRC 校验和，额外字段数据，注释，压缩方法以及它是否是目录条目。但是，即使 Zip 格式有设置密码的方法，Java 的 Zip 库也不支持。虽然 **CheckedInputStream** 和 **CheckedOutputStream** 都支持 Adler32 和 CRC32 校验和，但 **ZipEntry** 类仅支持 CRC 接口。这是对基础 Zip 格式的限制，但它可能会限制你使用更快的 Adler32。
+对于要添加到存档的每个文件，必须调用 `putNextEntry()` 并传递 **ZipEntry** 对象。**ZipEntry** 对象包含一个扩展接口，用于获取和设置 Zip 文件中该特定条目的所有可用数据：名称，压缩和未压缩大小，日期，CRC 校验和，额外字段数据，注释，压缩方法以及它是否是目录条目。但是，即使 Zip 格式有设置密码的方法，Java 的 Zip 库也不支持。虽然 **CheckedInputStream** 和 **CheckedOutputStream** 都支持 Adler32 和 CRC32 校验和，但 **ZipEntry** 类仅支持 CRC 接口。这是对基础 Zip 格式的限制，但它可能会限制你使用更快的 Adler32。
 
 要提取文件，**ZipInputStream** 有一个 `getNextEntry()` 方法，这个方法在有文件存在的情况下调用，会返回下一个 **ZipEntry**。作为一个更简洁的替代方法，你可以使用 **ZipFile** 对象读取该文件，该对象具有方法 entries() 返回一个包裹 **ZipEntries** 的 **Enumeration**。
 
-要读取校验和，你必须以某种方式访问关联的 **Checksum** 对象。这里保留了对 **CheckedOutputStream** 和 **CheckedInputStream** 对象的引用，但你也可以保持对 **Checksum** 对象的引用。 Zip 流中的一个令人困惑的方法是 `setComment()`。如 **ZipCompress** 所示。在 Java 中，你可以在编写文件时设置注释，但是没有办法恢复 **ZipInputStream** 中的注释。注释似乎仅通过 **ZipEntry** 在逐个条目的基础上完全支持。
+要读取校验和，你必须以某种方式访问关联的 **Checksum** 对象。这里保留了对 **CheckedOutputStream** 和 **CheckedInputStream** 对象的引用，但你也可以保持对 **Checksum** 对象的引用。Zip 流中的一个令人困惑的方法是 `setComment()`。如 **ZipCompress** 所示。在 Java 中，你可以在编写文件时设置注释，但是没有办法恢复 **ZipInputStream** 中的注释。注释似乎仅通过 **ZipEntry** 在逐个条目的基础上完全支持。
 
 使用 GZIP 或 Zip 库时，你不仅被限制于文件——你可以压缩任何内容，包括通过网络连接发送的数据。
 
@@ -184,7 +184,7 @@ JDK 附带的 jar 工具会自动压缩你选择的文件。你可以在命令�
 jar [options] destination [manifest] inputfile(s)
 ```
 
-选项是一组字母（不需要连字符或任何其他指示符）。 Unix / Linux 用户会注意到这些选项与 tar 命令选项的相似性。这些是：
+选项是一组字母（不需要连字符或任何其他指示符）。Unix / Linux 用户会注意到这些选项与 tar 命令选项的相似性。这些是：
 
 | 选项       | 功能                                                                                                                               |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -200,13 +200,13 @@ jar [options] destination [manifest] inputfile(s)
 
 如果放入 JAR 文件的文件中包含子目录，则会自动添加该子目录，包括其所有子目录等。还会保留路径信息。
 
-以下是一些调用 jar 的典型方法。以下命令创建名为 myJarFile 的 JAR 文件。 jar 包含当前目录中的所有类文件，以及自动生成的清单文件：
+以下是一些调用 jar 的典型方法。以下命令创建名为 myJarFile 的 JAR 文件。jar 包含当前目录中的所有类文件，以及自动生成的清单文件：
 
 ```shell
 jar cf myJarFile.jar *.class
 ```
 
-下一个命令与前面的示例类似，但它添加了一个名为 myManifestFile.mf 的用户创建的清单文件。 ：
+下一个命令与前面的示例类似，但它添加了一个名为 myManifestFile.mf 的用户创建的清单文件。：
 
 ```shell
 jar cmf myJarFile.jar myManifestFile.mf *.class

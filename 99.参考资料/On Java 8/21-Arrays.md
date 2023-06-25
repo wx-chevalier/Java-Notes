@@ -263,7 +263,7 @@ e.length = 2
 
 数组 **c** 展示了创建数组对象后给数组中各元素分配 **BerylliumSphere** 对象。数组 **d** 展示了创建数组对象的聚合初始化语法（隐式地使用 **new** 在堆中创建对象，就像 **c** 一样）并且初始化成 **BeryliumSphere** 对象，这一切都在一条语句中完成。
 
-下一个数组初始化可以被看做是一个“动态聚合初始化”。 **d** 使用的聚合初始化必须在 **d** 定义处使用，但是使用第二种语法，你可以在任何地方创建和初始化数组对象。例如，假设 **hide()** 是一个需要使用一系列的 **BeryliumSphere**对象。你可以这样调用它：
+下一个数组初始化可以被看做是一个“动态聚合初始化”。**d** 使用的聚合初始化必须在 **d** 定义处使用，但是使用第二种语法，你可以在任何地方创建和初始化数组对象。例如，假设 **hide()** 是一个需要使用一系列的 **BeryliumSphere**对象。你可以这样调用它：
 
 ```Java
 hide(d);
@@ -345,7 +345,7 @@ public class IceCreamFlavors {
 */
 ```
 
-**flavorset()** 创建名为 **results** 的 **String** 类型的数组。 这个数组的大小 **n** 取决于你传进方法的参数。然后从数组 **FLAVORS** 中随机选择 flavors 并且把它们放进 **results** 里并返回。返回一个数组就像返回其他任何对象一样，实际上返回的是引用。数组是在 **flavorSet()** 中或者是在其他什么地方创建的并不重要。垃圾收集器会清理你用完的数组，你需要的数组则会保留。
+**flavorset()** 创建名为 **results** 的 **String** 类型的数组。这个数组的大小 **n** 取决于你传进方法的参数。然后从数组 **FLAVORS** 中随机选择 flavors 并且把它们放进 **results** 里并返回。返回一个数组就像返回其他任何对象一样，实际上返回的是引用。数组是在 **flavorSet()** 中或者是在其他什么地方创建的并不重要。垃圾收集器会清理你用完的数组，你需要的数组则会保留。
 
 如果你必须要返回一系列不同类型的元素，你可以使用 [泛型](book/20-Generics.md) 中介绍的 **元组** 。
 
@@ -434,7 +434,7 @@ public class RaggedArray {
 
 第一个 **new** 创建了一个数组，这个数组首元素长度随机，其余的则不确定。第二个 **new** 在 for 循环中给数组填充了第二个元素，第三个 **new** 为数组的最后一个索引填充元素。
 
-- **[1]** Java 8 增加了 **Arrays.setAll()** 方法,其使用生成器来生成插入数组中的值。此生成器符合函数式接口 **IntUnaryOperator** ，只使用一个非 **默认** 的方法 **ApplyAsint(int 操作数)** 。 **Arrays.setAll()** 传递当前数组索引作为操作数，因此一个选项是提供 **n -> n** 的 lambda 表达式来显示数组的索引（在上面的代码中很容易尝试）。这里，我们忽略索引，只是插入递增计数器的值。
+- **[1]** Java 8 增加了 **Arrays.setAll()** 方法,其使用生成器来生成插入数组中的值。此生成器符合函数式接口 **IntUnaryOperator** ，只使用一个非 **默认** 的方法 **ApplyAsint(int 操作数)** 。**Arrays.setAll()** 传递当前数组索引作为操作数，因此一个选项是提供 **n -> n** 的 lambda 表达式来显示数组的索引（在上面的代码中很容易尝试）。这里，我们忽略索引，只是插入递增计数器的值。
 
 非基元的对象数组也可以定义为不规则数组。这里，我们收集了许多使用大括号的 **new** 表达式：
 
@@ -669,7 +669,7 @@ public class ArrayOfGenericType<T> {
 
 ## Arrays 的 fill 方法
 
-通常情况下，当对数组和程序进行实验时，能够很轻易地生成充满测试数据的数组是很有帮助的。 Java 标准库 **Arrays** 类包括一个普通的 **fill()** 方法，该方法将单个值复制到整个数组，或者在对象数组的情况下，将相同的引用复制到整个数组：
+通常情况下，当对数组和程序进行实验时，能够很轻易地生成充满测试数据的数组是很有帮助的。Java 标准库 **Arrays** 类包括一个普通的 **fill()** 方法，该方法将单个值复制到整个数组，或者在对象数组的情况下，将相同的引用复制到整个数组：
 
 ```Java
 // arrays/FillingArrays.java
@@ -733,7 +733,7 @@ a9: [Hello, Hello, Hello, World, World, Hello]
 
 ## Arrays 的 setAll 方法
 
-在 Java 8 中， 在**RaggedArray.java** 中引入并在 **ArrayOfGenerics.java.Array.setAll()** 中重用。它使用一个生成器并生成不同的值，可以选择基于数组的索引元素（通过访问当前索引，生成器可以读取数组值并对其进行修改）。 **static Arrays.setAll()** 的重载签名为：
+在 Java 8 中，在**RaggedArray.java** 中引入并在 **ArrayOfGenerics.java.Array.setAll()** 中重用。它使用一个生成器并生成不同的值，可以选择基于数组的索引元素（通过访问当前索引，生成器可以读取数组值并对其进行修改）。**static Arrays.setAll()** 的重载签名为：
 
 - **void setAll(int[] a, IntUnaryOperator gen)**
 - **void setAll(long[] a, IntToLongFunction gen)**
@@ -1036,7 +1036,7 @@ public interface Count {
 
 ```
 
-对于 **int** ，**long** ，**double** 这三个有特殊 **Supplier** 接口的原始数据类型来说，**Pint** ， **Plong** 和 **Pdouble** 实现了这些接口。
+对于 **int** ，**long** ，**double** 这三个有特殊 **Supplier** 接口的原始数据类型来说，**Pint** ，**Plong** 和 **Pdouble** 实现了这些接口。
 
 这里是对 **Count** 的测试，这同样给我们提供了如何使用它的例子：
 

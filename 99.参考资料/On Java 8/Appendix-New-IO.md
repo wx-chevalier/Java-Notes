@@ -18,7 +18,7 @@
 
 旧式 I/O 中的三个类分别被更新成 **FileChannel**（文件通道），分别是：**FileInputStream**、**FileOutputStream**，以及用于读写的 **RandomAccessFile** 类。
 
-注意，这些都是符合底层 **NIO** 特性的字节操作流。 另外，还有 **Reader** 和 **Writer** 字符模式的类是不产生通道的。但 `java.nio.channels.`**Channels** 类具有从通道中生成 **Reader** 和 **Writer** 的实用方法。
+注意，这些都是符合底层 **NIO** 特性的字节操作流。另外，还有 **Reader** 和 **Writer** 字符模式的类是不产生通道的。但 `java.nio.channels.`**Channels** 类具有从通道中生成 **Reader** 和 **Writer** 的实用方法。
 
 下面来练习上述三种类型的流生成可读、可写、可读/写的通道：
 
@@ -84,7 +84,7 @@ Some text Some more
 
 将字节放入 **ByteBuffer** 的一种方法是直接调用 `put()` 方法将一个或多个字节放入 **ByteBuffer**；当然也可以是其它基本类型的数据。此外，参考上例，我们还可以调用 `wrap()` 方法包装现有字节数组到 **ByteBuffer**。执行此操作时，不会复制底层数组，而是将其用作生成的 **ByteBuffer** 存储。这样产生的 **ByteBuffer** 是数组“支持”的。
 
-data.txt 文件被 **RandomAccessFile** 重新打开。**注意**，你可以在文件中移动 **FileChannel**。 在这里，它被移动到末尾，以便添加额外的写操作。
+data.txt 文件被 **RandomAccessFile** 重新打开。**注意**，你可以在文件中移动 **FileChannel**。在这里，它被移动到末尾，以便添加额外的写操作。
 
 对于只读访问，必须使用静态 `allocate()` 方法显式地分配 **ByteBuffer**。**NIO** 的目标是快速移动大量数据，因此 **ByteBuffer** 的大小应该很重要 —— 实际上，这里设置的 1K 都可能偏小了(我们在工作中应该反复测试以找到最佳大小)。
 
@@ -341,7 +341,7 @@ gb2312-1980
 
 另一种方法是使用字符集 `encode()` 方法，该字符集在读取文件时生成可打印的内容，如你在 **BufferToText.java** 的第三部分中所看到的。上例中，**UTF-16BE** 被用于将文本写入文件，当文本被读取时，你所要做的就是将其转换为 **CharBuffer**，并生成预期的文本。
 
-最后，如果将 **CharBuffer** 写入 **ByteBuffer**，你会看到发生了什么(更多详情，稍后了解)。**注意**，为 **ByteBuffer** 分配了 24 个字节，按照每个字符占用 2 个自字节， 12 个字符的空间已经足够了。由于“some text”只有 9 个字符，受其 `toString()` 方法影响，剩下的 0 字节部分也出现在了 **CharBuffer** 的展示中，如输出所示。
+最后，如果将 **CharBuffer** 写入 **ByteBuffer**，你会看到发生了什么(更多详情，稍后了解)。**注意**，为 **ByteBuffer** 分配了 24 个字节，按照每个字符占用 2 个自字节，12 个字符的空间已经足够了。由于“some text”只有 9 个字符，受其 `toString()` 方法影响，剩下的 0 字节部分也出现在了 **CharBuffer** 的展示中，如输出所示。
 
 <!-- Fetching Primitives -->
 

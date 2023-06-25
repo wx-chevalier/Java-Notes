@@ -2,7 +2,7 @@
 
 现在，我们来为这次阅读之旅做些准备吧！
 
-在开始学习 Java 之前，你必须要先安装好 Java 和本书的源代码示例。因为考虑到可能有“专门的初学者”从本书开始学习编程，所以我会详细地教你如何使用命令行。 如果你已经有此方面的经验了，可以跳过这段安装说明。如果你对此处描述的任何术语或过程仍不清楚，还可以通过 [Google](https://google.com/) 搜索找到答案。具体的问题或困难请试着在 [StackOverflow](https://stackoverflow.com/) 上提问。或者去 [YouTube](https://youtube.com) 看有没有相关的安装说明。
+在开始学习 Java 之前，你必须要先安装好 Java 和本书的源代码示例。因为考虑到可能有“专门的初学者”从本书开始学习编程，所以我会详细地教你如何使用命令行。如果你已经有此方面的经验了，可以跳过这段安装说明。如果你对此处描述的任何术语或过程仍不清楚，还可以通过 [Google](https://google.com/) 搜索找到答案。具体的问题或困难请试着在 [StackOverflow](https://stackoverflow.com/) 上提问。或者去 [YouTube](https://youtube.com) 看有没有相关的安装说明。
 
 ## 编辑器
 
@@ -30,7 +30,7 @@ windows：首先，通过目录打开 windows 资源管理器：
 
 Linux: 在 home 目录打开 Shell。
 
-- Debian: 按 Alt+F2， 在弹出的对话框中输入“gnome-terminal”
+- Debian: 按 Alt+F2，在弹出的对话框中输入“gnome-terminal”
 - Ubuntu: 在屏幕中鼠标右击，选择 “打开终端”，或者按住 Ctrl+Alt+T
 - Redhat: 在屏幕中鼠标右击，选择 “打开终端”
 - Fedora: 按 Alt+F2，在弹出的对话框中输入“gnome-terminal”

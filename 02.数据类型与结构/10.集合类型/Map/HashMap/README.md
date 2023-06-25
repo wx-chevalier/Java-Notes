@@ -4,7 +4,7 @@ HashMap 是 Java Collection Framework 的重要成员，也是 Map 族(如下图
 
 ![Map 类型](https://assets.ng-tech.icu/superbed/2021/07/16/60f15b485132923bf81c237b.jpg)
 
-HashMap 实现了 Map 接口，并继承 AbstractMap 抽象类，其中 Map 接口定义了键值映射规则。和 AbstractCollection 抽象类在 Collection 族的作用类似， AbstractMap 抽象类提供了 Map 接口的骨干实现，以最大限度地减少实现 Map 接口所需的工作。HashMap 在 JDK 中的定义为：
+HashMap 实现了 Map 接口，并继承 AbstractMap 抽象类，其中 Map 接口定义了键值映射规则。和 AbstractCollection 抽象类在 Collection 族的作用类似，AbstractMap 抽象类提供了 Map 接口的骨干实现，以最大限度地减少实现 Map 接口所需的工作。HashMap 在 JDK 中的定义为：
 
 ```java
 public class HashMap<K,V>

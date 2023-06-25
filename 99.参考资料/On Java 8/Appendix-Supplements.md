@@ -16,7 +16,7 @@
 
 ## 通过 Thinking-in-C 来巩固 Java 基础
 
-在 [www.OnJava8.com](www.OnJava8.com) 上，可以免费下载*Thinking in C*的演示文稿。 此演示文稿由 Chuck Allison 创建，由 MindView 有限责任公司开发。这是一个电子演示文稿，介绍了 Java 语法所基于的 C 语法，运算符和函数。
+在 [www.OnJava8.com](www.OnJava8.com) 上，可以免费下载*Thinking in C*的演示文稿。此演示文稿由 Chuck Allison 创建，由 MindView 有限责任公司开发。这是一个电子演示文稿，介绍了 Java 语法所基于的 C 语法，运算符和函数。
 
 <!-- Hands-On Java eSeminar -->
 

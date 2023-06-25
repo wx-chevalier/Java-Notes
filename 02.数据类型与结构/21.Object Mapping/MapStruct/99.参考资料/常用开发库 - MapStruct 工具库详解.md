@@ -18,7 +18,7 @@
 
 ## MapStruct 带来的改变
 
-MapSturct 是一个生成类型安全， 高性能且无依赖的 JavaBean 映射代码的注解处理器（annotation processor）。
+MapSturct 是一个生成类型安全，高性能且无依赖的 JavaBean 映射代码的注解处理器（annotation processor）。
 
 # MapStruct 入门例子
 
@@ -215,7 +215,7 @@ public void vo2DoTest() {
 
 # MapStrcut 实现的原理?
 
-MapStruct 来生成的代码， 其类似于人手写。 速度上可以得到保证。前面例子中生成的代码可以在编译后看到, 在 target/generated-sources/annotations 里可以看到; 同时真正在代码包执行的可以在 target/classes 包中看到。
+MapStruct 来生成的代码，其类似于人手写。速度上可以得到保证。前面例子中生成的代码可以在编译后看到, 在 target/generated-sources/annotations 里可以看到; 同时真正在代码包执行的可以在 target/classes 包中看到。
 
 ## 编译后的类
 

@@ -168,7 +168,7 @@ private int dowait(boolean timed, long nanos)
                     breakBarrier();
             }
         }
-        // 屏障未到达时的逻辑，一个死循坏， 自选操作
+        // 屏障未到达时的逻辑，一个死循坏，自选操作
         for (;;) {
             try {
                 //如果未指定超时等待时间，则调用Condition.await()方法使线程处于等待

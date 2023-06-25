@@ -362,7 +362,7 @@ ByteBuffer[] buffers = new ByteBuffer[]{buffer01, buffer02, buffer03};
 fileInputStream.getChannel().read(buffers);
 ```
 
-此时 Channel 中的数据会依次写入到 Buffer01， Buffer02， Buffer03 上。Scatter 通常用于固定长度数据的处理，假设一个数据单元由 header，body，footer 三部分组成，并且每部分的长度都是固定的，此时通过 Scatter 操作，每一组数据的 header，body，footer 都会分别固定地写到 Buffer01， Buffer02， Buffer03 上，此时就可以对每个 Buffer 应用不同的处理逻辑：
+此时 Channel 中的数据会依次写入到 Buffer01，Buffer02，Buffer03 上。Scatter 通常用于固定长度数据的处理，假设一个数据单元由 header，body，footer 三部分组成，并且每部分的长度都是固定的，此时通过 Scatter 操作，每一组数据的 header，body，footer 都会分别固定地写到 Buffer01，Buffer02，Buffer03 上，此时就可以对每个 Buffer 应用不同的处理逻辑：
 
 <div align="center"> <img src="https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/nio_scatter.png"/> </div>
 

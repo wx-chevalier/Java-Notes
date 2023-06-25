@@ -3203,7 +3203,7 @@ Java 1.1 版同样增加了一些重要的新功能，包括焦点遍历，桌�
 焦点遍历十分的简单，因为它显然存在于 AWT 库里的组件并且我们不必为使它工作而去做任何事。如果我们制造我们自己组件并且想使它们去处理焦点遍历，我们重载 isFocusTraversable()以使它返回真值。如果我们想在一个鼠标单击上捕捉键盘焦点，我们可以捕捉鼠标按下事件并且调用 requestFocus()需求焦点方法。
 
 13.17.1 桌面颜色
-利用桌面颜色，我们可知道当前用户桌面都有哪些颜色选择。这样一来，就可在必要的时候通过自己的程序来运用那些颜色。颜色都会得以自动初始化，并置于 SystemColor 的 static 成员中，所以要做的唯一事情就是读取自己感兴趣的成员。各种名字的意义是不言而喻的：desktop，activeCaption， activeCaptionText，activeCaptionBorder， inactiveCaption， inactiveCaptionText，inactiveCaptionBorder， window， windowBorder， windowText， menu，menuText，text， textText， textHighlight， textHighlightText，textInactiveText，control， controlText， controlHighlight，controlLtHighlight，controlShadow，controlDkShadow， scrollbar， info（用于帮助）以及 infoText（用于帮助文字）。
+利用桌面颜色，我们可知道当前用户桌面都有哪些颜色选择。这样一来，就可在必要的时候通过自己的程序来运用那些颜色。颜色都会得以自动初始化，并置于 SystemColor 的 static 成员中，所以要做的唯一事情就是读取自己感兴趣的成员。各种名字的意义是不言而喻的：desktop，activeCaption，activeCaptionText，activeCaptionBorder，inactiveCaption，inactiveCaptionText，inactiveCaptionBorder，window，windowBorder，windowText，menu，menuText，text，textText，textHighlight，textHighlightText，textInactiveText，control，controlText，controlHighlight，controlLtHighlight，controlShadow，controlDkShadow，scrollbar，info（用于帮助）以及 infoText（用于帮助文字）。
 
 13.17.2 打印
 非常不幸，打印时没有多少事情是可以自动进行的。相反，为完成打印，我们必须经历大量机械的、非 OO（面向对象）的步骤。但打印一个图形化的组件时，可能多少有点儿自动化的意思：默认情况下，print()方法会调用 paint()来完成自己的工作。大多数时候这都已经足够了，但假如还想做一些特别的事情，就必须知道页面的几何尺寸。

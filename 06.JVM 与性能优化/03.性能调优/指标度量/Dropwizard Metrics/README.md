@@ -232,8 +232,8 @@ java.util.Queue.queue.histogram
 
 ## Timers
 
-Timer 其实是 Histogram 和 Meter 的结合， histogram 某部分代码/调用的耗时， meter 统计 TPS。
-Timer 其实是 Histogram 和 Meter 的结合， histogram 某部分代码/调用的耗时， meter 统计 TPS。
+Timer 其实是 Histogram 和 Meter 的结合，histogram 某部分代码/调用的耗时，meter 统计 TPS。
+Timer 其实是 Histogram 和 Meter 的结合，histogram 某部分代码/调用的耗时，meter 统计 TPS。
 
 ```
 public class TimerTest {

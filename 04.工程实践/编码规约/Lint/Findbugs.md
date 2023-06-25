@@ -200,7 +200,7 @@ list.addAll(temp);
 //以上操作会抛出空指针异常
 ```
 
-1. 【强制】使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法， 它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。
+1. 【强制】使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法，它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。
 
    说明：asList 的返回对象是一个 Arrays 内部类，并没有实现集合的修改方法。Arrays.asList 体现的是适配 器模式，只是转换接口，后台的数据仍是数组。
 
@@ -218,7 +218,7 @@ List<String> array = new ArrayList<>(Arrays.asList(str));
 array.add("xiang");
 ```
 
-1. 【强制】泛型通配符<? extends T>来接收返回的数据，此写法的泛型集合不能使用 add 方法， 而<? super T>不能使用 get 方法，两者在接口调用赋值的场景中容易出错。
+1. 【强制】泛型通配符<? extends T>来接收返回的数据，此写法的泛型集合不能使用 add 方法，而<? super T>不能使用 get 方法，两者在接口调用赋值的场景中容易出错。
 
    说明：扩展说一下 PECS(Producer Extends Consumer Super)原则：第一、频繁往外读取内容的，适合用<? extends T>。第二、经常往里插入的，适合用<? super T>
 
@@ -254,7 +254,7 @@ System.out.println(list.toString());
 
 1. 【推荐】集合初始化时，指定集合初始值大小。
 
-   实例：HashMap 需要放置 1024 个元素，由于没有设置容量初始大小，随着元素增加而被迫不断扩容， resize()方法总共会调用 8 次，反复重建哈希表和数据迁移。当放置的集合元素个数达千万级时会影响程序 性能。
+   实例：HashMap 需要放置 1024 个元素，由于没有设置容量初始大小，随着元素增加而被迫不断扩容，resize()方法总共会调用 8 次，反复重建哈希表和数据迁移。当放置的集合元素个数达千万级时会影响程序 性能。
 
 2. 【推荐】使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历。entrySet 只是遍历了一次就把 key 和 value 都放到了 entry 中，效率更高。如果是 JDK8，使用 Map.forEach 方法。
 
@@ -279,9 +279,9 @@ Map<Integer,Integer> map = new HashMap<>(16);for(int i=0;i<10;i++){    map.put(i
 
    说明：线程池的好处是减少在创建和销毁线程上所消耗的时间以及系统资源的开销，解决资源不足的问题。如果不使用线程池，有可能造成系统创建大量同类线程而导致消耗完内存或者“过度切换”的问题。
 
-3. 【强制】SimpleDateFormat 是线程不安全的类，一般不要定义为 static 变量，如果定义为 static， 必须加锁，或者使用 DateUtils 工具类。
+3. 【强制】SimpleDateFormat 是线程不安全的类，一般不要定义为 static 变量，如果定义为 static，必须加锁，或者使用 DateUtils 工具类。
 
-4. 【强制】必须回收自定义的 ThreadLocal 变量，尤其在线程池场景下，线程经常会被复用， 如果不清理自定义的 ThreadLocal 变量，可能会影响后续业务逻辑和造成内存泄露等问题。尽量在代理中使用 try-finally 块进行回收。
+4. 【强制】必须回收自定义的 ThreadLocal 变量，尤其在线程池场景下，线程经常会被复用，如果不清理自定义的 ThreadLocal 变量，可能会影响后续业务逻辑和造成内存泄露等问题。尽量在代理中使用 try-finally 块进行回收。
 
 ```
 objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.remove();}
@@ -434,7 +434,7 @@ Long a = 123L;String s = String.valueOf(a);
 
 3. 【推荐】防止 NPE，是程序员的基本修养，注意 NPE 产生的场景：
 
-   1） 返回类型为基本数据类型，return 包装数据类型的对象时，自动拆箱有可能产生 NPE。如 public int f() { return Integer 对象}， 如果为 null，自动解箱抛 NPE。2） 数据库的查询结果可能为 null。
+   1） 返回类型为基本数据类型，return 包装数据类型的对象时，自动拆箱有可能产生 NPE。如 public int f() { return Integer 对象}，如果为 null，自动解箱抛 NPE。2） 数据库的查询结果可能为 null。
 
    3） 集合里的元素即使 isNotEmpty，取出的数据元素也可能为 null。
 
@@ -469,7 +469,7 @@ Long a = 123L;String s = String.valueOf(a);
 
 1. 【强制】隶属于用户个人的页面或者功能必须进行权限控制校验。说明：防止没有做水平权限校验就可随意访问、修改、删除别人的数据，比如查看他人的私信内容。
 
-2. 【强制】用户输入的 SQL 参数严格使用参数绑定或者 METADATA 字段值限定，防止 SQL 注入， 禁止字符串拼接 SQL 访问数据库。
+2. 【强制】用户输入的 SQL 参数严格使用参数绑定或者 METADATA 字段值限定，防止 SQL 注入，禁止字符串拼接 SQL 访问数据库。
 
 3. 【强制】用户请求传入的任何参数必须做有效性验证。
 
@@ -523,13 +523,13 @@ Long a = 123L;String s = String.valueOf(a);
 
 1. 【强制】业务上具有唯一特性的字段，即使是组合字段，也必须建成唯一索引。
 
-> 说明：不要以为唯一索引影响了 insert 速度，这个速度损耗可以忽略，但提高查找速度是明显的；另外， 即使在应用层做了非常完善的校验控制，只要没有唯一索引，根据墨菲定律，必然有脏数据产生。
+> 说明：不要以为唯一索引影响了 insert 速度，这个速度损耗可以忽略，但提高查找速度是明显的；另外，即使在应用层做了非常完善的校验控制，只要没有唯一索引，根据墨菲定律，必然有脏数据产生。
 
 ```
 CREATE TABLE IF NOT EXISTS `表名`(   `id` INT(11) NOT NULL AUTO_INCREMENT,#AUTO_INCREMENT 自增长列   `name` INT(11) NOT NULL,   `age` INT(11) NOT NULL,   PRIMARY KEY ( `id` ),   KEY (`name`,`age`))ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='表备注';
 ```
 
-1. 【强制】超过三个表禁止 join。需要 join 的字段，数据类型保持绝对一致；多表关联查询时， 保证被关联的字段需要有索引。
+1. 【强制】超过三个表禁止 join。需要 join 的字段，数据类型保持绝对一致；多表关联查询时，保证被关联的字段需要有索引。
 
    [关于 join 的讲解传送](https://www.cnblogs.com/reaptomorrow-flydream/p/8145610.html)
 
@@ -603,7 +603,7 @@ count(*)包括了所有的列,相当于行数,在统计结果的时候,不会忽
 
 ##### （一）应用分层
 
-1. 【参考】（分层异常处理规约）在 DAO 层，产生的异常类型有很多，无法用细粒度的异常进行 catch，使用 catch(Exception e)方式，并 throw new DAOException(e)，不需要打印日志，因为日志在 Manager/Service 层一定需要捕获并打印到日志文件中去，如果同台服务器再打日志，浪费性能和存储。在 Service 层出现异常时，必须记录出错日志到磁盘，尽可能带上参数信息， 相当于保护案发现场。Manager 层与 Service 同机部署，日志方式与 DAO 层处理一致，如果是单独部署，则采用与 Service 一致的处理方式。Web 层绝不应该继续往上抛异常，因为已经处于顶层，如果意识到这个异常将导致页面无法正常渲染，那么就应该直接跳转到友好错误页面，尽量加上友好的错误提示信息。开放接口层要将异常处理成错误码和错误信息方式返回。
+1. 【参考】（分层异常处理规约）在 DAO 层，产生的异常类型有很多，无法用细粒度的异常进行 catch，使用 catch(Exception e)方式，并 throw new DAOException(e)，不需要打印日志，因为日志在 Manager/Service 层一定需要捕获并打印到日志文件中去，如果同台服务器再打日志，浪费性能和存储。在 Service 层出现异常时，必须记录出错日志到磁盘，尽可能带上参数信息，相当于保护案发现场。Manager 层与 Service 同机部署，日志方式与 DAO 层处理一致，如果是单独部署，则采用与 Service 一致的处理方式。Web 层绝不应该继续往上抛异常，因为已经处于顶层，如果意识到这个异常将导致页面无法正常渲染，那么就应该直接跳转到友好错误页面，尽量加上友好的错误提示信息。开放接口层要将异常处理成错误码和错误信息方式返回。
 2. 【参考】分层领域模型规约：
    - DO（Data Object）：此对象与数据库表结构一一对应，通过 DAO 层向上传输数据源对象。
    - DTO（Data Transfer Object）：数据传输对象，Service 或 Manager 向外传输的对象。

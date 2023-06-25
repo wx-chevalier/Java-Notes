@@ -235,7 +235,7 @@ Manager manager02 = (Manager) employee;
 
 ### 2.1 注解定义
 
-下面是 `@Override` 注解的定义，所有注解均使用 `@interface` 关键字修饰， `@Target` 定义注解的使用对象，`@Retention` 表示注解信息保留到什么时候：
+下面是 `@Override` 注解的定义，所有注解均使用 `@interface` 关键字修饰，`@Target` 定义注解的使用对象，`@Retention` 表示注解信息保留到什么时候：
 
 ```java
 @Target(ElementType.METHOD)

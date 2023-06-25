@@ -908,7 +908,7 @@ at DynamicFields.setField(DynamicFields.java:67)
 
 你会注意到，toString() 方法使用了一个 StringBuilder 来创建其结果。在 [字符串](./Strings.md) 这章中你将会了解到更多的关于 StringBuilder 的知识，但是只要你编写设计循环的 toString() 方法，通常都会想使用它，就像本例一样。
 
-`main()` 方法中的 catch 子句看起来不同 - 它使用相同的子句处理两种不同类型的异常，这两种不同的异常通过“或（|）”符号结合起来。 Java 7 的这项功能有助于减少代码重复，并使你更容易指定要捕获的确切类型，而不是简单地捕获一个基类型。你可以通过这种方式组合多种异常类型。
+`main()` 方法中的 catch 子句看起来不同 - 它使用相同的子句处理两种不同类型的异常，这两种不同的异常通过“或（|）”符号结合起来。Java 7 的这项功能有助于减少代码重复，并使你更容易指定要捕获的确切类型，而不是简单地捕获一个基类型。你可以通过这种方式组合多种异常类型。
 
 <!-- Standard Java Exceptions -->
 
@@ -1378,7 +1378,7 @@ public class StormyInning extends Inning implements Storm {
 
 派生类构造器不能捕获基类构造器抛出的异常。
 
-StormyInning.walk() 不能通过编译是因为它抛出了一个 Inning.walk() 中没有声明的异常。如果编译器允许这么做的话，就可以编写调用 Inning.walk()却不处理任何异常的代码。 但是当使用 `Inning`派生类的对象时，就会抛出异常，从而导致程序出现问题。通过强制派生类遵守基类方法的异常说明，对象的可替换性得到了保证。
+StormyInning.walk() 不能通过编译是因为它抛出了一个 Inning.walk() 中没有声明的异常。如果编译器允许这么做的话，就可以编写调用 Inning.walk()却不处理任何异常的代码。但是当使用 `Inning`派生类的对象时，就会抛出异常，从而导致程序出现问题。通过强制派生类遵守基类方法的异常说明，对象的可替换性得到了保证。
 
 覆盖后的 event() 方法表明，派生类版的方法可以不抛出任何异常，即使基类版的方法抛出了异常。因为这样做不会破坏那些假定基类版的方法会抛出异常的代码。类似的情况出现在 `atBat()`上，它抛出的异常`PopFoul`是由基类版`atBat()`抛出的`Foul` 异常派生而来。如果你写的代码同 `Inning` 一起工作，并且调用了 `atBat()`的话，那么肯定能捕获 `Foul` 。又因为 `PopFoul` 是由 `Foul`派生而来，因此异常处理程序也能捕获 `PopFoul`。
 
@@ -1735,7 +1735,7 @@ Closing Second
 Closing First
 ```
 
-退出 try 块会调用两个对象的 close() 方法，并以与创建顺序相反的顺序关闭它们。顺序很重要，因为在这种情况下，Second 对象可能依赖于 First 对象，因此如果 First 在第 Second 关闭时已经关闭。 Second 的 close() 方法可能会尝试访问 First 中不再可用的某些功能。
+退出 try 块会调用两个对象的 close() 方法，并以与创建顺序相反的顺序关闭它们。顺序很重要，因为在这种情况下，Second 对象可能依赖于 First 对象，因此如果 First 在第 Second 关闭时已经关闭。Second 的 close() 方法可能会尝试访问 First 中不再可用的某些功能。
 
 假设我们在资源规范头中定义了一个不是 AutoCloseable 的对象
 

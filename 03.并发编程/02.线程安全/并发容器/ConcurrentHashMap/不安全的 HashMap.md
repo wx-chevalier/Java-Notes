@@ -30,11 +30,11 @@
 
 ![断点调试图](https://assets.ng-tech.icu/superbed/2021/07/16/60f18e4d5132923bf8417c48.jpg)
 
-注意，Thread1 的 e 指向了 key(3)，而 next 指向了 key(7)，其在线程二 rehash 后，指向了线程二重组后的链表。线程一被调度回来执行，先是执行 newTalbe[i] = e， 然后是 e = next，导致了 e 指向了 key(7)，而下一次循环的 next = e.next 导致了 next 指向了 key(3)。
+注意，Thread1 的 e 指向了 key(3)，而 next 指向了 key(7)，其在线程二 rehash 后，指向了线程二重组后的链表。线程一被调度回来执行，先是执行 newTalbe[i] = e，然后是 e = next，导致了 e 指向了 key(7)，而下一次循环的 next = e.next 导致了 next 指向了 key(3)。
 
 ![断点调试图](https://assets.ng-tech.icu/superbed/2021/07/16/60f18e855132923bf843320f.jpg)
 
-e.next = newTable[i] 导致 key(3).next 指向了 key(7)。注意：此时的 key(7).next 已经指向了 key(3)， 环形链表就这样出现了。
+e.next = newTable[i] 导致 key(3).next 指向了 key(7)。注意：此时的 key(7).next 已经指向了 key(3)，环形链表就这样出现了。
 
 ![循环示意图](https://assets.ng-tech.icu/superbed/2021/07/16/60f18ea95132923bf8445220.jpg)
 

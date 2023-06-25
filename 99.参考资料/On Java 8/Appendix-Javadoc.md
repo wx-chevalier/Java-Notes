@@ -30,7 +30,7 @@ public class Documentation1 {
 
 ```
 
-Javadoc 仅处理 **公共成员** 和 **继承访问权限成员** 的注释文档。 默认情况下，将忽略对 **私有成员** 和**包访问权限成员**的注释（请参阅["隐藏实现"](/docs/book/07-Implementation-Hiding.md)一章），并且你将看不到任何输出。 这是有道理的，因为从客户端程序员的视角看，在文件外部只有 **公共成员** 和 **继承访问权限成员** 是可用的。 你可以使用 **-private** 标志来包含 **私有成员**。
+Javadoc 仅处理 **公共成员** 和 **继承访问权限成员** 的注释文档。默认情况下，将忽略对 **私有成员** 和**包访问权限成员**的注释（请参阅["隐藏实现"](/docs/book/07-Implementation-Hiding.md)一章），并且你将看不到任何输出。这是有道理的，因为从客户端程序员的视角看，在文件外部只有 **公共成员** 和 **继承访问权限成员** 是可用的。你可以使用 **-private** 标志来包含 **私有成员**。
 
 要通过 Javadoc 处理前面的代码，命令是：
 
@@ -67,7 +67,7 @@ public class Documentation2 {}
 public class Documentation3 {}
 ```
 
-请注意，在文档注释中，Javadoc 会删除行首的星号以及前导空格。 Javadoc 重新格式化了所有内容，使其符合文档的标准外观。不要将`<h1>` 和`<hr>` 之类的标题用作嵌入式 HTML，因为 Javadoc 会插入自己的标题，你插入的标题将对其产生干扰。
+请注意，在文档注释中，Javadoc 会删除行首的星号以及前导空格。Javadoc 重新格式化了所有内容，使其符合文档的标准外观。不要将`<h1>` 和`<hr>` 之类的标题用作嵌入式 HTML，因为 Javadoc 会插入自己的标题，你插入的标题将对其产生干扰。
 
 所有类型的注释文档（类，字段和方法）都可以支持嵌入式 HTML。
 
@@ -85,7 +85,7 @@ public class Documentation3 {}
 @see fully-qualified-classname#method-name
 ```
 
-每个都向生成的文档中添加超链接的“另请参阅”条目。 Javadoc 不会检查超链接的有效性。
+每个都向生成的文档中添加超链接的“另请参阅”条目。Javadoc 不会检查超链接的有效性。
 
 ### {@link package.class#member label}
 
@@ -133,7 +133,7 @@ author-information 大概率是你的名字，但是一样可以包含你的 ema
 @param parameter-name description
 ```
 
-其中 `parameter-name` 是方法参数列表中的标识符， `description` 是可以在后续行中继续的文本。当遇到新的文档标签时，这个说明被视为结束。`@param`标签可以使用任意次，大概每个参数使用一次。
+其中 `parameter-name` 是方法参数列表中的标识符，`description` 是可以在后续行中继续的文本。当遇到新的文档标签时，这个说明被视为结束。`@param`标签可以使用任意次，大概每个参数使用一次。
 
 ### @return
 
