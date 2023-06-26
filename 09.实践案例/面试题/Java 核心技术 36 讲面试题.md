@@ -16,7 +16,7 @@
   > 尽量不要捕获类似 Exception 这样的通用异常,而是应该捕获特定异常
   > 不要生吞(swallow)异常。这是异常处理中要特别注意的事情,因为很可能会导致非常难以诊断的诡异情况。
 
-#### 谈 final、finally、 finalize 有什么不同?
+#### 谈 final、finally、finalize 有什么不同?
 
 - `final`可以用来修饰类、方法、变量,分别有不同的意义,`final`修饰的`class`代表不可以继承扩展,final 的变量是不可以修改的,而 final 的方法也是不可以重写的(override)。
 - `finally`则是 Java 保证重点代码一定要被执行的一种机制。我们可以使用 try-finally 或者 try-catch-finally 来进行类似关闭 JDBC 连接、保证 unlock 锁等动作。
@@ -102,11 +102,11 @@
 #### 谈谈你知道的设计模式？请手动实现单例模式，Spring 等框架中使用了哪些模式？
 
 - 设计模式可以分为创建型模式、结构型模式和行为型模式。
-- `创建型模式`，是对对象创建过程的各种问题和解决方案的总结，包括各种工厂模式（Factory、 Abstract Factory）、单例模式（Singleton）、构建器模式（Builder）、原型模式（ProtoType）。
+- `创建型模式`，是对对象创建过程的各种问题和解决方案的总结，包括各种工厂模式（Factory、Abstract Factory）、单例模式（Singleton）、构建器模式（Builder）、原型模式（ProtoType）。
 - `结构型模式`，是针对软件设计结构的总结，关注于类、对象继承、组合方式的实践经验。常见的结构型模式，包括桥接模式（Bridge）、适配器模式（Adapter）、装饰者模式（Decorator）、代理模式（Proxy）、组合模式（Composite）、外观模式（Facade）、享元模式（Flyweight）等。
 - `行为型模式`，是从类或对象之间交互、职责划分等角度总结的模式。比较常见的行为型模式有策略模式（Strategy）、解释器模式（Interpreter）、命令模式（Command）、观察者模式（Observer）、迭代器模式（Iterator）、模板方法模式（Template Method）、访问者模式（Visitor）。更多相关内容你可以参考：https://en.wikipedia.org/wiki/Design_Patterns
 
-> - `InputStream`是一个抽象类，标准类库中提供了 FileInputStream、 ByteArrayInputStream 等各种不同的子类，分别从不同角度对 InputStream 进行了功能扩展，这是典型的装饰器模式应用案例。识别装饰器模式，可以通过识别类设计特征来进行判断，也就是其类构造函数以相同的抽象类或者接口为输入参数
+> - `InputStream`是一个抽象类，标准类库中提供了 FileInputStream、ByteArrayInputStream 等各种不同的子类，分别从不同角度对 InputStream 进行了功能扩展，这是典型的装饰器模式应用案例。识别装饰器模式，可以通过识别类设计特征来进行判断，也就是其类构造函数以相同的抽象类或者接口为输入参数
 >   `创建型模式`尤其是工厂模式，在我们的代码中随处可见，我举个相对不同的 API 设计实践。比如，JDK 最新版本中 HTTP/2 Client API，下面这个创建 HttpRequest 的过程，就是典型的构建器模式（Builder），通常会被实现成 fuent 风格的 API，也有人叫它方法链。使用构建器模式，可以比较优雅地解决构建复杂对象的麻烦，这里的“复杂”是指类似需要输入的参数组合较多，如果用构造函数，我们往往需要为每一种可能的输入参数组合实现相应的构造函数，一系列复杂的构造函数会让代码阅读性和可维护性变得很差。
 
 > `Spring等如何在API设计中使用设计模式`
@@ -238,9 +238,9 @@ public class ThreadMXBeanTest {
 
 #### Java 并发包提供了哪些并发工具类？
 
-- 提供了比 synchronized 更加高级的各种同步结构，包括`CountDownLatch`、 `CyclicBarrier`、 `Semaphore`等。CountDownLatch，允许一个或多个线程等待某些操作完成。CyclicBarrier，一种辅助性的同步结构，允许多个线程等待到达某个屏障。Semaphore，Java 版本的信号量实现，它通过控制一定数量的允许（permit）的方式，来达到限制通用资源访问的目的。
+- 提供了比 synchronized 更加高级的各种同步结构，包括`CountDownLatch`、`CyclicBarrier`、`Semaphore`等。CountDownLatch，允许一个或多个线程等待某些操作完成。CyclicBarrier，一种辅助性的同步结构，允许多个线程等待到达某个屏障。Semaphore，Java 版本的信号量实现，它通过控制一定数量的允许（permit）的方式，来达到限制通用资源访问的目的。
 - 各种`线程安全的容器`，比如最常见的`ConcurrentHashMap`、有序的`ConcunrrentSkipListMap`，或者通过类似快照机制，实现线程安全的动态数组`CopyOnWriteArrayList`等。
-- 各种`并发队列`实现，如各种`BlockedQueue`实现，比较典型的`ArrayBlockingQueue`、 `SynchorousQueue`或针对特定场景的`PriorityBlockingQueue`等。
+- 各种`并发队列`实现，如各种`BlockedQueue`实现，比较典型的`ArrayBlockingQueue`、`SynchorousQueue`或针对特定场景的`PriorityBlockingQueue`等。
 - 强大的`Executor`框架，可以创建各种不同类型的线程池，调度任务运行等，绝大部分情况下，不再需要自己从头实现线程池和任务调度器。
 
 > `你使用过类似CountDownLatch的同步结构解决实际问题吗？`
@@ -294,7 +294,7 @@ Executors 目前提供了 5 种不同的线程池创建配置：
 #### 请介绍类加载过程，什么是双亲委派模型？
 
 - 一般来说，我们把 Java 的类加载过程分为三个主要步骤：加载、链接、初始化，具体行为在 Java 虚拟机规范里有非常详细的定义。
-- `首先是加载阶段`（Loading），它是 Java 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class 对象），这里的数据源可能是各种各样的形态，如 jar 文件、 class 文件，甚至是网络数据源等；如果输入数据不是 ClassFile 的结构，则会抛出 ClassFormatError。加载阶段是用户参与的阶段，我们可以自定义类加载器，去实现自己的类加载过程。
+- `首先是加载阶段`（Loading），它是 Java 将字节码数据从不同的数据源读取到 JVM 中，并映射为 JVM 认可的数据结构（Class 对象），这里的数据源可能是各种各样的形态，如 jar 文件、class 文件，甚至是网络数据源等；如果输入数据不是 ClassFile 的结构，则会抛出 ClassFormatError。加载阶段是用户参与的阶段，我们可以自定义类加载器，去实现自己的类加载过程。
 - `第二阶段是链接`（Linking），这是核心的步骤，简单说是把原始的类定义信息平滑地转化入 JVM 运行的过程中。这里可进一步细分为三个步骤：
   > `验证`: 这是虚拟机安全的重要保障，JVM 需要核验字节信息是符合 Java 虚拟机规范的，否则就被认为是 VerifyError，这样就防止了恶意信息或者不合规的信息害 JVM 的运行，验证阶段有可能触发更多 class 的加载。
   > `准备`，创建类或接口中的静态变量，并初始化静态变量的初始值。但这里的“初始化”和下面的显式初始化阶段是有区别的，侧重点在于分配所需要的内存空间，不会去执行更进一步的 JVM 指令
@@ -344,11 +344,11 @@ Executors 目前提供了 5 种不同的线程池创建配置：
 
 #### 如何监控和诊断 JVM 堆内和堆外内存使用？
 
-- 可以使用综合性的图形化工具，如 JConsole、 VisualVM（注意，从 Oracle JDK 9 开始，VisualVM 已经不再包含在 JDK 安装包中）等。这些工具具体使用起来相对比较直观，直接连接到 Java 进程，然后就可以在图形化界面里掌握内存使用情况。
+- 可以使用综合性的图形化工具，如 JConsole、VisualVM（注意，从 Oracle JDK 9 开始，VisualVM 已经不再包含在 JDK 安装包中）等。这些工具具体使用起来相对比较直观，直接连接到 Java 进程，然后就可以在图形化界面里掌握内存使用情况。
   > 以 JConsole 为例，其内存页面可以显示常见的堆内存和各种堆外部分使用状态。
 - 也可以使用命令行工具进行运行时查询，如 jstat 和 jmap 等工具都提供了一些选项，可以查看堆、方法区等使用数据。
 - 或者，也可以使用 jmap 等提供的命令，生成堆转储（Heap Dump）文件，然后利用 jhat 或 Eclipse MAT 等堆转储分析工具进行详细分析。
-- 如果你使用的是 Tomcat、 Weblogic 等 Java EE 服务器，这些服务器同样提供了内存管理相关的功能。
+- 如果你使用的是 Tomcat、Weblogic 等 Java EE 服务器，这些服务器同样提供了内存管理相关的功能。
 - 另外，从某种程度上来说，GC 日志等输出，同样包含着丰富的信息。
 - [JConsole 官方教程](https://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)。我这里特别推荐[Java Mission Control（JMC）](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html)，这是一个非常强大的工具，不仅仅能够使用 JMX 进行普通的管理、监控任务，还可以配合 Java Flight Recorder（JFR）技术，以非常低的开销，收集和分析 JVM 底层的 Profling 和事件等信息。
 
@@ -358,9 +358,9 @@ Executors 目前提供了 5 种不同的线程池创建配置：
 
 **新生代**
 
-- 新生代是大部分对象创建和销毁的区域，在通常的 Java 应用中，绝大部分对象生命周期都是很短暂的。其内部又分为 Eden 区域，作为对象初始分配的区域；两个 Survivor，有时候也叫 from、 to 区域，被用来放置从 Minor GC 中保留下来的对象。
+- 新生代是大部分对象创建和销毁的区域，在通常的 Java 应用中，绝大部分对象生命周期都是很短暂的。其内部又分为 Eden 区域，作为对象初始分配的区域；两个 Survivor，有时候也叫 from、to 区域，被用来放置从 Minor GC 中保留下来的对象。
 - JVM 会随意选取一个 Survivor 区域作为“to”，然后会在 GC 过程中进行区域间拷贝，也就是将 Eden 中存活下来的对象和 from 区域的对象，拷贝到这个“to”区域。这种设计主要是为了防止内存的碎片化，并进一步清理无用对象。
-- 从内存模型而不是垃圾收集的角度，对 Eden 区域继续进行划分，Hotspot JVM 还有一个概念叫做（TLAB）。这是 JVM 为每个线程分配的一个私有缓存区域，否则，多线程同时分配内存时，为避免操作同一地址，可能需要使用加锁等机制，进而影响分配速度，TLAB 仍然在堆上，它是分配在 Eden 区域内的。其内部结构比较直观易懂，start、 end 就是起始地址，top（指针）则表示已经分配到哪里了。所以我们分配新对象，JVM 就会移动 top，当 top 和 end 相遇时，即表示该缓存已满，JVM 会试图再从 Eden 里分配一块儿。
+- 从内存模型而不是垃圾收集的角度，对 Eden 区域继续进行划分，Hotspot JVM 还有一个概念叫做（TLAB）。这是 JVM 为每个线程分配的一个私有缓存区域，否则，多线程同时分配内存时，为避免操作同一地址，可能需要使用加锁等机制，进而影响分配速度，TLAB 仍然在堆上，它是分配在 Eden 区域内的。其内部结构比较直观易懂，start、end 就是起始地址，top（指针）则表示已经分配到哪里了。所以我们分配新对象，JVM 就会移动 top，当 top 和 end 相遇时，即表示该缓存已满，JVM 会试图再从 Eden 里分配一块儿。
 
 ![](https://img-blog.csdnimg.cn/20190409174715206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzOTEzNDI=,size_16,color_FFFFFF,t_70)
 
@@ -370,7 +370,7 @@ Executors 目前提供了 5 种不同的线程池创建配置：
 
 **永久代**
 
-- 这部分就是早期 Hotspot JVM 的方法区实现方式了，储存 Java 类元数据、常量池、 Intern 字符串缓存，在 JDK 8 之后就不存在永久代这块儿了。
+- 这部分就是早期 Hotspot JVM 的方法区实现方式了，储存 Java 类元数据、常量池、Intern 字符串缓存，在 JDK 8 之后就不存在永久代这块儿了。
 
   **利用 JVM 参数，直接影响堆和内部区域的大小**
 
@@ -407,7 +407,7 @@ Executors 目前提供了 5 种不同的线程池创建配置：
 - `标记-清除（Mark-Sweep）算法`，首先进行标记工作，标识出所有要回收的对象，然后进行清除。这么做除了标记、清除过程效率有限，另外就是不可避免的出现碎片化问题，这就导致其不适合特别大的堆；否则，一旦出现 Full GC，暂停时间可能根本无法接受。
 - `标记-整理（Mark-Compact）`，类似于标记-清除，但为避免内存碎片化，它会在清理过程中将对象移动，以确保移动后的对象占用连续的内存空间。
 
-#### 在垃圾收集的过程，对应到 Eden、 Survivor、 Tenured 等区域会发生什么变化呢？
+#### 在垃圾收集的过程，对应到 Eden、Survivor、Tenured 等区域会发生什么变化呢？
 
 - 这实际上取决于具体的 GC 方式，先来熟悉一下通常的垃圾收集流程，我画了一系列示意图，希望能有助于你理解清楚这个过程。
 
@@ -442,8 +442,8 @@ Executors 目前提供了 5 种不同的线程池创建配置：
 - 这些 happen-before 关系是存在着传递性的，如果满足 a happen-before b 和 b happen-before c，那么 a happen-before c 也成立。
 - JMM 内部的实现通常是依赖于所谓的内存屏障，通过禁止某些重排序的方式，提供内存可见性保证，也就是实现了各种 happen-before 规则。与此同时，更多复杂度在于，需要尽量确保各种编译器、各种体系结构的处理器，都能够提供一致的行为。
   > `可从四个维度去理解JMM`
-- 从 JVM 运行时视角来看，JVM 内存可分为 JVM 栈、本地方法栈、 PC 计数器、方法区、堆；其中前三区是线程所私有的，后两者则是所有线程共有的
-- 从 JVM 内存功能视角来看，JVM 可分为堆内存、非堆内存与其他。其中堆内存对应于上述的堆区；非堆内存对应于上述的 JVM 栈、本地方法栈、 PC 计数器、方法区；其他则对应于直接内存
+- 从 JVM 运行时视角来看，JVM 内存可分为 JVM 栈、本地方法栈、PC 计数器、方法区、堆；其中前三区是线程所私有的，后两者则是所有线程共有的
+- 从 JVM 内存功能视角来看，JVM 可分为堆内存、非堆内存与其他。其中堆内存对应于上述的堆区；非堆内存对应于上述的 JVM 栈、本地方法栈、PC 计数器、方法区；其他则对应于直接内存
 - 从线程运行视角来看，JVM 可分为主内存与线程工作内存。Java 内存模型规定了所有的变量都存储在主内存中；每个线程的工作内存保存了被该线程使用到的变量，这些变量是主内存的副本拷贝，线程对变量的所有操作（读取、赋值等）都必须在工作内存中进行，而不能直接读写主内存中的变量
 - 从垃圾回收视角来看，JVM 中的堆区=新生代+老年代。新生代主要用于存放新创建的对象与存活时长小的对象，新生代=E+S1+S2；老年代则用于存放存活时间长的对象
 

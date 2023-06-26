@@ -333,7 +333,7 @@ objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.
 ##### （九）注释规约
 
 1. 【强制】类、类属性、类方法的注释必须使用 Javadoc 规范，使用/\*_内容_/格式，不得使用 // xxx 方式。
-2. 【强制】所有的抽象方法（包括接口中的方法）必须要用 Javadoc 注释、除了返回值、参数、 异常说明外，还必须指出该方法做什么事情，实现什么功能。
+2. 【强制】所有的抽象方法（包括接口中的方法）必须要用 Javadoc 注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能。
 3. 【强制】所有的类都必须添加创建者和创建日期。说明：在设置模板时，注意 IDEA 的@author 为`${USER}`，而 eclipse 的@author 为`${user}`，大小写有区别，而日期的设置统一为 yyyy/MM/dd 的格式。
 4. 【强制】方法内部单行注释，在被注释语句上方另起一行，使用//注释。方法内部多行注释使 用/\* \*/注释，注意与代码对齐。
 5. 【强制】所有的枚举类型字段必须要有注释，说明每个数据项的用途。
@@ -368,7 +368,7 @@ objectThreadLocal.set(userInfo);try {    // ...} finally {    objectThreadLocal.
 // 如果类不是太多，我们可以在DTO上加上该注释@JsonInclude(JsonInclude.Include.NON_NULL)// 如果较多，例如在springboot中我们可以采用#设置全局，Null值不返回到前端  jackson:     default-property-inclusion: non_null
 ```
 
-1. 【强制】服务端发生错误时，返回给前端的响应信息必须包含 HTTP 状态码，errorCode、 errorMessage、用户提示信息四个部分。
+1. 【强制】服务端发生错误时，返回给前端的响应信息必须包含 HTTP 状态码，errorCode、errorMessage、用户提示信息四个部分。
 2. 【强制】在前后端交互的 JSON 格式数据中，所有的 key 必须为小写字母开始的 lowerCamelCase 风格，符合英文表达习惯，且表意完整，这一点在实习中遇到，不能将数据库中的字段直接返回给前端。
 3. 【强制】errorMessage 是前后端错误追踪机制的体现，可以在前端输出到 type="hidden" 文字类控件中，或者用户端的日志中，帮助我们快速地定位出问题。
 4. 【强制】对于需要使用超大整数的场景，服务端一律使用 String 字符串类型返回，禁止使用 Long 类型。如通常在订单号或交易号大于等于 16 位，大概率会出现前后端单号不一致的情况，所以需要装换成 String。
@@ -499,7 +499,7 @@ Long a = 123L;String s = String.valueOf(a);
 
 2. 【强制】表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。
 
-> MySQL 在 Windows 下不区分大小写，但在 Linux 下默认是区分大小写。因此，数据库名、表名、 字段名，都不允许出现任何大写字母，避免节外生枝。
+> MySQL 在 Windows 下不区分大小写，但在 Linux 下默认是区分大小写。因此，数据库名、表名、字段名，都不允许出现任何大写字母，避免节外生枝。
 
 ```
 正例：aliyun_admin，rdc_config，level3_name反例：AliyunAdmin，rdcConfig，level_3_name

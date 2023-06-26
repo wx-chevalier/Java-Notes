@@ -40,7 +40,7 @@ MAT 是一款非常强大的内存分析工具，在 Eclipse 中有相应的插�
 
 ![MAT 界面](https://assets.ng-tech.icu/item/20230406154413.png)
 
-常用的两个功能：Histogram、 Leak Suspects。
+常用的两个功能：Histogram、Leak Suspects。
 
 ### 2.3.1 Histogram
 

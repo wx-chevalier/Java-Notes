@@ -359,7 +359,7 @@ Java 虚拟机把描述类的数据从 Class 文件加载到内存，并对数�
 
 《Java 虚拟机规范》严格规定了有且只有六种情况必须立即对类进行初始化：
 
-1. 遇到 `new`、 `getstatic`、 `putstatic`、 `invokestatic` 这四条字节码指令，如果类型进行过初始化，则需要先触发其进行初始化，能够生成这四条指令码的典型 Java 代码场景有：
+1. 遇到 `new`、`getstatic`、`putstatic`、`invokestatic` 这四条字节码指令，如果类型进行过初始化，则需要先触发其进行初始化，能够生成这四条指令码的典型 Java 代码场景有：
    - 使用 `new` 关键字实例化对象时；
    - 读取或设置一个类型的静态字段时（被 final 修饰，已在编译期把结果放入常量池的静态字段除外）；
    - 调用一个类型的静态方法时。
@@ -388,7 +388,7 @@ Java 虚拟机把描述类的数据从 Class 文件加载到内存，并对数�
 - **文件格式验证**：验证字节流是否符合 Class 文件格式的规范；
 - **元数据验证**：对字节码描述的信息进行语义分析，以保证其描述的信息符合《Java 语言规范》的要求（如除了 `java.lang.Object` 外，所有的类都应该有父类）；
 - **字节码验证**：通过数据流分析和控制流分析，确定程序语义是合法的，符合逻辑的（如允许把子类对象赋值给父类数据类型，但不能把父类对象赋值给子类数据类型）；
-- **符号引用验证**：验证类是否缺少或者被禁止访问它依赖的某些外部类、方法、字段等资源。如果无法验证通过，则会抛出一个`java.lang.IncompatibleClassChangeError` 的子类异常，如 `java.lang.NoSuchFieldError`、 `java.lang.NoSuchMethodError` 等。
+- **符号引用验证**：验证类是否缺少或者被禁止访问它依赖的某些外部类、方法、字段等资源。如果无法验证通过，则会抛出一个`java.lang.IncompatibleClassChangeError` 的子类异常，如 `java.lang.NoSuchFieldError`、`java.lang.NoSuchMethodError` 等。
 
 #### 3. 准备
 

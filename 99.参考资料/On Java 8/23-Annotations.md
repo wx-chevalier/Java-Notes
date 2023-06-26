@@ -851,7 +851,7 @@ annotations.AtUnitExample1: anotherDisappointment
 
 使用 **@Unit** 进行测试的类必须定义在某个包中（即必须包括 **package** 声明）。
 
-**@Test** 注解被置于 `methodOneTest()`、 `m2()`、`m3()`、`failureTest()` 以及 `anotherDisappointment()` 方法之前，它们告诉 **@Unit** 方法作为单元测试来运行。同时 **@Test** 确保这些方法没有任何参数并且返回值为 **boolean** 或者 **void**。当你填写单元测试时，唯一需要做的就是决定测试是成功还是失败，（对于返回值为 **boolean** 的方法）应该返回 **ture** 还是 **false**。
+**@Test** 注解被置于 `methodOneTest()`、`m2()`、`m3()`、`failureTest()` 以及 `anotherDisappointment()` 方法之前，它们告诉 **@Unit** 方法作为单元测试来运行。同时 **@Test** 确保这些方法没有任何参数并且返回值为 **boolean** 或者 **void**。当你填写单元测试时，唯一需要做的就是决定测试是成功还是失败，（对于返回值为 **boolean** 的方法）应该返回 **ture** 还是 **false**。
 
 如果你熟悉 **JUnit**，你还将注意到 **@Unit** 输出的信息更多。你会看到现在正在运行的测试的输出更有用，最后它会告诉你导致失败的类和测试。
 

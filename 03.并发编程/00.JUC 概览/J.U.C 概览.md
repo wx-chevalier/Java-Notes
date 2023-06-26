@@ -4,7 +4,7 @@ JSR，全称 Java Specification Requests，即 Java 规范提案，主要是用�
 
 J.U.C. 即 java.util.concurrent 的缩写，该包参考自 EDU.oswego.cs.dl.util.concurrent，是 JSR 166 标准规范的一个实现；
 
-# Executor 框架（线程池、 Callable、Future）
+# Executor 框架（线程池、Callable、Future）
 
 简单的说，就是一个任务的执行和调度框架，涉及的类如下图所示：
 
@@ -138,10 +138,10 @@ public final boolean compareAndSet(int expect, int update) {
 
 在 compareAndSwapInt 方法中，valueOffset 是内存地址，expect 是预期值，update 是更新值，如果 valueOffset 地址处的值与预期值相等，则将 valueOffset 地址处的值更新为 update 值。现代 CPU 已广泛支持 CAS 指令；在 Java 中，有四种原子更新方式，如下：
 
-- 原子方式更新基本类型：AtomicInteger、 AtomicLong 等
-- 原子方式更新数组：AtomicIntegerArray、 AtomicLongArray 等
-- 原子方式更新引用：AtomicReference、 AtomicReferenceFieldUpdater…
-- 原子方式更新字段：AtomicIntegerFieldUpdater、 AtomicStampedReference(解决 CAS 的 ABA 问题)
+- 原子方式更新基本类型：AtomicInteger、AtomicLong 等
+- 原子方式更新数组：AtomicIntegerArray、AtomicLongArray 等
+- 原子方式更新引用：AtomicReference、AtomicReferenceFieldUpdater…
+- 原子方式更新字段：AtomicIntegerFieldUpdater、AtomicStampedReference(解决 CAS 的 ABA 问题)
 
 # BlockingQueue（阻塞队列）
 
