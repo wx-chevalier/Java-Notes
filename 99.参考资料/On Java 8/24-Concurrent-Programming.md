@@ -2034,7 +2034,7 @@ public class Breakable {
 
 当`failcount` > 0，且每次将对象传递给 `work()` 方法时，`failcount - 1` 。当`failcount - 1 = 0` 时，`work()` 将抛出一个异常。如果传给 `work()` 的 `failcount = 0` ，`work()` 永远不会抛出异常。
 
-注意，异常信息此示例中被抛出（ `RuntimeException` )
+注意，异常信息此示例中被抛出（`RuntimeException` )
 
 在下面示例 `test()` 方法中，`work()` 多次应用于 `Breakable`，因此如果 `failcount` 在范围内，就会抛出异常。然而，在测试`A`到`E`中，你可以从输出中看到抛出了异常，但它们从未出现:
 

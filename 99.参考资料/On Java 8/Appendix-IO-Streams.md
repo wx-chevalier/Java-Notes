@@ -157,17 +157,17 @@ Java 1.1 对基本的 I/O 流类库做了重大的修改。你初次遇到 `Read
 
 在下表中，左右之间对应关系的近似程度现比上一个表格更加粗略一些。造成这种差别的原因是类的组织形式不同，`BufferedOutputStream` 是 `FilterOutputStream` 的子类，但 `BufferedWriter` 却不是 `FilterWriter` 的子类（尽管 `FilterWriter` 是抽象类，但却没有任何子类，把它放在表格里只是占个位置，不然你可能奇怪 `FilterWriter` 上哪去了）。然而，这些类的接口却又十分相似。
 
-| 过滤器：Java 1.0 类     | 相应 Java 1.1 类                                                                                                          |
-| :---------------------- | :------------------------------------------------------------------------------------------------------------------------ |
-| `FilterInputStream`     | `FilterReader`                                                                                                            |
-| `FilterOutputStream`    | `FilterWriter` (抽象类，没有子类)                                                                                         |
-| `BufferedInputStream`   | `BufferedReader`（也有 `readLine()`)                                                                                      |
-| `BufferedOutputStream`  | `BufferedWriter`                                                                                                          |
-| `DataInputStream`       | 使用 `DataInputStream`（ 如果必须用到 `readLine()`，那你就得使用 `BufferedReader`。否则，一般情况下就用 `DataInputStream` |
-| `PrintStream`           | `PrintWriter`                                                                                                             |
-| `LineNumberInputStream` | `LineNumberReader`                                                                                                        |
-| `StreamTokenizer`       | `StreamTokenizer`（使用具有 `Reader` 参数的构造器）                                                                       |
-| `PushbackInputStream`   | `PushbackReader`                                                                                                          |
+| 过滤器：Java 1.0 类     | 相应 Java 1.1 类                                                                                                         |
+| :---------------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `FilterInputStream`     | `FilterReader`                                                                                                           |
+| `FilterOutputStream`    | `FilterWriter` (抽象类，没有子类)                                                                                        |
+| `BufferedInputStream`   | `BufferedReader`（也有 `readLine()`)                                                                                     |
+| `BufferedOutputStream`  | `BufferedWriter`                                                                                                         |
+| `DataInputStream`       | 使用 `DataInputStream`（如果必须用到 `readLine()`，那你就得使用 `BufferedReader`。否则，一般情况下就用 `DataInputStream` |
+| `PrintStream`           | `PrintWriter`                                                                                                            |
+| `LineNumberInputStream` | `LineNumberReader`                                                                                                       |
+| `StreamTokenizer`       | `StreamTokenizer`（使用具有 `Reader` 参数的构造器）                                                                      |
+| `PushbackInputStream`   | `PushbackReader`                                                                                                         |
 
 有一条限制需要明确：一旦要使用 `readLine()`，我们就不应该用 `DataInputStream`（否则，编译时会得到使用了过时方法的警告），而应该使用 `BufferedReader`。除了这种情况之外的情形中，`DataInputStream` 仍是 I/O 类库的首选成员。
 

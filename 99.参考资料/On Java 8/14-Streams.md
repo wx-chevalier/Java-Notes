@@ -955,7 +955,7 @@ Numbered(13)
 
 ```java
 // streams/FunctionMap3.java
-// Producing numeric output streams（ 产生数值输出流）
+// Producing numeric output streams（产生数值输出流）
 import java.util.*;
 import java.util.stream.*;
 class FunctionMap3 {
@@ -2066,7 +2066,7 @@ public class LastElement {
 three
 ```
 
-`reduce()` 的参数只是用最后一个元素替换了最后两个元素，最终只生成最后一个元素。如果为数字流，你必须使用相近的数字 **Optional** 类型（ numeric optional type），否则使用 **Optional** 类型，就像上例中的 `Optional<String>`。
+`reduce()` 的参数只是用最后一个元素替换了最后两个元素，最终只生成最后一个元素。如果为数字流，你必须使用相近的数字 **Optional** 类型（numeric optional type），否则使用 **Optional** 类型，就像上例中的 `Optional<String>`。
 
 <!-- Informational -->
 

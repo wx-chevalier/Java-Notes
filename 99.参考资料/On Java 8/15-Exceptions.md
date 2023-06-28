@@ -2175,7 +2175,7 @@ SomeOtherException: SomeOtherException
 result, err := functionCall()
 ```
 
-（ `:=` 告诉 Go 语言在这里定义 `result` 和 `err`，并且推断它们的类型）
+（`:=` 告诉 Go 语言在这里定义 `result` 和 `err`，并且推断它们的类型）
 
 就是这样：对于每次调用，您都会获得结果对象和错误对象。您可以立即检查错误（这是典型的，因为如果某些操作失败，则不太可能继续下一步），或者稍后检查是否有效。
 

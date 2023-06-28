@@ -197,7 +197,7 @@ com.mindviewinc.simple.List
 
 当编译器遇到导入 **simple** 库的 **import** 语句时，它首先会在 CLASSPATH 指定的目录中查找子目录 **com/mindviewinc/simple**，然后从已编译的文件中找出名称相符者（对 **Vector** 而言是 **Vector.class**，对 **List** 而言是 **List.class**）。注意，这两个类和其中要访问的方法都必须是 **public** 修饰的。
 
-对于 Java 新手而言，设置 CLASSPATH 是一件麻烦的事（我最初使用时是这么觉得的），后面版本的 JDK 更加智能。你会发现当你安装好 JDK 时，即使不设置 CLASSPATH，也能够编译和运行基本的 Java 程序。但是，为了编译和运行本书的代码示例（从[https://github.com/BruceEckel/OnJava8-examples](https://github.com/BruceEckel/OnJava8-examples) 取得），你必须将本书程序代码树的基本目录加入到 CLASSPATH 中（ gradlew 命令管理自身的 CLASSPATH，所以如果你想直接使用 javac 和 java，不用 Gradle 的话，就需要设置 CLASSPATH）。
+对于 Java 新手而言，设置 CLASSPATH 是一件麻烦的事（我最初使用时是这么觉得的），后面版本的 JDK 更加智能。你会发现当你安装好 JDK 时，即使不设置 CLASSPATH，也能够编译和运行基本的 Java 程序。但是，为了编译和运行本书的代码示例（从[https://github.com/BruceEckel/OnJava8-examples](https://github.com/BruceEckel/OnJava8-examples) 取得），你必须将本书程序代码树的基本目录加入到 CLASSPATH 中（gradlew 命令管理自身的 CLASSPATH，所以如果你想直接使用 javac 和 java，不用 Gradle 的话，就需要设置 CLASSPATH）。
 
 ### 冲突
 

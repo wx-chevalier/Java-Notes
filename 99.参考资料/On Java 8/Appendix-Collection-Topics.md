@@ -374,7 +374,7 @@ Cyan
 
 列表构造方法始终保留元素的添加顺序。
 
-以下示例中的方法各自涵盖了一组不同的行为：每个 **List** 可以执行的操作（ `basicTest()` ），使用 **Iterator** （ `iterMotion()` ）遍历序列，使用 **Iterator** （ `iterManipulation()` ）更改内容，查看 **List** 操作（ `testVisual()` ）的效果，以及仅可用于 **LinkedLists** 的操作：
+以下示例中的方法各自涵盖了一组不同的行为：每个 **List** 可以执行的操作（`basicTest()` ），使用 **Iterator** （`iterMotion()` ）遍历序列，使用 **Iterator** （`iterManipulation()` ）更改内容，查看 **List** 操作（`testVisual()` ）的效果，以及仅可用于 **LinkedLists** 的操作：
 
 ```java
 // collectiontopics/ListOps.java
@@ -1977,7 +1977,7 @@ HashType cannot be cast to java.lang.Comparable
 
 **HashType** 继承自 **SetType** ，并添加了 `hashCode()` 方法，该方法对于 **Set** 的散列实现是必需的。
 
-要在任何类型的有序集合中使用对象，由 **TreeType** 实现的 **Comparable** 接口都是必需的，例如 **SortedSet** （ **TreeSet** 是其唯一实现）。在 `compareTo()` 中，请注意我没有使用“简单明了”的形式： `return i-i2` 。虽然这是一个常见的编程错误，但只有当 **i** 和 **i2** 是“无符号（unsigned）”整型时才能正常工作（如果 Java 有一个“unsigned”关键字的话，不过它没有）。它破坏了 Java 的有符号 **int** ，它不足以代表两个有符号整数的差异。如果 **i** 是一个大的正整数而 **j** 是一个大的负整数，`i-j` 将溢出并返回一个负值，这不是我们所需要的。
+要在任何类型的有序集合中使用对象，由 **TreeType** 实现的 **Comparable** 接口都是必需的，例如 **SortedSet** （**TreeSet** 是其唯一实现）。在 `compareTo()` 中，请注意我没有使用“简单明了”的形式： `return i-i2` 。虽然这是一个常见的编程错误，但只有当 **i** 和 **i2** 是“无符号（unsigned）”整型时才能正常工作（如果 Java 有一个“unsigned”关键字的话，不过它没有）。它破坏了 Java 的有符号 **int** ，它不足以代表两个有符号整数的差异。如果 **i** 是一个大的正整数而 **j** 是一个大的负整数，`i-j` 将溢出并返回一个负值，这不是我们所需要的。
 
 通常希望 `compareTo()` 方法生成与 `equals()` 方法一致的自然顺序。如果 `equals()` 对于特定比较产生 **true**，则 `compareTo()` 应该为该比较返回结果 零，并且如果 `equals()` 为比较产生 **false** ，则 `compareTo()` 应该为该比较产生非零结果。
 
@@ -2492,7 +2492,7 @@ public class SortedMapDemo {
 
 ### LinkedHashMap
 
-**LinkedHashMap** 针对速度进行哈希处理，但在遍历期间也会按插入顺序生成键值对（ `System.out.println()` 可以遍历它，因此可以看到遍历的结果）。此外，可以在构造方法中配置 **LinkedHashMap** 以使用基于访问的 _最近最少使用_（LRU） 算法，因此未访问的元素（因此是删除的候选者）会出现在列表的前面。这样可以轻松创建一个能够定期清理以节省空间的程序。下面是一个显示这两个功能的简单示例：
+**LinkedHashMap** 针对速度进行哈希处理，但在遍历期间也会按插入顺序生成键值对（`System.out.println()` 可以遍历它，因此可以看到遍历的结果）。此外，可以在构造方法中配置 **LinkedHashMap** 以使用基于访问的 _最近最少使用_（LRU） 算法，因此未访问的元素（因此是删除的候选者）会出现在列表的前面。这样可以轻松创建一个能够定期清理以节省空间的程序。下面是一个显示这两个功能的简单示例：
 
 ```java
 // collectiontopics/LinkedHashMapDemo.java
@@ -2554,7 +2554,7 @@ public class LinkedHashMapDemo {
 | **frequency(Collection, Object x)**                                                                                                                                                                                                                                                                                                                                                                       | 返回 **Collection** 中，等于 **x** 的元素个数。                                                                                                                                            |
 | **emptyList()** <br><br> **emptyMap()** <br><br> **emptySet()**                                                                                                                                                                                                                                                                                                                                           | 返回不可变的空 **List** ，**Map** 或 **Set** 。这些是泛型的，因此生成的 **Collection** 可以被参数化为所需的类型。                                                                          |
 | **singleton(T x)** <br><br> **singletonList(T x)** <br><br> **singletonMap(K key, V value)**                                                                                                                                                                                                                                                                                                              | 生成一个不可变的 **List** ，**Set** 或 **Map** ，其中只包含基于给定参数的单个元素。                                                                                                        |
-| **list(Enumeration\<T> e)**                                                                                                                                                                                                                                                                                                                                                                               | 生成一个 **ArrayList\<T>** ，其中元素为（旧式） **Enumeration** （ **Iterator** 的前身）中的元素。用于从遗留代码向新式转换。                                                               |
+| **list(Enumeration\<T> e)**                                                                                                                                                                                                                                                                                                                                                                               | 生成一个 **ArrayList\<T>** ，其中元素为（旧式） **Enumeration** （**Iterator** 的前身）中的元素。用于从遗留代码向新式转换。                                                                |
 | **enumeration(Collection\<T>)**                                                                                                                                                                                                                                                                                                                                                                           | 为参数集合生成一个旧式的 **Enumeration\<T>** 。                                                                                                                                            |
 
 请注意，`min（)` 和 `max()` 使用 **Collection** 对象，而不使用 **List** ，因此不必担心是否应对 **Collection** 进行排序。（如前所述，在执行 `binarySearch()` 之前，将会对 **List** 或数组进行`sort()` 排序。）
@@ -2862,7 +2862,7 @@ java.util.ConcurrentModificationException
 
 可以通过使用 **Reference** 对象作为你和普通引用之间的中介（代理）来实现此目的。此外，必须没有对象的普通引用（未包含在 **Reference** 对象中的对象）。如果垃圾收集器发现对象可通过普通引用访问，则它不会释放该对象。
 
-按照 **SoftReference** ，**WeakReference** 和 **PhantomReference** 的顺序，每个都比前一个更“弱”，并且对应于不同的可达性级别。软引用用于实现对内存敏感的缓存。弱引用用于实现“规范化映射”（ canonicalized mappings）——对象的实例可以在程序的多个位置同时使用，以节省存储，但不会阻止其键（或值）被回收。虚引用用于调度 pre-mortem 清理操作，这是一种比 Java 终结机制（Java finalization mechanism）更灵活的方式。
+按照 **SoftReference** ，**WeakReference** 和 **PhantomReference** 的顺序，每个都比前一个更“弱”，并且对应于不同的可达性级别。软引用用于实现对内存敏感的缓存。弱引用用于实现“规范化映射”（canonicalized mappings）——对象的实例可以在程序的多个位置同时使用，以节省存储，但不会阻止其键（或值）被回收。虚引用用于调度 pre-mortem 清理操作，这是一种比 Java 终结机制（Java finalization mechanism）更灵活的方式。
 
 使用 **SoftReference** 和 **WeakReference** ，可以选择是否将它们放在 **ReferenceQueue** （用于 pre-mortem 清理操作的设备）中，但 **PhantomReference** 只能在 **ReferenceQueue** 上构建。下面是一个简单的演示：
 

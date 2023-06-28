@@ -3537,7 +3537,7 @@ cp.setVisible(true);
 
 创建和增加菜单及 TextArea 到如今似乎已变成一种单调的活动。这与通过工具组件创建的剪贴板字段 clipbd 有很大的区别。
 所有的动作都安置在接收器中。CopyL 和 Cupl 接收器同样除了最后的 CutL 线以外删除被复制的线。特殊的两条线是 StringSelection 对象从字符串从创建并调用 StringSelection 的 setContents()方法。说得更准确些，就是放一个字符串到剪切板上。
-在 PasteL 中，数据被剪贴板利用 getContents()进行分解。任何返回的对象都是可移动的匿名的，并且我们并不真正地知道它里面包含了什么。有一种发现的方法是调用 getTransferDateFlavors()，返回一个 DataFlavor 对象数组，表明特殊对象支持这种特点。我们同样能要求它通过我们感兴趣的特点直接地使用 IsDataFlavorSupported()。但是在这里使用一种大胆的方法：调用 getTransferData（ ）方法，假设里面的内容支持字符串特色，并且它不是个被分类在异常处理器中的难题 。
+在 PasteL 中，数据被剪贴板利用 getContents()进行分解。任何返回的对象都是可移动的匿名的，并且我们并不真正地知道它里面包含了什么。有一种发现的方法是调用 getTransferDateFlavors()，返回一个 DataFlavor 对象数组，表明特殊对象支持这种特点。我们同样能要求它通过我们感兴趣的特点直接地使用 IsDataFlavorSupported()。但是在这里使用一种大胆的方法：调用 getTransferData（）方法，假设里面的内容支持字符串特色，并且它不是个被分类在异常处理器中的难题 。
 在将来，我们希望更多的数据特色能够被支持。
 
 13.18 可视编程和 Beans

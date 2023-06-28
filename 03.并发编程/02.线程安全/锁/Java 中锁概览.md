@@ -116,7 +116,7 @@ synchronized void setB() throws Exception{
 
 ## CAS 与自旋锁实现
 
-CAS 是英文单词 CompareandSwap（比较并交换），是一种有名的无锁算法。无锁编程，即不使用锁的情况下实现多线程之间的变量同步，也就是在没有线程被阻塞的情况下实现变量的同步，所以也叫非阻塞同步（ Non-blockingSynchronization）。CAS 算法涉及到三个操作数：
+CAS 是英文单词 CompareandSwap（比较并交换），是一种有名的无锁算法。无锁编程，即不使用锁的情况下实现多线程之间的变量同步，也就是在没有线程被阻塞的情况下实现变量的同步，所以也叫非阻塞同步（Non-blockingSynchronization）。CAS 算法涉及到三个操作数：
 
 - 需要读写的内存值 V
 - 进行比较的值 A
