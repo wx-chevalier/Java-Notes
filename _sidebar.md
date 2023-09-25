@@ -530,14 +530,19 @@
       
     - [8.3 类与对象](/10~Scala/类与对象/README.md)
       
-  - [9 20.Clojure [1]](/20.Clojure/README.md)
-    - 9.1 快速开始 [1]
-      - 9.1.1 99~参考资料 [2]
-        - 9.1.1.1 《Clojure 学习笔记》 [3]
-          - [9.1.1.1.1 01.环境搭建](/20.Clojure/快速开始/99~参考资料/2019-《Clojure%20学习笔记》/01.环境搭建.md)
-          - [9.1.1.1.2 02.快速上手](/20.Clojure/快速开始/99~参考资料/2019-《Clojure%20学习笔记》/02.快速上手.md)
-          - [9.1.1.1.3 03.小火汁，没想到你也是序列](/20.Clojure/快速开始/99~参考资料/2019-《Clojure%20学习笔记》/03.小火汁，没想到你也是序列.md)
-        - [9.1.1.2 Baeldung Introduction to Clojure](/20.Clojure/快速开始/99~参考资料/Baeldung-Introduction%20to%20Clojure.md)
+  - [9 20~Clojure [2]](/20~Clojure/README.md)
+    - 9.1 99~参考资料 [2]
+      - [9.1.1 《Brave Clojure》 [1]](/20~Clojure/99~参考资料/《Brave%20Clojure》/README.md)
+        - [9.1.1.1 12~与 Java 共事](/20~Clojure/99~参考资料/《Brave%20Clojure》/12~与%20Java%20共事.md)
+      - 9.1.2 《Clojure 趣学指南》 [1]
+        - [9.1.2.1 01~Clojure 简介](/20~Clojure/99~参考资料/《Clojure%20趣学指南》/01~Clojure%20简介.md)
+    - 9.2 快速开始 [1]
+      - 9.2.1 99~参考资料 [2]
+        - 9.2.1.1 《Clojure 学习笔记》 [3]
+          - [9.2.1.1.1 01.环境搭建](/20~Clojure/快速开始/99~参考资料/2019-《Clojure%20学习笔记》/01.环境搭建.md)
+          - [9.2.1.1.2 02.快速上手](/20~Clojure/快速开始/99~参考资料/2019-《Clojure%20学习笔记》/02.快速上手.md)
+          - [9.2.1.1.3 03.小火汁，没想到你也是序列](/20~Clojure/快速开始/99~参考资料/2019-《Clojure%20学习笔记》/03.小火汁，没想到你也是序列.md)
+        - [9.2.1.2 Baeldung Introduction to Clojure](/20~Clojure/快速开始/99~参考资料/Baeldung-Introduction%20to%20Clojure.md)
   - [10 30.Groovy](/30.Groovy/README.md)
     
   - 11 99~参考资料 [3]
