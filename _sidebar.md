@@ -358,9 +358,11 @@
           - [4.3.4.4.2 LockSupport](/04~并发编程/02~线程安全/锁/ReentrantLock/LockSupport.md)
           - [4.3.4.4.3 ReadWriteLock](/04~并发编程/02~线程安全/锁/ReentrantLock/ReadWriteLock.md)
           - [4.3.4.4.4 ReentrantLock](/04~并发编程/02~线程安全/锁/ReentrantLock/ReentrantLock.md)
-        - [4.3.4.5 synchronized [2]](/04~并发编程/02~线程安全/锁/synchronized/README.md)
-          - [4.3.4.5.1 实现原理](/04~并发编程/02~线程安全/锁/synchronized/实现原理.md)
-          - [4.3.4.5.2 锁的升级](/04~并发编程/02~线程安全/锁/synchronized/锁的升级.md)
+        - [4.3.4.5 synchronized [3]](/04~并发编程/02~线程安全/锁/synchronized/README.md)
+          - 4.3.4.5.1 99~参考资料 [1]
+            - [4.3.4.5.1.1 2018~死磕 Synchronized 底层实现](/04~并发编程/02~线程安全/锁/synchronized/99~参考资料/2018~死磕%20Synchronized%20底层实现.md)
+          - [4.3.4.5.2 实现原理](/04~并发编程/02~线程安全/锁/synchronized/实现原理.md)
+          - [4.3.4.5.3 锁的升级](/04~并发编程/02~线程安全/锁/synchronized/锁的升级.md)
         - [4.3.4.6 死锁 [2]](/04~并发编程/02~线程安全/锁/死锁/README.md)
           - [4.3.4.6.1 死锁案例](/04~并发编程/02~线程安全/锁/死锁/死锁案例.md)
           - [4.3.4.6.2 避免死锁](/04~并发编程/02~线程安全/锁/死锁/避免死锁.md)
@@ -543,7 +545,7 @@
           - [9.2.1.1.2 02~快速上手](/20~Clojure/快速开始/99~参考资料/2019-《Clojure%20学习笔记》/02~快速上手.md)
           - [9.2.1.1.3 03~小火汁，没想到你也是序列](/20~Clojure/快速开始/99~参考资料/2019-《Clojure%20学习笔记》/03~小火汁，没想到你也是序列.md)
         - [9.2.1.2 Baeldung~Introduction to Clojure](/20~Clojure/快速开始/99~参考资料/Baeldung~Introduction%20to%20Clojure.md)
-  - [10 30.Groovy](/30.Groovy/README.md)
+  - [10 30~Groovy](/30~Groovy/README.md)
     
   - 11 99~参考资料 [3]
     - [11.1 Java 业务开发常见错误 100 例](/99~参考资料/2020-Java%20业务开发常见错误%20100%20例/README.md)
