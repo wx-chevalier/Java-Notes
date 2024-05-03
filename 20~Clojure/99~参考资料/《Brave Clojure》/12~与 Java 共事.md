@@ -88,7 +88,7 @@ JVM 与计算机类似之处是，JVM 也需要把代码转换成被称为 Java 
 
 > Java is an object-oriented language, so you need to understand how object-oriented programming (OOP) works if you want to understand what’s happening when you use Java libraries or write Java interop code in your Clojure programming. You’ll also find object-oriented terminology in Clojure documentation, so it’s important to learn these concepts. If you’re OOP savvy, feel free to skip this section. For those who need the two-minute lowdown, here it is: the central players in OOP are _classes_, _objects_, and _methods_.
 
-Java 是面相对象的语言，如果你想理解使用 Java 库时候或用 Clojure 与 Java 互操作时候发生了什么，你需要理解面相对象编程使如何工作的。你将在 Clojure 文档里看到面相对象术语，所以学习这些概念很重要。想知道真想吗？就是：OOP 的主要演员是 _类_， _对象_ ，_方法_ 。
+Java 是面相对象的语言，如果你想理解使用 Java 库时候或用 Clojure 与 Java 互操作时候发生了什么，你需要理解面相对象编程使如何工作的。你将在 Clojure 文档里看到面相对象术语，所以学习这些概念很重要。想知道真想吗？就是：OOP 的主要演员是 _类_，_对象_ ，_方法_ 。
 
 > I think of objects as really, really, ridiculously dumb androids. They’re the kind of android that would never inspire philosophical debate about the ethics of forcing sentient creatures into perpetual servitude. These androids only do two things: they respond to commands and they maintain data. In my imagination they do this by writing stuff down on little Hello Kitty clipboards.
 
