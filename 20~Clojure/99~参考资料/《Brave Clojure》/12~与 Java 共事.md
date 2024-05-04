@@ -614,7 +614,7 @@ Clojure 提供了`doto`宏，让你更简洁地在同一对象上执行多个方
 
 > The `doto` macro returns the object rather than the return value of any of the method calls, and it’s easier to understand. If you expand it using `macroexpand-1`, you can see its structure is identical to the `let` expression you just saw in an earlier example:
 
-`doto`宏返回的是这个对象，而不是任何方法方法调用的返回值。如果用`macroexpand-1`展开，可以看到结果与前面的`let`表达式的结构完全一样:
+`doto` 宏返回的是这个对象，而不是任何方法方法调用的返回值。如果用`macroexpand-1`展开，可以看到结果与前面的`let`表达式的结构完全一样:
 
 ```
 (macroexpand-1
