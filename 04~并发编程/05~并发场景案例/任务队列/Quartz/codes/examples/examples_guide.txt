@@ -1,0 +1,66 @@
+Welcome
+=======
+
+Welcome to the Quartz Examples directory.  
+
+This directory contains 15 examples that show you how to use various
+features of Quartz.   Each example is located in its own subdirectory. 
+Every example can be run using Windows .bat files or Linux/UNIX .sh files.  
+
+Additionally, each example directory contains a readme.txt file.  Please 
+read this file first, as it will contain useful information for running 
+the examples.
+
+
+Examples Listing
+================
+
+example1 -  Your first Quartz Program
+example2 -  Using Simple Triggers
+example3 -  Using Cron Triggers
+example4 -  Job State and Job Parameters
+example5 -  Job Misfires
+example6 -  Handling Job Exceptions
+example7 -  Interrupting Jobs
+example8 -  How to use Quartz Calendars
+example9 -  Using Job Listeners
+example10 - Using Quartz Plug-Ins
+example11 - Loading Up Quartz with Many Jobs
+example12 - Remoting with Quartz using RMI
+example13 - Clustering Quartz and JDBC Job Stores
+example14 - Quartz Trigger Priorities
+example15 - Running a native (shell) command from a Job
+
+
+Further description of each example and possible configuration changes to them
+is documented on the example class javadoc themselves, e.g. within
+examples/src/main/java/org/quartz/examples/example11/LoadExample.java
+
+Running the Examples
+====================
+
+The examples can be run from the examples folder of the repository, such as this:
+
+../gradlew :examples:runExample1
+
+or
+
+../gradlew :examples:runExample4
+
+or etc.
+
+
+Note that examples 12 and 13 require running two process (this will need to be
+done in separate terminals, or on separate machines):
+
+For Example 12 you need to first run the "server" portion, and then run the
+"client" portion of the example:
+
+../gradlew :examples:runExample12Server
+../gradlew :examples:runExample12Client
+
+For Example 13 you need to run two instances (two cluster members):
+
+../gradlew :examples:runExample13Instance1
+../gradlew :examples:runExample13Instance2
+

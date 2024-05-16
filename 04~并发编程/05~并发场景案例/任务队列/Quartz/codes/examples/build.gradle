@@ -1,0 +1,91 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation project(':quartz')
+    implementation project(':quartz-jobs')
+
+    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation "org.slf4j:slf4j-log4j12:$slf4jVersion"
+}
+
+tasks.withType(JavaExec).configureEach {
+    classpath = sourceSets.main.runtimeClasspath
+    group = JavaBasePlugin.DOCUMENTATION_GROUP
+}
+
+tasks.register('runExample1', JavaExec) {
+    description = 'Run Example 1'
+    mainClass = 'org.quartz.examples.example1.SimpleExample'
+}
+tasks.register('runExample2', JavaExec) {
+    description = 'Run Example 2'
+    mainClass = 'org.quartz.examples.example2.SimpleTriggerExample'
+}
+tasks.register('runExample3', JavaExec) {
+    description = 'Run Example 3'
+    mainClass = 'org.quartz.examples.example3.CronTriggerExample'
+}
+tasks.register('runExample4', JavaExec) {
+    description = 'Run Example 4'
+    mainClass = 'org.quartz.examples.example4.JobStateExample'
+}
+tasks.register('runExample5', JavaExec) {
+    description = 'Run Example 5'
+    mainClass = 'org.quartz.examples.example5.MisfireExample'
+}
+tasks.register('runExample6', JavaExec) {
+    description = 'Run Example 6'
+    mainClass = 'org.quartz.examples.example6.JobExceptionExample'
+}
+tasks.register('runExample7', JavaExec) {
+    description = 'Run Example 7'
+    mainClass = 'org.quartz.examples.example7.InterruptExample'
+}
+tasks.register('runExample8', JavaExec) {
+    description = 'Run Example 8'
+    mainClass = 'org.quartz.examples.example8.CalendarExample'
+}
+tasks.register('runExample9', JavaExec) {
+    description = 'Run Example 9'
+    mainClass = 'org.quartz.examples.example9.ListenerExample'
+}
+tasks.register('runEExample10', JavaExec) {
+    description = 'Run Example 10'
+    mainClass = 'org.quartz.examples.example10.PlugInExample'
+    systemProperty('org.quartz.properties', 'org/quartz/examples/example10/quartz.properties')
+}
+tasks.register('runExample11', JavaExec) {
+    description = 'Run Example 11'
+    mainClass = 'org.quartz.examples.example11.LoadExample'
+    systemProperty 'org.quartz.properties', 'org/quartz/examples/example11/quartz.properties'
+}
+tasks.register('runExample12Client', JavaExec) {
+    description = 'Run Example 12 Client'
+    mainClass = 'org.quartz.examples.example12.RemoteClientExample'
+    systemProperty 'org.quartz.properties', 'org/quartz/examples/example12/client.properties'
+}
+tasks.register('runExample12Server', JavaExec) {
+    description = 'Run Example 12 Server'
+    mainClass = 'org.quartz.examples.example12.RemoteServerExample'
+    systemProperty 'org.quartz.properties', 'org/quartz/examples/example12/server.properties'
+}
+tasks.register('runExample13Instance1', JavaExec) {
+    description = 'Run Example 13 Instance 1'
+    mainClass = 'org.quartz.examples.example13.ClusterExample'
+    systemProperty 'org.quartz.properties', 'org/quartz/examples/example13/instance1.properties'
+}
+tasks.register('runExample13Instance2', JavaExec) {
+    description = 'Run Example 13 Instance 2'
+    mainClass = 'org.quartz.examples.example13.ClusterExample'
+    systemProperty 'org.quartz.properties', 'org/quartz/examples/example13/instance2.properties'
+}
+tasks.register('runExample14', JavaExec) {
+    description = 'Run Example 14'
+    mainClass = 'org.quartz.examples.example14.PriorityExample'
+}
+tasks.register('runExample15', JavaExec) {
+    description = 'Run Example 15'
+    mainClass = "org.quartz.examples.example15.NativeJobExample"
+}
