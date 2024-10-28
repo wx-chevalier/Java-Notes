@@ -1,3 +1,5 @@
+> DocId: Mqfirvu
+
 # Java 内存模型：Java 如何解决可见性和有序性问题
 
 # Java 内存模型是什么？
