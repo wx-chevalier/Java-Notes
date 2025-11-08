@@ -2,7 +2,7 @@
 
 JVM 是典型的基于栈的架构，不同于 Android 操作系统设计的 Dalvik 虚拟机采用的基于寄存器的架构，其在单运算的操作次数上会多于基于寄存器的架构。
 
-![JVM 内存结构](https://assets.ng-tech.icu/item/20230522113939.png)
+![JVM 内存结构](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230522113939.png)
 
 Java 虚拟机会将内存分为几个不同的管理区，这些区域各自有各自的用途，根据不同的特点，承担不同的任务以及在垃圾回收时运用不同的算法。总体分为下面几个部分：
 
@@ -16,7 +16,7 @@ Java 虚拟机会将内存分为几个不同的管理区，这些区域各自有
 
 - 本地方法栈（Native Method Stacks）：局部变量表、操作数栈、方法出口等信息。
 
-![JVM 运行时数据区域](https://assets.ng-tech.icu/item/20230522113241.png)
+![JVM 运行时数据区域](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230522113241.png)
 
 除此之外，还有 JVM 内存管理之外的一个内存区：直接内存。在 JDK1.4 中新加入类 NIO 类，引入了一种基于通道与缓冲区的 IO 方式，它可以使用 Native 函数库直接分配堆外内存，即我们所说的直接内存，这样在某些场景中会提高程序的性能。
 

@@ -18,7 +18,7 @@ MAT 是一款非常强大的内存分析工具，在 Eclipse 中有相应的插�
 
 堆转储文件(Heap Dump)是 Java 进程在某个时间内的快照(.hprof 格式)。它在触发快照的时候保存了很多信息，如：Java 对象和类信息(通常在写堆转储文件前会触发一次 Full GC)。堆转储文件信息：
 
-![堆转储文件信息](https://assets.ng-tech.icu/item/20230406154117.png)
+![堆转储文件信息](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406154117.png)
 
 - 所有的对象信息，包括对象实例、成员变量、存储于栈中的基本类型值和存储于堆中的其他对象的引用值。
 - 所有的类信息，包括 classloader、类名称、父类、静态变量等。
@@ -38,13 +38,13 @@ MAT 是一款非常强大的内存分析工具，在 Eclipse 中有相应的插�
 
 打开 MAT 之后，加载 dump 文件，差不多就下面这样的界面：
 
-![MAT 界面](https://assets.ng-tech.icu/item/20230406154413.png)
+![MAT 界面](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406154413.png)
 
 常用的两个功能：Histogram、Leak Suspects。
 
 ### 2.3.1 Histogram
 
-![Histogram 示意](https://assets.ng-tech.icu/item/20230406154450.png)
+![Histogram 示意](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406154450.png)
 
 Histogram 可以列出内存中的对象，对象的个数及其内存大小，可以用来定位哪些对象在 Full GC 之后还活着，哪些对象占大部分内存。
 
@@ -55,11 +55,11 @@ Histogram 可以列出内存中的对象，对象的个数及其内存大小，�
 
 Retained Heap 例子：一个 ArrayList 对象持有 100 个对象，每一个占用 16 bytes，如果这个 list 对象被回收，那么其中 100 个对象也可以被回收，可以回收 `16*100 + X` 的内存，X 代表 ArrayList 的 shallow 大小。
 
-![Histogram 下钻示意](https://assets.ng-tech.icu/item/20230406154537.png)
+![Histogram 下钻示意](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406154537.png)
 
 在上述列表中选择一个 Class，右键选择 List objects > with incoming references，在新页面会显示通过这个 class 创建的对象信息。
 
-![Path to GCRoots](https://assets.ng-tech.icu/item/20230406154604.png)
+![Path to GCRoots](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406154604.png)
 
 继续选择一个对象，右键选择 Path to GC Roots > `****` ，通常在排查**内存泄漏(一般是因为存在无效的引用)**的时候，我们会选择 exclude all phantom/weak/soft etc.references，意思是查看排除虚引用/弱引用/软引用等的引用链，因为被虚引用/弱引用/软引用的对象可以直接被 GC 给回收，我们要看的就是某个对象否还存在 Strong 引用链(在导出 Heap Dump 之前要手动触发 GC 来保证)，如果有，则说明存在内存泄漏，然后再去排查具体引用。
 
@@ -67,24 +67,24 @@ Retained Heap 例子：一个 ArrayList 对象持有 100 个对象，每一个�
 
 ### 2.3.2 Leak Suspects
 
-![Leak Suspects](https://assets.ng-tech.icu/item/20230406154849.png)
+![Leak Suspects](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406154849.png)
 
 Leak Suspects 可以自动分析并提示可能存在的内存泄漏，可以直接定位到 Class 及对应的行数。
 
-![java.lang.Class](https://assets.ng-tech.icu/item/20230406154913.png)
+![java.lang.Class](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406154913.png)
 
 比如：这里问题一的描述，列出了一些比较大的实例。点击 Details 可以看到细节信息，另外还可点击 See stacktrace 查看具体的线程栈信息(可直接定位到具体某个类中的方法)。
 
-![详情](https://assets.ng-tech.icu/item/20230406154944.png)
+![详情](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406154944.png)
 
 在 Details 详情页面 Shortest Paths To the Accumulation Point 表示 GC root 到内存消耗聚集点的最短路径，如果某个内存消耗聚集点有路径到达 GC root，则该内存消耗聚集点不会被当做垃圾被回收。
 
 > 实战：在某项目中，其中几个 Tomcat 响应特别慢，打开 Java VisualVM 观察 Tomcat(pid xxx)-Visual GC 发现 Spaces-Old 升高，Graphs-GC Time 比较频繁且持续时间长、有尖峰(重启后过段时间又出现了)，最后通过 Leak Suspects 中的 See stacktrace 定位到某个查询接口，仔细排查代码后发现有个 BUG：在特定查询条件下会一次性查询几万的数据出来(因为脏数据)，处理过后恢复正常。
 
-![Visual VM](https://assets.ng-tech.icu/item/20230406155029.png)
+![Visual VM](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406155029.png)
 
 ### 2.3.3 内存快照对比
 
 为了更有效率的找出内存泄露的对象，一般会获取两个堆转储文件(先 dump 一个，隔段时间再 dump 一个)，通过对比后的结果可以很方便定位。
 
-![内存快照对比](https://assets.ng-tech.icu/item/20230406155106.png)
+![内存快照对比](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230406155106.png)

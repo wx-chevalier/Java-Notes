@@ -219,7 +219,7 @@ MapStruct 来生成的代码，其类似于人手写。速度上可以得到保�
 
 ## 编译后的类
 
-![编译后的 class 位置](https://assets.ng-tech.icu/item/20230407112906.png)
+![编译后的 class 位置](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230407112906.png)
 
 ```java
 public class UserConverterImpl implements UserConverter {
@@ -304,7 +304,7 @@ apt 自 JDK5 产生，JDK7 已标记为过期，不推荐使用，JDK8 中已彻
 
 [JSR 269: Pluggable Annotation Processing API 在新窗口打开](https://www.jcp.org/en/jsr/proposalDetails?id=269)自 JDK6 加入，作为 apt 的替代方案，它解决了 apt 的两个问题，javac 在执行的时候会调用实现了该 API 的程序，这样我们就可以对编译器做一些增强，这时 javac 执行的过程如下：
 
-![javac 执行过程](https://assets.ng-tech.icu/item/20230407113038.png)
+![javac 执行过程](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230407113038.png)
 
 Lombok 本质上就是一个实现了“JSR 269 API”的程序。在使用 javac 的过程中，它产生作用的具体流程如下：
 
@@ -313,6 +313,6 @@ Lombok 本质上就是一个实现了“JSR 269 API”的程序。在使用 java
 - 此时 Lombok 就对第一步骤得到的 AST 进行处理，找到@Data 注解所在类对应的语法树（AST），然后修改该语法树（AST），增加 getter 和 setter 方法定义的相应树节点
 - javac 使用修改后的抽象语法树（AST）生成字节码文件，即给 class 增加新的节点（代码块）
 
-![AST 过程](https://assets.ng-tech.icu/item/20230407113105.png)
+![AST 过程](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230407113105.png)
 
 从上面的 Lombok 执行的流程图中可以看出，在 Javac 解析成 AST 抽象语法树之后, Lombok 根据自己编写的注解处理器，动态地修改 AST，增加新的节点（即 Lombok 自定义注解所需要生成的代码），最终通过分析生成 JVM 可执行的字节码 Class 文件。使用 Annotation Processing 自定义注解是在编译阶段进行修改，而 JDK 的反射技术是在运行时动态修改，两者相比，反射虽然更加灵活一些但是带来的性能损耗更加大。

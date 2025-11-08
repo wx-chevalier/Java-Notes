@@ -2,7 +2,7 @@
 
 ![JVM Class 文件从解析到执行](https://s1.ax1x.com/2020/11/07/B44OUS.png)
 
-![JVM 体系结构](https://assets.ng-tech.icu/item/20231009140150.png)
+![JVM 体系结构](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20231009140150.png)
 
 # Links
 
